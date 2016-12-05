@@ -2,7 +2,7 @@ create database mybatis;
 
 use mybatis;
 
-create table user (
+create table user (   
 	id int(11) primary key auto_increment,
 	userName varchar(50) default null,
 	userAge int(11) default null,
