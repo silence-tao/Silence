@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.impl.IArticleDao">
+	<resultMap type="Article" id="resultArticleList3">
+		<id property="id" column="aid" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		
+		<association property="user" javaType="User">
+			<id property="id" column="id" />
+			<result property="userName" column="userName" />
+			<result property="userAge" column="userAge" />
+			<result property="userAddress" column="userAddress" />
+		</association>
+	</resultMap>
+	
+	<select id="getUserArticles" parameterType="int" resultMap="resultArticleList3">
+		select user.id,user.userName,user.userAge,user.userAddress,
+		article.id aid, article.title, article.content from user,article 
+		where user.id=article.userId and user.id=#{id}
+	</select>
+</mapper>
