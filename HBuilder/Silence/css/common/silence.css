@@ -1,0 +1,61 @@
+*, body, div, p, table, td, input, option, textarea, select {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-family: "microsoft yahei";
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+html {
+	font-size: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, span, b, small, th, td {
+	font-weight: normal;
+}
+
+ul, li {
+	list-style: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+input:focus, select:focus, textarea:focus {
+	outline: medium;
+	-webkit-transition: border 0.5s ease-out;
+	-moz-transition: border 0.5s ease-out;
+	-ms-transition: border 0.5s ease-out;
+	-o-transition: border 0.5s ease-out;
+	transition: border 0.5s ease-out;
+}
+
+a {
+	color: #333;
+}
+
+a, a:visited {
+	text-decoration: none;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*隐藏元素*/
+.hide {
+	display: none;
+}
+
+/*显示元素*/
+.show {
+	display: block;
+}
