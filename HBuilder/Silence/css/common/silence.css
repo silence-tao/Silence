@@ -9,6 +9,13 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+*:before, *:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
 html {
 	font-size: 10px;
 }
@@ -58,4 +65,10 @@ a, a:visited {
 /*显示元素*/
 .show {
 	display: block;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
