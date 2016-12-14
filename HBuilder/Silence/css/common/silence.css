@@ -7,12 +7,12 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 *:before, *:after {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
 }
 html {
 	font-size: 10px;
@@ -43,15 +43,9 @@ a {
 a, a:visited {
 	text-decoration: none;
 }
-.container {
-	width: 90%;
-	margin: 0 auto;
-}
-/*隐藏元素*/
 .hide {
 	display: none;
 }
-/*显示元素*/
 .show {
 	display: block;
 }
@@ -725,5 +719,25 @@ a, a:visited {
   }
   .col-lg-offset-0 {
     margin-left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
   }
 }
