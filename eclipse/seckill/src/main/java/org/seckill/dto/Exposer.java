@@ -1,5 +1,7 @@
 package org.seckill.dto;
 
+import sun.util.logging.resources.logging;
+
 /**
  * 暴露藐视地址DTO
  * @author 陈小轩
@@ -34,8 +36,10 @@ public class Exposer {
 		this.seckillId = seckillId;
 	}
 
-	public Exposer(long now, long start, long end) {
+	public Exposer(boolean exposed, long now, long seckillId, long start, long end) {
+		this.exposed = exposed;
 		this.now = now;
+		this.seckillId = seckillId;
 		this.start = start;
 		this.end = end;
 	}
