@@ -81,13 +81,13 @@ public class SeckillController {
 	@ResponseBody
 	public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
 	@PathVariable("md5") String md5, 
-	@CookieValue(value = "kiilPhone", required = false) Long phone) {
-		if(phone == null) {
+	@CookieValue(value = "killPhone", required = false) Long kiilPhone) {
+		if(kiilPhone == null) {
 			return new SeckillResult<SeckillExecution>(false, "未注册");
 		}
 		SeckillResult<SeckillExecution> result;
 		try {
-			SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
+			SeckillExecution execution = seckillService.executeSeckill(seckillId, kiilPhone, md5);
 			return new SeckillResult<SeckillExecution>(true, execution);
 		} catch (RepeatKillException e) {
 			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
