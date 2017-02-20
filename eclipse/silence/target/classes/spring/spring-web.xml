@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/mvc
+        	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        	http://www.springframework.org/schema/context
+        	http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 配置springMVC -->
+	<!-- 1:开启springMVC注解模式 -->
+	<!-- 
+		简化配置
+		(1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandler
+		(2)提供一系列:数据绑定,数字和日期的format @NumberFormat,@DataTimeFormat
+			xml,json默认读写支持
+	 -->
+	 <mvc:annotation-driven />
+	 
+	 <!-- 2:servlet-mapping 映射路径:"/" -->
+	 <!-- 静态资源默认servlet配置
+	 		1:加入对静态资源的处理
+	 		2:允许使用"/"做整体映射
+	  -->
+	 <mvc:default-servlet-handler />
+	 
+	 <!-- 3:配置jsp 显示ViewResolver -->
+	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	 	<property name="prefix" value="/WEB-INF/views/" />
+	 	<property name="suffix" value=".jsp" />
+	 </bean>
+	 
+	 <!-- 4:扫描 -->
+	 <context:component-scan base-package="com.silencetao.controller" />
+	 
+	 <!-- 5:格式化JSON数据 -->
+	 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJackson2HttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>text/json;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 5:对文件上传的支持 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+</beans>

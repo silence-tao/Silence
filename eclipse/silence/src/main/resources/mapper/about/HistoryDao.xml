@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.about.HistoryDao">
+	<insert id="insertHistory">
+		INSERT IGNORE INTO history(content, picture_path) 
+		VALUES(#{content}, #{picturePath})
+	</insert>
+	
+	<delete id="deleteHistory">
+		DELETE FROM history WHERE history_id = #{id}
+	</delete>
+	
+	<update id="updateHistory">
+		UPDATE history SET content = #{content}, picture_path = #{picturePath}, 
+		record_time = NOW() WHERE history_id = #{historyId}
+	</update>
+	
+	<select id="getHistory" resultType="History">
+		SELECT * FROM history WHERE history_id = #{id}
+	</select>
+	
+	<select id="getHistories" resultType="History">
+		SELECT * FROM history LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getHistoriesDesc" resultType="History">
+		SELECT * FROM history ORDER BY record_time DESC LIMIT #{offset}, #{limit}
+	</select>
+</mapper>
