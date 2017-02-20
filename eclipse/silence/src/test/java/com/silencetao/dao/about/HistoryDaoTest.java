@@ -18,7 +18,7 @@ public class HistoryDaoTest {
 
 	@Test
 	public void testInsertHistory() throws Exception {
-		History history = new History("1233123", "path/img/jjj");
+		History history = new History("eheh", "1fdsa233123", "path/img/fdsajjj");
 		int result = this.historyDao.insertHistory(history);
 		System.out.println(result);
 	}
@@ -32,7 +32,7 @@ public class HistoryDaoTest {
 
 	@Test
 	public void testUpdateHistory() throws Exception {
-		History history = new History("fdsailfj", "jijfdsjo");
+		History history = new History("lalala" ,"fdsailfj", "jijfdsjo");
 		history.setHistoryId(2L);
 		int result = this.historyDao.updateHistory(history);
 		System.out.println(result);
