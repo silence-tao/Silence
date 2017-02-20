@@ -5,6 +5,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
+/**
+ * 读取配置文件的工具类
+ * @author 
+ *
+ */
 public class PropertiesUtil extends PropertyPlaceholderConfigurer {
 	private static Properties properties;
 

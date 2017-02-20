@@ -16,6 +16,11 @@ import javax.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 邮件发送工具类
+ * @author 
+ *
+ */
 public class MailUtil extends Thread {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	private String subject;

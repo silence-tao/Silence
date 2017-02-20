@@ -6,6 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 文件上传工具类
+ * @author 
+ *
+ */
 public class UploadUtil {
 	private static Logger log = LoggerFactory.getLogger(UploadUtil.class);
 
