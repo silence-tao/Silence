@@ -13,7 +13,7 @@
 		<title>加载中……</title>
 	</head>
 	<body>
-		<%-- <jsp:forward page="/index.html"></jsp:forward> --%>
+		<jsp:forward page="/about/history"></jsp:forward>
 	</body>
 </html>
 

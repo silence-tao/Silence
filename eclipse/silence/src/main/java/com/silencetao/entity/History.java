@@ -3,12 +3,18 @@ package com.silencetao.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class History implements Serializable {
 	private static final long serialVersionUID = 5547123417053375305L;
 	private long historyId;
 	private String title;
 	private String content;
 	private String picturePath;
+	@DateTimeFormat(pattern="yyyy年MM月dd日 HH:mm:ss")  
+	@JsonFormat(pattern="yyyy年MM月dd日 HH:mm:ss",timezone = "GMT+8")
 	private Date recordTime;
 
 	public History() {

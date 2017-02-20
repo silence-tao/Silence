@@ -21,24 +21,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping({ "about" })
+@RequestMapping("about")
 public class HistoryController {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private HistoryService historyService;
 
-	@RequestMapping(value = "history", method = RequestMethod.GET)
+	@RequestMapping(value = "gethistories", method = RequestMethod.GET)
 	@ResponseBody
 	public List<History> toHistory(HttpServletRequest request) {
 		List<History> histories = this.historyService.getHistories(0, 10, "desc");
-		for (History history : histories) {
-			System.out.println(history);
-		}
 		return histories;
 	}
 
-	@RequestMapping(value = "upload", method = RequestMethod.POST)
+	/*@RequestMapping(value = "upload", method = RequestMethod.POST)
 	public String uploadPicture(
 			@RequestParam(value = "picture", required = false) MultipartFile picture,
 			HttpServletRequest request) {
@@ -57,6 +54,12 @@ public class HistoryController {
 			resultStr = resultStr + "邮件发送失败";
 		}
 		request.setAttribute("result", resultStr + "<br />" + result);
-		return "about/history";
+		return "redirect:history";
 	}
+	
+	@RequestMapping(value = "history", method = RequestMethod.GET)
+	public String initHistory(HttpServletRequest request) {
+		request.setAttribute("result", "应该是我想得那样吧");
+		return "about/history";
+	}*/
 }
