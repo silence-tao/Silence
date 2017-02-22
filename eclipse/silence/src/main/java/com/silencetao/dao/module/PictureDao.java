@@ -1,4 +1,4 @@
-package com.silencetao.dao.util;
+package com.silencetao.dao.module;
 
 import java.util.List;
 

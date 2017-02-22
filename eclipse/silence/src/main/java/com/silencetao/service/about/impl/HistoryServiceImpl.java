@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("historyService")
+@Service
 public class HistoryServiceImpl implements HistoryService {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 

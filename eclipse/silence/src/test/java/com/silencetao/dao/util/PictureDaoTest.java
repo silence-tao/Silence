@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.silencetao.dao.module.PictureDao;
 import com.silencetao.entity.Picture;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,7 +22,7 @@ public class PictureDaoTest {
 
 	@Test
 	public void testInsertPicture() {
-		Picture picture = new Picture("JFJOIJFEPOEMAFS8903448274", "/fsdewfs.jpg");
+		Picture picture = new Picture("JFJOIJFEPOEMAFS8903448274", "/fsdefsdfsdwfs.jpg");
 		int result = pictureDao.insertPicture(picture);
 		System.out.println(result);
 	}
