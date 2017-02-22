@@ -12,7 +12,7 @@ public class History implements Serializable {
 	private long historyId;
 	private String title;
 	private String content;
-	private String picturePath;
+	private String historySign;
 	@DateTimeFormat(pattern="yyyy年MM月dd日 HH:mm:ss")  
 	@JsonFormat(pattern="yyyy年MM月dd日 HH:mm:ss",timezone = "GMT+8")
 	private Date recordTime;
@@ -21,15 +21,15 @@ public class History implements Serializable {
 		
 	}
 
-	public History(String content, String picturePath) {
+	public History(String content, String historySign) {
 		this.content = content;
-		this.picturePath = picturePath;
+		this.historySign = historySign;
 	}
 
-	public History(String title, String content, String picturePath) {
+	public History(String title, String content, String historySign) {
 		this.title = title;
 		this.content = content;
-		this.picturePath = picturePath;
+		this.historySign = historySign;
 	}
 
 	public long getHistoryId() {
@@ -57,11 +57,11 @@ public class History implements Serializable {
 	}
 
 	public String getPicturePath() {
-		return this.picturePath;
+		return this.historySign;
 	}
 
-	public void setPicturePath(String picturePath) {
-		this.picturePath = picturePath;
+	public void setPicturePath(String historySign) {
+		this.historySign = historySign;
 	}
 
 	public Date getRecordTime() {
@@ -74,7 +74,7 @@ public class History implements Serializable {
 
 	public String toString() {
 		return "History [title=" + this.title + ",historyId=" + this.historyId + ", content="
-				+ this.content + ", picturePath=" + this.picturePath
+				+ this.content + ", historySign=" + this.historySign
 				+ ", recordTime=" + this.recordTime + "]";
 	}
 }

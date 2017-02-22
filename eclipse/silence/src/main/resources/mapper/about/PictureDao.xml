@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.util.PictureDao">
+	<insert id="insertPicture">
+		INSERT IGNORE INTO picture(pertain, real_path) 
+		VALUES(#{pertain}, #{realPath})
+	</insert>
+	
+	<delete id="deletePicture">
+		DELETE FROM picture WHERE picture_id = #{id}
+	</delete>
+	
+	<update id="updatePicture">
+		UPDATE picture SET pertain = #{pertain}, real_path = #{realPath}, 
+		upload_time = NOW() WHERE picture_id = #{pictureId}
+	</update>
+	
+	<select id="getPicture" resultType="Picture">
+		SELECT * FROM picture WHERE picture_id = #{id}
+	</select>
+	
+	<select id="getPictures" resultType="Picture">
+		SELECT * FROM picture LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getPicturesDesc" resultType="Picture">
+		SELECT * FROM picture ORDER BY upload_time DESC LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getOnePictures" resultType="Picture">
+		SELECT * FROM picture WHERE pertain = #{pertain}
+	</select>
+</mapper>
