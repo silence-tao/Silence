@@ -1,7 +1,10 @@
 body {
-	background-color: #e9f0f5;
+	/*background-color: #e9f0f5;*/
+	background: url(../img/background.jpg) no-repeat center center fixed;
+	background-size: 100% 100%;
 }
 
+/********************************自适应时间轴CSS代码********************************/
 .cd-container {
 	width: 90%;
 	max-width: 1170px;
@@ -17,8 +20,6 @@ body {
 #cd-timeline {
 	position: relative;
 	padding: 2em 0;
-	margin-top: 2em;
-	margin-bottom: 2em;
 }
 
 #cd-timeline::before {
@@ -33,8 +34,7 @@ body {
 
 @media only screen and (min-width: 1170px) {
 	#cd-timeline {
-		margin-top: 3em;
-		margin-bottom: 3em;
+		
 	}
 	
 	#cd-timeline::before {
@@ -84,7 +84,7 @@ body {
 	height: 40px;
 	border-radius: 50%;
 	box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-	background: #75ce66;
+	background: #3f4147;
 	text-align: center;
 	line-height: 40px;
 	color: #fff;
@@ -104,10 +104,10 @@ body {
 .cd-timeline-content {
 	position: relative;
 	margin-left: 60px;
-	background: white;
+	background: rgba(255, 255, 255, 0.7);
 	border-radius: 0.25em;
 	padding: 1em;
-	box-shadow: 0 3px 0 #d7e4ed;
+	/*box-shadow: 0 3px 0 #d7e4ed;*/
 }
 
 .cd-timeline-content:after {
@@ -124,7 +124,7 @@ body {
 	height: 0;
 	width: 0;
 	border: 7px solid transparent;
-	border-right: 7px solid white;
+	border-right: 7px solid rgba(255, 255, 255, 0.7);
 }
 
 .cd-timeline-content h2 {
@@ -187,7 +187,7 @@ body {
 		top: 24px;
 		left: 100%;
 		border-color: transparent;
-		border-left-color: white;
+		border-left-color: rgba(255, 255, 255, 0.7);
 	}
 	
 	.cd-timeline-block:nth-child(even) .cd-timeline-content {
@@ -199,7 +199,7 @@ body {
 		left: auto;
 		right: 100%;
 		border-color: transparent;
-		border-right-color: white;
+		border-right-color: rgba(255, 255, 255, 0.7);
 	}
 	
 	.cd-timeline-content .history-date {
@@ -239,3 +239,63 @@ body {
 		text-align: right;
 	}
 }
+/********************************自适应时间轴CSS代码********************************/
+
+/********************************自适应弹框CSS代码********************************/
+.shade-bar {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.45);
+	z-index: 999;
+	top: 0;
+	left: 0;
+}
+/********************************自适应弹框CSS代码********************************/
+
+/********************************顶部导航栏CSS代码********************************/
+.nav-top {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	background: #3f4147;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.nav-top .icon-angle-left {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 32px;
+	margin-left: 5px;
+	float: left;
+}
+
+.nav-top .left-title {
+	float: left;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 16px;
+	margin-left: 5px;
+}
+
+.nav-top .center-title {
+	position: absolute;
+	width: 100px;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+	left: 50%;
+	margin-left: -50px;
+}
+
+.nav-top .icon-plus-circle {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 25px;
+	margin-right: 10px;
+	float: right;
+}
+/********************************顶部导航栏CSS代码********************************/
