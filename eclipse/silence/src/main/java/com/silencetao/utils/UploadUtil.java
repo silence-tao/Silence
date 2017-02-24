@@ -22,7 +22,7 @@ public class UploadUtil {
 		}
 		String fileName = file.getOriginalFilename();
 		fileName = Long.toString(System.currentTimeMillis())
-				+ fileName.substring(fileName.lastIndexOf('.'),
+				+ StringUtil.getRandom(8) + fileName.substring(fileName.lastIndexOf('.'),
 						fileName.length());
 		String path = PropertiesUtil.getProperties("uploadPath") + realPath + "/";
 		File folder = new File(path);
