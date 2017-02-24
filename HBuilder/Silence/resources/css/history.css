@@ -1,5 +1,4 @@
 body {
-	/*background-color: #e9f0f5;*/
 	background: url(../img/background.jpg) no-repeat center center fixed;
 	background-size: 100% 100%;
 }
@@ -247,9 +246,52 @@ body {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.45);
-	z-index: 999;
+	z-index: 99;
 	top: 0;
 	left: 0;
+}
+
+.shade-bar .popup-box {
+	width: 100%;
+	min-height: 420px;
+	background: #fff;
+	margin: 50px auto;
+	padding-bottom: 15px;
+}
+
+.shade-bar .popup-box:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.shade-bar .popup-box .form-group,
+.shade-bar .popup-box .picture-list {
+	width: 100%;
+	min-height: 40px;
+	padding: 15px 10px;
+}
+
+.shade-bar .popup-box .form-group input {
+	width: 100%;
+	height: 40px;
+	font-size: 16px;
+	padding: 0 10px;
+}
+
+.shade-bar .popup-box .form-group textarea {
+	width: 100%;
+	height: 120px;
+	font-size: 16px;
+	padding: 10px;
+	resize: none;
+}
+
+.shade-bar .popup-box .picture-list .picture-show {
+	width: 25%;
+	float: left;
+	padding: 1px;
+	
 }
 /********************************自适应弹框CSS代码********************************/
 
@@ -262,6 +304,7 @@ body {
 	top: 0;
 	left: 0;
 	opacity: 0;
+	z-index: 999;
 }
 
 .nav-top .icon-angle-left {
