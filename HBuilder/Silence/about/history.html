@@ -122,11 +122,11 @@
 				<div class="qrcode">
 					扫描二维码<br />
 					加我为QQ好友
-					<img src="/silence/resources/img/qrcodeforweixin.jpg" width="160" height="160"/>
+					<img src="/silence/resources/img/qrcodeforqq.jpg" width="160" height="160"/>
 				</div>
 			</div>
 			
-			<a href="javascript:;" title="添加一条" class="toolbar-item toolbar-item-add">
+			<a href="javascript:;" onclick="inShade('popup-bar')" title="添加一条" class="toolbar-item toolbar-item-add">
 				<span class="toolbar-btn"></span>
 			</a>
 			
@@ -138,11 +138,15 @@
 		<div class="nav-top hidden-lg">
 			<a href="javascript:;"><span class="icon-angle-left"></span><span class="left-title">首页</span></a>
 			<span class="center-title">我的动态</span>
-			<a href="javascript:;"><span class="icon-plus-circle"></span></a>
+			<a href="javascript:;" onclick="downShade('popup-bar')"><span class="icon-plus-circle"></span></a>
 		</div>
 		
-		<div class="shade-bar">
+		<div class="shade-bar" id="popup-bar">
 			<div class="popup-box">
+				<div class="box-top hidden-md hidden-sm hidden-xs">
+					添加动态
+					<span class="close-btn" onclick="outShade('popup-bar')">×</span>
+				</div>
 				<div class="form-group">
 					<input type="text" name="title" id="history-title" placeholder="请输入标题" />
 				</div>
@@ -152,30 +156,38 @@
 				<div class="picture-list">
 					<div class="picture-show">
 						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
 					<div class="picture-show">
 						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
+					</div>
+					<div class="picture-show">
+						<img src="../resources/img/background.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
 					<div class="picture-show">
 						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
 					<div class="picture-show">
 						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
+					</div>
+					<div class="picture-show">
+						<img src="../resources/img/background.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
 					<div class="picture-show">
 						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
 					<div class="picture-show">
-						<img src="../resources/img/head.jpg" class="img-responsive" />
+						<img src="../resources/img/background.jpg" class="img-responsive" />
+						<span class="icon-times-circle"></span>
 					</div>
-					<div class="picture-show">
-						<img src="../resources/img/head.jpg" class="img-responsive" />
-					</div>
-					<div class="picture-show">
-						<img src="../resources/img/head.jpg" class="img-responsive" />
-					</div>
-					<div class="picture-show">
-						<img src="../resources/img/head.jpg" class="img-responsive" />
+					<div class="picture-show add-btn">
+						<span class="icon-plus2"></span>
 					</div>
 				</div>
 			</div>

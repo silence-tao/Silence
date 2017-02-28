@@ -40,3 +40,29 @@ function showTopBar(pos) {
 	}
 }
 /********************************回到顶部JavaScript代码********************************/
+
+/********************************遮罩层控制JavaScript代码********************************/
+function openShade(id) {
+	$("#" + id).show();
+}
+
+function closeShade(id) {
+	$("#" + id).hide();
+}
+
+function inShade(id) {
+	$("#" + id).fadeIn();
+}
+
+function outShade(id) {
+	$("#" + id).fadeOut();
+}
+
+function downShade(id) {
+	$("#" + id).slideDown();
+}
+
+function upShade(id) {
+	$("#" + id).slideUp();
+}
+/********************************遮罩层控制JavaScript代码********************************/
