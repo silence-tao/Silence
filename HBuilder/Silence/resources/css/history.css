@@ -260,12 +260,6 @@ body {
 	padding-bottom: 15px;
 }
 
-.shade-bar .popup-box:after {
-	content: '';
-	display: table;
-	clear: both;
-}
-
 .shade-bar .popup-box .form-group,
 .shade-bar .popup-box .picture-list {
 	width: 100%;
@@ -273,7 +267,7 @@ body {
 	padding: 15px 10px;
 }
 
-.shade-bar .popup-box .form-group input {
+.shade-bar .popup-box .form-group input[type='text'] {
 	width: 100%;
 	height: 40px;
 	font-size: 16px;
@@ -286,6 +280,16 @@ body {
 	font-size: 16px;
 	padding: 10px;
 	resize: none;
+}
+
+.shade-bar .popup-box .form-group input[type='button'] {
+	width: 100%;
+	height: 40px;
+	font-size: 16px;
+	background: #A9A9A9;
+	border: none;
+	color: #fff;
+	cursor: pointer;
 }
 
 .shade-bar .popup-box .picture-list .picture-show {
@@ -436,13 +440,18 @@ body {
 	position: relative;
 }
 
-.shade-bar .popup-box .box-top .close-btn {
+.shade-bar .popup-box .box-top span {
 	position: absolute;
 	right: 10px;
 	top: 10px;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 20px;
 	cursor: pointer;
+	color: #A9A9A9;
+}
+
+.shade-bar .popup-box .box-top span.icon-close:hover {
+	color: #c53929;
 }
 /********************************自适应弹框CSS代码********************************/
 
@@ -485,10 +494,18 @@ body {
 	margin-left: -50px;
 }
 
-.nav-top .icon-plus-circle {
+.nav-top .right-btn {
 	color: #FFFFFF;
 	line-height: 48px;
 	font-size: 25px;
+	margin-right: 10px;
+	float: right;
+}
+
+.nav-top .right-title {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 16px;
 	margin-right: 10px;
 	float: right;
 }

@@ -60,6 +60,11 @@ a, a:visited {
   margin-right: auto;
   margin-left: auto;
 }
+.clear-both:after {
+	content: '';
+	display: table;
+	clear: both;
+}
 /********************************工具条CSS代码********************************/
 @font-face {
   font-family: 'icomoon';
