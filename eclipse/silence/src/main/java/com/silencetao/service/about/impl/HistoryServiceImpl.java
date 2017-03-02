@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class HistoryServiceImpl implements HistoryService {
@@ -17,6 +18,21 @@ public class HistoryServiceImpl implements HistoryService {
 
 	@Autowired
 	private HistoryDao historyDao;
+
+	@Transactional
+	@Override
+	public int insertHistory(History history) {
+		log.info("开始保存进程信息");
+		int result = 0;
+		try {
+			result = historyDao.insertHistory(history);
+			log.warn("保存进程信息成功");
+		} catch (Exception e) {
+			log.warn("保存进程信息失败");
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
 
 	public List<History> getHistories(int offset, int limit, String order) {
 		List<History> histories = null;

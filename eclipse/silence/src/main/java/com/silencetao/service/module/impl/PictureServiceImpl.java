@@ -20,7 +20,7 @@ public class PictureServiceImpl implements PictureService {
 
 	@Transactional
 	@Override
-	public int insertPictures(Picture picture) {
+	public int insertPicture(Picture picture) {
 		log.info("开始保存图片信息");
 		int result = 0;
 		try {

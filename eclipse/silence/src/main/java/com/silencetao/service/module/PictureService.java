@@ -11,7 +11,7 @@ public interface PictureService {
 	 * @param pictures
 	 * @return 返回插入的条数
 	 */
-	public int insertPictures(Picture pictures);
+	public int insertPicture(Picture picture);
 	
 	/**
 	 * 根据id查询一条图片上传记录

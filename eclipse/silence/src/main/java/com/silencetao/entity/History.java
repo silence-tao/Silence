@@ -56,11 +56,11 @@ public class History implements Serializable {
 		this.content = content;
 	}
 
-	public String getPicturePath() {
-		return this.historySign;
+	public String getHistorySign() {
+		return historySign;
 	}
 
-	public void setPicturePath(String historySign) {
+	public void setHistorySign(String historySign) {
 		this.historySign = historySign;
 	}
 

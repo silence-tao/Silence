@@ -75,7 +75,7 @@ function saveHistory() {
 			fileElementIds.push($(this).attr('id'));
 		}
 	});
-	silence.ajaxFilesUpload('/silence/about/uploadImages',
+	silence.ajaxFilesUpload('/silence/about/savehistory',
 		data,
 		fileElementIds,
 		function(data) {

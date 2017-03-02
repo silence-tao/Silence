@@ -30,6 +30,7 @@ public class StringUtil {
 	 * @return
 	 */
 	public static String getRandom(long len) {
+		log.info("生成长度为" + len + "的随机数");
 		int ans = 0;
 		while(Math.log10(ans) + 1 < len) {
 			ans = (int) (Math.random() * Math.pow(10, len));

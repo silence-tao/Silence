@@ -1,11 +1,15 @@
 package com.silencetao.controller.about;
 
 import com.silencetao.entity.History;
+import com.silencetao.entity.Picture;
 import com.silencetao.service.about.HistoryService;
+import com.silencetao.service.module.PictureService;
 import com.silencetao.utils.MailUtil;
+import com.silencetao.utils.StringUtil;
 import com.silencetao.utils.UploadUtil;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,6 +33,9 @@ public class HistoryController {
 
 	@Autowired
 	private HistoryService historyService;
+	
+	@Autowired
+	private PictureService pictureService;
 
 	@RequestMapping(value = "gethistories", method = RequestMethod.GET)
 	@ResponseBody
@@ -37,15 +44,28 @@ public class HistoryController {
 		return histories;
 	}
 	
-	@RequestMapping(value = "uploadImages", method = RequestMethod.POST)
+	@RequestMapping(value = "savehistory", method = RequestMethod.POST)
 	@ResponseBody
 	public History uploadPicture(MultipartHttpServletRequest muliRequest, History history) {
+		log.info("保存一条进程信息");
 		Iterator<String> iterator = muliRequest.getFileNames();
-		while(iterator.hasNext()) {
-			String fileName = iterator.next();
-			MultipartFile file = muliRequest.getFile(fileName);
+		history.setHistorySign(StringUtil.getMd5(System.currentTimeMillis() + StringUtil.getRandom(10), "silenceHistory"));
+		try {
+			historyService.insertHistory(history);
+			while(iterator.hasNext()) {
+				String fileName = iterator.next();
+				System.out.println(fileName);
+				MultipartFile file = muliRequest.getFile(fileName);
+				Picture picture = new Picture();
+				picture.setRealPath(UploadUtil.uploadFile(file, "img/history"));
+				picture.setPertain(history.getHistorySign());
+				pictureService.insertPicture(picture);
+			}
+			log.info("保存成功");
+		} catch (Exception e) {
+			log.warn("保存失败");
+			log.error(e.getMessage(), e);
 		}
-		System.out.println(history);
 		return history;
 	}
 
