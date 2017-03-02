@@ -126,7 +126,7 @@
 				</div>
 			</div>
 			
-			<a href="javascript:;" onclick="inShade('popup-bar')" title="添加一条" class="toolbar-item toolbar-item-add">
+			<a href="javascript:;" onclick="popupBar()" title="添加一条" class="toolbar-item toolbar-item-add">
 				<span class="toolbar-btn"></span>
 			</a>
 			
@@ -153,7 +153,7 @@
 				<div class="form-group">
 					<textarea name="content" id="history-content" placeholder="请输入内容"></textarea>
 				</div>
-				<div class="picture-list clear-both">
+				<div class="picture-list clear-both" id="picture-list-bar">
 					<div class="picture-show add-btn">
 						<img src="" class="img-responsive" />
 						<input type="file" class="hide" name="pricture" id="pricture-1" onchange="showImage(this)" />

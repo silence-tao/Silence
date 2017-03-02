@@ -10,7 +10,9 @@ $(function() {
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
 	
 	$('.shade-bar').click(function() {
-		$(this).fadeOut();
+		if(!topBar) {
+			$(this).fadeOut();
+		}
 	});
 	
 	$('.shade-bar').children().click(function(event) {
@@ -87,6 +89,12 @@ function closePopup() {
 	topBar = false;
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
 	upShade('popup-bar');
+	removeAllImages();
+}
+
+function popupBar() {
+	removeAllImages();
+	inShade('popup-bar');
 }
 
 function topMobile(func1, leftTitle, centerTitle, func2, rightClass, rightTitle) {
@@ -127,7 +135,8 @@ function picturePrev(source) {
 	reader.readAsDataURL(document.getElementById($(source).attr('id')).files[0]);
 }
 
-var imageNum = 1;
+var imageNo = 1;
+var imageNum = 0;
 
 function showImage(source) {
 	picturePrev(source);
@@ -135,12 +144,49 @@ function showImage(source) {
 	$(source).parent().removeClass('add-btn').append('<span class="icon-times-circle" onclick="removeImage(this)"></span>');
 	var tpl_picture_show = $('#tpl-picture-show').html();
 	if($(source).parent().parent().children().length < 9) {
-		var picture_show = tpl_picture_show.replace(/\{id\}/g, ++imageNum);
+		var picture_show = tpl_picture_show.replace(/\{id\}/g, ++imageNo);
 		$(source).parent().parent().append(picture_show);
 	}
+	imageNum++;
 }
 
 function removeImage(target) {
+	if(--imageNum == 8) {
+		var tpl_picture_show = $('#tpl-picture-show').html();
+		var picture_show = tpl_picture_show.replace(/\{id\}/g, ++imageNo);
+		$(target).parent().parent().append(picture_show);
+	}
 	$(target).parent().remove();
 }
+
+function removeAllImages() {
+	$('#picture-list-bar').empty();
+	var tpl_picture_show = $('#tpl-picture-show').html();
+	var picture_show = tpl_picture_show.replace(/\{id\}/g, 1);
+	$('#picture-list-bar').append(picture_show);
+	imageNo = 1;
+	$('#history-title').val('');
+	$('#history-content').val('');
+}
 /********************************history页面JavaScript代码********************************/
+
+/********************************ajax多张图片上传JavaScript代码********************************/
+window.silence = {
+	ajaxFilesUpload : function(url, data, fileElementIds, successFunc, errorFunc) {
+		$.ajaxFileUpload({
+			url : url,
+			fileElementId : fileElementIds,
+			secureuri : false,
+			dataType : 'json',
+			data : data,
+			type : 'POST',
+			success: function(data) {
+				successFunc(data);
+			},
+			error: function(data) {
+				errorFunc(data);
+			}
+		});
+	}
+}
+/********************************ajax多张图片上传JavaScript代码********************************/

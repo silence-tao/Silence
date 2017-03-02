@@ -6,6 +6,7 @@ import com.silencetao.utils.MailUtil;
 import com.silencetao.utils.UploadUtil;
 
 import java.io.PrintStream;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 @RequestMapping("about")
@@ -33,6 +35,18 @@ public class HistoryController {
 	public List<History> toHistory(HttpServletRequest request) {
 		List<History> histories = this.historyService.getHistories(0, 10, "desc");
 		return histories;
+	}
+	
+	@RequestMapping(value = "uploadImages", method = RequestMethod.POST)
+	@ResponseBody
+	public History uploadPicture(MultipartHttpServletRequest muliRequest, History history) {
+		Iterator<String> iterator = muliRequest.getFileNames();
+		while(iterator.hasNext()) {
+			String fileName = iterator.next();
+			MultipartFile file = muliRequest.getFile(fileName);
+		}
+		System.out.println(history);
+		return history;
 	}
 
 	/*@RequestMapping(value = "upload", method = RequestMethod.POST)
