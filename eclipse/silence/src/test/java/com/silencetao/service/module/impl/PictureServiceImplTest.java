@@ -25,7 +25,7 @@ public class PictureServiceImplTest {
 	@Test
 	public void testInsertPictures() {
 		Picture picture = new Picture("JOIFJIOJFJLKJF4234", "fsdewf.jpg");
-		int result = pictureService.insertPictures(picture);
+		int result = pictureService.insertPicture(picture);
 		System.out.println(result);
 	}
 
