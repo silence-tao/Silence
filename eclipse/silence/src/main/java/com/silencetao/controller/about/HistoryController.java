@@ -54,7 +54,6 @@ public class HistoryController {
 			historyService.insertHistory(history);
 			while(iterator.hasNext()) {
 				String fileName = iterator.next();
-				System.out.println(fileName);
 				MultipartFile file = muliRequest.getFile(fileName);
 				Picture picture = new Picture();
 				picture.setRealPath(UploadUtil.uploadFile(file, "img/history"));
