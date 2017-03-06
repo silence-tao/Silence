@@ -4,12 +4,11 @@ import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
 import com.silencetao.service.about.HistoryService;
 import com.silencetao.service.module.PictureService;
-import com.silencetao.utils.MailUtil;
 import com.silencetao.utils.StringUtil;
 import com.silencetao.utils.UploadUtil;
+import com.silencetao.view.HistoryView;
+import com.silencetao.view.SilenceResult;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -37,16 +35,23 @@ public class HistoryController {
 	@Autowired
 	private PictureService pictureService;
 
-	@RequestMapping(value = "gethistories", method = RequestMethod.GET)
+	@RequestMapping(value = "gethistories")
 	@ResponseBody
-	public List<History> toHistory(HttpServletRequest request) {
-		List<History> histories = this.historyService.getHistories(0, 10, "desc");
-		return histories;
+	public SilenceResult<List<HistoryView>> getHistories(int currentPage) {
+		log.info("获取第" + currentPage + "页的项目进度");
+		try {
+			log.info("获取成功");
+			return new SilenceResult<List<HistoryView>>(true, historyService.getHistoryViews((currentPage - 1) * 10, 10));
+		} catch (Exception e) {
+			log.warn("获取失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<List<HistoryView>>(false, "获取失败");
+		}
 	}
 	
 	@RequestMapping(value = "savehistory", method = RequestMethod.POST)
 	@ResponseBody
-	public History uploadPicture(MultipartHttpServletRequest muliRequest, History history) {
+	public SilenceResult<List<HistoryView>> savehistory(MultipartHttpServletRequest muliRequest, History history) {
 		log.info("保存一条进程信息");
 		Iterator<String> iterator = muliRequest.getFileNames();
 		history.setHistorySign(StringUtil.getMd5(System.currentTimeMillis() + StringUtil.getRandom(10), "silenceHistory"));
@@ -61,11 +66,12 @@ public class HistoryController {
 				pictureService.insertPicture(picture);
 			}
 			log.info("保存成功");
+			return new SilenceResult<List<HistoryView>>(true, historyService.getHistoryViews(0, 10));
 		} catch (Exception e) {
 			log.warn("保存失败");
 			log.error(e.getMessage(), e);
+			return new SilenceResult<List<HistoryView>>(false, "保存失败");
 		}
-		return history;
 	}
 
 	/*@RequestMapping(value = "upload", method = RequestMethod.POST)

@@ -13,8 +13,6 @@ public class History implements Serializable {
 	private String title;
 	private String content;
 	private String historySign;
-	@DateTimeFormat(pattern="yyyy年MM月dd日 HH:mm:ss")  
-	@JsonFormat(pattern="yyyy年MM月dd日 HH:mm:ss",timezone = "GMT+8")
 	private Date recordTime;
 
 	public History() {

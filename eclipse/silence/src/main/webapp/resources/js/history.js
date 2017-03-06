@@ -1,10 +1,54 @@
 $(function() {
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
+	silence.ajaxCurrent('/silence/about/gethistories?currentPage=1', {},
+		function(data) {
+			if(data.success) {
+				init(data.data);
+			} else {
+				alert("数据加载失败,请重试");
+			}
+		},
+		function(data) {
+			console.log(data);
+		}
+	);
 });
+
+function init(data) {
+	var tpl_history_html = $('#tpl_history_html').html();
+	var histories_html = [];
+	for(var i = 0; i < data.length; i++) {
+		var tpl_image_html = '';
+		switch(data[i].pictures.length) {
+			case 1 :
+				tpl_image_html = '<img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" />';
+				break;
+			case 2 :
+			case 4 :
+				tpl_image_html = '<div class="img-2"><img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" /></div>';
+				break;
+			default :
+				tpl_image_html = '<div class="img-3"><img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" /></div>';
+				break;
+		}
+		var images_html = [];
+		for(var j = 0; j < data[i].pictures.length; j++) {
+			var image_html = tpl_image_html.replace(/\{realPath\}/g, data[i].pictures[j]);
+			images_html.push(image_html);
+		}
+		var history_html = tpl_history_html.replace(/\{time\}/g, new Date(data[i].recordTime).format("HH:mm"))
+										.replace(/\{title\}/g, data[i].title)
+										.replace(/\{content\}/g, data[i].content)
+										.replace(/\{pictures\}/g, images_html.join(''))
+										.replace(/\{date\}/g, new Date(data[i].recordTime).format("yyyy-MM-dd"));
+		histories_html.push(history_html);
+	}
+	$('#cd-timeline').html(histories_html.join(''));
+}
 
 function openPopup() {
 	topBar = true;
-	topMobile('closePopup()', '取消', '添加动态', 'save()', 'icon-plus-circle', '保存');
+	topMobile('closePopup()', '取消', '添加动态', 'saveHistory()', 'icon-plus-circle', '保存');
 	downShade('popup-bar');
 }
 
@@ -79,7 +123,17 @@ function saveHistory() {
 		data,
 		fileElementIds,
 		function(data) {
-			console.log(data);
+			if(data.success) {
+				if(topBar) {
+					closePopup();
+				} else {
+					outShade('popup-bar');
+				}
+				init(data.data);
+				move(0, 350);
+			} else {
+				alert("上传失败,请重试");
+			}
 		},
 		function(data) {
 			console.log(data);

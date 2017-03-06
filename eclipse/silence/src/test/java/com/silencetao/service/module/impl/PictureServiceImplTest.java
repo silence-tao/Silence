@@ -37,7 +37,7 @@ public class PictureServiceImplTest {
 
 	@Test
 	public void testGetOnePictures() {
-		List<Picture> pictures = pictureService.getOnePictures("JOIFJIOJFJLKJF4234");
+		List<Picture> pictures = pictureService.getOnePictures("09f193c36b538d4f8c93cdc4b5fa76f6");
 		for(Picture picture : pictures) {
 			System.out.println(picture);
 		}

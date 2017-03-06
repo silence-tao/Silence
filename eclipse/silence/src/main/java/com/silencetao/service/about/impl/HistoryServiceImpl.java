@@ -1,9 +1,13 @@
 package com.silencetao.service.about.impl;
 
 import com.silencetao.dao.about.HistoryDao;
+import com.silencetao.dao.module.PictureDao;
 import com.silencetao.entity.History;
+import com.silencetao.entity.Picture;
 import com.silencetao.service.about.HistoryService;
+import com.silencetao.view.HistoryView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -18,6 +22,9 @@ public class HistoryServiceImpl implements HistoryService {
 
 	@Autowired
 	private HistoryDao historyDao;
+	
+	@Autowired
+	private PictureDao pictureDao;
 
 	@Transactional
 	@Override
@@ -44,5 +51,24 @@ public class HistoryServiceImpl implements HistoryService {
 			histories = this.historyDao.getHistoriesDesc(offset, limit);
 		}
 		return histories;
+	}
+
+	@Override
+	public List<HistoryView> getHistoryViews(int offset, int limit) throws Exception {
+		log.info("根据时间逆序序获取" + limit + "个History对象");
+		List<History> histories = historyDao.getHistoriesDesc(offset, limit);
+		List<HistoryView> historyViews = new ArrayList<HistoryView>();
+		log.info("查找History对象所包含的图片并封装为HistoryView对象");
+		for(History history : histories) {
+			HistoryView historyView = new HistoryView(history.getTitle(), history.getContent(), history.getHistorySign(), history.getRecordTime());
+			List<Picture> pictureList = pictureDao.getOnePictures(history.getHistorySign());
+			List<String> pictures = new ArrayList<String>();
+			for(Picture picture : pictureList) {
+				pictures.add(picture.getRealPath());
+			}
+			historyView.setPictures(pictures);
+			historyViews.add(historyView);
+		}
+		return historyViews;
 	}
 }
