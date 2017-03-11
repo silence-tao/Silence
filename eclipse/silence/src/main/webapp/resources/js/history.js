@@ -1,20 +1,57 @@
 $(function() {
+	$('.loading-shade').show();
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
 	silence.ajaxCurrent('/silence/about/gethistories?currentPage=1', {},
 		function(data) {
 			if(data.success) {
 				init(data.data);
+				$('.loading-shade').hide();
 			} else {
 				alert("数据加载失败,请重试");
 			}
 		},
 		function(data) {
 			console.log(data);
+			$('.loading-shade').hide();
 		}
 	);
+	
+	
+	var page = 1;
+	var isLoading = true;
+	
+	$(window).on('scroll', function() {
+		if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+			if(isLoading && page >= 1) {
+				isLoading = !isLoading;
+				silence.ajaxCurrent('/silence/about/gethistories?currentPage=' + ++page, {},
+					function(data) {
+						isLoading = !isLoading;
+						if(data.success) {
+							init(data.data);
+							if(data.data.length <= 0) {
+								page = -1;
+							}
+						} else {
+							alert("数据加载失败,请重试");
+						}
+					},
+					function(data) {
+						console.log(data);
+						isLoading = !isLoading;
+					}
+				);
+			} else {
+				$('.loading-bottom').html('到底了哦');
+				setTimeout(function() {
+					$('.loading-bottom').hide();
+				}, 1000);
+			}
+		}
+	});
 });
 
-function init(data) {
+function init(data, isRefresh) {
 	var tpl_history_html = $('#tpl_history_html').html();
 	var histories_html = [];
 	for(var i = 0; i < data.length; i++) {
@@ -43,7 +80,11 @@ function init(data) {
 										.replace(/\{date\}/g, new Date(data[i].recordTime).format("yyyy-MM-dd"));
 		histories_html.push(history_html);
 	}
-	$('#cd-timeline').html(histories_html.join(''));
+	if(isRefresh) {
+		$('#cd-timeline').html(histories_html.join(''));
+	} else {
+		$('#cd-timeline').append(histories_html.join(''));
+	}
 }
 
 function openPopup() {
@@ -119,17 +160,17 @@ function saveHistory() {
 			fileElementIds.push($(this).attr('id'));
 		}
 	});
+	if(topBar) {
+		closePopup();
+	} else {
+		outShade('popup-bar');
+	}
 	silence.ajaxFilesUpload('/silence/about/savehistory',
 		data,
 		fileElementIds,
 		function(data) {
 			if(data.success) {
-				if(topBar) {
-					closePopup();
-				} else {
-					outShade('popup-bar');
-				}
-				init(data.data);
+				init(data.data, true);
 				move(0, 350);
 			} else {
 				alert("上传失败,请重试");

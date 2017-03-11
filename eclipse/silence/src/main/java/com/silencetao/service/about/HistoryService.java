@@ -3,6 +3,7 @@ package com.silencetao.service.about;
 import com.silencetao.entity.History;
 import com.silencetao.view.HistoryView;
 
+import java.util.Date;
 import java.util.List;
 
 public interface HistoryService {

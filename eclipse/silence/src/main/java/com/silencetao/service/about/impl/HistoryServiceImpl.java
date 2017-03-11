@@ -8,6 +8,7 @@ import com.silencetao.service.about.HistoryService;
 import com.silencetao.view.HistoryView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -56,7 +57,8 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public List<HistoryView> getHistoryViews(int offset, int limit) throws Exception {
 		log.info("根据时间逆序序获取" + limit + "个History对象");
-		List<History> histories = historyDao.getHistoriesDesc(offset, limit);
+		List<History> histories = null;
+		histories = historyDao.getHistoriesDesc(offset, limit);
 		List<HistoryView> historyViews = new ArrayList<HistoryView>();
 		log.info("查找History对象所包含的图片并封装为HistoryView对象");
 		for(History history : histories) {

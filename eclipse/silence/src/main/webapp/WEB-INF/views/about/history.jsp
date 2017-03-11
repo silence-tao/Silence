@@ -42,6 +42,10 @@
 			
 		</section>
 		
+		<div class="loading-bottom">
+			<span class="icon-spinner9"></span>加载中
+		</div>
+		
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
 			<a href="javascript:;" title="返回前页" class="toolbar-item toolbar-item-back">
 				<span class="toolbar-btn"></span>
@@ -69,7 +73,7 @@
 		
 		<div class="nav-top hidden-lg">
 			<a href="javascript:;" id="top-left-btn" onclick=""><span class="icon-angle-left"></span><span class="left-title"></span></a>
-			<span class="center-title" id="top-center-title"></span>
+			<span class="center-title" id="top-center-title" onclick="move(0, 350)"></span>
 			<a href="javascript:;" onclick="" id="top-right-btn"><span class=""></span></a>
 		</div>
 		
@@ -105,6 +109,11 @@
 				<input type="file" class="hide" name="pricture" id="pricture-{id}" onchange="showImage(this)" />
 				<label for="pricture-{id}"><span class="icon-plus2"></span></label>
 			</div>
+		</div>
+		
+		<div class="loading-shade">
+			<span class="icon-spinner10"></span>
+			<p>正在初始化页面……</p>
 		</div>
 		<input type="hidden" value="<%=basePath %>" id="basePath" >
 	</body>

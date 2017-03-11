@@ -27,4 +27,8 @@
 	<select id="getHistoriesDesc" resultType="History">
 		SELECT * FROM history ORDER BY record_time DESC LIMIT #{offset}, #{limit}
 	</select>
+	
+	<select id="getNewHistoryDesc" resultType="History">
+		<![CDATA[ SELECT * FROM history WHERE record_time > #{currentDate} ORDER BY record_time DESC LIMIT 0, 10 ]]>
+	</select>
 </mapper>

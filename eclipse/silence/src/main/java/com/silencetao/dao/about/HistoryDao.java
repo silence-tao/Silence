@@ -1,7 +1,10 @@
 package com.silencetao.dao.about;
 
 import com.silencetao.entity.History;
+
+import java.util.Date;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface HistoryDao {
@@ -49,4 +52,11 @@ public interface HistoryDao {
 	 * @return 按时间逆序返回区间内的多条进程记录
 	 */
 	public List<History> getHistoriesDesc(@Param("offset") int offset, @Param("limit") int limit);
+	
+	/**
+	 * 获取10条最新的进程记录,并逆序返回
+	 * @param currentDate
+	 * @return 逆序返回10条最新的进程记录
+	 */
+	public List<History> getNewHistoryDesc(Date currentDate);
 }

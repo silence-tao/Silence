@@ -241,17 +241,6 @@ body {
 /********************************自适应时间轴CSS代码********************************/
 
 /********************************自适应弹框CSS代码********************************/
-.shade-bar {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.45);
-	z-index: 99;
-	top: 0;
-	left: 0;
-	display: none;
-}
-
 .shade-bar .popup-box {
 	width: 100%;
 	min-height: 420px;
@@ -461,59 +450,3 @@ body {
 	color: #c53929;
 }
 /********************************自适应弹框CSS代码********************************/
-
-/********************************顶部导航栏CSS代码********************************/
-.nav-top {
-	position: fixed;
-	width: 100%;
-	height: 50px;
-	background: #3f4147;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	z-index: 999;
-}
-
-.nav-top .icon-angle-left {
-	color: #FFFFFF;
-	line-height: 48px;
-	font-size: 32px;
-	margin-left: 5px;
-	float: left;
-}
-
-.nav-top .left-title {
-	float: left;
-	line-height: 50px;
-	color: #FFFFFF;
-	font-size: 16px;
-	margin-left: 5px;
-}
-
-.nav-top .center-title {
-	position: absolute;
-	width: 100px;
-	line-height: 50px;
-	color: #FFFFFF;
-	font-size: 16px;
-	text-align: center;
-	left: 50%;
-	margin-left: -50px;
-}
-
-.nav-top .right-btn {
-	color: #FFFFFF;
-	line-height: 48px;
-	font-size: 25px;
-	margin-right: 10px;
-	float: right;
-}
-
-.nav-top .right-title {
-	color: #FFFFFF;
-	line-height: 48px;
-	font-size: 16px;
-	margin-right: 10px;
-	float: right;
-}
-/********************************顶部导航栏CSS代码********************************/
