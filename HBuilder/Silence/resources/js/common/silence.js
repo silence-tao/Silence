@@ -45,9 +45,9 @@ function checkPosition(pos) {
 function showTopBar(pos) {
 	if(!topBar && pos <= 100) {
 		var opacity = pos / 100;
-		$(".nav-top").css("opacity", opacity);
+		$("#nav-top").css("opacity", opacity);
 	} else {
-		$(".nav-top").css("opacity", 1);
+		$("#nav-top").css("opacity", 1);
 	}
 }
 /********************************回到顶部JavaScript代码********************************/
@@ -83,6 +83,7 @@ function openPopup() {
 	topBar = true;
 	topMobile('closePopup()', '取消', '添加动态', 'save()', 'icon-plus-circle', '保存');
 	downShade('popup-bar');
+	$('body').css('overflow', 'hidden');
 }
 
 function closePopup() {
@@ -90,6 +91,7 @@ function closePopup() {
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
 	upShade('popup-bar');
 	removeAllImages();
+	$('body').css('overflow', 'auto');
 }
 
 function popupBar() {
@@ -100,10 +102,8 @@ function popupBar() {
 function topMobile(func1, leftTitle, centerTitle, func2, rightClass, rightTitle) {
 	if(topBar) {
 		$('#top-left-btn').find('span').eq(0).removeClass('icon-angle-left');
-		$('body').css('overflow', 'hidden');
 	} else {
 		$('#top-left-btn').find('span').eq(0).addClass('icon-angle-left');
-		$('body').css('overflow', 'auto');
 	}
 	$('#top-left-btn').attr('onclick', func1);
 	$('#top-left-btn').find('span.left-title').text(leftTitle);

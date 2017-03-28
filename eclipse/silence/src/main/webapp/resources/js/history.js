@@ -58,14 +58,14 @@ function init(data, isRefresh) {
 		var tpl_image_html = '';
 		switch(data[i].pictures.length) {
 			case 1 :
-				tpl_image_html = '<img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" />';
+				tpl_image_html = '<img src="/silenceUpload/{realPath}" class="img-responsive" />';
 				break;
 			case 2 :
 			case 4 :
-				tpl_image_html = '<div class="img-2"><img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" /></div>';
+				tpl_image_html = '<div class="img-2"><img src="/silenceUpload/{realPath}" class="img-responsive" /></div>';
 				break;
 			default :
-				tpl_image_html = '<div class="img-3"><img src="' + basePath + 'silenceUpload/{realPath}" class="img-responsive" /></div>';
+				tpl_image_html = '<div class="img-3"><img src="/silenceUpload/{realPath}" class="img-responsive" /></div>';
 				break;
 		}
 		var images_html = [];

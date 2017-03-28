@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'icomoon';
+	src: url('/silence/resources/css/fonts/icomoon.eot?h38dx5');
+	src: url('/silence/resources/css/fonts/icomoon.eot?h38dx5#iefix') format('embedded-opentype'), url('/silence/resources/css/fonts/icomoon.ttf?h38dx5') format('truetype'), url('/silence/resources/css/fonts/icomoon.woff?h38dx5') format('woff'), url('/silence/resources/css/fonts/icomoon.svg?h38dx5#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *,
 body,
 div,
@@ -67,6 +75,39 @@ textarea:focus {
 	transition: border 0.5s ease-out;
 }
 
+.shade-bar,
+.loading-shade {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.45);
+	z-index: 99;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.loading-shade {
+	z-index: 9999;
+	text-align: center;
+}
+.loading-shade span {
+	color: #fff;
+	position: absolute;
+	font-size: 24px;
+	top: 300px;
+	animation: loading 2s linear infinite;
+	-webkit-animation: loading 2s linear infinite;
+}
+.loading-shade p {
+	color: #fff;
+	position: absolute;
+	top: 330px;
+	left: 50%;
+	font-size: 16px;
+	margin-left: -50px;
+}
+
 a {
 	color: #333;
 }
@@ -103,7 +144,96 @@ a:visited {
 	clear: both;
 }
 
+.fl {
+	float: left;
+}
 
+.fr {
+	float: right;
+}
+
+/********************************Switch开关CSS代码********************************/
+.form-switch input[type=checkbox],
+.form-off-on input[type=checkbox] {
+	display: none;
+}
+//仿iPhone
+.form-switch .radio {
+	width: 40px;
+	height: 24px;
+	background: rgba(255, 255, 255, 0.5);
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 50px;
+	position: relative;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+}
+
+.form-switch .radio .circle {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	border-radius: 50px;
+	background: #fff;
+	display: inline-block;
+	left: 1px;
+	top: 1px;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+.form-switch input[type=checkbox]:checked ~ label .circle {
+	left: 16px;
+}
+
+.form-switch input[type=checkbox]:checked ~ label {
+	background: #019BE1;
+}
+
+//勾选
+.form-off-on .radio {
+	position: relative;
+	cursor: pointer;
+}
+
+.form-off-on .radio .title {
+	position: absolute;
+	line-height: 24px;
+	left: 66px;
+}
+
+.form-off-on .radio:before {
+	content: "\f096";
+	width: 24px;
+	height: 24px;
+	font-size: 14px;
+	text-align: center;
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.form-off-on input[type=checkbox]:checked ~ label.radio:before {
+	content: '\f046';
+}
+/********************************Switch开关CSS代码********************************/
 
 /********************************加载条CSS代码********************************/
 .loading-bottom {
@@ -151,15 +281,6 @@ a:visited {
 
 
 /********************************工具条CSS代码********************************/
-
-@font-face {
-	font-family: 'icomoon';
-	src: url('fonts/icomoon.eot?h38dx5');
-	src: url('fonts/icomoon.eot?h38dx5#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?h38dx5') format('truetype'), url('fonts/icomoon.woff?h38dx5') format('woff'), url('fonts/icomoon.svg?h38dx5#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 .toolbar {
 	position: fixed;
 	right: 10px;
@@ -321,9 +442,63 @@ a:visited {
 	-o-transform: scale(1);
 	transform: scale(1);
 }
-
-
 /********************************工具条CSS代码********************************/
+
+/********************************顶部导航栏CSS代码********************************/
+.nav-top {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	background: #3f4147;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 999;
+}
+
+.nav-top .icon-angle-left {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 32px;
+	margin-left: 5px;
+	float: left;
+}
+
+.nav-top .left-title {
+	float: left;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 16px;
+	margin-left: 5px;
+}
+
+.nav-top .center-title {
+	position: absolute;
+	width: 100px;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+	left: 50%;
+	margin-left: -50px;
+}
+
+.nav-top .right-btn {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 25px;
+	margin-right: 10px;
+	float: right;
+}
+
+.nav-top .right-title {
+	color: #FFFFFF;
+	line-height: 48px;
+	font-size: 16px;
+	margin-right: 10px;
+	float: right;
+}
+/********************************顶部导航栏CSS代码********************************/
 
 @media (min-width: 768px) {
 	.container {

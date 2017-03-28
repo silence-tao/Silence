@@ -1,1 +1,4 @@
-
+body {
+	background: url(http://www.silencetao.com/resources/img/background.jpg) no-repeat center center fixed;
+	background-size: 100% 100%;
+}

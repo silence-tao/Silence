@@ -1,0 +1,146 @@
+body {
+	background: url(../img/background.jpg) no-repeat center center fixed;
+	background-size: 100% 100%;
+}
+
+.filter-bar {
+	width: 400px;
+	height: 420px;
+	margin: 120px auto;
+	border-radius: 5px;
+	background: inherit;
+    -webkit-filter: blur(3px);   
+    -moz-filter: blur(3px);   
+    -ms-filter: blur(3px);   
+    -o-filter: blur(3px);   
+    filter: blur(3px);   
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);   
+}
+
+.form-box {
+	width: 400px;
+	height: 420px;
+	background: rgba(255, 255, 255, 0.2);
+	position: absolute;
+	top: 120px;
+	left: 50%;
+	margin-left: -200px;
+	border-radius: 5px;
+}
+
+.form-box .header-picture {
+	width: 100px;
+	height: 100px;
+	margin: 40px auto;
+	border-radius: 200px;
+}
+
+.form-box .header-picture-register {
+	cursor: pointer;
+}
+
+.form-box .header-picture-register .tips {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+	pointer-events: none;
+}
+
+.form-box .header-picture img {
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	border: 5px solid rgba(255, 255, 255, 0.25);
+}
+
+.form-box .form-group,
+.form-box .form-btn,
+.form-box .form-check {
+	width: 75%;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.form-box .form-group input.input-text {
+	width: 100%;
+	height: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background: transparent;
+	border-top: none;
+	padding-left: 10px;
+	color: #fff;
+	font-size: 12px;
+}
+
+.form-box .first-form input.input-text {
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 5px 5px 0 0;
+}
+
+.form-box .last-form input.input-text {
+	border-radius: 0 0 5px 5px;
+}
+
+.form-box .form-btn,
+.form-box .form-check {
+	margin-top: 20px;
+}
+
+.form-box .form-btn input.input-btn {
+	width: 100%;
+	height: inherit;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	background: #019bE1;
+	font-size: 16px;
+}
+
+.form-box .form-check {
+	line-height: 24px;
+	height: 24px;
+}
+
+.form-box .form-check label {
+	cursor: pointer;
+}
+
+.form-box .form-check label:before,
+.form-box .form-check label .title,
+.form-box .form-check a {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-red {
+	background: red;
+}
+
+@media only screen and (max-width: 700px) {
+	.form-box {
+		width: 100%;
+		left: 0;
+		margin: 0;
+	}
+}
+
+.toolbar .toolbar-item-register .toolbar-btn:before {
+	content: "\e9a3";
+}
+
+.toolbar .toolbar-item-register .toolbar-btn:after {
+	content: '我要\A注册';
+}
+
+.toolbar .toolbar-item-login .toolbar-btn:before {
+	content: "\e9a1";
+}
+
+.toolbar .toolbar-item-login .toolbar-btn:after {
+	content: '我要\A登录';
+}
+
+.nav-top {
+	opacity: 1;
+}

@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>项目进度记录</title>
+		<title>陈涛个人博客-草根博主Silence的心路历程</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/history.css"/>
@@ -115,7 +115,7 @@
 			<span class="icon-spinner10"></span>
 			<p>正在初始化页面……</p>
 		</div>
-		<input type="hidden" value="<%=basePath %>" id="basePath" >
+		<input type="hidden" value="http://resources.silencetao.com/" id="basePath" >
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>

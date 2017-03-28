@@ -10,7 +10,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>加载中……</title>
+		<title>陈涛个人博客-一个不会写bug的Silence个人博客网站</title>
 	</head>
 	<body>
 		<jsp:forward page="/about/history"></jsp:forward>

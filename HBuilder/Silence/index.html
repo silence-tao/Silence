@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-一个不会写bug的Silence个人博客网站</title>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/index.css"/>
 		<!--[if lt IE 9]>
@@ -13,8 +14,34 @@
 		<![endif]-->
 	</head>
 	<body>
-		
+		<div class="loading-shade">
+			<span class="icon-spinner10"></span>
+			<p>正在初始化页面……</p>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var start;
+		var end;
+		$(function() {
+			$('.loading-shade').show();
+			var time = new Date();
+			start = time.getTime();
+			console.log(time.getTime());
+		});
+		
+		window.onload = function() {
+			var img = new Image();
+			img.src = 'http://www.silencetao.com/resources/img/background.jpg';
+			var time = new Date();
+			console.log(time.getTime());
+			end = time.getTime();
+			console.log(img.height);
+			console.log(end - start);
+			if(img.height >= 900) {
+				$('.loading-shade').hide();
+			}
+		}
+	</script>
 </html>
