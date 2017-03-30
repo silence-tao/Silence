@@ -16,9 +16,11 @@ import javax.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.silencetao.exception.SilenceException;
+
 /**
  * 邮件发送工具类
- * @author 
+ * @author Silence
  *
  */
 public class MailUtil extends Thread {
@@ -43,7 +45,7 @@ public class MailUtil extends Thread {
 		this.result = result;
 	}
 
-	public void run() {
+	public void run() throws SilenceException {
 		this.log.info("开始发送邮件");
 		Properties properties = new Properties();
 		properties.setProperty("mail.host", "smtp.yeah.net");
@@ -68,16 +70,17 @@ public class MailUtil extends Thread {
 			this.result = true;
 			this.log.info("邮件发送成功");
 		} catch (AddressException e) {
-			this.log.warn("邮件发送失败");
+			this.log.warn("邮箱格式不正确");
 			this.log.error(e.getMessage(), e);
+			throw new SilenceException("邮箱格式不正确");
 		} catch (MessagingException e) {
+			this.log.warn("邮件内容不符合规定");
+			this.log.error(e.getMessage(), e);
+			throw new SilenceException("邮件内容不符合规定");
+		} catch (Exception e) {
 			this.log.warn("邮件发送失败");
 			this.log.error(e.getMessage(), e);
+			throw new SilenceException("邮件发送失败");
 		}
-	}
-
-	public static void main(String[] args) {
-		MailUtil mailUtil = new MailUtil("测试邮件", "测试专用", "1228714091@qq.com");
-		mailUtil.run();
 	}
 }

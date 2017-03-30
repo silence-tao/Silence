@@ -4,6 +4,8 @@ import com.silencetao.dao.about.HistoryDao;
 import com.silencetao.dao.module.PictureDao;
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
+import com.silencetao.exception.DatabaseException;
+import com.silencetao.exception.SilenceException;
 import com.silencetao.service.about.HistoryService;
 import com.silencetao.view.HistoryView;
 
@@ -72,5 +74,32 @@ public class HistoryServiceImpl implements HistoryService {
 			historyViews.add(historyView);
 		}
 		return historyViews;
+	}
+
+	@Transactional
+	@Override
+	public List<HistoryView> saveHistory(History history, List<Picture> pictures) {
+		int historyCount = historyDao.insertHistory(history);
+		try {
+			if(historyCount > 0) {
+				int pictureCount = 0;
+				for(Picture picture : pictures) {
+					pictureCount += pictureDao.insertPicture(picture);
+				}
+				if(pictureCount < pictures.size()) {
+					throw new DatabaseException("保存图片信息失败");
+				} else {
+					return getHistoryViews(0, 10);
+				}
+			} else {
+				throw new DatabaseException("保存History信息失败");
+			}
+		} catch (DatabaseException e) {
+			log.warn(e.getMessage());
+			throw e;
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw new SilenceException("系统错误,请重试");
+		}
 	}
 }

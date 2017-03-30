@@ -16,7 +16,6 @@ $(function() {
 		}
 	);
 	
-	
 	var page = 1;
 	var isLoading = true;
 	
@@ -169,12 +168,8 @@ function saveHistory() {
 		data,
 		fileElementIds,
 		function(data) {
-			if(data.success) {
-				init(data.data, true);
-				move(0, 350);
-			} else {
-				alert("上传失败,请重试");
-			}
+			init(data.data, true);
+			move(0, 350);
 		},
 		function(data) {
 			console.log(data);

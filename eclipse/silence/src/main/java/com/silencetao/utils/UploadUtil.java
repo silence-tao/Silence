@@ -2,9 +2,12 @@ package com.silencetao.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.silencetao.exception.SilenceException;
 
 /**
  * 文件上传工具类
@@ -37,10 +40,11 @@ public class UploadUtil {
 			outputStream.close();
 			result = realPath + "/" + fileName;
 			log.info("上传文件成功");
+			return result;
 		} catch (Exception e) {
 			log.warn("上传文件失败");
 			log.error(e.getMessage(), e);
+			throw new SilenceException("上传文件成功");
 		}
-		return result;
 	}
 }

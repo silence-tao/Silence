@@ -6,7 +6,7 @@ import org.springframework.util.DigestUtils;
 
 /**
  * 字符串处理工具类
- * @author 
+ * @author Silence
  *
  */
 public class StringUtil {

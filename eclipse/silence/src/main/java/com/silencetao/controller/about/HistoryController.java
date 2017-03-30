@@ -2,6 +2,9 @@ package com.silencetao.controller.about;
 
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
+import com.silencetao.exception.DatabaseException;
+import com.silencetao.exception.MessageExcetion;
+import com.silencetao.exception.SilenceException;
 import com.silencetao.service.about.HistoryService;
 import com.silencetao.service.module.PictureService;
 import com.silencetao.utils.StringUtil;
@@ -10,6 +13,7 @@ import com.silencetao.view.HistoryView;
 import com.silencetao.view.SilenceResult;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -58,21 +62,31 @@ public class HistoryController {
 		Iterator<String> iterator = muliRequest.getFileNames();
 		history.setHistorySign(StringUtil.getMd5(System.currentTimeMillis() + StringUtil.getRandom(10), "silenceHistory"));
 		try {
-			historyService.insertHistory(history);
+			List<Picture> pictures = new ArrayList<Picture>();
 			while(iterator.hasNext()) {
 				String fileName = iterator.next();
 				MultipartFile file = muliRequest.getFile(fileName);
-				Picture picture = new Picture();
-				picture.setRealPath(UploadUtil.uploadFile(file, "img/history"));
-				picture.setPertain(history.getHistorySign());
-				pictureService.insertPicture(picture);
+				String path = UploadUtil.uploadFile(file, "img/history");
+				if(path != null && !"".equals(path)) {
+					Picture picture = new Picture();
+					picture.setRealPath(path);
+					picture.setPertain(history.getHistorySign());
+					pictures.add(picture);
+				}
 			}
+			List<HistoryView> historyViews = historyService.saveHistory(history, pictures);
 			log.info("保存成功");
-			return new SilenceResult<List<HistoryView>>(true, historyService.getHistoryViews(0, 10));
+			return new SilenceResult<List<HistoryView>>(true, historyViews);
+		} catch (DatabaseException e) {
+			log.warn(e.getMessage());
+			throw new MessageExcetion(e.getMessage());
+		} catch (SilenceException e) {
+			log.warn(e.getMessage());
+			throw new MessageExcetion(e.getMessage());
 		} catch (Exception e) {
 			log.warn("保存失败");
 			log.error(e.getMessage(), e);
-			return new SilenceResult<List<HistoryView>>(false, "保存失败");
+			throw new MessageExcetion("保存失败");
 		}
 	}
 

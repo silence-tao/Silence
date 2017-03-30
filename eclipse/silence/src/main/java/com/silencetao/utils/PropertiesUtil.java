@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 /**
  * 读取配置文件的工具类
- * @author 
+ * @author Silence
  *
  */
 public class PropertiesUtil extends PropertyPlaceholderConfigurer {

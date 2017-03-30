@@ -54,6 +54,11 @@
 		</property>
 	</bean>
 	
-	<!-- 5:对文件上传的支持 -->
+	<!-- 6:对文件上传的支持 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	<!-- 注册拦截器 -->
+	<mvc:interceptors>
+		<bean class="com.silencetao.interceptor.SilenceInterceptor"></bean>
+	</mvc:interceptors>
 </beans>
