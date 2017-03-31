@@ -22,7 +22,7 @@ public class SilenceInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		System.out.println("执行到了preHandle方法");
+		
 		return true;
 	}
 
@@ -30,7 +30,6 @@ public class SilenceInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		System.out.println("执行到了postHandle方法");
 		//可以通过ModelAndView参数来改变显示的视图,或修改发往视图的方法
 		
 	}
@@ -39,7 +38,7 @@ public class SilenceInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		System.out.println("执行到了afterCompletion方法");
+		
 		
 	}
 }
