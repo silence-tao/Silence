@@ -95,7 +95,7 @@ public class HistoryServiceImpl implements HistoryService {
 				throw new DatabaseException("保存History信息失败");
 			}
 		} catch (DatabaseException e) {
-			log.warn(e.getMessage());
+			log.error(e.getMessage());
 			throw e;
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

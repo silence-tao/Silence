@@ -153,24 +153,24 @@ window.silence = {
 	}
 }
 
-Date.prototype.format = function(format, loc) {
+function dateFormat(date ,format, loc) {
 	var time = {};
-	time.Year = this.getFullYear();
+	time.Year = date.getFullYear();
 	time.TYear = ("" + time.Year).substr(2);
-	time.Month = this.getMonth() + 1;
+	time.Month = date.getMonth() + 1;
 	time.TMonth = time.Month < 10 ? "0" + time.Month : time.Month;
-	time.Day = this.getDate();
+	time.Day = date.getDate();
 	time.TDay = time.Day < 10 ? "0" + time.Day : time.Day;
-	time.Hour = this.getHours();
+	time.Hour = date.getHours();
 	time.THour = time.Hour < 10 ? "0" + time.Hour : time.Hour;
 	time.hour = time.Hour < 13 ? time.Hour : time.Hour - 12;
 	time.Thour = time.hour < 10 ? "0" + time.hour : time.hour;
-	time.Minute = this.getMinutes();
+	time.Minute = date.getMinutes();
 	time.TMinute = time.Minute < 10 ? "0" + time.Minute : time.Minute;
-	time.Second = this.getSeconds();
+	time.Second = date.getSeconds();
 	time.TSecond = time.Second < 10 ? "0" + time.Second : time.Second;
-	time.Millisecond = this.getMilliseconds();
-	time.Week = this.getDay();
+	time.Millisecond = date.getMilliseconds();
+	time.Week = date.getDay();
 	var MMMArrEn = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
 			"Sep", "Oct", "Nov", "Dec" ];
 	var MMMArr = [ "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月",

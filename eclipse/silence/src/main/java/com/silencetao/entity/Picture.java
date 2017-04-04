@@ -7,13 +7,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * 图片信息实体类
+ * @author Silence
+ *
+ */
 public class Picture implements Serializable {
 	private static final long serialVersionUID = -3381937488143456168L;
 	private long pictureId;
 	private String pertain;
 	private String realPath;
-	@DateTimeFormat(pattern="yyyy年MM月dd日 HH:mm:ss")  
-	@JsonFormat(pattern="yyyy年MM月dd日 HH:mm:ss",timezone = "GMT+8")
 	private Date uploadTime;
 	
 	public Picture() {

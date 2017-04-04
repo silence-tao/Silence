@@ -44,7 +44,7 @@ public class UploadUtil {
 		} catch (Exception e) {
 			log.warn("上传文件失败");
 			log.error(e.getMessage(), e);
-			throw new SilenceException("上传文件成功");
+			throw new SilenceException("上传文件失败");
 		}
 	}
 }

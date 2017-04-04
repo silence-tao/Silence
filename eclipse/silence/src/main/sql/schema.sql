@@ -1,7 +1,7 @@
 CREATE DATABASE silence;
 
 USE silence;
-
+--心路历程表
 CREATE TABLE history (
   history_id BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '项目进程id',
   title VARCHAR(50) DEFAULT NULL COMMENT '标题',
@@ -11,7 +11,7 @@ CREATE TABLE history (
   PRIMARY KEY (history_id),
   KEY idx_record_time (record_time)
 ) ENGINE=INNODB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
-
+--图片资源表
 CREATE TABLE picture (
 	picture_id BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '图片id',
 	pertain VARCHAR(100) NOT NULL COMMENT '属于哪里',
@@ -19,4 +19,15 @@ CREATE TABLE picture (
 	upload_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上传图片的时间',
 	PRIMARY KEY (picture_id),
 	KEY idx_upload_time (upload_time)
+) ENGINE=INNODB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+--用户表
+CREATE TABLE USER (
+	user_id BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '图片id',
+	username VARCHAR(50) NOT NULL COMMENT '用户名',
+	nikename VARCHAR(50) NOT NULL COMMENT '昵称',
+	PASSWORD VARCHAR(50) COMMENT '密码',
+	register_ip VARCHAR(20) COMMENT '注册时的ip地址',
+	register_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
+	user_sign VARCHAR(100) COMMENT '唯一标示sign',
+	PRIMARY KEY (user_id)
 ) ENGINE=INNODB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;

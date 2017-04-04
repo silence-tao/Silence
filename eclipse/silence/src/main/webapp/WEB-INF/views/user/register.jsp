@@ -29,7 +29,7 @@
 				<span class="tips">点击更换头像</span>
 			</div>
 			<div class="form-group first-form">
-				<input type="text" name="username" class="input-text" id="username" placeholder="请输入昵称" />
+				<input type="text" name="nikename" class="input-text" id="nikename" placeholder="请输入昵称" />
 			</div>
 			<div class="form-group">
 				<input type="text" name="username" class="input-text" id="username" placeholder="请输入邮箱" />
@@ -38,7 +38,7 @@
 				<input type="password" name="password" class="input-text" id="password" placeholder="请输入密码" />
 			</div>
 			<div class="form-btn">
-				<input type="button" id="" class="input-btn" value="注册" />
+				<input type="button" id="" class="input-btn" onclick="register()" value="注册" />
 			</div>
 		</div>
 		
@@ -75,6 +75,7 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/register.js" type="text/javascript" charset="utf-8"></script>
 </html>
 
 

@@ -7,6 +7,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * 心路历程实体类
+ * @author Silence
+ *
+ */
 public class History implements Serializable {
 	private static final long serialVersionUID = 5547123417053375305L;
 	private long historyId;

@@ -34,7 +34,7 @@
 				<input type="password" name="password" class="input-text" id="password" placeholder="请输入密码" />
 			</div>
 			<div class="form-btn">
-				<input type="button" id="" class="input-btn" value="登录" />
+				<input type="button" id="" class="input-btn" onclick="login()" value="登录" />
 			</div>
 			<div class="form-check form-off-on">
 				<input type="checkbox" id="save-pass" />

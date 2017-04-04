@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping(value = "user")
-public class UserController {
+public class UsersController {
 
 	@RequestMapping(value = "{action}", method = RequestMethod.GET)
 	public String to(@PathVariable("action") String action) {

@@ -72,11 +72,11 @@ function init(data, isRefresh) {
 			var image_html = tpl_image_html.replace(/\{realPath\}/g, data[i].pictures[j]);
 			images_html.push(image_html);
 		}
-		var history_html = tpl_history_html.replace(/\{time\}/g, new Date(data[i].recordTime).format("HH:mm"))
+		var history_html = tpl_history_html.replace(/\{time\}/g, dateFormat(new Date(data[i].recordTime), "HH:mm"))
 										.replace(/\{title\}/g, data[i].title)
 										.replace(/\{content\}/g, data[i].content)
 										.replace(/\{pictures\}/g, images_html.join(''))
-										.replace(/\{date\}/g, new Date(data[i].recordTime).format("yyyy-MM-dd"));
+										.replace(/\{date\}/g, dateFormat(new Date(data[i].recordTime), "yyyy-MM-dd"));
 		histories_html.push(history_html);
 	}
 	if(isRefresh) {
@@ -143,7 +143,7 @@ function saveHistory() {
 	var title = $('#history-title').val();
 	var content = $('#history-content').val();
 	if(title == '' || title == null || !title) {
-		$('#popupd-box-message').text('标题不能为空');
+		$('#popup-box-message').text('标题不能为空');
 		return ;
 	}
 	if(content == '' || content == null || !content) {
@@ -159,20 +159,20 @@ function saveHistory() {
 			fileElementIds.push($(this).attr('id'));
 		}
 	});
-	if(topBar) {
-		closePopup();
-	} else {
-		outShade('popup-bar');
-	}
 	silence.ajaxFilesUpload('/silence/about/savehistory',
 		data,
 		fileElementIds,
 		function(data) {
+			if(topBar) {
+				closePopup();
+			} else {
+				outShade('popup-bar');
+			}
 			init(data.data, true);
 			move(0, 350);
 		},
 		function(data) {
-			console.log(data);
+			$('#popup-box-message').text('保存失败,请重试');
 		}
 	);
 }
