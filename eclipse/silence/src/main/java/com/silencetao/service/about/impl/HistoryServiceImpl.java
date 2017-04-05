@@ -79,8 +79,8 @@ public class HistoryServiceImpl implements HistoryService {
 	@Transactional
 	@Override
 	public List<HistoryView> saveHistory(History history, List<Picture> pictures) {
-		int historyCount = historyDao.insertHistory(history);
 		try {
+			int historyCount = historyDao.insertHistory(history);
 			if(historyCount > 0) {
 				int pictureCount = 0;
 				for(Picture picture : pictures) {
