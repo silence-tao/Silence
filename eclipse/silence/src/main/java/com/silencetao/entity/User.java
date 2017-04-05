@@ -16,6 +16,7 @@ public class User implements Serializable {
 	private String password;
 	private String registerIp;
 	private Date registerTime;
+	private long userRank;
 	private String userSign;
 	
 	public User() {
@@ -86,6 +87,14 @@ public class User implements Serializable {
 		this.registerTime = registerTime;
 	}
 
+	public long getUserRank() {
+		return userRank;
+	}
+
+	public void setUserRank(long userRank) {
+		this.userRank = userRank;
+	}
+
 	public String getUserSign() {
 		return userSign;
 	}
@@ -96,7 +105,10 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", nikename=" + nikename + ", password=" + password
-				+ ", registerIp=" + registerIp + ", registerTime=" + registerTime + ", userSign=" + userSign + "]";
+		return "User [userId=" + userId + ", username=" + username
+				+ ", nikename=" + nikename + ", password=" + password
+				+ ", registerIp=" + registerIp + ", registerTime="
+				+ registerTime + ", userRank=" + userRank + ", userSign="
+				+ userSign + "]";
 	}
 }

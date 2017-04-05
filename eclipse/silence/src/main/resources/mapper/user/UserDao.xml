@@ -3,8 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.silencetao.dao.user.UserDao">
 	<insert id="insertUser">
-		INSERT INTO USER(username, nikename, PASSWORD, register_ip, user_sign)
-		VALUES(#{username}, #{nikename}, #{password}, #{registerIp}, #{userSign})
+		INSERT INTO USER(username, nikename, PASSWORD, register_ip, user_rank, user_sign)
+		VALUES(#{username}, #{nikename}, #{password}, #{registerIp}, 0, #{userSign})
 	</insert>
 	
 	<delete id="deleteUser">
@@ -13,7 +13,7 @@
 	
 	<update id="updateUser">
 		UPDATE USER SET nikename = #{nikename}, PASSWORD = #{password}, 
-		user_sign = #{userSign} WHERE user_id = #{userId}
+		user_rank = #{userRank}, user_sign = #{userSign} WHERE user_id = #{userId}
 	</update>
 	
 	<select id="getUser" resultType="User">
