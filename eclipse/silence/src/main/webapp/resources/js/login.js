@@ -1,7 +1,22 @@
 $(function() {
 	topMobile('backPrevious()', '返回', '登录', 'openPopup()', 'icon-plus-circle', '');
-	
+	getAccount();
 });
+
+function getAccount() {
+	silence.ajaxCurrent('/silence/user/getUserSign', {},
+		function(data) {
+			if(data.success) {
+				$('#username').val(data.data.username);
+				$('#password').val(data.data.password);
+				$('#save-pass').attr('checked', 'checked');
+			}
+		},
+		function(data) {
+			console.log(data);
+		}
+	);
+}
 
 function login() {
 	var data = {};
@@ -17,6 +32,7 @@ function login() {
 	}
 	data.username = username;
 	data.password = password;
+	data.remember = $('#save-pass').attr('checked');
 	silence.ajaxCurrent('/silence/user/userLogin', data,
 		function(data) {
 			console.log(data);

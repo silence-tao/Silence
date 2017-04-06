@@ -3,10 +3,6 @@ package com.silencetao.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 /**
  * 心路历程实体类
  * @author Silence

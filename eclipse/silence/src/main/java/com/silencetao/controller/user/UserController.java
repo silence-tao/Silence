@@ -1,6 +1,8 @@
 package com.silencetao.controller.user;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.jdbc.Null;
@@ -8,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -60,13 +63,50 @@ public class UserController {
 	
 	@RequestMapping(value = "userLogin")
 	@ResponseBody
-	public SilenceResult<User> login(User u, HttpSession session) {
-		User user = userService.login(u);
+	public SilenceResult<Null> login(@CookieValue(value = "userSign", required = false) String userSign,
+			User u, String remember, HttpSession session, HttpServletResponse response) {
+		User user = null;
+		if(userSign != null) {
+			user = userService.getUserBySign(userSign);
+		} else {
+			user = userService.login(u);
+		}
 		if(user != null) {
 			session.setAttribute("userInfo", user);
-			return new SilenceResult<User>(true, user);
+			if("checked".equals(remember)) {
+				Cookie cookie = new Cookie("userSign", user.getUserSign());
+				cookie.setMaxAge(3600 * 24 * 30);
+				response.addCookie(cookie);
+			} else {
+				Cookie cookie = new Cookie("userSign", null);
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+			}
+			return new SilenceResult<Null>(true, "登录成功");
 		} else {
-			return new SilenceResult<User>(false, "用户名或密码错误");
+			Cookie cookie = new Cookie("userSign", null);
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+			return new SilenceResult<Null>(false, "用户名不存在或密码错误");
 		}
+	}
+	
+	@RequestMapping(value = "getUserSign")
+	@ResponseBody
+	public SilenceResult<User> getUserSign(@CookieValue(value = "userSign", required = false) String userSign,
+			HttpServletResponse response) {
+		if(userSign != null) {
+			User user = userService.getUserBySign(userSign);
+			if(user != null) {
+				user.setPassword("silencetao");
+				return new SilenceResult<User>(true, user);
+			} else {
+				Cookie cookie = new Cookie("userSign", null);
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				return new SilenceResult<User>(false, "记住密码已失效,请重新记住");
+			}
+		}
+		return new SilenceResult<User>(false, "上次登录未记住密码");
 	}
 }

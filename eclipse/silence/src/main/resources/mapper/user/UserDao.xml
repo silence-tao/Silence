@@ -28,4 +28,8 @@
 	<select id="getCountByUsername" resultType="java.lang.Integer">
 		SELECT COUNT(1) FROM USER WHERE username = #{username}
 	</select>
+	
+	<select id="getUserBySign" resultType="User">
+		SELECT username, user_sign FROM USER WHERE user_sign = #{userSign}
+	</select>
 </mapper>

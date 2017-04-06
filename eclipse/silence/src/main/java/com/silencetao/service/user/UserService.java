@@ -35,4 +35,11 @@ public interface UserService {
 	 * @return 返回相同用户名的用户数量
 	 */
 	public int getCountByUsername(String username);
+	
+	/**
+	 * 通过userSign或取user对象
+	 * @param userSign
+	 * @return 返回相应userSign的user对象
+	 */
+	public User getUserBySign(String userSign);
 }

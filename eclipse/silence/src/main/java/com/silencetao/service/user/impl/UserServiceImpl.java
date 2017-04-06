@@ -58,4 +58,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.getCountByUsername(username);
 	}
 
+	@Override
+	public User getUserBySign(String userSign) {
+		return userDao.getUserBySign(userSign);
+	}
+
 }
