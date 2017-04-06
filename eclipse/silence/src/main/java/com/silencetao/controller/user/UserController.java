@@ -68,6 +68,9 @@ public class UserController {
 		User user = null;
 		if(userSign != null) {
 			user = userService.getUserBySign(userSign);
+			if(!user.getUsername().equals(u.getUsername())) {
+				user = userService.login(u);
+			}
 		} else {
 			user = userService.login(u);
 		}

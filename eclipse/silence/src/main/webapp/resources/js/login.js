@@ -35,7 +35,9 @@ function login() {
 	data.remember = $('#save-pass').attr('checked');
 	silence.ajaxCurrent('/silence/user/userLogin', data,
 		function(data) {
-			console.log(data);
+			if(data.success) {
+				window.location.href = '/silence';
+			}
 		},
 		function(data) {
 			console.log(data);
