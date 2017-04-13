@@ -35,6 +35,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * 用户注册
+	 * @param user
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "userRegister")
 	@ResponseBody
 	public SilenceResult<Null> register(User user, HttpServletRequest request) {
@@ -61,12 +67,21 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * 用户登录
+	 * @param userSign
+	 * @param u
+	 * @param remember
+	 * @param session
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping(value = "userLogin")
 	@ResponseBody
 	public SilenceResult<Null> login(@CookieValue(value = "userSign", required = false) String userSign,
 			User u, String remember, HttpSession session, HttpServletResponse response) {
 		User user = null;
-		if(userSign != null) {
+		if(userSign != null) {//判断是否记住了密码
 			user = userService.getUserBySign(userSign);
 			if(!user.getUsername().equals(u.getUsername())) {
 				user = userService.login(u);
@@ -74,9 +89,9 @@ public class UserController {
 		} else {
 			user = userService.login(u);
 		}
-		if(user != null) {
+		if(user != null) {//如果user不为空,表示等成功
 			session.setAttribute("userInfo", user);
-			if("checked".equals(remember)) {
+			if("checked".equals(remember)) {//是否需要记住密码
 				Cookie cookie = new Cookie("userSign", user.getUserSign());
 				cookie.setMaxAge(3600 * 24 * 30);
 				response.addCookie(cookie);
@@ -94,6 +109,12 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * 获取用户名和密码,用于记住密码时,显示在页面上
+	 * @param userSign
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping(value = "getUserSign")
 	@ResponseBody
 	public SilenceResult<User> getUserSign(@CookieValue(value = "userSign", required = false) String userSign,
