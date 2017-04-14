@@ -48,7 +48,7 @@ public class MailUtil extends Thread {
 	public void run() throws SilenceException {
 		this.log.info("开始发送邮件");
 		Properties properties = new Properties();
-		properties.setProperty("mail.host", "smtp.yeah.net");
+		properties.setProperty("mail.host", PropertiesUtil.getProperties("host"));
 		properties.setProperty("mail.smtp.auth", "true");
 		Session session = Session.getDefaultInstance(properties,
 				new Authenticator() {
