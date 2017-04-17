@@ -1,4 +1,114 @@
-body {
-	background: url(http://www.silencetao.com/resources/img/background.jpg) no-repeat center center fixed;
-	background-size: 100% 100%;
+header {
+	background: url(../img/background.jpg);
+	width: 100%;
+	height: 660px;
+}
+
+header .shade-bg {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+header .shade-bg .header-top {
+	height: 60px;
+	padding: 0;
+}
+
+header .shade-bg .header-top .html-logo {
+	width: 20%;
+	height: 100%;
+	color: #fff;
+	line-height: 60px;
+	font-size: 24px;
+	float: left;
+}
+
+header .shade-bg .header-top nav {
+	width: 60%;
+	height: 100%;
+	float: right;
+}
+
+header .shade-bg .header-top nav ul li {
+	float: right;
+	color: #fff;
+	position: relative;
+}
+
+header .shade-bg .header-top nav ul li span {
+	color: #fff;
+	line-height: 60px;
+	cursor: pointer;
+}
+
+header .shade-bg .header-top nav ul li a {
+	color: #fff;
+	padding-right: 20px;
+	line-height: 60px;
+}
+
+header .shade-bg .header-top nav ul li .pull-nav {
+	position: absolute;
+	background: #fff;
+	width: 80px;
+	text-align: center;
+	border-radius: 5px;
+	left: -20px;
+	top: 50px;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+	-webkit-transform: translateY(25px);
+	-moz-transform: translateY(25px);
+	-ms-transform: translateY(25px);
+	-o-transform: translateY(25px);
+	transform: translateY(25px);
+	opacity: 0;
+}
+
+header .shade-bg .header-top nav ul li.pull-bar:hover .pull-nav {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+header .shade-bg .header-top nav ul li .pull-nav:before {
+	content: '';
+	position: absolute;
+	top: -14px;
+	left: 30px;
+	right: 100%;
+	height: 0;
+	width: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #fff;
+}
+
+header .shade-bg .header-top nav ul li .pull-nav a {
+	color: #575757;
+	padding: 0;
+	line-height: 30px;
+}
+
+header .shade-bg .header-center {
+	text-align: center;
+	margin-top: 150px;
+}
+
+header .shade-bg .header-center p.cn {
+	color: #fff;
+	font-size: 40px;
+	padding: 20px 0;
+}
+
+header .shade-bg .header-center p.en {
+	color: #fff;
+	font-size: 24px;
+	padding: 20px 0;
 }

@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-一个不会写bug的Silence个人博客网站</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/animate.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/index.css"/>
 		<!--[if lt IE 9]>
@@ -14,34 +15,38 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="loading-shade">
-			<span class="icon-spinner10"></span>
-			<p>正在初始化页面……</p>
-		</div>
+		<header>
+			<div class="shade-bg">
+				<div class="container header-top">
+					<div class="html-logo">
+						Silence
+					</div>
+					<nav>
+						<ul>
+							<li class="pull-bar">
+								<span>关于&nbsp;<span class="icon-caret-down"></span></span>
+								<div class="pull-nav">
+									<a href="#">心路历程</a><br />
+									<a href="#">关于博主</a>
+								</div>
+							</li>
+							<li><a href="#">留言板</a></li>
+							<li><a href="#">技术分享</a></li>
+							<li><a href="#">分享生活</a></li>
+							<li><a href="#">首页</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-12 header-center animated bounce">
+					<p class="cn">路漫漫其修远兮</p>
+					<p class="en">You cannot improve your past, but you can improve your future.</p>
+				</div>
+			</div>
+		</header>
+		
+		
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		var start;
-		var end;
-		$(function() {
-			$('.loading-shade').show();
-			var time = new Date();
-			start = time.getTime();
-			console.log(time.getTime());
-		});
-		
-		window.onload = function() {
-			var img = new Image();
-			img.src = 'http://www.silencetao.com/resources/img/background.jpg';
-			var time = new Date();
-			console.log(time.getTime());
-			end = time.getTime();
-			console.log(img.height);
-			console.log(end - start);
-			if(img.height >= 900) {
-				$('.loading-shade').hide();
-			}
-		}
-	</script>
+	<script src="/silence/resources/js/index.js" type="text/javascript" charset="utf-8"></script>
 </html>
