@@ -96,7 +96,7 @@ public class HistoryController {
 	@ResponseBody
 	public String uploadPicture() {
 		String resultStr = "";
-		MailUtil mailUtil = new MailUtil("测试邮件", "测试专用", "taogu2010@yeah.net");
+		MailUtil mailUtil = new MailUtil("7777", "3333", "taogu2010@yeah.net");
 		mailUtil.run();
 		if (mailUtil.isResult())
 			resultStr = resultStr + "邮件发送成功";
