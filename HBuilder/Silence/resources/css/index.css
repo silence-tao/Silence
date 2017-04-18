@@ -126,6 +126,12 @@ header .shade-bg .header-center p.en {
 	height: 500px;
 }
 
+.history-bar .col-lg-6 img {
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);
+  	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);
+  	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);
+}
+
 .history-bar .history-detail {
 	width: 72%;
 	margin: 40px auto 0;
@@ -178,11 +184,83 @@ header .shade-bg .header-center p.en {
 	color: #989898;
 }
 
-.message-bar .message-list {background: red;
+.message-bar .message-list {
 	height: 270px;
 	width: 100%;
+	margin-top: 20px;
 }
 
 .message-bar .message-list .message-detail {
-	
+	height: 270px;
+	position: relative;
+}
+
+.message-bar .message-list .message-detail .user-header {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -25px;
+}
+
+.message-bar .message-list .message-detail .message-content {
+	width: 100%;
+	height: 200px;
+	background: #fff;
+	padding: 25px;
+	position: relative;
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+  	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+  	box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.message-bar .message-list .message-detail .message-content span {
+	position: absolute;
+	color: #A9A9A9;
+	font-size: 20px;
+}
+
+.message-bar .message-list .message-detail .message-content span.icon-quote-left {
+	top: 15px;
+	left: 15px;
+}
+
+.message-bar .message-list .message-detail .message-content span.icon-quote-right {
+	bottom: 15px;
+	right: 15px;
+}
+
+.message-bar .message-list .message-detail .message-content p.user-name {
+	text-align: right;
+}
+
+.message-bar .message-list .message-detail .message-content p {
+	text-indent: 28px;
+}
+
+.message-bar .message-list .message-detail .message-content:before {
+	content: '';
+	position: absolute;
+	bottom: -16px;
+	left: 50%;
+	height: 0;
+	width: 0;
+	margin-left: -7px;
+	border: 8px solid transparent;
+	border-top: 8px solid #fff;
+}
+
+.message-bar .message-list .message-detail .user-header img {
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+}
+
+.bg-red {
+	background: red;
+}
+
+.bg-blue {
+	background: blue;
 }
