@@ -506,6 +506,29 @@ a:visited {
 }
 /********************************顶部导航栏CSS代码********************************/
 
+/********************************页脚CSS代码********************************/
+footer {
+	background: #2f3032;
+	width: 100%;
+	padding: 20px;
+}
+
+footer .footer-box {
+	padding: 10px 0;
+	text-align: center;
+	color: #848484;
+}
+
+footer .footer-box a {
+	color: #848484;
+	margin-right: 10px;
+}
+
+footer .footer-box a:hover {
+	color: #d1d1d2;
+}
+/********************************页脚CSS代码********************************/
+
 @media (min-width: 768px) {
 	.container {
 		width: 750px;

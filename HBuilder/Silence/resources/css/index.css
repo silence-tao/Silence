@@ -170,7 +170,8 @@ header .shade-bg .header-center p.en {
 
 .message-bar,
 .life-bar,
-.technical-bar {
+.technical-bar,
+.mywords-bar {
 	width: 100%;
 	padding: 50px 0;
 	background: #f5f5f5;
@@ -178,7 +179,8 @@ header .shade-bg .header-center p.en {
 
 .message-bar .message-top,
 .life-bar .life-top,
-.technical-bar .technical-top {
+.technical-bar .technical-top,
+.mywords-bar .mywords-top {
 	margin: 0 auto;
 	text-align: center;
 	width: 72%;
@@ -186,7 +188,8 @@ header .shade-bg .header-center p.en {
 
 .message-bar .message-top h2,
 .life-bar .life-top h2,
-.technical-bar .technical-top h2 {
+.technical-bar .technical-top h2,
+.mywords-bar .mywords-top h2 {
 	font-size: 32px;
 	font-weight: bold;
 	color: #5a5a5a;
@@ -194,7 +197,8 @@ header .shade-bg .header-center p.en {
 
 .message-bar .message-top p,
 .life-bar .life-top p,
-.technical-bar .technical-top p {
+.technical-bar .technical-top p,
+.mywords-bar .mywords-top p {
 	font-size: 16px;
 	line-height: 60px;
 	color: #989898;
@@ -281,7 +285,8 @@ header .shade-bg .header-center p.en {
 	background: blue;
 }
 
-.life-bar {
+.life-bar,
+.mywords-bar {
 	background: #fff;
 }
 
@@ -296,6 +301,14 @@ header .shade-bg .header-center p.en {
 	overflow: hidden;
 }
 
+.life-bar .life-list .life-img img {
+	-webkit-transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
+	-o-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
+}
+
 .life-bar .life-list .life-bottom {
 	padding: 0 20px;
 	background: #fff;
@@ -305,6 +318,14 @@ header .shade-bg .header-center p.en {
 	-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 	height: 300px;
+}
+
+.life-bar .life-list .col-lg-4:hover img {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 .life-bar .life-list .life-bottom .life-title {
@@ -345,6 +366,10 @@ header .shade-bg .header-center p.en {
 .technical-bar .technical-list {
 	width: 100%;
 	margin-top: 20px;
+}
+
+.technical-bar .technical-list .col-lg-6 {
+	margin-top: 15px;
 }
 
 .technical-bar .technical-list .technical-detail {
@@ -422,6 +447,7 @@ header .shade-bg .header-center p.en {
 .technical-bar .technical-list .technical-detail .technical-content .technical-info .technical-sumary {
 	text-indent: 32px;
 	font-size: 16px;
+	color: #878787;
 }
 
 
@@ -429,4 +455,32 @@ header .shade-bg .header-center p.en {
 	position: absolute;
 	bottom: 10px;
 	right: 15px;
+}
+
+.mywords-bar .my-header {
+	width: 216px;
+	height: 216px;
+	margin: 20px auto;
+	border-radius: 200px;
+	border: 8px solid rgba(0, 0, 0, 0.2);
+}
+
+.mywords-bar .my-header img {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+}
+
+.mywords-bar .words-content {
+	font-size: 24px;
+	text-indent: 48px;
+	color: #C9C9C9;
+}
+
+.toolbar .toolbar-item-login .toolbar-btn:before {
+	content: "\e9a1";
+}
+
+.toolbar .toolbar-item-login .toolbar-btn:after {
+	content: '我要\A登录';
 }
