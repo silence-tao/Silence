@@ -1,0 +1,238 @@
+.mywords-bar {
+	width: 100%;
+	padding: 20px 0;
+}
+
+.mywords-bar .mywords-top {
+	margin: 0 auto;
+	text-align: center;
+	width: 72%;
+}
+
+.mywords-bar .mywords-top h2 {
+	font-size: 32px;
+	font-weight: bold;
+	color: #5a5a5a;
+}
+
+.mywords-bar .mywords-top p {
+	font-size: 16px;
+	line-height: 60px;
+	color: #989898;
+}
+
+.mywords-bar .my-header {
+	width: 216px;
+	height: 216px;
+	margin: 20px auto;
+	border-radius: 200px;
+	border: 8px solid rgba(0, 0, 0, 0.2);
+}
+
+.mywords-bar .my-header img {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+}
+
+.mywords-bar .words-content {
+	font-size: 24px;
+	text-indent: 48px;
+	color: #C9C9C9;
+}
+
+.message-bar .left-box {
+	padding: 20px;
+	padding-bottom: 0;
+}
+
+.message-bar .message-publish {
+	/*height: 150px;*/
+	width: 100%;
+}
+
+.message-bar .message-publish p {
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.message-bar .message-publish textarea {
+	width: 100%;
+	height: 120px;
+	padding: 10px;
+	resize: none;
+}
+
+textarea:focus {
+	border-color: #019BE1;
+}
+
+.message-bar .message-publish input[type=button] {
+	width: 72px;
+	height: 30px;
+	border: none;
+	background: #019BE1;
+	color: #fff;
+	cursor: pointer;
+}
+
+.message-bar .message-title {
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 20px;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+.message-bar .message-list {
+	padding: 20px 0 0;
+}
+
+.message-bar .message-list .message-detail {
+	padding: 10px 0;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+.message-bar .message-list .message-detail .user-info {
+	height: 50px;
+	width: 100%;
+	position: relative;
+}
+
+.message-bar .message-list .message-detail .user-info .user-header,
+.message-bar .message-list .message-detail .user-info .user-header img {
+	height: 50px;
+	width: 50px;
+	border-radius: 100px;
+}
+
+.message-bar .message-list .message-detail .user-info a {
+	position: absolute;
+    top: 10px;
+    left: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #b3b3b3;
+}
+
+.message-bar .message-list .message-detail .user-info p {
+	position: absolute;
+    top: 30px;
+    left: 60px;
+    color: #b3b3b3;
+}
+
+.message-bar .message-list .message-detail .message-info {
+	margin-left: 60px;
+}
+
+.message-bar .message-list .message-detail .message-content {
+	margin: 10px 0;
+	text-indent: 28px;
+}
+
+.message-bar .message-list .message-detail .message-time {
+	line-height: 28px;
+	color: #b3b3b3;
+}
+
+.message-bar .message-info .reply-list .reply-detail {
+	margin: 5px 0;
+}
+
+.message-bar .message-info .reply-list .reply-detail .reply-info {
+	padding-left: 60px;
+}
+
+.message-bar .message-info .reply-list .reply-detail .reply-info p {
+    color: #b3b3b3;
+    line-height: 25px;
+}
+
+.message-bar .message-info .reply-list .reply-detail .user-header {
+	width: 50px;
+	height: 100%;
+	float: left;
+}
+.message-bar .message-info .reply-list .reply-detail .user-header img {
+	height: 50px;
+	width: 50px;
+	border-radius: 10px;
+}
+
+.message-bar .message-info .reply-list {
+	padding: 5px 0;
+	border-top: 1px solid #F1F1F1;
+	margin-top: 5px;
+	position: relative;
+}
+
+.message-bar .message-info .reply-list:before {
+	content: '';
+	position: absolute;
+	top: -14px;
+	left: 16px;
+	right: 100%;
+	height: 0;
+	width: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #F1F1F1;
+}
+
+.message-bar .message-info .reply-list:after {
+	content: '';
+	position: absolute;
+	top: -12px;
+	left: 16px;
+	right: 100%;
+	height: 0;
+	width: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #fff;
+}
+
+.message-bar .message-list .message-detail .reply-box {
+	margin: 5px 0;
+	width: 100%;
+}
+
+.message-bar .message-list .message-detail .reply-box textarea {
+	width: 320px;
+	height: 60px;
+	padding: 10px;
+	resize: none;
+}
+
+.message-bar .message-list .message-detail .reply-box .reply-btn input[type=button] {
+	border: none;
+	background: #019BE1;
+	color: #fff;
+	width: 32px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.rank-bar {
+	margin-top: 20px;
+	border-left: 1px dashed #999;
+}
+
+.rank-bar p {
+	font-size: 16px;
+	font-weight: bold;
+	color: #B3B3B3;
+}
+
+.rank-bar .essay-list {
+	padding: 15px 0;
+}
+
+.rank-bar .essay-list a {
+	display: block;
+	line-height: 24px;
+}
+
+.rank-bar .essay-list a:hover {
+	text-decoration: underline;
+}

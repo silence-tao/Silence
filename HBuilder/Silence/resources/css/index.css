@@ -71,6 +71,7 @@ header .shade-bg .header-top nav ul li .pull-nav {
 	-o-transform: translateY(25px);
 	transform: translateY(25px);
 	opacity: 0;
+	pointer-events: none;
 }
 
 header .shade-bg .header-top nav ul li.pull-bar:hover .pull-nav {
@@ -80,6 +81,7 @@ header .shade-bg .header-top nav ul li.pull-bar:hover .pull-nav {
 	-ms-transform: translateY(0);
 	-o-transform: translateY(0);
 	transform: translateY(0);
+	pointer-events: all;
 }
 
 header .shade-bg .header-top nav ul li .pull-nav:before {
@@ -277,13 +279,6 @@ header .shade-bg .header-center p.en {
 	border-radius: 100px;
 }
 
-.bg-red {
-	background: red;
-}
-
-.bg-blue {
-	background: blue;
-}
 
 .life-bar,
 .mywords-bar {
@@ -475,12 +470,4 @@ header .shade-bg .header-center p.en {
 	font-size: 24px;
 	text-indent: 48px;
 	color: #C9C9C9;
-}
-
-.toolbar .toolbar-item-login .toolbar-btn:before {
-	content: "\e9a1";
-}
-
-.toolbar .toolbar-item-login .toolbar-btn:after {
-	content: '我要\A登录';
 }

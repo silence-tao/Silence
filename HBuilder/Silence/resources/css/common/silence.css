@@ -108,6 +108,14 @@ textarea:focus {
 	margin-left: -50px;
 }
 
+.bg-red {
+	background: red;
+}
+
+.bg-blue {
+	background: blue;
+}
+
 a {
 	color: #333;
 }
@@ -115,6 +123,10 @@ a {
 a,
 a:visited {
 	text-decoration: none;
+}
+
+a.no-pointer {
+	pointer-events: none;
 }
 
 .hide {
@@ -156,6 +168,21 @@ a:visited {
 
 .fr {
 	float: right;
+}
+
+.path-bar {
+	border-bottom: 1px solid #f1f1f1;
+	padding: 20px 0;
+}
+
+.path-bar a:hover {
+	color: #019bE1;
+}
+
+.module-intro {
+	float: right;
+	text-align: right;
+	color: #999;
 }
 
 /********************************Switch开关CSS代码********************************/
@@ -402,6 +429,14 @@ a:visited {
 	content: '加我\A好友';
 }
 
+.toolbar .toolbar-item-login .toolbar-btn:before {
+	content: "\e9a1";
+}
+
+.toolbar .toolbar-item-login .toolbar-btn:after {
+	content: '我要\A登录';
+}
+
 .toolbar .qrcode-box {
 	position: relative;
 }
@@ -506,6 +541,100 @@ a:visited {
 }
 /********************************顶部导航栏CSS代码********************************/
 
+/********************************顶部导航栏CSS代码********************************/
+header {
+	height: 60px;
+	width: 100%;
+}
+
+header .html-logo {
+	width: 20%;
+	height: 100%;
+	color: #333;
+	line-height: 60px;
+	font-size: 24px;
+	float: left;
+}
+
+header nav {
+	width: 60%;
+	height: 100%;
+	float: right;
+}
+
+header nav ul li {
+	float: right;
+	color: #333;
+	position: relative;
+}
+
+header nav ul li.pull-bar {
+	padding-right: 20px;
+}
+
+header nav ul li span {
+	color: #333;
+	line-height: 60px;
+	cursor: pointer;
+}
+
+header nav ul li a {
+	color: #333;
+	padding-right: 20px;
+	line-height: 60px;
+}
+
+header nav ul li .pull-nav {
+	position: absolute;
+	background: #333;
+	width: 80px;
+	text-align: center;
+	border-radius: 5px;
+	left: -20px;
+	top: 50px;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+	-webkit-transform: translateY(25px);
+	-moz-transform: translateY(25px);
+	-ms-transform: translateY(25px);
+	-o-transform: translateY(25px);
+	transform: translateY(25px);
+	opacity: 0;
+	pointer-events: none;
+}
+
+header nav ul li.pull-bar:hover .pull-nav {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+	pointer-events: all;
+}
+
+header nav ul li .pull-nav:before {
+	content: '';
+	position: absolute;
+	top: -14px;
+	left: 30px;
+	right: 100%;
+	height: 0;
+	width: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #333;
+}
+
+header nav ul li .pull-nav a {
+	color: #fff;
+	padding: 0;
+	line-height: 30px;
+}
+/********************************顶部导航栏CSS代码********************************/
+
 /********************************页脚CSS代码********************************/
 footer {
 	background: #2f3032;
@@ -528,6 +657,40 @@ footer .footer-box a:hover {
 	color: #d1d1d2;
 }
 /********************************页脚CSS代码********************************/
+
+/********************************分页CSS代码********************************/
+.page-bar {
+	width: 100%;
+	height: 40px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 40px;
+	margin: 10px 0;
+}
+
+.page-bar a {
+	padding: 5px 10px;
+	color: rgb(120, 125, 130);
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.page-bar a:hover {
+	border-bottom: 1px solid #019be1;
+	color: #019be1;
+}
+
+.page-bar .pre-page {
+	background: #019be1;
+	color: #FFFFFF;
+	pointer-events: none;
+}
+
+.page-bar .noclick {
+	pointer-events: none;
+	color: #c8cdd2;
+}
+/********************************分页CSS代码********************************/
 
 @media (min-width: 768px) {
 	.container {
