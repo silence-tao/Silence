@@ -185,6 +185,49 @@ a.no-pointer {
 	color: #999;
 }
 
+.rank-bar {
+	margin-top: 20px;
+}
+
+.rank-bar p {
+	font-size: 16px;
+	font-weight: bold;
+	color: #B3B3B3;
+}
+
+.rank-bar .essay-list {
+	padding: 10px 0 30px;
+}
+
+.rank-bar .essay-list ul li {
+	line-height: 24px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.rank-bar .essay-list a:hover {
+	text-decoration: underline;
+}
+
+.rank-bar .icon-bookmark,
+.rank-bar .icon-sort-amount-asc {
+	color: #B3B3B3;
+}
+
+.rank-bar .icon-asterisk {
+	color: #999;
+}
+
+.rank-bar .icon-num {
+	font-weight: bold;
+}
+
+.rank-bar .top-3 {
+	color: #ef6249;
+}
+
+
 /********************************Switch开关CSS代码********************************/
 .form-switch input[type=checkbox],
 .form-off-on input[type=checkbox] {

@@ -44,6 +44,7 @@
 .message-bar .left-box {
 	padding: 20px;
 	padding-bottom: 0;
+	border-right: 1px dashed #999;
 }
 
 .message-bar .message-publish {
@@ -211,28 +212,4 @@ textarea:focus {
 	width: 32px;
 	height: 20px;
 	cursor: pointer;
-}
-
-.rank-bar {
-	margin-top: 20px;
-	border-left: 1px dashed #999;
-}
-
-.rank-bar p {
-	font-size: 16px;
-	font-weight: bold;
-	color: #B3B3B3;
-}
-
-.rank-bar .essay-list {
-	padding: 15px 0;
-}
-
-.rank-bar .essay-list a {
-	display: block;
-	line-height: 24px;
-}
-
-.rank-bar .essay-list a:hover {
-	text-decoration: underline;
 }
