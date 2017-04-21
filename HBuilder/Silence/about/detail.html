@@ -7,6 +7,7 @@
 		<title>生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/history.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/opinion.css"/>
 		<!--[if lt IE 9]>
 			<script src="/silence/resources/js/common/html5shiv.js" type="text/javascript" charset="utf-8"></script>
@@ -49,6 +50,22 @@
 						<h1>生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</h1>
 						<div class="opinion-info">
 							发布时间：2017-04-20 21:39&nbsp;&nbsp;&nbsp;&nbsp;编辑：Silence&nbsp;&nbsp;458<span class="icon-eye2"></span>&nbsp;&nbsp;21<span class="icon-bubble"></span>
+						</div>
+						<div class="history-detail">
+							<div id="slideBox" class="slideBox">
+								<div class="hd">
+									<ul><li>1</li><li>2</li></ul>
+								</div>
+								<div class="bd">
+									<ul>
+										<li><img id="img-silde" src="/silence/resources/img/14749103850681742.jpg" /></li>
+										<li><img src="/silence/resources/img/14749103673516675.jpg" /></li>
+									</ul>
+								</div>
+								<a class="prev" href="javascript:void(0)"></a>
+								<a class="next" href="javascript:void(0)"></a>
+							</div>
+							<p class="history-content">生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。</p>
 						</div>
 						<div class="comment-box">
 							<h2>用户评论区</h2>
@@ -207,6 +224,16 @@
 		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/common/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/opinion.js" type="text/javascript" charset="utf-8"></script>
+	<script id="jsID" type="text/javascript">
+		var img = new Image();
+		img.src = $('#img-silde').attr('src');
+		img.onload = function() {
+			$('.slideBox').css('width', img.width + 'px').css('height', img.height + 'px');
+		}
+		var ary = location.href.split("&");
+		jQuery(".slideBox").slide( { mainCell:".bd ul", effect:ary[1],autoPlay:ary[2],trigger:ary[3],easing:ary[4],delayTime:ary[5],mouseOverStop:ary[6],pnLoop:ary[7] });
+	</script>
 </html>
