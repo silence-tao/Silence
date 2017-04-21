@@ -481,3 +481,29 @@ body {
 .slideBox .next:hover{ filter:alpha(opacity=100);opacity:1;  }
 .slideBox .prevStop{ display:none;  }
 .slideBox .nextStop{ display:none;  }
+
+.about-me h2 {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #F1F1F1;
+	font-size: 16px;
+	font-weight: bold;
+	color: #999;
+	margin: 20px 0;
+}
+
+.about-me p {
+	text-indent: 28px;
+	line-height: 28px;
+}
+
+.about-me h3,
+.my-info p {
+	line-height: 28px;
+	color: #ccc;
+}
+
+.my-info {
+	margin-top: 20px;
+	padding: 20px;
+}
