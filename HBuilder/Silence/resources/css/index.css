@@ -457,13 +457,46 @@ header .shade-bg .header-center p.en {
 	height: 216px;
 	margin: 20px auto;
 	border-radius: 200px;
-	border: 8px solid rgba(0, 0, 0, 0.2);
+	position: relative;
 }
 
 .mywords-bar .my-header img {
 	width: 200px;
 	height: 200px;
 	border-radius: 200px;
+}
+
+.mywords-bar .my-header .header-tips {
+	position: absolute;
+	width: 216px;
+	height: 216px;
+	top: -8px;
+	left: -8px;
+	border-radius: 200px;
+	border: 8px solid rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+}
+
+.mywords-bar .my-header .header-tips span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	line-height: 40px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 18px;
+	left: 0;
+	bottom: -40px;
+	-webkit-transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
+	-o-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
+}
+
+.mywords-bar .my-header .header-tips:hover span {
+	bottom: 0;
 }
 
 .mywords-bar .words-content {

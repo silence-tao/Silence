@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>陈涛个人博客-修改密码</title>
+		<title>陈涛个人博客-文章管理</title>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
-		<link rel="stylesheet" type="text/css" href="/silence/resources/css/user.css"/>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/technical.css"/>
 		<!--[if lt IE 9]>
 			<script src="/silence/resources/js/common/html5shiv.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/silence/resources/js/common/respond.min.js" type="text/javascript" charset="utf-8"></script>
@@ -37,46 +38,76 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">修改密码</a>
+				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">文章管理</a>
 			</div>
 		</div>
 		
 		<div class="message-bar clear-both">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-9 user-setting">
-						<div class="fl user-menu">
-							<div class="user-header">
-								<img src="../resources/img/14749103673516675.jpg"/>
-								<div class="action-box">
-									<a href="javascript:;" onclick="inShade('header-change')" class="link-change">更换头像</a>
-								</div>
-							</div>
-							<p class="user-name">Silence</p>
-							<h2>个人中心</h2>
+					<div class="col-lg-9 left-box">
+						<div class="manage-menu">
 							<ul>
-								<li><a href="#">基本信息</a></li>
-								<li class="active"><a href="#">修改密码</a></li>
+								<li><a href="#">全部文章</a></li>
+								<li><a href="#">心路历程</a></li>
+								<li><a href="#">分享生活</a></li>
+								<li><a href="#">技术分享</a></li>
 							</ul>
 						</div>
-						<div class="fr menu-aciton">
-							<div class="user-info">
-								<span class="title">修改密码</span>
-							</div>
-							<div class="form-group">
-								<div class="input-box">
-									<input type="text" name="" id="" value="" placeholder="请输入原始密码" />
-									<p></p>
-								</div>
-								<div class="input-box">
-									<input type="text" name="" id="" value="" placeholder="请输入新密码" />
-									<p></p>
-								</div>
-								<div class="input-box">
-									<input type="button" name="" id="" value="确认修改" />
-								</div>
-							</div>
-						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>标题</th>
+									<th>类别</th>
+									<th>阅读</th>
+									<th>评论</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><a href="#">生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</a><span class="grey-time">（2017-04-23 20:40）</span></td>
+									<th>心路历程</th>
+									<td>2234</td>
+									<td>323</td>
+									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
+									<th>心路历程</th>
+									<td>2234</td>
+									<td>323</td>
+									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
+									<th>分享生活</th>
+									<td>2234</td>
+									<td>323</td>
+									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
+									<th>生活分享</th>
+									<td>2234</td>
+									<td>323</td>
+									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
+									<th>技术分享</th>
+									<td>2234</td>
+									<td>323</td>
+									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
@@ -100,6 +131,18 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		
+		<div class="page-bar">
+			<a href="#" class="noclick">&lt;&lt;</a>
+			<a href="#" class="noclick">&lt;</a>
+			<a href="#" class="pre-page">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">&gt;</a>
+			<a href="#">&gt;&gt;</a>
 		</div>
 		
 		<footer>
@@ -128,33 +171,6 @@
 				<span class="toolbar-btn"></span>
 			</a>
 			
-			<div class="user-box">
-				<a href="javascript:;" title="Silence" class="toolbar-item toolbar-item-user">
-					<span class="toolbar-img">
-						<img src="../resources/img/14749103673516675.jpg" />
-					</span>
-				</a>
-				<div class="user-card">
-					<div class="user-info">
-						<div class="user-bg">
-							<img src="/silence/resources/img/background.jpg" class="img-responsive" />
-						</div>
-						<div class="user-header">
-							<a href="#" title="个人中心"><img src="/silence/resources/img/14749103673516675.jpg"/></a>
-						</div>
-						<p class="user-name">Silence</p>
-					</div>
-					<div class="menu-list">
-						<a href="#" title="个人中心"><span class="icon-user2"></span></a>
-						<a href="#" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
-						<a href="#" title="文章管理"><span class="icon-books"></span></a>
-						<a href="#" title="用户管理"><span class="icon-users2"></span></a>
-						<a href="#" title="安全退出"><span class="icon-power-off"></span></a>
-					</div>
-				</div>
-				<span class="msg-num">9</span>
-			</div>
-			
 			<div class="qrcode-box">
 				<a href="javascript:;" title="加我好友" class="toolbar-item toolbar-item-qq">
 					<span class="toolbar-btn"></span>
@@ -169,24 +185,6 @@
 			<a href="javascript:;" id="backTop" title="回到顶部" class="toolbar-item toolbar-item-top" onclick="move(0, 350)">
 				<span class="toolbar-btn"></span>
 			</a>
-		</div>
-		
-		<div class="shade-bar" id="header-change">
-			<div class="header-box">
-				<div class="box-top">
-					<span class="title">更换头像</span>
-					<span class="icon-close" onclick="outShade('header-change')"></span>
-				</div>
-				<div class="header-img">
-					<img src="../resources/img/14749103673516675.jpg"/>
-					<input type="file" class="hide" name="" id="header-picture" value="" onchange="picturePrev(this)" />
-				</div>
-				<p class="aciton-link"><a href="javasript:;">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
-				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
-					<input type="button" name="" id="" onclick="outShade('header-change')" value="取消" />
-				</div>
-			</div>
 		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>

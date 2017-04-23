@@ -459,7 +459,7 @@ a.no-pointer {
 }
 
 .toolbar .toolbar-item-back .toolbar-btn:before {
-	content: "\f0a8";
+	content: "\e930";
 }
 
 .toolbar .toolbar-item-back .toolbar-btn:after {
@@ -475,7 +475,7 @@ a.no-pointer {
 }
 
 .toolbar .toolbar-item-login .toolbar-btn:before {
-	content: "\e9a1";
+	content: "\e9c0";
 }
 
 .toolbar .toolbar-item-login .toolbar-btn:after {
@@ -616,7 +616,7 @@ a.no-pointer {
 }
 
 .toolbar .user-box .user-card .menu-list a {
-	margin: 0 20px;
+	margin: 0 12px;
 }
 
 .toolbar .user-box .user-card .menu-list a span {
