@@ -126,5 +126,20 @@
 
 .left-box .manage-menu ul li {
 	float: left;
+}
+
+.left-box .manage-menu ul li a {
 	padding: 0 20px;
+	display: inline-block;
+	height: 40px;
+	
+}
+
+.left-box .manage-menu ul li a:hover {
+	color: #019BE1;
+}
+
+.left-box .manage-menu ul li a.visited {
+	border-bottom: 1px solid #019BE1;
+	color: #019BE1;
 }

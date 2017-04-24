@@ -364,3 +364,175 @@
     padding: 10px;
     resize: none;
 }
+
+.left-box,
+.message-box {
+	margin-top: 20px;
+	border-right: 1px dashed #999;
+	min-height: 400px;
+}
+
+.left-box table a:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail {
+	width: 100%;
+	min-height: 100px;
+	padding: 20px;
+	background: #f8fafc;
+	margin-bottom: 20px;
+}
+
+.message-box .message-detail .user-info {
+	width: 100%;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-header {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-header img {
+	border-radius: 100px;
+	width: 50px;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-detail {
+	float: left;
+	height: 50px;
+	margin-left: 10px;
+}
+
+.message-box .message-detail .user-info .user-detail p.user-name {
+	line-height: 25px;
+}
+
+.message-box .message-detail .user-info .user-detail .name {
+	font-size: 16px;
+	color: #999;
+}
+
+.message-box .message-detail .user-info .user-detail p.time {
+	color: #ccc;
+}
+
+.message-box .message-detail .essay-summary {
+	width: 100%;
+	height: 100px;
+	margin: 10px 0;
+}
+
+.message-box .message-detail .essay-summary .essay-img {
+	width: 100px;
+	height: 100px;
+	float: left;
+	overflow: hidden;
+}
+
+.message-box .message-detail .essay-summary .essay-img img {
+	display: block;
+	max-height: 100%;
+	width: auto;
+}
+
+.message-box .message-detail .essay-summary .summary-content {
+	float: left;
+	height: 100px;
+	margin-left: 20px;
+}
+
+.message-box .message-detail .essay-summary .summary-content p.username {
+	margin-top: 15px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.message-box .message-detail .essay-summary .summary-content p {
+	line-height: 24px;
+}
+
+.message-box .message-detail a.username {
+	color: #999;
+}
+
+.message-box .message-detail a.username:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail .essay-summary .summary-content p a:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail .essay-summary .summary-content p.summary {
+	display: block;
+	width: 640px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.message-box .message-detail .comment-detail {
+	
+}
+
+.message-box .message-detail .comment-detail .user-header {
+	float: left;
+	height: 30px;
+	width: 30px;
+}
+
+.message-box .message-detail .comment-detail .user-header img {
+	height: 30px;
+	width: 30px;
+	border-radius: 60px;
+}
+
+.message-box .message-detail .comment-detail .comment-content {
+	width: 750px;
+	float: left;
+	margin-left: 10px;
+}
+
+.message-box .message-detail .comment-detail .comment-content p.time {
+	color: #ccc;
+}
+
+.message-box .message-detail .comment-detail .comment-content .comment {
+	padding: 10px 0;
+}
+
+.message-box .message-detail .comment-detail .comment-content .comment .content {
+	width: 700px;
+	margin-left: 10px;
+	float: left;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar {
+	width: 100%;
+	padding: 10px 0;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar input[type=text] {
+	width: 100%;
+	height: 30px;
+	padding: 0 10px;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar input[type=button] {
+	width: 72px;
+	height: 30px;
+	border: none;
+	color: #fff;
+	background: #019BE1;
+	float: right;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.message-box .message-detail a.replay:hover {
+	text-decoration: underline;
+}
