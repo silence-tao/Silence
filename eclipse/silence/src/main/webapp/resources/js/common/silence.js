@@ -203,3 +203,26 @@ function dateFormat(date ,format, loc) {
 	return format;
 } 
 /********************************封装函数JavaScript代码********************************/
+
+//退出系统
+function loginOut() {
+	silence.ajaxCurrent('/silence/user/loginOut', {},
+		function(data) {
+			window.location.href = '/silence';
+		},
+		function(data) {
+			console.log(data);
+		}
+	);
+}
+//退出系统
+
+//随机头像的生成
+function getHeader() {
+	var id = 0;
+	while(id == 0) {
+		id = Math.floor(Math.random()*31);
+	}
+	$('#user-header').attr('src', '/silence/resources/img/headers/' + id + '.png');
+}
+//随机头像的生成

@@ -43,27 +43,30 @@ public class UserController {
 	 */
 	@RequestMapping(value = "userRegister")
 	@ResponseBody
-	public SilenceResult<Null> register(User user, HttpServletRequest request) {
+	public SilenceResult<Null> register(User user, HttpServletRequest request, HttpSession session) {
 		if(userService.getCountByNikename(user.getNikename()) > 0) {
 			log.warn("昵称已存在");
-			throw new MessageExcetion("昵称已存在");
+			return new SilenceResult<Null>(false, "昵称已存在");
 		}
 		if(userService.getCountByUsername(user.getUsername()) > 0) {
 			log.warn("邮箱已被注册");
-			throw new MessageExcetion("邮箱已被注册");
+			return new SilenceResult<Null>(false, "邮箱已被注册");
 		}
 		user.setRegisterIp(request.getRemoteAddr());
 		user.setUserSign(StringUtil.getMd5(user.getUsername() + user.getNikename(), "silenceUser"));
+		user.setPassword(StringUtil.getMd5(user.getPassword(), "silencePassword"));
 		try {
 			userService.register(user);
+			user = userService.login(user);
+			session.setAttribute("userInfo", user);
 			return new SilenceResult<Null>(true, "注册成功");
 		} catch (DatabaseException e) {
 			log.error(e.getMessage(), e);
-			throw new MessageExcetion("注册失败,请重试");
+			return new SilenceResult<Null>(false, "注册失败");
 		} catch (Exception e) {
 			log.warn("注册失败");
 			log.error(e.getMessage(), e);
-			throw new MessageExcetion("注册失败");
+			return new SilenceResult<Null>(false, "注册失败");
 		}
 	}
 	
@@ -82,11 +85,17 @@ public class UserController {
 			User u, String remember, HttpSession session, HttpServletResponse response) {
 		User user = null;
 		if(userSign != null) {//判断是否记住了密码
+			if(!"silencetao".equals(u.getPassword())) {//避免出现用户修改了密码,还登录成功
+				clearCookie(response);
+				return new SilenceResult<Null>(false, "用户名或密码错误");
+			}
 			user = userService.getUserBySign(userSign);
-			if(!user.getUsername().equals(u.getUsername())) {
-				user = userService.login(u);
+			if(!user.getUsername().equals(u.getUsername())) {//避免出现用户修改了用户名,还登录成功
+				clearCookie(response);
+				return new SilenceResult<Null>(false, "用户名或密码错误");
 			}
 		} else {
+			u.setPassword(StringUtil.getMd5(u.getPassword(), "silencePassword"));
 			user = userService.login(u);
 		}
 		if(user != null) {//如果user不为空,表示等成功
@@ -96,17 +105,23 @@ public class UserController {
 				cookie.setMaxAge(3600 * 24 * 30);
 				response.addCookie(cookie);
 			} else {
-				Cookie cookie = new Cookie("userSign", null);
-				cookie.setMaxAge(0);
-				response.addCookie(cookie);
+				clearCookie(response);
 			}
 			return new SilenceResult<Null>(true, "登录成功");
 		} else {
-			Cookie cookie = new Cookie("userSign", null);
-			cookie.setMaxAge(0);
-			response.addCookie(cookie);
+			clearCookie(response);
 			return new SilenceResult<Null>(false, "用户名或密码错误");
 		}
+	}
+	
+	/**
+	 * 销毁Cookie
+	 * @param response
+	 */
+	private void clearCookie(HttpServletResponse response) {
+		Cookie cookie = new Cookie("userSign", null);
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
 	}
 	
 	/**
@@ -123,6 +138,8 @@ public class UserController {
 			User user = userService.getUserBySign(userSign);
 			if(user != null) {
 				user.setPassword("silencetao");
+				user.setUserId(0);
+				user.setNikename("");
 				return new SilenceResult<User>(true, user);
 			} else {
 				Cookie cookie = new Cookie("userSign", null);
@@ -175,5 +192,44 @@ public class UserController {
 			session.removeAttribute("userInfo");
 		}
 		return null;
+	}
+	
+	/**
+	 * 根据用户名或昵称获取用户的头像
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping(value = "getHeader")
+	@ResponseBody
+	public SilenceResult<Null> getHeader(String username) {
+		String header = userService.getHeader(username);
+		if(!"".equals(header) && header != null) {
+			return new SilenceResult<Null>(true, header);
+		}
+		return new SilenceResult<Null>(false, "用户名未注册");
+	}
+	
+	public SilenceResult<Null> addUser(User user, HttpServletRequest request) {
+		if(userService.getCountByNikename(user.getNikename()) > 0) {
+			log.warn("昵称已存在");
+			return new SilenceResult<Null>(false, "昵称已存在");
+		}
+		if(userService.getCountByUsername(user.getUsername()) > 0) {
+			log.warn("邮箱已被注册");
+			return new SilenceResult<Null>(false, "邮箱已被注册");
+		}
+		user.setRegisterIp(request.getRemoteAddr());
+		user.setUserSign(StringUtil.getMd5(user.getUsername() + user.getNikename(), "silenceUser"));
+		try {
+			userService.register(user);
+			return new SilenceResult<Null>(true, "保存成功");
+		} catch (DatabaseException e) {
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "保存成功");
+		} catch (Exception e) {
+			log.warn("注册失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "保存成功");
+		}
 	}
 }

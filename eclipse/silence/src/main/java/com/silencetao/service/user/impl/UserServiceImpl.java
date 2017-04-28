@@ -63,4 +63,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUserBySign(userSign);
 	}
 
+	@Override
+	public String getHeader(String username) {
+		return userDao.getHeader(username);
+	}
 }

@@ -61,7 +61,7 @@
 					<div class="user-box">
 						<a href="javascript:;" title="Silence" class="toolbar-item toolbar-item-user">
 							<span class="toolbar-img">
-								<img src="/silence/resources/img/14749103673516675.jpg" />
+								<img src="${userInfo.header }" />
 							</span>
 						</a>
 						<div class="user-card">
@@ -70,16 +70,16 @@
 									<img src="/silence/resources/img/background.jpg" class="img-responsive" />
 								</div>
 								<div class="user-header">
-									<a href="#" title="个人中心"><img src="/silence/resources/img/14749103673516675.jpg"/></a>
+									<a href="#" title="个人中心"><img src="${userInfo.header }"/></a>
 								</div>
-								<p class="user-name">Silence</p>
+								<p class="user-name">${userInfo.nikename }</p>
 							</div>
 							<div class="menu-list">
 								<a href="#" title="个人中心"><span class="icon-home2"></span></a>
 								<a href="#" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
 								<a href="#" title="文章管理"><span class="icon-books"></span></a>
 								<a href="#" title="用户管理"><span class="icon-users2"></span></a>
-								<a href="#" title="安全退出"><span class="icon-power-off"></span></a>
+								<a href="javascript:;" onclick="loginOut()" title="安全退出"><span class="icon-power-off"></span></a>
 							</div>
 						</div>
 						<span class="msg-num">9</span>

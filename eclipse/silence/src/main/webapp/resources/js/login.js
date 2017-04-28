@@ -3,6 +3,7 @@ $(function() {
 	
 	$('#username').blur(function() {
 		$('#username').next().text('').fadeOut();
+		getHeader();
 	});
 	
 	$('#password').blur(function() {
@@ -48,6 +49,25 @@ function login() {
 				window.location.href = '/silence';
 			} else {
 				$('#password').next().text(data.message).fadeIn();
+			}
+		},
+		function(data) {
+			console.log(data);
+		}
+	);
+}
+
+function getHeader() {
+	var username = $('#username').val();
+	var data = {};
+	if(username.length == 0) {
+		return ;
+	}
+	data.username = username;
+	silence.ajaxCurrent('/silence/user/getHeader', data,
+		function(data) {
+			if(data.success) {
+				$('#user-header').attr('src', data.message);
 			}
 		},
 		function(data) {

@@ -209,8 +209,8 @@
 					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
 				</div>
 				<div class="box-btn">
-					<a href="#">已有账号，立即登录</a>
-					<a href="#">不想录入，直接注册</a>
+					<a href="/silence/user/login">已有账号，立即登录</a>
+					<a href="/silence/user/register">不想录入，直接注册</a>
 				</div>
 			</div>
 		</div>

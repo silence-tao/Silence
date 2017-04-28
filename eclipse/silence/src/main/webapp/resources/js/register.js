@@ -1,6 +1,8 @@
 var flag = [false, false, false];
 
 $(function() {
+	getHeader();
+	
 	$('#nikename').focus(function() {
 		flag[0] = false;
 		var nikename = $('#nikename').val().trim();
@@ -121,9 +123,14 @@ function register() {
 	data.nikename = nikename;
 	data.username = username;
 	data.password = password;
+	data.header = $('#user-header').attr('src');
 	silence.ajaxCurrent('/silence/user/userRegister', data,
 		function(data) {
-			console.log(data);
+			if(data.success) {
+				window.location.href = '/silence';
+			} else {
+				$('#password').next().text(data.message).fadeIn();
+			}
 		},
 		function(data) {
 			console.log(data);

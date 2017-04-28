@@ -24,8 +24,8 @@
 		<div class="filter-bar">
 		</div>
 		<div class="form-box">
-			<div class="header-picture header-picture-register">
-				<img src="/silence/resources/img/head.jpg"/>
+			<div class="header-picture header-picture-register" onclick="getHeader()">
+				<img src="/silence/resources/img/head.jpg" id="user-header" />
 				<span class="tips">点击更换头像</span>
 			</div>
 			<div class="form-group first-form">

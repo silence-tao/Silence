@@ -25,7 +25,7 @@
 		</div>
 		<div class="form-box">
 			<div class="header-picture">
-				<img src="/silence/resources/img/head.jpg"/>
+				<img src="/silence/resources/img/head.jpg" id="user-header" />
 			</div>
 			<div class="form-group first-form">
 				<input type="text" name="username" class="input-text" id="username" placeholder="请输入邮箱/昵称" />

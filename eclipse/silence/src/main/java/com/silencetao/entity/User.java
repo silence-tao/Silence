@@ -18,6 +18,7 @@ public class User implements Serializable {
 	private Date registerTime;
 	private long userRank;
 	private String userSign;
+	private String header;
 	
 	public User() {
 		
@@ -103,12 +104,18 @@ public class User implements Serializable {
 		this.userSign = userSign;
 	}
 
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
+	}
+
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username
-				+ ", nikename=" + nikename + ", password=" + password
-				+ ", registerIp=" + registerIp + ", registerTime="
-				+ registerTime + ", userRank=" + userRank + ", userSign="
-				+ userSign + "]";
+		return "User [userId=" + userId + ", username=" + username + ", nikename=" + nikename + ", password=" + password
+				+ ", registerIp=" + registerIp + ", registerTime=" + registerTime + ", userRank=" + userRank
+				+ ", userSign=" + userSign + ", header=" + header + "]";
 	}
 }

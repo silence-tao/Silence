@@ -40,7 +40,7 @@
 				<p>一个不会写bug的Silence,只是自我安慰罢了</p>
 				</div>
 				<div class="my-header">
-					<a href="#">
+					<a href="/silence/about">
 						<img src="/silence/resources/img/head.jpg" />
 						<div class="header-tips">
 							<span>陈涛</span>
@@ -156,6 +156,48 @@
 		
 		<%@ include file="/resources/pages/footer.jsp" %>
 		
+		<div class="shade-bar" id="userinfo-bar">
+			<div class="user-edit">
+				<div class="box-top">
+					<span class="title">请录入基本信息</span>
+					<span class="icon-close" onclick="outShade('userinfo-bar')"></span>
+				</div>
+				<div class="header-box">
+					<img src="/silence/resources/img/14749103673516675.jpg" id="user-header" />
+					<div class="tips-box">
+						<a href="javascript:;" onclick="getHeader()" class="link-change">更换头像</a>
+					</div>
+				</div>
+				<div class="edit-list">
+					<div class="input-box clear-both">
+						<div class="fl title">
+							昵称：
+						</div>
+						<div class="fl input-text">
+							<input type="text" name="" id="" value="" placeholder="请输入昵称" />
+							<p></p>
+						</div>
+					</div>
+					<div class="input-box clear-both">
+						<div class="fl title">
+							邮箱：
+						</div>
+						<div class="fl input-text">
+							<input type="text" name="" id="" value="" placeholder="请输入邮箱" />
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="box-btn">
+					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
+				</div>
+				<div class="box-btn">
+					<a href="/silence/user/login">已有账号，立即登录</a>
+					<a href="/silence/user/register">不想录入，直接注册</a>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>

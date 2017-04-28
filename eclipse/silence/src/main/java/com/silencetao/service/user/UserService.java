@@ -42,4 +42,11 @@ public interface UserService {
 	 * @return 返回相应userSign的user对象
 	 */
 	public User getUserBySign(String userSign);
+	
+	/**
+	 * 根据用户名或昵称获取用户的头像
+	 * @param username
+	 * @return
+	 */
+	public String getHeader(String username);
 }

@@ -60,23 +60,6 @@
 		
 		<%@ include file="/resources/pages/footer.jsp" %>
 		
-		<div class="shade-bar" id="header-change">
-			<div class="header-box">
-				<div class="box-top">
-					<span class="title">更换头像</span>
-					<span class="icon-close" onclick="outShade('header-change')"></span>
-				</div>
-				<div class="header-img">
-					<img src="../resources/img/14749103673516675.jpg"/>
-					<input type="file" class="hide" name="" id="header-picture" value="" onchange="picturePrev(this)" />
-				</div>
-				<p class="aciton-link"><a href="javasript:;">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
-				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
-					<input type="button" name="" id="" onclick="outShade('header-change')" value="取消" />
-				</div>
-			</div>
-		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
