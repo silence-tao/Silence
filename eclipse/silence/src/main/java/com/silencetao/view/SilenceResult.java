@@ -27,6 +27,11 @@ public class SilenceResult<T> {
 		this.message = message;
 	}
 
+	public SilenceResult(boolean isSuccess, int status) {
+		this.isSuccess = isSuccess;
+		this.status = status;
+	}
+
 	public SilenceResult(boolean isSuccess, int status, String message) {
 		this.isSuccess = isSuccess;
 		this.status = status;

@@ -1,0 +1,377 @@
+body {
+	background: #fff;
+}
+
+.life-bar{
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.life-bar .life-list {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.life-bar .life-list .life-img {
+	height: 240px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.life-bar .life-list .life-img img {
+	-webkit-transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
+	-o-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
+}
+
+.life-bar .life-list .life-bottom {
+	padding: 0 20px;
+	background: #fff;
+	-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	-ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	height: 300px;
+}
+
+.life-bar .life-list .col-lg-4 {
+	margin-top: 20px;
+}
+
+.life-bar .life-list .col-lg-4:hover img {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.life-bar .life-list .life-bottom .life-title {
+	line-height: 32px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #666;
+	padding: 20px 0;
+}
+
+.life-bar .life-list .life-bottom .life-time span {
+	font-size: 16px;
+	color: #c9c9c9;
+}
+
+.life-bar .life-list .life-bottom .life-time span.icon-bubble {
+	font-size: 14px;
+	line-height: 20px;
+	margin-left: 5px;
+	color: #019bE1;
+}
+
+.life-bar .life-list .life-bottom .life-sumary {
+	padding: 20px 0;
+	color: #878787;
+	font-size: 14px;
+}
+
+.life-bar .life-list .life-bottom .life-btn {
+	height: 40px;
+	width: 100%;
+}
+
+.life-bar .life-list .life-bottom .life-btn .link-button {
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	background: #019bE1;
+	color: #fff;
+	width: 120px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.detail-box {
+	padding: 0 20px;
+	border-right: 1px dashed #999;
+	margin: 20px 0;
+}
+
+.detail-bar h1 {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.detail-bar .opinion-info {
+	margin: 20px 0;
+	text-align: center;
+	color: #999;
+}
+
+.detail-bar .opinion-info span {
+	color: #999;
+}
+
+.detail-bar .opinion-content {
+	margin-bottom: 20px;
+}
+
+.opinion-near p {
+	color: #999;
+	line-height: 24px;
+}
+
+.opinion-near a:hover {
+	text-decoration: underline;
+}
+
+.comment-box {
+	margin-top: 20px;
+}
+
+.comment-box h2 {
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+.comment-box .comment-publish {
+	padding: 20px 0;
+}
+
+.comment-box .comment-publish textarea {
+	width: 100%;
+    height: 120px;
+    padding: 10px;
+    resize: none;
+}
+
+.comment-box .comment-publish input[type=button] {
+    width: 72px;
+    height: 30px;
+    border: none;
+    background: #019BE1;
+    color: #fff;
+    cursor: pointer;
+}
+
+.comment-box .comment-list .comment-detail {
+	padding: 10px 0;
+	border-top: 1px solid #e3e3e3;
+}
+
+.comment-box .comment-list .comment-detail .father-header {
+	height: 50px;
+	width: 10%;
+}
+.comment-box .comment-list .comment-detail .father-header img {
+	height: 50px;
+	width: 50px;
+}
+
+.comment-box .comment-list .comment-detail .comment-content {
+	width: 90%;
+	font-size: 16px;
+}
+
+.comment-box .comment-list .comment-detail .comment-content a {
+	color: #019BE1;
+}
+
+.comment-box .comment-list .comment-detail .comment-content p {
+	font-size: 14px;
+	color: #ccc;
+}
+
+.father-info {
+	width: 100%;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-publish {
+	padding: 10px 0;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-header {
+	height: 30px;
+	width: 10%;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-header img {
+	width: 30px;
+	height: 30px;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-publish .sub-input {
+	width: 90%;
+	height: 30px;
+}
+
+textarea:focus {
+	border-color: #019BE1;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-publish .sub-input input[type=text] {
+	width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #A9A9A9;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-btn {
+	padding-bottom: 10px;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-btn input[type=button] {
+	width: 50px;
+	height: 25px;
+	background: #019BE1;
+	color: #fff;
+	border: none;
+	float: right;
+	cursor: pointer;
+}
+
+.comment-box .comment-list .comment-detail .comment-content .sub-detail {
+	padding: 10px 0;
+	border-top: 1px solid #E3E3E3;
+}
+
+.user-edit {
+	width: 500px;
+	min-height: 420px;
+	margin: 100px auto 0;
+	background: #fff;
+	padding: 20px;
+}
+
+.user-edit .box-top {
+	width: 100%;
+	height: 30px;
+	font-size: 16px;
+}
+
+.user-edit .box-top .title {
+	font-weight: bold;
+}
+
+.user-edit .box-top .icon-close {
+	float: right;
+	cursor: pointer;
+}
+
+.user-edit .header-box {
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+.user-edit .header-box .tips-box {
+	position: absolute;
+	width: 110px;
+	height: 110px;
+	border-radius: 200px;
+	border: 5px solid rgba(0, 0, 0, 0.2);
+	top: -5px;
+	left: -5px;
+	overflow: hidden;
+}
+
+.user-edit .header-box .tips-box .link-change {
+    display: block;
+    width: 110px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    bottom: -30px;
+    left: -5px;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+.user-edit .header-box .tips-box:hover .link-change {
+	bottom: 0;
+}
+
+.user-edit .header-box img {
+	width: 100px;
+	height: 100px;
+	border-radius: 200px;
+}
+
+.user-edit .box-btn {
+	width: 100%;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.user-edit .box-btn input[type=button] {
+	width: 50px;
+	height: 25px;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+.user-edit .box-btn input[type=button]:first-child {
+	border: none;
+	background: #019BE1;
+	color: #fff;
+}
+
+.user-edit .box-btn input[type=button]:last-child {
+	border: 1px solid #d0d6d9;
+	background: transparent;
+}
+
+.user-edit .box-btn a {
+	margin: 0 20px;
+	color: #019BE1;
+}
+
+.user-edit .box-btn a:hover {
+	text-decoration: underline;
+}
+
+.user-edit .edit-list {
+	margin: 20px 0;
+}
+
+.user-edit .input-box {
+	width: 100%;
+	height: 60px;
+}
+
+.user-edit .edit-list .title {
+	width: 25%;
+	height: 40px;
+	text-align: right;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.user-edit .edit-list .input-text {
+	width: 75%;
+	height: 60px;
+	padding: 0 20px;
+}
+
+.user-edit .edit-list .input-text input[type=text] {
+	width: 100%;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.user-edit .edit-list .input-text p {
+	line-height: 20px;
+	color: #FF0000;
+}

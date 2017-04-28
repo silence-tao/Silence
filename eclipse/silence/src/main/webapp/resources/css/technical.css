@@ -1,0 +1,145 @@
+.technical-bar .technical-list {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.technical-bar .technical-list .col-lg-6 {
+	margin-top: 15px;
+}
+
+.technical-bar .technical-list .technical-detail {
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+  	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+  	box-shadow:0 0 10px rgba(0, 0, 0, 0.35);
+  	background: #fff;
+  	padding: 20px;
+}
+
+.technical-bar .technical-list .technical-detail .user-info {
+	height: 50px;
+	position: relative;
+}
+
+.technical-bar .technical-list .technical-detail .user-info .user-header,
+.technical-bar .technical-list .technical-detail .user-info .user-header img {
+	border-radius: 100px;
+	width: 50px;
+	height: 50px;
+}
+
+.technical-bar .technical-list .technical-detail .user-info a {
+	position: absolute;
+	top: 10px;
+	left: 60px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #b3b3b3;
+}
+
+.technical-bar .technical-list .technical-detail .user-info a:hover,
+.technical-bar .technical-list .technical-detail .technical-content .technical-info .technical-title a:hover {
+	color: #019bE1;
+}
+
+.technical-bar .technical-list .technical-detail .user-info p {
+	position: absolute;
+	top: 30px;
+	left: 60px;
+	color: #b3b3b3;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content {
+	width: 100%;
+	height: 200px;
+	margin-top: 20px;
+	position: relative;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content .technical-img {
+	height: 200px;
+	width: 200px;
+	float: left;
+	border: 1px solid #eae6e7;
+	padding: 5px;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content .technical-info {
+	width: 300px;
+	float: left;
+	margin-left: 10px;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content .technical-info .technical-title {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 32px;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content .technical-info .technical-title a {
+	color: #b3b3b3;
+}
+
+.technical-bar .technical-list .technical-detail .technical-content .technical-info .technical-sumary {
+	text-indent: 32px;
+	font-size: 16px;
+	color: #878787;
+}
+
+
+.technical-bar .technical-list .technical-detail .technical-content .link-button {
+	position: absolute;
+	bottom: 10px;
+	right: 15px;
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	background: #019bE1;
+	color: #fff;
+	width: 120px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.left-box {
+	margin-top: 20px;
+	border-right: 1px dashed #999;
+	min-height: 400px;
+}
+
+.left-box .grey-time {
+	color: #ccc;
+}
+
+.left-box table a:hover {
+	text-decoration: underline;
+}
+
+.left-box .manage-menu {
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+.left-box .manage-menu ul li {
+	float: left;
+}
+
+.left-box .manage-menu ul li a {
+	padding: 0 20px;
+	display: inline-block;
+	height: 40px;
+	
+}
+
+.left-box .manage-menu ul li a:hover {
+	color: #019BE1;
+}
+
+.left-box .manage-menu ul li a.visited {
+	border-bottom: 1px solid #019BE1;
+	color: #019BE1;
+}

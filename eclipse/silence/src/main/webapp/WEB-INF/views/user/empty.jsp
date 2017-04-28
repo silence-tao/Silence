@@ -6,14 +6,3 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>陈涛个人博客-一个不会写bug的Silence个人博客网站</title>
-	</head>
-	<body>
-		<jsp:forward page="index.html"></jsp:forward>
-	</body>
-</html>
-

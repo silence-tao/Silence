@@ -1,0 +1,538 @@
+.user-setting {
+	margin: 20px 0;
+	border-right: 1px dashed #999;
+	padding: 0;
+}
+
+.user-setting .user-menu {
+	width: 200px;
+	background: #f8fafc;
+	padding-bottom: 20px;
+}
+
+.user-setting .user-menu .user-header {
+	margin-top: 20px;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	position: relative;
+}
+
+.user-setting .user-menu .user-header img {
+	margin: 5px auto;
+	height: 90px;
+	width: 90px;
+	border-radius: 200px;
+}
+
+.user-setting .user-menu .user-header .action-box {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 0px;
+	left: 50%;
+	margin-left: -50px;
+	border-radius: 200px;
+	border: 5px solid rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+}
+
+.user-setting .user-menu .user-header .action-box .link-change {
+	display: block;
+	width: 100px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	line-height: 30px;
+	position: absolute;
+	top: 90px;
+	left: -5px;
+	-webkit-transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
+	-o-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
+}
+
+.user-setting .user-menu .user-header .action-box:hover .link-change {
+	top: 60px;
+}
+
+.user-setting .user-menu .user-name {
+	text-align: center;
+	line-height: 32px;
+	font-size: 16px;
+}
+
+.user-setting .user-menu h2 {
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #d9dde1;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.user-setting .user-menu ul li a {
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.user-setting .user-menu ul li a:hover {
+	color: #019BE1;
+}
+
+.user-setting .user-menu ul li.active {
+	background: #019BE1;
+	pointer-events: none;
+}
+
+.user-setting .user-menu ul li.active a {
+	color: #fff;
+}
+
+.user-setting .menu-aciton {
+	min-height: 400px;
+	width: 75%;
+	padding: 0 20px;
+}
+
+.user-setting .menu-aciton .user-info {
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid #F1F1F1;
+	line-height: 60px;
+}
+
+.user-setting .menu-aciton .user-info .title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.user-setting .menu-aciton .user-info .icon-edit {
+	float: right;
+	line-height: 60px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.user-setting .menu-aciton .user-detail,
+.user-setting .menu-aciton .form-group {
+	padding: 20px;
+}
+
+.user-setting .menu-aciton .user-detail .info {
+	width: 100%;
+	height: 60px;
+	margin: 10px 0;
+	font-size: 16px;
+	line-height: 60px;
+}
+
+.user-setting .menu-aciton .user-detail .info .info-left {
+	width: 20%;
+	height: 100%;
+	background: #f3f5f7;
+	text-align: center;
+	font-weight: bold;
+}
+
+.user-setting .menu-aciton .user-detail .info .info-right {
+	width: 78%;
+	height: 100%;
+	border-bottom: 1px solid #F1F1F1;
+	padding-left: 20px;
+}
+
+.user-setting .menu-aciton .form-group .input-box {
+	width: 60%;
+	height: 60px;
+	margin: 20px auto 0;
+}
+
+.user-setting .menu-aciton .form-group .input-box input[type=text] {
+	width: 100%;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.user-setting .menu-aciton .form-group .input-box p {
+	line-height: 20px;
+	color: #FF0000;
+}
+
+.user-setting .menu-aciton .form-group .input-box input[type=button] {
+	width: 100%;
+	height: 40px;
+	border: none;
+	background: #019BE1;
+	color: #fff;
+	cursor: pointer;
+}
+
+.header-box,
+.info-edit {
+	width: 500px;
+	min-height: 420px;
+	margin: 100px auto 0;
+	background: #fff;
+	padding: 20px;
+}
+
+.box-top {
+	width: 100%;
+	height: 30px;
+	font-size: 16px;
+}
+
+.box-top .title {
+	font-weight: bold;
+}
+
+.box-top .icon-close {
+	float: right;
+	cursor: pointer;
+}
+
+.header-box .header-img {
+	width: 200px;
+	height: 200px;
+	margin: 20px auto 0;
+}
+
+.header-box .header-img img {
+	width: 200px;
+	height: 200px;
+	border-radius: 400px;
+	border: 5px solid rgba(0, 0, 0, 0.2);
+}
+
+.header-box .aciton-link {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.header-box .aciton-link a {
+	margin: 0 20px;
+	font-size: 14px;
+	color: #019BE1;
+}
+
+.box-btn {
+	width: 100%;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.box-btn input[type=button] {
+	width: 50px;
+	height: 25px;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+.box-btn input[type=button]:first-child {
+	border: none;
+	background: #019BE1;
+	color: #fff;
+}
+
+.box-btn input[type=button]:last-child {
+	border: 1px solid #d0d6d9;
+	background: transparent;
+}
+
+.info-edit .edit-list {
+	margin: 20px 0;
+}
+
+.info-edit .input-box {
+	width: 100%;
+	height: 60px;
+}
+
+.info-edit .edit-list .title {
+	width: 25%;
+	height: 40px;
+	text-align: right;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.info-edit .edit-list .input-text {
+	width: 75%;
+	height: 60px;
+	padding: 0 20px;
+}
+
+.info-edit .edit-list .input-text input[type=text],
+.info-edit .edit-list .input-text input[type=date] {
+	width: 100%;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.info-edit .edit-list .input-text p {
+	line-height: 20px;
+	color: #FF0000;
+}
+
+.sex-switch {
+	height: 40px;
+	padding: 8px 0;
+}
+
+.sex-switch .radio {
+	width: 40px;
+	height: 24px;
+	background: #019BE1;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 50px;
+	position: relative;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+}
+
+.sex-switch .radio .circle {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	border-radius: 50px;
+	background: #fff;
+	display: inline-block;
+	left: 1px;
+	top: 1px;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+.sex-switch .radio .circle:before {
+	content: '男';
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	line-height: 22px;
+	text-align: center;
+	color: #999;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle {
+	left: 16px;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle:before {
+	content: '女';
+}
+
+.sex-switch input[type=checkbox]:checked ~ label {
+	background: rgb(255, 192, 203);
+}
+
+.check-box .class-name {
+	display: inline-block;
+	line-height: 25px;
+	height: 25px;
+	padding: 0 10px;
+	margin: 2.5px 5px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	color: #999;
+}
+
+.check-box input[type=checkbox]:checked ~ label {
+	background: #019BE1;
+	color: #fff;
+	border-color: #fff;
+}
+
+.edit-list .sign {
+	margin-top: 20px;
+}
+
+.edit-list .sign textarea {
+	width: 100%;
+    height: 100%;
+    padding: 10px;
+    resize: none;
+}
+
+.left-box,
+.message-box {
+	margin-top: 20px;
+	border-right: 1px dashed #999;
+	min-height: 400px;
+}
+
+.left-box table a:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail {
+	width: 100%;
+	min-height: 100px;
+	padding: 20px;
+	background: #f8fafc;
+	margin-bottom: 20px;
+}
+
+.message-box .message-detail .user-info {
+	width: 100%;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-header {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-header img {
+	border-radius: 100px;
+	width: 50px;
+	height: 50px;
+}
+
+.message-box .message-detail .user-info .user-detail {
+	float: left;
+	height: 50px;
+	margin-left: 10px;
+}
+
+.message-box .message-detail .user-info .user-detail p.user-name {
+	line-height: 25px;
+}
+
+.message-box .message-detail .user-info .user-detail .name {
+	font-size: 16px;
+	color: #999;
+}
+
+.message-box .message-detail .user-info .user-detail p.time {
+	color: #ccc;
+}
+
+.message-box .message-detail .essay-summary {
+	width: 100%;
+	height: 100px;
+	margin: 10px 0;
+}
+
+.message-box .message-detail .essay-summary .essay-img {
+	width: 100px;
+	height: 100px;
+	float: left;
+	overflow: hidden;
+}
+
+.message-box .message-detail .essay-summary .essay-img img {
+	display: block;
+	max-height: 100%;
+	width: auto;
+}
+
+.message-box .message-detail .essay-summary .summary-content {
+	float: left;
+	height: 100px;
+	margin-left: 20px;
+}
+
+.message-box .message-detail .essay-summary .summary-content p.username {
+	margin-top: 15px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.message-box .message-detail .essay-summary .summary-content p {
+	line-height: 24px;
+}
+
+.message-box .message-detail a.username {
+	color: #999;
+}
+
+.message-box .message-detail a.username:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail .essay-summary .summary-content p a:hover {
+	text-decoration: underline;
+}
+
+.message-box .message-detail .essay-summary .summary-content p.summary {
+	display: block;
+	width: 640px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.message-box .message-detail .comment-detail {
+	
+}
+
+.message-box .message-detail .comment-detail .user-header {
+	float: left;
+	height: 30px;
+	width: 30px;
+}
+
+.message-box .message-detail .comment-detail .user-header img {
+	height: 30px;
+	width: 30px;
+	border-radius: 60px;
+}
+
+.message-box .message-detail .comment-detail .comment-content {
+	width: 750px;
+	float: left;
+	margin-left: 10px;
+}
+
+.message-box .message-detail .comment-detail .comment-content p.time {
+	color: #ccc;
+}
+
+.message-box .message-detail .comment-detail .comment-content .comment {
+	padding: 10px 0;
+}
+
+.message-box .message-detail .comment-detail .comment-content .comment .content {
+	width: 700px;
+	margin-left: 10px;
+	float: left;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar {
+	width: 100%;
+	padding: 10px 0;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar input[type=text] {
+	width: 100%;
+	height: 30px;
+	padding: 0 10px;
+}
+
+.message-box .message-detail .comment-detail .comment-content .long-bar input[type=button] {
+	width: 72px;
+	height: 30px;
+	border: none;
+	color: #fff;
+	background: #019BE1;
+	float: right;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.message-box .message-detail a.replay:hover {
+	text-decoration: underline;
+}

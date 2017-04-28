@@ -105,7 +105,7 @@ public class UserController {
 			Cookie cookie = new Cookie("userSign", null);
 			cookie.setMaxAge(0);
 			response.addCookie(cookie);
-			return new SilenceResult<Null>(false, "用户名不存在或密码错误");
+			return new SilenceResult<Null>(false, "用户名或密码错误");
 		}
 	}
 	
@@ -132,5 +132,48 @@ public class UserController {
 			}
 		}
 		return new SilenceResult<User>(false, "上次登录未记住密码");
+	}
+	
+	/**
+	 * 检测用户或昵称是否存在
+	 * @param name
+	 * @param action
+	 * @return
+	 */
+	@RequestMapping(value = "checkName")
+	@ResponseBody
+	public SilenceResult<Null> checkName(String name, long action) {
+		if("".equals(name)) {
+			return new SilenceResult<Null>(false, 0);
+		} else {
+			if(action == 1) {
+				if(userService.getCountByNikename(name) > 0) {
+					return new SilenceResult<Null>(false, "昵称已存在");
+				} else {
+					return new SilenceResult<Null>(true, 1);
+				}
+			} else {
+				if(userService.getCountByUsername(name) > 0) {
+					return new SilenceResult<Null>(false, "用户名已存在");
+				} else {
+					return new SilenceResult<Null>(true, 1);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * 退出登录
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "loginOut")
+	@ResponseBody
+	public String loginOut(HttpSession session) {
+		User user = (User) session.getAttribute("userInfo");
+		if(user != null) {
+			session.removeAttribute("userInfo");
+		}
+		return null;
 	}
 }

@@ -1,6 +1,13 @@
 $(function() {
-	topMobile('backPrevious()', '返回', '登录', 'openPopup()', 'icon-plus-circle', '');
 	getAccount();
+	
+	$('#username').blur(function() {
+		$('#username').next().text('').fadeOut();
+	});
+	
+	$('#password').blur(function() {
+		$('#password').next().text('').fadeOut();
+	});
 });
 
 function getAccount() {
@@ -22,13 +29,15 @@ function login() {
 	var data = {};
 	var username = $('#username').val().trim();
 	if(username.length == 0) {
-		alert("邮箱/昵称不能为空");
+		$('#username').next().text('不能为空').fadeIn();
 		return ;
 	}
 	var password = $('#password').val().trim();
 	if(password.length == 0) {
-		alert("昵称不能为空");
+		$('#password').next().text('密码不能为空').fadeIn();
 		return ;
+	} else if(password.length < 6 || password.length > 16) {
+		$('#password').next().text('6-16位字符').fadeIn();
 	}
 	data.username = username;
 	data.password = password;
@@ -37,6 +46,8 @@ function login() {
 		function(data) {
 			if(data.success) {
 				window.location.href = '/silence';
+			} else {
+				$('#password').next().text(data.message).fadeIn();
 			}
 		},
 		function(data) {

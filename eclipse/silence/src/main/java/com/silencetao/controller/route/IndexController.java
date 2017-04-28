@@ -6,20 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 关于博客模块页面跳转代理
+ * 页面跳转代理
  * @author Silence
  *
  */
 @Controller
-public class AboutController {
+public class IndexController {
 	
-	@RequestMapping(value = "{action}", method = RequestMethod.GET)
+	@RequestMapping(value = "{action}.html", method = RequestMethod.GET)
 	public String to(@PathVariable("action") String action) {
-		return "about/" + action;
-	}
-	
-	@RequestMapping(value = "history/{action}", method = RequestMethod.GET)
-	public String toDetail(@PathVariable("action") String action) {
-		return "about/" + action;
+		return action;
 	}
 }

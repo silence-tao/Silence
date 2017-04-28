@@ -29,9 +29,15 @@
 			</div>
 			<div class="form-group first-form">
 				<input type="text" name="username" class="input-text" id="username" placeholder="请输入邮箱/昵称" />
+				<div class="form-tips">
+					
+				</div>
 			</div>
 			<div class="form-group last-form">
 				<input type="password" name="password" class="input-text" id="password" placeholder="请输入密码" />
+				<div class="form-tips">
+					
+				</div>
 			</div>
 			<div class="form-btn">
 				<input type="button" id="" class="input-btn" onclick="login()" value="登录" />
@@ -46,7 +52,7 @@
 		</div>
 		
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
-			<a href="javascript:;" title="返回前页" class="toolbar-item toolbar-item-back">
+			<a href="/silence" title="返回前页" class="toolbar-item toolbar-item-back">
 				<span class="toolbar-btn"></span>
 			</a>
 			
