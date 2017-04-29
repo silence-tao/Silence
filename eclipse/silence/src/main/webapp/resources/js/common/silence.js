@@ -76,6 +76,10 @@ function downShade(id) {
 function upShade(id) {
 	$("#" + id).slideUp();
 }
+
+function boxToggle(id) {
+	$("#" + id).toggle();
+}
 /********************************遮罩层控制JavaScript代码********************************/
 var topBar = false;
 /********************************history页面JavaScript代码********************************/
@@ -226,3 +230,18 @@ function getHeader() {
 	$('#user-header').attr('src', '/silence/resources/img/headers/' + id + '.png');
 }
 //随机头像的生成
+
+/********************************消息提醒JavaScript代码********************************/
+function tipsBar(yesOrNo, message) {
+	if(yesOrNo) {
+		$('#tips-icon').removeClass('icon-close').addClass('icon-check');
+	} else {
+		$('#tips-icon').removeClass('icon-check').addClass('icon-close');
+	}
+	$('#tips-box').text(message);
+	inShade('tips-bar');
+	setTimeout(function() {
+		outShade('tips-bar');
+	}, 800);
+}
+/********************************消息提醒JavaScript代码********************************/

@@ -24,6 +24,50 @@
 	<body>
 		<%@ include file="/resources/pages/header.jsp" %>
 		
+		<div class="hide" id="tpl_message_detail">
+			<div class="message-detail">
+				<div class="user-info">
+					<div class="user-header">
+						<img src="{header}"/>
+					</div>
+					<a href="#">{nikename}</a>
+					<p>第{floor}楼</p>
+				</div>
+				<div class="message-info">
+					<p class="message-content">{content}</p>
+					<p class="message-time">{messageTime}</p>
+					{reply-list}
+					<div class="reply-box" id="reply-box-{messageId}">
+						<textarea id="reply-text-{messageId}" name="" rows="" cols=""></textarea>
+						<div class="reply-btn">
+							<input type="button" name="" id="" onclick="replyMessage({messageId})" value="回复" />
+							<a href="javascript:;" onclick="boxToggle('reply-box-{messageId}')">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_reply_list">
+			<div class="reply-list">
+				{replyDetail}
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_reply_detail">
+			<div class="reply-detail clear-both">
+				<div class="user-header">
+					<img src="{header}"/>
+				</div>
+				<div class="reply-info">
+					<p class="reply-content"><a href="#">{nikename}&nbsp;&nbsp;</a>{content}</p>
+					<p class="reply-time">{messageTime}</p>
+				</div>
+			</div>
+		</div>
+		
+		
+		
 		<div class="path-bar container clear-both">
 			<div class="fl">
 				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言板</a>
@@ -57,65 +101,12 @@
 					<div class="col-lg-9 left-box">
 						<div class="message-publish">
 							<p>发表您的留言</p>
-							<textarea name="" ></textarea>
-							<input type="button" name="" id="" value="发表" />
+							<textarea name="" id="message-text" ></textarea>
+							<input type="button" name="" id="" onclick="submitMessage()" value="发表" />
 						</div>
-						<h2 class="message-title">留言(100)</h2>
-						<div class="message-list">
-							<div class="message-detail">
-								<div class="user-info">
-									<div class="user-header">
-										<img src="/silence/resources/img/14749103673516675.jpg"/>
-									</div>
-									<a href="#">Silence</a>
-									<p>第2楼</p>
-								</div>
-								<div class="message-info">
-									<p class="message-content">突然发现你的空间背景音乐我听过，挺好听的，虽然高中过了几年了，但是很多人都是还没变，你还是低调热心。下午你和叶玖艳送我上车，我想起了上次我去南昌，你们两也是送我去，在公交车上还睡着了，那次挺感动的。不管过多少年，老朋友情谊不变，哈哈！</p>
-									<p class="message-time">2017-04-20 15:40</p>
-									<div class="reply-list">
-										<div class="reply-detail clear-both">
-											<div class="user-header">
-												<img src="/silence/resources/img/14749103850681742.jpg"/>
-											</div>
-											<div class="reply-info">
-												<p class="reply-content"><a href="#">Silence&nbsp;&nbsp;</a>好怀念高中的时候</p>
-												<p class="reply-time">2017-04-20 16:30</p>
-											</div>
-										</div>
-										<div class="reply-detail clear-both">
-											<div class="user-header">
-												<img src="/silence/resources/img/14749103673516675.jpg"/>
-											</div>
-											<div class="reply-info">
-												<p class="reply-content"><a href="#">Silence&nbsp;&nbsp;</a>我也是</p>
-												<p class="reply-time">2017-04-20 16:30</p>
-											</div>
-										</div>
-									</div>
-									<div class="reply-box">
-										<textarea name="" rows="" cols=""></textarea>
-										<div class="reply-btn">
-											<input type="button" name="" id="" value="回复" />
-											<a href="#">取消</a>
-										</div>
-									</div>
-								</div>
-							</div>
+						<h2 class="message-title">留言(<span id="message-num"></span>)</h2>
+						<div class="message-list" id="message-list">
 							
-							<div class="message-detail">
-								<div class="user-info">
-									<div class="user-header">
-										<img src="/silence/resources/img/14749105219289469.jpg"/>
-									</div>
-									<a href="#">Lucky</a>
-									<p>第1楼</p>
-								</div>
-								<div class="message-info">
-									<p class="message-content">不管过多少年，老朋友情谊不变，哈哈！</p>
-									<p class="message-time">2017-04-20 15:40&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">回复</a></p>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="col-lg-3 rank-bar">
@@ -143,15 +134,7 @@
 		</div>
 		
 		<div class="page-bar">
-			<a href="#" class="noclick">&lt;&lt;</a>
-			<a href="#" class="noclick">&lt;</a>
-			<a href="#" class="pre-page">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">&gt;</a>
-			<a href="#">&gt;&gt;</a>
+			
 		</div>
 		
 		<%@ include file="/resources/pages/footer.jsp" %>
@@ -174,7 +157,7 @@
 							昵称：
 						</div>
 						<div class="fl input-text">
-							<input type="text" name="" id="" value="" placeholder="请输入昵称" />
+							<input type="text" name="" id="nikename" value="" placeholder="请输入昵称" />
 							<p></p>
 						</div>
 					</div>
@@ -183,13 +166,13 @@
 							邮箱：
 						</div>
 						<div class="fl input-text">
-							<input type="text" name="" id="" value="" placeholder="请输入邮箱" />
+							<input type="text" name="" id="username" value="" placeholder="请输入邮箱" />
 							<p></p>
 						</div>
 					</div>
 				</div>
 				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="visitorRegister()" value="确定" />
 					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
 				</div>
 				<div class="box-btn">
@@ -198,8 +181,13 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="tips-bar" id="tips-bar">
+			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
 </html>

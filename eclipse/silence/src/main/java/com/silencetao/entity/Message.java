@@ -16,6 +16,7 @@ public class Message implements Serializable {
 	private String userSign;
 	private Date messageTime;
 	private long state;
+	private long fatherId;
 	
 	public Message() {
 		
@@ -77,10 +78,18 @@ public class Message implements Serializable {
 		this.state = state;
 	}
 
+	public long getFatherId() {
+		return fatherId;
+	}
+
+	public void setFatherId(long fatherId) {
+		this.fatherId = fatherId;
+	}
+
 	@Override
 	public String toString() {
-		return "Message [messageId=" + messageId + ", content=" + content
-				+ ", messageSign=" + messageSign + ", userSign=" + userSign
-				+ ", messageTime=" + messageTime + ", state=" + state + "]";
+		return "Message [messageId=" + messageId + ", content=" + content + ", messageSign=" + messageSign
+				+ ", userSign=" + userSign + ", messageTime=" + messageTime + ", state=" + state + ", fatherId="
+				+ fatherId + "]";
 	}
 }

@@ -30,7 +30,7 @@
 <div class="toolbar hidden-md hidden-sm hidden-xs">
 	<c:choose>
 		<c:when test="${empty userInfo }">
-			<a href="user/login" title="我要登录" class="toolbar-item toolbar-item-login">
+			<a href="/silence/user/login" title="我要登录" class="toolbar-item toolbar-item-login">
 				<span class="toolbar-btn"></span>
 			</a>
 		</c:when>

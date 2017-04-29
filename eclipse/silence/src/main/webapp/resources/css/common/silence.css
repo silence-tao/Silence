@@ -992,9 +992,30 @@ footer .footer-box a:hover {
 
 .user-edit .edit-list .input-text p {
 	line-height: 20px;
-	color: #FF0000;
+	color: #999;
 }
 /********************************录入基本信息CSS代码********************************/
+
+/********************************信息提示框CSS代码********************************/
+.tips-bar {
+	position: fixed;
+	padding: 20px 0;
+	width: 150px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	top: 200px;
+	left: 50%;
+	text-align: center;
+	margin-left: -75px;
+	font-size: 16px;
+	border-radius: 5px;
+	display: none;
+}
+
+.tips-bar span {
+	color: #fff;
+}
+/********************************信息提示框CSS代码********************************/
 
 @media (min-width: 768px) {
 	.container {

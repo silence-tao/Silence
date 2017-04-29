@@ -190,3 +190,18 @@ window.silence = {
 	}
 }
 /********************************ajax多张图片上传JavaScript代码********************************/
+
+/********************************消息提醒JavaScript代码********************************/
+function tipsBar(yesOrNo, message) {
+	if(yesOrNo) {
+		$('#tips-icon').removeClass('icon-close').addClass('icon-check');
+	} else {
+		$('#tips-icon').removeClass('icon-check').addClass('icon-close');
+	}
+	$('#tips-box').text(message);
+	inShade('tips-bar');
+	setTimeout(function() {
+		outShade('tips-bar');
+	}, 800);
+}
+/********************************消息提醒JavaScript代码********************************/

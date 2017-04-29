@@ -1,18 +1,16 @@
-package com.silencetao.dao.message;
+package com.silencetao.service.message;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 import com.silencetao.entity.Message;
 import com.silencetao.view.MessageView;
 
 /**
- * 留言模块Dao接口
+ * 留言模块Service层接口
  * @author Silence
  *
  */
-public interface MessageDao {
+public interface MessageService {
 
 	/**
 	 * 添加一条留言
@@ -25,7 +23,7 @@ public interface MessageDao {
 	 * 获取留言
 	 * @return 返回留言
 	 */
-	public List<MessageView> getMessages(@Param("offset") long offset, @Param("limit") long limit);
+	public List<MessageView> getMessages(long offset, long limit);
 	
 	/**
 	 * 获取留言总数

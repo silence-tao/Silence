@@ -38,6 +38,12 @@ public class SilenceResult<T> {
 		this.message = message;
 	}
 
+	public SilenceResult(boolean isSuccess, T data, String message) {
+		this.isSuccess = isSuccess;
+		this.data = data;
+		this.message = message;
+	}
+
 	public boolean isSuccess() {
 		return isSuccess;
 	}

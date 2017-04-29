@@ -229,7 +229,8 @@ textarea:focus {
 
 .message-bar .message-list .message-detail .reply-box {
 	margin: 5px 0;
-	width: 100%;
+	width: 320px;
+	display: none;
 }
 
 .message-bar .message-list .message-detail .reply-box textarea {

@@ -18,6 +18,7 @@ function getAccount() {
 				$('#username').val(data.data.username);
 				$('#password').val(data.data.password);
 				$('#save-pass').attr('checked', 'checked');
+				getHeader();
 			}
 		},
 		function(data) {
