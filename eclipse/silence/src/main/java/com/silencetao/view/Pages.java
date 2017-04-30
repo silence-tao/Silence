@@ -22,6 +22,11 @@ public class Pages {
 		this.pageSize = pageSize;
 	}
 
+	public Pages(long currentPage, long pageSize) {
+		this.currentPage = currentPage;
+		this.pageSize = pageSize;
+	}
+
 	public long getTotalPage() {
 		return totalPage;
 	}

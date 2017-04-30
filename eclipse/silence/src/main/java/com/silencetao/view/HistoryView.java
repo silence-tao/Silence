@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 public class HistoryView {
+	private long historyId;
 	private String title;
 	private String content;
 	private String historySign;
 	private Date recordTime;
 	private List<String> pictures;
+	private long visitorNum;
+	private long commentNum;
 	
 	public HistoryView() {
 		
@@ -20,6 +23,14 @@ public class HistoryView {
 		this.content = content;
 		this.historySign = historySign;
 		this.recordTime = recordTime;
+	}
+
+	public long getHistoryId() {
+		return historyId;
+	}
+
+	public void setHistoryId(long historyId) {
+		this.historyId = historyId;
 	}
 
 	public String getTitle() {
@@ -62,10 +73,26 @@ public class HistoryView {
 		this.pictures = pictures;
 	}
 
+	public long getVisitorNum() {
+		return visitorNum;
+	}
+
+	public void setVisitorNum(long visitorNum) {
+		this.visitorNum = visitorNum;
+	}
+
+	public long getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum(long commentNum) {
+		this.commentNum = commentNum;
+	}
+
 	@Override
 	public String toString() {
-		return "HistoryView [title=" + title + ", content=" + content
-				+ ", historySign=" + historySign + ", recordTime=" + recordTime
-				+ ", pictures=" + pictures + "]";
+		return "HistoryView [historyId=" + historyId + ", title=" + title + ", content=" + content + ", historySign="
+				+ historySign + ", recordTime=" + recordTime + ", pictures=" + pictures + ", visitorNum=" + visitorNum
+				+ ", commentNum=" + commentNum + "]";
 	}
 }

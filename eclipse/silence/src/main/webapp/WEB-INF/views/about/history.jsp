@@ -28,7 +28,7 @@
 					{time}
 				</div>
 				<div class="cd-timeline-content">
-					<h2>{title}</h2>
+					<h2><a href="/silence/history/detail/{historyId}">{title}</a></h2>
 					<p>{content}</p>
 					<div class="img-box">
 						{pictures}
@@ -98,19 +98,15 @@
 				</div>
 			</div>
 			
-			<a href="javascript:;" onclick="popupBar()" title="添加一条" class="toolbar-item toolbar-item-add">
-				<span class="toolbar-btn"></span>
-			</a>
+			<c:if test="${userInfo.userRank >= 6 }">
+				<a href="javascript:;" onclick="popupBar()" title="添加一条" class="toolbar-item toolbar-item-add">
+					<span class="toolbar-btn"></span>
+				</a>
+			</c:if>
 			
 			<a href="javascript:;" id="backTop" title="回到顶部" class="toolbar-item toolbar-item-top" onclick="move(0, 350)">
 				<span class="toolbar-btn"></span>
 			</a>
-		</div>
-		
-		<div class="nav-top hidden-lg">
-			<a href="javascript:;" id="top-left-btn" onclick=""><span class="icon-angle-left"></span><span class="left-title"></span></a>
-			<span class="center-title" id="top-center-title" onclick="move(0, 350)"></span>
-			<a href="javascript:;" onclick="" id="top-right-btn"><span class=""></span></a>
 		</div>
 		
 		<div class="shade-bar" id="popup-bar">

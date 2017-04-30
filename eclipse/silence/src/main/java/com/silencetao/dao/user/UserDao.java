@@ -64,4 +64,11 @@ public interface UserDao {
 	 * @return
 	 */
 	public String getHeader(String username);
+	
+	/**
+	 * 根据用户唯一标示获取用户头像
+	 * @param userSing
+	 * @return
+	 */
+	public String getHeaderBySign(String userSign);
 }

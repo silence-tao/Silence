@@ -31,4 +31,12 @@
 	<select id="getNewHistoryDesc" resultType="History">
 		<![CDATA[ SELECT * FROM history WHERE record_time > #{currentDate} ORDER BY record_time DESC LIMIT 0, 10 ]]>
 	</select>
+	
+	<update id="updateVisitorNum">
+		UPDATE history SET visitor_num = visitor_num + 1  WHERE history_id = #{historyId}
+	</update>
+	
+	<update id="updateCommentNum">
+		UPDATE history SET comment_num = comment_num + 1  WHERE history_id = #{historyId}
+	</update>
 </mapper>

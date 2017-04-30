@@ -1,30 +1,41 @@
 package com.silencetao.controller.about;
 
+import com.silencetao.entity.Comment;
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
+import com.silencetao.entity.User;
 import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.MessageExcetion;
 import com.silencetao.exception.SilenceException;
 import com.silencetao.service.about.HistoryService;
 import com.silencetao.service.module.PictureService;
+import com.silencetao.utils.CookiesUtil;
 import com.silencetao.utils.MailUtil;
 import com.silencetao.utils.StringUtil;
 import com.silencetao.utils.UploadUtil;
+import com.silencetao.view.CommentView;
 import com.silencetao.view.HistoryView;
+import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +44,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
-@RequestMapping("about")
+@RequestMapping("history")
 public class HistoryController {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -104,5 +115,70 @@ public class HistoryController {
 			resultStr = resultStr + "邮件发送失败";
 		}
 		return resultStr;
+	}
+	
+	@RequestMapping(value = "detail/{historyId}")
+	public String getDetail(@PathVariable(value = "historyId") long historyId,
+			HttpServletRequest request) {
+		HistoryView historyView = historyService.getHisotryView(historyId);
+		if(historyView != null) {
+			request.setAttribute("historyView", historyView);
+			return "/about/detail";
+		}
+		return "redirect:/history";
+	}
+	
+	/**
+	 * 保存心路历程的一条评论
+	 * @param visitorSign
+	 * @param session
+	 * @param response
+	 * @param comment
+	 * @param historyId
+	 * @return
+	 */
+	@RequestMapping(value = "saveComment")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> saveComment(@CookieValue(value = "visitorSign", required = false) String visitorSign,
+			HttpSession session, HttpServletResponse response, Comment comment, long historyId) {
+		User user = (User) session.getAttribute("userInfo");
+		if(user != null) {
+			comment.setUserSign(user.getUserSign());
+			CookiesUtil.clearCookie(response, "visitorSign");
+		} else if(visitorSign != null) {
+			comment.setUserSign(visitorSign);
+		} else {
+			return new SilenceResult<Map<String, Object>>(false, 0, "未登录");
+		}
+		try {
+			historyService.saveComment(comment, historyId);
+			Pages pages = new Pages(1, 5);
+			return new SilenceResult<Map<String,Object>>(true, queryComments(comment.getOwnerSign(), pages), "评论成功");
+		} catch (Exception e) {
+			log.warn("评论失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Map<String, Object>>(false, "评论失败");
+		}
+	}
+	
+	private Map<String, Object> queryComments(String ownerSign, Pages pages) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<CommentView> commentViews = historyService.getComments(ownerSign, pages);
+		pages.setTotalCount(historyService.getCommentNum(ownerSign));
+		pages.setTotalPage(pages.getTotalCount() % pages.getPageSize() == 0 ? pages.getTotalCount() / pages.getPageSize() : pages.getTotalCount() / pages.getPageSize() + 1);
+		map.put("comments", commentViews);
+		map.put("pages", pages);
+		return map;
+	}
+	
+	/**
+	 * 获取评论
+	 * @param ownerSign
+	 * @return
+	 */
+	@RequestMapping(value = "getComments")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> getComments(String ownerSign, Pages pages) {
+		return new SilenceResult<Map<String,Object>>(true, queryComments(ownerSign, pages));
 	}
 }

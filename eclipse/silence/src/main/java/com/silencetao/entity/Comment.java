@@ -16,6 +16,7 @@ public class Comment implements Serializable {
 	private String ownerSign;//评论了什么
 	private String commentTime;//评论时间
 	private long state;//查看状态,0为未查看,1为已查看
+	private String toSign;//给谁评论或回复谁
 	
 	public Comment() {
 		
@@ -86,11 +87,18 @@ public class Comment implements Serializable {
 		this.state = state;
 	}
 
+	public String getToSign() {
+		return toSign;
+	}
+
+	public void setToSign(String toSign) {
+		this.toSign = toSign;
+	}
+
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", content=" + content
-				+ ", fatherId=" + fatherId + ", userSign=" + userSign
-				+ ", ownerSign=" + ownerSign + ", commentTime=" + commentTime
-				+ ", state=" + state + "]";
+		return "Comment [commentId=" + commentId + ", content=" + content + ", fatherId=" + fatherId + ", userSign="
+				+ userSign + ", ownerSign=" + ownerSign + ", commentTime=" + commentTime + ", state=" + state
+				+ ", toSign=" + toSign + "]";
 	}
 }

@@ -1,7 +1,7 @@
 $(function() {
 	$('.loading-shade').show();
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
-	silence.ajaxCurrent('/silence/about/gethistories?currentPage=1', {},
+	silence.ajaxCurrent('/silence/history/gethistories?currentPage=1', {},
 		function(data) {
 			if(data.success) {
 				init(data.data);
@@ -23,7 +23,7 @@ $(function() {
 		if($(window).scrollTop() + $(window).height() >= $(document).height()) {
 			if(isLoading && page >= 1) {
 				isLoading = !isLoading;
-				silence.ajaxCurrent('/silence/about/gethistories?currentPage=' + ++page, {},
+				silence.ajaxCurrent('/silence/history/gethistories?currentPage=' + ++page, {},
 					function(data) {
 						isLoading = !isLoading;
 						if(data.success) {
@@ -75,6 +75,7 @@ function init(data, isRefresh) {
 		var history_html = tpl_history_html.replace(/\{time\}/g, dateFormat(new Date(data[i].recordTime), "HH:mm"))
 										.replace(/\{title\}/g, data[i].title)
 										.replace(/\{content\}/g, data[i].content)
+										.replace(/\{historyId\}/g, data[i].historyId)
 										.replace(/\{pictures\}/g, images_html.join(''))
 										.replace(/\{date\}/g, dateFormat(new Date(data[i].recordTime), "yyyy-MM-dd"));
 		histories_html.push(history_html);
@@ -159,7 +160,7 @@ function saveHistory() {
 			fileElementIds.push($(this).attr('id'));
 		}
 	});
-	silence.ajaxFilesUpload('/silence/about/savehistory',
+	silence.ajaxFilesUpload('/silence/history/savehistory',
 		data,
 		fileElementIds,
 		function(data) {

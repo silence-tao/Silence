@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.module.CommentDao">
+	<insert id="insertComment">
+		INSERT INTO COMMENT(content, father_id, user_sign, owner_sign, state, to_sign) 
+		VALUES(#{content}, #{fatherId}, #{userSign}, #{ownerSign}, #{state}, #{toSign})
+	</insert>
+	
+	<select id="getComments" resultType="com.silencetao.view.CommentView">
+		SELECT comment_id, content, comment_time, father_id, u1.nikename, u1.header, 
+		u1.user_sign, u2.nikename name FROM COMMENT LEFT JOIN USER u1 ON 
+		u1.user_sign = COMMENT.user_sign LEFT JOIN USER u2 ON 
+		u2.user_sign = COMMENT.to_sign WHERE owner_sign = #{ownerSign} AND father_id = 0
+		ORDER BY comment_time DESC LIMIT  #{offset}, #{limit} 
+	</select>
+	
+	<select id="getReplies" resultType="com.silencetao.view.CommentView">
+		SELECT comment_id, content, comment_time, father_id, u1.nikename, u1.header, 
+		u1.user_sign, u2.nikename name FROM COMMENT LEFT JOIN USER u1 ON 
+		u1.user_sign = COMMENT.user_sign LEFT JOIN USER u2 ON 
+		u2.user_sign = COMMENT.to_sign WHERE father_id = #{fatherId} 
+	</select>
+	
+	<select id="getCommentNum" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM COMMENT WHERE father_id = 0 AND owner_sign = #{ownerSign}
+	</select>
+</mapper>

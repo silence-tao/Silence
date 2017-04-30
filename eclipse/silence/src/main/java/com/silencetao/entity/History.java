@@ -15,6 +15,8 @@ public class History implements Serializable {
 	private String content;
 	private String historySign;
 	private Date recordTime;
+	private long visitorNum;
+	private long commentNum;
 
 	public History() {
 		
@@ -71,9 +73,26 @@ public class History implements Serializable {
 		this.recordTime = recordTime;
 	}
 
+	public long getVisitorNum() {
+		return visitorNum;
+	}
+
+	public void setVisitorNum(long visitorNum) {
+		this.visitorNum = visitorNum;
+	}
+
+	public long getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum(long commentNum) {
+		this.commentNum = commentNum;
+	}
+
+	@Override
 	public String toString() {
-		return "History [title=" + this.title + ",historyId=" + this.historyId + ", content="
-				+ this.content + ", historySign=" + this.historySign
-				+ ", recordTime=" + this.recordTime + "]";
+		return "History [historyId=" + historyId + ", title=" + title + ", content=" + content + ", historySign="
+				+ historySign + ", recordTime=" + recordTime + ", visitorNum=" + visitorNum + ", commentNum="
+				+ commentNum + "]";
 	}
 }

@@ -99,7 +99,7 @@ function visitorRegister() {
 			outShade('userinfo-bar');
 			tipsBar(data.success, data.message);
 			var fun = window[funName];
-			fun(parameter);
+			fun(parameter1, parameter2);
 		},
 		function(data) {
 			console.log(data);
@@ -108,11 +108,13 @@ function visitorRegister() {
 }
 
 var funName;
-var parameter;
+var parameter1;
+var parameter2;
 
-function showUserInfoBar(name, para) {
+function showUserInfoBar(name, para1, para2) {
 	getHeader();
 	inShade('userinfo-bar');
 	funName = name;
-	parameter = para;
+	parameter1 = para1;
+	parameter2 = para2;
 }

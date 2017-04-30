@@ -70,7 +70,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言板</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言板</a>
 			</div>
 			<div class="module-intro">
 				最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人

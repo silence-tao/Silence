@@ -190,6 +190,25 @@ body {
 
 .father-info {
 	width: 100%;
+	padding-bottom: 10px;
+}
+
+.comment-box .comment-list .read-more {
+	text-align: center;
+}
+
+.comment-box .comment-list .read-more a {
+	color: #019BE1;
+}
+
+.comment-box .comment-list .read-more a:hover {
+	text-decoration: underline;
+}
+
+.comment-box .comment-list .comment-detail .comment-tips {
+	text-align: center;
+	font-size: 16px;
+	color: #999;
 }
 
 .comment-box .comment-list .comment-detail .comment-content .sub-publish {

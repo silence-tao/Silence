@@ -221,4 +221,26 @@ public class UserController {
 			return new SilenceResult<Null>(false, 0);
 		}
 	}
+	
+	/**
+	 * 根据用户唯一标示获取用户头像
+	 * @param visitorSign
+	 * @param session
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "getHeaderBySign")
+	@ResponseBody
+	public SilenceResult<Null> getHeaderBySign(@CookieValue(value = "visitorSign", required = false) String visitorSign,
+			HttpSession session, HttpServletResponse response) {
+		User user = (User) session.getAttribute("userInfo");
+		if(user != null) {
+			CookiesUtil.clearCookie(response, "visitorSign");
+			return new SilenceResult<Null>(true, 1, user.getHeader());
+		} else if(visitorSign != null) {
+			return new SilenceResult<Null>(true, 2, userService.getHeaderBySign(visitorSign));
+		} else {
+			return new SilenceResult<Null>(false, 0, "未登录");
+		}
+	}
 }

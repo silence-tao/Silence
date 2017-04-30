@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</title>
+		<title>${historyView.title }</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/history.css"/>
@@ -25,10 +25,57 @@
 	<body>
 		<%@ include file="/resources/pages/header.jsp" %>
 		
+		<div class="hide" id="tpl_comment_detail">
+			<div class="comment-detail clear-both">
+				<div class="fl father-header">
+					<img src="{header}"/>
+				</div>
+				<div class="fl comment-content">
+					<div class="father-info">
+						<a href="#">{nikename}</a>：{content}
+						<p>{commentTime}&nbsp;<a href="javacript:;" onclick="showCommentBox({commentId}, {id})">回复</a></p>
+					</div>
+					<div class="hide" id="comment-box-{commentId}" data-sign="{userSign}">
+						
+					</div>
+					{replyList}
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_comment_box">
+			<div class="sub-publish clear-both">
+				<div class="fl sub-header">
+					<img src="{header}" />
+				</div>
+				<div class="fl sub-input">
+					<input type="text" name="" id="comment-text-{commentId}" data-commentid="{id}" value="" />
+				</div>
+			</div>
+			<div class="sub-btn clear-both">
+				<input type="button" name="" id="" onclick="replyComment({commentId}, ${historyView.historyId })" value="回复" />
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_sub_detail">
+			<div class="sub-detail clear-both">
+				<div class="fl sub-header">
+					<img src="{header}"/>
+				</div>
+				<div class="fl sub-info">
+					<a href="#">{nikename}</a>回复<a href="#">{name}</a>：{content}
+					<p>{commentTime}&nbsp;<a href="javacript:;" onclick="showCommentBox({commentId}, {id})">回复</a></p>
+				</div>
+			</div>
+			<div class="hide" id="comment-box-{commentId}" data-sign="{userSign}">
+				
+			</div>
+		</div>
+		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#">心路历程</a>&nbsp;/&nbsp;
-				<a href="#" class="no-pointer">生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/history">心路历程</a>&nbsp;/&nbsp;
+				<a href="#" class="no-pointer">${historyView.title }</a>
 			</div>
 		</div>
 		
@@ -36,112 +83,47 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 detail-box">
-						<h1>生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</h1>
+						<h1>${historyView.title }</h1>
 						<div class="opinion-info">
-							发布时间：2017-04-20 21:39&nbsp;&nbsp;&nbsp;&nbsp;编辑：Silence&nbsp;&nbsp;458<span class="icon-eye2"></span>&nbsp;&nbsp;21<span class="icon-bubble"></span>
+							发布时间：<fmt:formatDate value="${historyView.recordTime }" pattern="yyyy-MM-dd HH:mm" />&nbsp;&nbsp;&nbsp;&nbsp;编辑：Silence&nbsp;&nbsp;${historyView.visitorNum }<span class="icon-eye2"></span>&nbsp;&nbsp;${historyView.commentNum }<span class="icon-bubble"></span>
 						</div>
 						<div class="history-detail">
 							<div id="slideBox" class="slideBox">
 								<div class="hd">
-									<ul><li>1</li><li>2</li></ul>
+									<ul>
+										<c:forEach items="${historyView.pictures }" var="picture" varStatus="status">
+											<li>${status.index + 1 }</li>
+										</c:forEach>
+									</ul>
 								</div>
 								<div class="bd">
 									<ul>
-										<li><img id="img-silde" src="/silence/resources/img/14749103850681742.jpg" /></li>
-										<li><img src="/silence/resources/img/14749103673516675.jpg" /></li>
+										<c:forEach items="${historyView.pictures }" var="picture" varStatus="status">
+											<c:choose>
+												<c:when test="${status.index == 0 }">
+													<li><img id="img-silde" src="/silenceUpload/${picture }" /></li>
+												</c:when>
+												<c:otherwise>
+													<li><img src="/silenceUpload/${picture }" /></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
 									</ul>
 								</div>
 								<a class="prev" href="javascript:void(0)"></a>
 								<a class="next" href="javascript:void(0)"></a>
 							</div>
-							<p class="history-content">生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。</p>
+							<p class="history-content">${historyView.content }</p>
 						</div>
 						<div class="comment-box">
 							<h2>用户评论区</h2>
 							<div class="comment-publish">
-								<textarea name=""></textarea>
-								<input type="button" name="" id="" value="发表" />
+								<textarea name="" id="commnet-text" data-sign="${historyView.historySign }"></textarea>
+								<input type="button" name="" id="" onclick="submitComment(${historyView.historyId }, '${historyView.historySign }')" value="发表" />
 							</div>
-							<div class="comment-list">
+							<div class="comment-list" id="comment-list">
 								<div class="comment-detail clear-both">
-									<div class="fl father-header">
-										<img src="../resources/img/14749103673516675.jpg"/>
-									</div>
-									<div class="fl comment-content">
-										<div class="father-info">
-											<a href="#">Silence</a>：搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了
-											<p>2017-04-20 23:17&nbsp;<a href="#">回复</a></p>
-										</div>
-										<div id="">
-											<div class="sub-publish clear-both">
-												<div class="fl sub-header">
-													<img src="../resources/img/14749103850681742.jpg"/>
-												</div>
-												<div class="fl sub-input">
-													<input type="text" name="" id="" value="" />
-												</div>
-											</div>
-											<div class="sub-btn clear-both">
-												<input type="button" name="" id="" value="回复" />
-											</div>
-										</div>
-										<div class="sub-detail clear-both">
-											<div class="fl sub-header">
-												<img src="../resources/img/14749103673516675.jpg"/>
-											</div>
-											<div class="fl sub-info">
-												<a href="#">Silence</a>：搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了
-												<p>2017-04-20 23:17&nbsp;<a href="#">回复</a></p>
-											</div>
-										</div>
-										<div id="">
-											<div class="sub-publish clear-both">
-												<div class="fl sub-header">
-													<img src="../resources/img/14749103850681742.jpg"/>
-												</div>
-												<div class="fl sub-input">
-													<input type="text" name="" id="" value="" />
-												</div>
-											</div>
-											<div class="sub-btn clear-both">
-												<input type="button" name="" id="" value="回复" />
-											</div>
-										</div>
-										<div class="sub-detail clear-both">
-											<div class="fl sub-header">
-												<img src="../resources/img/14749103673516675.jpg"/>
-											</div>
-											<div class="fl sub-info">
-												<a href="#">Silence</a>：搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了
-												<p>2017-04-20 23:17&nbsp;<a href="#">回复</a></p>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="comment-detail">
-									<div class="fl father-header">
-										<img src="../resources/img/14749103673516675.jpg"/>
-									</div>
-									<div class="fl comment-content">
-										<div class="father-info">
-											<a href="#">Silence</a>：搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了搞了一会才发现，finslly语句中的return会吃掉throw的异常，我也是醉了
-											<p>2017-04-20 23:17&nbsp;<a href="#">回复</a></p>
-										</div>
-										<div id="">
-											<div class="sub-publish clear-both">
-												<div class="fl sub-header">
-													<img src="../resources/img/14749103850681742.jpg"/>
-												</div>
-												<div class="fl sub-input">
-													<input type="text" name="" id="" value="" />
-												</div>
-											</div>
-											<div class="sub-btn clear-both">
-												<input type="button" name="" id="" value="回复" />
-											</div>
-										</div>
-									</div>
+									<p class="comment-tips">暂时还没有人，快来留下第一条评论吧！</p>
 								</div>
 							</div>
 						</div>
@@ -179,9 +161,9 @@
 					<span class="icon-close" onclick="outShade('userinfo-bar')"></span>
 				</div>
 				<div class="header-box">
-					<img src="/silence/resources/img/14749103673516675.jpg" />
+					<img src="/silence/resources/img/14749103673516675.jpg" id="user-header" />
 					<div class="tips-box">
-						<a href="#" class="link-change">更换头像</a>
+						<a href="javascript:;" onclick="getHeader()" class="link-change">更换头像</a>
 					</div>
 				</div>
 				<div class="edit-list">
@@ -190,7 +172,7 @@
 							昵称：
 						</div>
 						<div class="fl input-text">
-							<input type="text" name="" id="" value="" placeholder="请输入昵称" />
+							<input type="text" name="" id="nikename" value="" placeholder="请输入昵称" />
 							<p></p>
 						</div>
 					</div>
@@ -199,13 +181,13 @@
 							邮箱：
 						</div>
 						<div class="fl input-text">
-							<input type="text" name="" id="" value="" placeholder="请输入邮箱" />
+							<input type="text" name="" id="username" value="" placeholder="请输入邮箱" />
 							<p></p>
 						</div>
 					</div>
 				</div>
 				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="visitorRegister()" value="确定" />
 					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
 				</div>
 				<div class="box-btn">
@@ -214,11 +196,16 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="tips-bar" id="tips-bar">
+			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/opinion.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/historyDetail.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
 	<script id="jsID" type="text/javascript">
 		var img = new Image();
 		img.src = $('#img-silde').attr('src');

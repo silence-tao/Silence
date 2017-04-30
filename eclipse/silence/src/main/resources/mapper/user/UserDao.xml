@@ -38,4 +38,8 @@
 	<select id="getHeader" resultType="java.lang.String">
 		SELECT header FROM USER WHERE username = #{username} OR nikename = #{username}
 	</select>
+	
+	<select id="getHeaderBySign" resultType="java.lang.String">
+		SELECT header FROM USER WHERE user_sign = #{userSign}
+	</select>
 </mapper>

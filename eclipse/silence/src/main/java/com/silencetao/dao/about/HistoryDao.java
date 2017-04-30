@@ -59,4 +59,18 @@ public interface HistoryDao {
 	 * @return 逆序返回10条最新的进程记录
 	 */
 	public List<History> getNewHistoryDesc(Date currentDate);
+	
+	/**
+	 * 心路历程浏览量加1
+	 * @param historyId
+	 * @return
+	 */
+	public int updateVisitorNum(long historyId);
+	
+	/**
+	 * 心路历程评论量加1
+	 * @param histroyId
+	 * @return
+	 */
+	public int updateCommentNum(long historyId);
 }

@@ -1,8 +1,11 @@
 package com.silencetao.service.about;
 
+import com.silencetao.entity.Comment;
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
+import com.silencetao.view.CommentView;
 import com.silencetao.view.HistoryView;
+import com.silencetao.view.Pages;
 
 import java.util.Date;
 import java.util.List;
@@ -43,4 +46,33 @@ public interface HistoryService {
 	 * @return
 	 */
 	public List<HistoryView> saveHistory(History history, List<Picture> pictures);
+	
+	/**
+	 * 获取某天心路路程信息
+	 * @param historyId
+	 * @return
+	 */
+	public HistoryView getHisotryView(long historyId);
+	
+	/**
+	 * 保存一条心路历程评论
+	 * @param comment
+	 * @param historyId
+	 * @return
+	 */
+	public int saveComment(Comment comment, long historyId);
+	
+	/**
+	 * 获取心路历程的评论
+	 * @param ownerSign
+	 * @return
+	 */
+	public List<CommentView> getComments(String ownerSign, Pages pages);
+	
+	/**
+	 * 获取评论条数
+	 * @param ownerSign
+	 * @return
+	 */
+	public long getCommentNum(String ownerSign);
 }
