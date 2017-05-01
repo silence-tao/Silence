@@ -259,3 +259,50 @@ textarea:focus {
 	padding: 10px 0;
 	border-top: 1px solid #E3E3E3;
 }
+
+.comment-box .comment-list .comment-detail .comment-content .sub-detail .sub-info {
+	width: 660px;
+}
+
+.left-box {
+	margin: 20px 0;
+	border-right: 1px dashed #999;
+	min-height: 400px;
+}
+
+.essay-title {
+	margin-bottom: 20px;
+}
+
+.essay-title .title-tips {
+	float: left;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.essay-title .title-text {
+	float: left;
+	width: 80%;
+}
+
+.essay-title .title-text input[type=text] {
+	width: 100%;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.btn-group {
+	margin: 20px 0;
+	text-align: center;
+	width: 100%;
+}
+
+.btn-group input {
+	border: none;
+	background: #019BE1;
+	width: 72px;
+	height: 30px;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 10px;
+}

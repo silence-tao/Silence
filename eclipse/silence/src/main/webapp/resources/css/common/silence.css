@@ -1010,6 +1010,7 @@ footer .footer-box a:hover {
 	font-size: 16px;
 	border-radius: 5px;
 	display: none;
+	z-index: 999;
 }
 
 .tips-bar span {

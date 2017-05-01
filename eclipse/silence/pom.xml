@@ -133,6 +133,25 @@
       <version>1.3.1</version>
     </dependency>
     
+    <dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.4</version>
+	</dependency>
+	 
+	<dependency>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>1.10</version>
+	</dependency>
+	 
+	<!-- org.json -->
+	<dependency>
+	    <groupId>org.json</groupId>
+	    <artifactId>json</artifactId>
+	    <version>20160212</version>
+	</dependency>
+    
     <!-- 5.邮件发送 -->
     <dependency>
     	<groupId>javax.mail</groupId>
