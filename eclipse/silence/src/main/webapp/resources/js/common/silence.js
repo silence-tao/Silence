@@ -245,3 +245,28 @@ function tipsBar(yesOrNo, message) {
 	}, 800);
 }
 /********************************消息提醒JavaScript代码********************************/
+
+/********************************分页JavaScript代码********************************/
+function showPages(pages) {
+	if(pages.totalCount == 0) {
+		return ;
+	}
+	var pages_list = [];
+	var begin = 1;
+	if(pages.totalPage > 5 && pages.currentPage > 3) {
+		if((pages.currentPage + 2) >= pages.totalPage) {
+			begin = pages.totalPage - 4;
+		} else {
+			begin = pages.currentPage - 2;
+		}
+	}
+	pages_list.push('<a href="javascript:;" onclick="toPage(1)" class="' + (pages.currentPage == 1 ? 'noclick' : '') + '">&lt;&lt;</a>');
+	pages_list.push('<a href="javascript:;" onclick="toPage(' + (pages.currentPage - 1) + ')" class="' + (pages.currentPage == 1 ? 'noclick' : '') + '">&lt;</a>');
+	for(var i = begin; i <= pages.totalPage && i < begin + 5; i++) {
+		pages_list.push('<a href="javascript:;" onclick="toPage(' + i + ')" class="' + (pages.currentPage == i ? 'pre-page' : '') + '">' + i + '</a>');
+	}
+	pages_list.push('<a href="javascript:;" onclick="toPage(' + (pages.currentPage + 1) + ')" class="' + (pages.currentPage == pages.totalPage ? 'noclick' : '') + '">&gt;&gt;</a>');
+	pages_list.push('<a href="javascript:;" onclick="toPage(' + (pages.totalPage) + ')" class="' + (pages.currentPage == pages.totalPage ? 'noclick' : '') + '">&gt;</a>');
+	$('.page-bar').html(pages_list.join(''));
+}
+/********************************分页JavaScript代码********************************/

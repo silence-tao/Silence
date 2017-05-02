@@ -1,5 +1,6 @@
 package com.silencetao.controller.opinion;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,6 +17,7 @@ import com.silencetao.entity.Opinion;
 import com.silencetao.entity.User;
 import com.silencetao.service.opinion.OpinionService;
 import com.silencetao.utils.CookiesUtil;
+import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
 /**
@@ -31,6 +33,12 @@ public class OpinionController {
 	@Autowired
 	private OpinionService opinionService;
 	
+	/**
+	 * 保存一条分享生活
+	 * @param opinion
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value = "saveOpinion")
 	@ResponseBody
 	public SilenceResult<Null> saveOpinion(Opinion opinion, HttpSession session) {
@@ -54,5 +62,21 @@ public class OpinionController {
 			log.error(e.getMessage(), e);
 			return new SilenceResult<Null>(false, 2, "保存失败");
 		}
+	}
+	
+	/**
+	 * 获取分享生活
+	 * @param pages
+	 * @return
+	 */
+	@RequestMapping(value = "getOpinions")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> getOpinions(Pages pages) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		pages.setTotalCount(opinionService.getOpinionNum());
+		pages.setTotalPage(pages.getTotalCount() % pages.getPageSize() == 0 ? pages.getTotalCount() / pages.getPageSize() : pages.getTotalCount() / pages.getPageSize() + 1);
+		map.put("pages", pages);
+		map.put("opinions", opinionService.getOpinions(pages));
+		return new SilenceResult<Map<String,Object>>(true, map);
 	}
 }

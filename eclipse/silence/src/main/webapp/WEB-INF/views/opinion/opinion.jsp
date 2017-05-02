@@ -24,9 +24,33 @@
 	<body>
 		<%@ include file="/resources/pages/header.jsp" %>
 		
+		<div class="hide" id="tpl_opinion_detail">
+			<div class="col-lg-4">
+				<div class="life-img">
+					<img src="{cover}" class="img-responsive" />
+				</div>
+				<div class="life-bottom">
+					<h2 class="life-title">
+						{title}
+					</h2>
+					<div class="life-time clear-both">
+						<span class="fl">{publishTime} By {nikename}</span>
+						<span class="icon-bubble fr"></span>
+						<span class="fr">24</span>
+					</div>
+					<p class="life-sumary">
+						生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
+					</p>
+					<div class="life-btn">
+						<a href="/silence/opinion/detail/{opinionId}" class="link-button">查看全文</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">分享生活</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">分享生活</a>
 			</div>
 			<div class="module-intro">
 				生活的本意是爱，谁不会爱，谁就不能理解生活
@@ -36,7 +60,7 @@
 		<div class="life-bar">
 			<div class="life-list clear-both">
 				<div class="container">
-					<div class="row">
+					<div class="row" id="opinion-list">
 						<div class="col-lg-4">
 							<div class="life-img">
 								<img src="/silence/resources/img/14761734963351905.jpg" class="img-responsive" />

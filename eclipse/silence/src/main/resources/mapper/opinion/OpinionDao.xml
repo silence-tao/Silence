@@ -6,4 +6,15 @@
 		INSERT INTO opinion(title, content, publisher, opinion_sign) 
 		VALUES(#{title}, #{content}, #{publisher}, #{opinionSign})
 	</insert>
+	
+	<select id="getOpinions" resultType="com.silencetao.view.OpinionView">
+		SELECT opinion_id, title, content, opinion_sign, publish_time, nikename,
+		(SELECT real_path FROM picture WHERE pertain = opinion_sign LIMIT 1) cover 
+		FROM opinion LEFT JOIN USER ON USER .user_sign = publisher 
+		ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getOpinionNum" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM opinion
+	</select>
 </mapper>
