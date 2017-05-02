@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.module.StatisticDao">
+	<insert id="insertStatistic">
+		INSERT INTO statistic(comment_num, visitor_num, praise_num, pertain) 
+		VALUES(#{commentNum}, #{visitorNum}, #{praiseNum}, #{pertain})
+	</insert>
+	
+	<update id="updateCommentNum">
+		UPDATE statistic SET comment_num = comment_num + 1 WHERE pertain = #{pertain}
+	</update>
+	
+	<update id="updateVisitorNum">
+		UPDATE statistic SET visitor_num = visitor_num + 1 WHERE pertain = #{pertain}
+	</update>
+	
+	<update id="updatePraiseNum">
+		UPDATE statistic SET praise_num = praise_num + 1 WHERE pertain = #{pertain}
+	</update>
+</mapper>

@@ -1,6 +1,7 @@
 package com.silencetao.service.opinion;
 
 import java.util.List;
+import java.util.Map;
 
 import com.silencetao.entity.Opinion;
 import com.silencetao.view.OpinionView;
@@ -33,4 +34,18 @@ public interface OpinionService {
 	 * @return
 	 */
 	public long getOpinionNum();
+	
+	/**
+	 * 根据Id获取分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	public OpinionView getOpinionById(long opinionId);
+	
+	/**
+	 * 获取相邻的分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	public Map<String, OpinionView> getOpinionBorder(long opinionId);
 }

@@ -17,6 +17,7 @@ function saveOpinion() {
 	var json = {};
 	json.title = title;
 	json.content = content;
+	json.summary = code.substr(0, 68);
 	silence.ajaxCurrent('/silence/opinion/saveOpinion', json,
 		function(data) {
 			if(data.success) {

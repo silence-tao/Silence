@@ -36,10 +36,10 @@
 					<div class="life-time clear-both">
 						<span class="fl">{publishTime} By {nikename}</span>
 						<span class="icon-bubble fr"></span>
-						<span class="fr">24</span>
+						<span class="fr">{commentNum}</span>
 					</div>
 					<p class="life-sumary">
-						生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
+						{summary}
 					</p>
 					<div class="life-btn">
 						<a href="/silence/opinion/detail/{opinionId}" class="link-button">查看全文</a>
@@ -61,106 +61,14 @@
 			<div class="life-list clear-both">
 				<div class="container">
 					<div class="row" id="opinion-list">
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="/silence/resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03 13:40 By Silence</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="/silence/resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03 13:40 By Silence</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="/silence/resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03 13:40 By Silence</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
 						
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="/silence/resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03 13:40 By Silence</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="page-bar">
-			<a href="#" class="noclick">&lt;&lt;</a>
-			<a href="#" class="noclick">&lt;</a>
-			<a href="#" class="pre-page">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">&gt;</a>
-			<a href="#">&gt;&gt;</a>
+			
 		</div>
 		
 		<%@ include file="/resources/pages/footer.jsp" %>

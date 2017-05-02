@@ -16,6 +16,7 @@ public class Opinion implements Serializable {
 	private String publisher;//发布者
 	private String opinionSign;//唯一标示
 	private Date publishTime;//发布时间
+	private String summary;//文章简介
 	
 	public Opinion() {
 		
@@ -77,11 +78,18 @@ public class Opinion implements Serializable {
 		this.publishTime = publishTime;
 	}
 
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
 	@Override
 	public String toString() {
-		return "Opinion [opinionId=" + opinionId + ", title=" + title
-				+ ", content=" + content + ", publisher=" + publisher
-				+ ", opinionSign=" + opinionSign + ", publishTime="
-				+ publishTime + "]";
+		return "Opinion [opinionId=" + opinionId + ", title=" + title + ", content=" + content + ", publisher="
+				+ publisher + ", opinionSign=" + opinionSign + ", publishTime=" + publishTime + ", summary=" + summary
+				+ "]";
 	}
 }

@@ -34,4 +34,25 @@ public interface OpinionDao {
 	 * @return
 	 */
 	public long getOpinionNum();
+	
+	/**
+	 * 根据Id获取分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	public OpinionView getOpinionById(long opinionId);
+	
+	/**
+	 * 获得前面一条分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	public OpinionView getOpinionFront(long opinionId);
+	
+	/**
+	 * 获得后面一条分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	public OpinionView getOpinionAfter(long opinionId);
 }

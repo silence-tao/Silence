@@ -119,7 +119,7 @@
 							<h2>用户评论区</h2>
 							<div class="comment-publish">
 								<textarea name="" id="commnet-text" data-sign="${historyView.historySign }"></textarea>
-								<input type="button" name="" id="" onclick="submitComment(${historyView.historyId }, '${historyView.historySign }')" value="发表" />
+								<input type="button" name="" id="" onclick="submitComment('${historyView.historySign }')" value="发表" />
 							</div>
 							<div class="comment-list" id="comment-list">
 								<div class="comment-detail clear-both">
@@ -204,7 +204,6 @@
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/historyDetail.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
 	<script id="jsID" type="text/javascript">
 		var img = new Image();

@@ -33,9 +33,6 @@ public class HistoryServiceImpl implements HistoryService {
 	@Autowired
 	private PictureDao pictureDao;
 	
-	@Autowired
-	private CommentDao commentDao;
-
 	@Transactional
 	@Override
 	public int insertHistory(History history) {
@@ -135,33 +132,5 @@ public class HistoryServiceImpl implements HistoryService {
 			throw new SilenceException("系统错误,请重试");
 		}
 		return null;
-	}
-
-	@Transactional
-	@Override
-	public int saveComment(Comment comment, long historyId) {
-		int result = 0;
-		try {
-			historyDao.updateCommentNum(historyId);
-			result = commentDao.insertComment(comment);
-		} catch (Exception e) {
-			log.error(e.getMessage(), e);
-			throw new SilenceException("系统错误,请重试");
-		}
-		return result;
-	}
-
-	@Override
-	public List<CommentView> getComments(String ownerSign, Pages pages) {
-		List<CommentView> commentViews = commentDao.getComments(ownerSign, (pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
-		for(int i = 0; i < commentViews.size(); i++) {
-			commentViews.get(i).setReplyList(commentDao.getReplies(commentViews.get(i).getCommentId()));
-		}
-		return commentViews;
-	}
-
-	@Override
-	public long getCommentNum(String ownerSign) {
-		return commentDao.getCommentNum(ownerSign);
 	}
 }

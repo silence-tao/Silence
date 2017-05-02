@@ -3,6 +3,7 @@ package com.silencetao.controller.opinion;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.jdbc.Null;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,6 +19,7 @@ import com.silencetao.entity.Opinion;
 import com.silencetao.entity.User;
 import com.silencetao.service.opinion.OpinionService;
 import com.silencetao.utils.CookiesUtil;
+import com.silencetao.view.OpinionView;
 import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
@@ -78,5 +81,18 @@ public class OpinionController {
 		map.put("pages", pages);
 		map.put("opinions", opinionService.getOpinions(pages));
 		return new SilenceResult<Map<String,Object>>(true, map);
+	}
+	
+	@RequestMapping(value = "detail/{opinionId}")
+	public String showOpinion(@PathVariable(value = "opinionId") long opinionId, HttpServletRequest request) {
+		OpinionView opinionView = opinionService.getOpinionById(opinionId);
+		if(opinionView != null) {
+			request.setAttribute("opinionView", opinionView);
+			Map<String, OpinionView> map = opinionService.getOpinionBorder(opinionId);
+			request.setAttribute("front", map.get("front"));
+			request.setAttribute("after", map.get("after"));
+			return "/opinion/detail";
+		}
+		return "redirect:/opinion";
 	}
 }

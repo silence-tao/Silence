@@ -7,7 +7,7 @@ function getComments(currentPage) {
 	data.ownerSign = $('#commnet-text').data('sign');
 	data.pageSize = 5;
 	data.currentPage = currentPage;
-	silence.ajaxCurrent('/silence/history/getComments', data,
+	silence.ajaxCurrent('/silence/comment/getComments', data,
 		function(data) {
 			showComment(data);
 		},
@@ -17,17 +17,16 @@ function getComments(currentPage) {
 	);
 }
 
-function submitComment(historyId, historySign) {
+function submitComment(sign) {
 	var content = $('#commnet-text').val();
 	if(content.length == 0) {
 		tipsBar(false, '评论不能为空');
 		return ;
 	}
 	var data = {};
-	data.historyId = historyId;
-	data.ownerSign = historySign;
+	data.ownerSign = sign;
 	data.content = content;
-	silence.ajaxCurrent('/silence/history/saveComment', data,
+	silence.ajaxCurrent('/silence/comment/saveComment', data,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
@@ -35,7 +34,7 @@ function submitComment(historyId, historySign) {
 				showComment(data);
 			} else {
 				tipsBar(data.success, data.message);
-				showUserInfoBar('submitComment', historyId, historySign);
+				showUserInfoBar('submitComment', historySign);
 			}
 		},
 		function(data) {
@@ -113,19 +112,18 @@ function showCommentBox(commentId, id) {
 	);
 }
 
-function replyComment(commentId, historyId) {
+function replyComment(commentId) {
 	var content = $('#comment-text-' + commentId).val();
 	if(content.length == 0) {
 		tipsBar(false, '回复不能为空');
 		return ;
 	}
 	var data = {};
-	data.historyId = historyId;
 	data.ownerSign = $('#commnet-text').data('sign');
 	data.content = content;
 	data.toSign = $('#comment-box-' + commentId).data('sign');
 	data.fatherId = $('#comment-text-' + commentId).data('commentid');
-	silence.ajaxCurrent('/silence/history/saveComment', data,
+	silence.ajaxCurrent('/silence/comment/saveComment', data,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, '回复成功');

@@ -15,6 +15,10 @@ public class OpinionView {
 	private String opinionSign;//唯一标示
 	private Date publishTime;//发布时间
 	private String cover;//封面图片
+	private long commentNum;//评论数
+	private long visitorNum;//浏览量
+	private long praiseNum;//点赞数
+	private String summary;//文章简介
 
 	public OpinionView() {
 		
@@ -87,11 +91,43 @@ public class OpinionView {
 		this.cover = cover;
 	}
 
+	public long getCommentNum() {
+		return commentNum;
+	}
+
+	public void setCommentNum(long commentNum) {
+		this.commentNum = commentNum;
+	}
+
+	public long getVisitorNum() {
+		return visitorNum;
+	}
+
+	public void setVisitorNum(long visitorNum) {
+		this.visitorNum = visitorNum;
+	}
+
+	public long getPraiseNum() {
+		return praiseNum;
+	}
+
+	public void setPraiseNum(long praiseNum) {
+		this.praiseNum = praiseNum;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
 	@Override
 	public String toString() {
-		return "OpinionView [opinionId=" + opinionId + ", title=" + title
-				+ ", content=" + content + ", nikename=" + nikename
-				+ ", opinionSign=" + opinionSign + ", publishTime="
-				+ publishTime + ", cover=" + cover + "]";
+		return "OpinionView [opinionId=" + opinionId + ", title=" + title + ", content=" + content + ", nikename="
+				+ nikename + ", opinionSign=" + opinionSign + ", publishTime=" + publishTime + ", cover=" + cover
+				+ ", commentNum=" + commentNum + ", visitorNum=" + visitorNum + ", praiseNum=" + praiseNum
+				+ ", summary=" + summary + "]";
 	}
 }

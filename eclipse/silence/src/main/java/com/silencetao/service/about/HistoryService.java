@@ -53,26 +53,4 @@ public interface HistoryService {
 	 * @return
 	 */
 	public HistoryView getHisotryView(long historyId);
-	
-	/**
-	 * 保存一条心路历程评论
-	 * @param comment
-	 * @param historyId
-	 * @return
-	 */
-	public int saveComment(Comment comment, long historyId);
-	
-	/**
-	 * 获取心路历程的评论
-	 * @param ownerSign
-	 * @return
-	 */
-	public List<CommentView> getComments(String ownerSign, Pages pages);
-	
-	/**
-	 * 获取评论条数
-	 * @param ownerSign
-	 * @return
-	 */
-	public long getCommentNum(String ownerSign);
 }

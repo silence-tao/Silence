@@ -3,18 +3,37 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.silencetao.dao.opinion.OpinionDao">
 	<insert id="insertOpinion">
-		INSERT INTO opinion(title, content, publisher, opinion_sign) 
-		VALUES(#{title}, #{content}, #{publisher}, #{opinionSign})
+		INSERT INTO opinion(title, content, publisher, opinion_sign, summary) 
+		VALUES(#{title}, #{content}, #{publisher}, #{opinionSign}, #{summary})
 	</insert>
 	
 	<select id="getOpinions" resultType="com.silencetao.view.OpinionView">
-		SELECT opinion_id, title, content, opinion_sign, publish_time, nikename,
+		SELECT opinion_id, title, content, opinion_sign, publish_time, nikename, summary,
+		comment_num, visitor_num, praise_num,
 		(SELECT real_path FROM picture WHERE pertain = opinion_sign LIMIT 1) cover 
-		FROM opinion LEFT JOIN USER ON USER .user_sign = publisher 
+		FROM opinion LEFT JOIN USER ON USER.user_sign = publisher 
+		LEFT JOIN statistic ON opinion_sign = pertain
 		ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
 	</select>
 	
 	<select id="getOpinionNum" resultType="java.lang.Long">
 		SELECT COUNT(1) FROM opinion
+	</select>
+	
+	<select id="getOpinionById" resultType="com.silencetao.view.OpinionView">
+		SELECT opinion_id, title, content, opinion_sign, publish_time, nikename, summary,
+		comment_num, visitor_num, praise_num
+		FROM opinion LEFT JOIN USER ON USER.user_sign = publisher 
+		LEFT JOIN statistic ON opinion_sign = pertain WHERE opinion_id = #{opinionId}
+	</select>
+	
+	<select id="getOpinionFront" resultType="com.silencetao.view.OpinionView">
+		<![CDATA[ SELECT opinion_id, title FROM opinion WHERE opinion_id > #{opinionId} ORDER BY 
+		publish_time LIMIT 1 ]]>
+	</select>
+	
+	<select id="getOpinionAfter" resultType="com.silencetao.view.OpinionView">
+		<![CDATA[ SELECT opinion_id, title FROM opinion WHERE opinion_id < #{opinionId} ORDER BY 
+		publish_time DESC LIMIT 1 ]]>
 	</select>
 </mapper>
