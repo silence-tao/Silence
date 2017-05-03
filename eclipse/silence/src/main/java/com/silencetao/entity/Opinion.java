@@ -17,6 +17,7 @@ public class Opinion implements Serializable {
 	private String opinionSign;//唯一标示
 	private Date publishTime;//发布时间
 	private String summary;//文章简介
+	private long homeShow;//是否在首页显示
 	
 	public Opinion() {
 		
@@ -84,6 +85,14 @@ public class Opinion implements Serializable {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public long getHomeShow() {
+		return homeShow;
+	}
+
+	public void setHomeShow(long homeShow) {
+		this.homeShow = homeShow;
 	}
 
 	@Override

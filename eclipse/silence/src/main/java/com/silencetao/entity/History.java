@@ -17,6 +17,8 @@ public class History implements Serializable {
 	private Date recordTime;
 	private long visitorNum;
 	private long commentNum;
+	private long praiseNum;
+	private long homeShow;//是否在首页显示
 
 	public History() {
 		
@@ -89,10 +91,28 @@ public class History implements Serializable {
 		this.commentNum = commentNum;
 	}
 
+	public long getPraiseNum() {
+		return praiseNum;
+	}
+
+	public void setPraiseNum(long praiseNum) {
+		this.praiseNum = praiseNum;
+	}
+
+	public long getHomeShow() {
+		return homeShow;
+	}
+
+	public void setHomeShow(long homeShow) {
+		this.homeShow = homeShow;
+	}
+
 	@Override
 	public String toString() {
-		return "History [historyId=" + historyId + ", title=" + title + ", content=" + content + ", historySign="
-				+ historySign + ", recordTime=" + recordTime + ", visitorNum=" + visitorNum + ", commentNum="
-				+ commentNum + "]";
+		return "History [historyId=" + historyId + ", title=" + title
+				+ ", content=" + content + ", historySign=" + historySign
+				+ ", recordTime=" + recordTime + ", visitorNum=" + visitorNum
+				+ ", commentNum=" + commentNum + ", praiseNum=" + praiseNum
+				+ "]";
 	}
 }

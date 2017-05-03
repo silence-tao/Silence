@@ -3,8 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.silencetao.dao.message.MessageDao">
 	<insert id="insertMessage">
-		INSERT INTO message(content, message_sign, user_sign, state, father_id) 
-		VALUE(#{content}, #{messageSign}, #{userSign}, 0, #{fatherId})
+		INSERT INTO message(content, message_sign, user_sign, state, father_id, home_show) 
+		VALUE(#{content}, #{messageSign}, #{userSign}, 0, #{fatherId}, #{homeShow})
 	</insert>
 	
 	<select id="getMessages" resultType="com.silencetao.view.MessageView">

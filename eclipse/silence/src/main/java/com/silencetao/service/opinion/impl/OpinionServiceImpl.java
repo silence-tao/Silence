@@ -15,7 +15,7 @@ import com.silencetao.dao.opinion.OpinionDao;
 import com.silencetao.entity.Opinion;
 import com.silencetao.entity.Statistic;
 import com.silencetao.service.opinion.OpinionService;
-import com.silencetao.view.OpinionView;
+import com.silencetao.view.EssayView;
 import com.silencetao.view.Pages;
 
 /**
@@ -49,7 +49,7 @@ public class OpinionServiceImpl implements OpinionService {
 	}
 
 	@Override
-	public List<OpinionView> getOpinions(Pages pages) {
+	public List<EssayView> getOpinions(Pages pages) {
 		return opinionDao.getOpinions((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
 	}
 
@@ -60,18 +60,18 @@ public class OpinionServiceImpl implements OpinionService {
 
 	@Transactional
 	@Override
-	public OpinionView getOpinionById(long opinionId) {
-		OpinionView opinionView = opinionDao.getOpinionById(opinionId);
+	public EssayView getOpinionById(long opinionId) {
+		EssayView opinionView = opinionDao.getOpinionById(opinionId);
 		if(opinionView != null) {
-			statisticDao.updateVisitorNum(opinionView.getOpinionSign());
+			statisticDao.updateVisitorNum(opinionView.getEssaySign());
 			return opinionView;
 		}
 		return null;
 	}
 
 	@Override
-	public Map<String, OpinionView> getOpinionBorder(long opinionId) {
-		Map<String, OpinionView> map = new HashMap<String, OpinionView>();
+	public Map<String, EssayView> getOpinionBorder(long opinionId) {
+		Map<String, EssayView> map = new HashMap<String, EssayView>();
 		map.put("front", opinionDao.getOpinionFront(opinionId));
 		map.put("after", opinionDao.getOpinionAfter(opinionId));
 		return map;

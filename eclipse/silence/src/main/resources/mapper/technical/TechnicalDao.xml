@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.technical.TechnicalDao">
+	<insert id="insertTechnical">
+		INSERT INTO technical(title, content, publisher, technical_sign, audit_status, 
+		home_show, classify, summary) VALUES(#{title}, #{content}, #{publisher}, #{technicalSign},
+		#{auditStatus}, #{homeShow}, #{classify}, #{summary})
+	</insert>
+	
+	<select id="getTechnicals" resultType="com.silencetao.view.EssayView">
+		SELECT technical_id, title, content, publisher, technical_sign, publish_time, 
+		audit_status, home_show, classify, summary, comment_num, visitor_num, praise_num,
+		(SELECT real_path FROM picture WHERE pertain = technical_sign LIMIT 1) cover 
+		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign
+		ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
+	</select>
+</mapper>

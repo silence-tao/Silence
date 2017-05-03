@@ -16,6 +16,10 @@ public class Technical implements Serializable {
 	private String publisher;//发布者
 	private String technicalSign;//唯一表示
 	private Date publishTime;//发布时间
+	private long auditStatus;//审核状态
+	private long homeShow;//是否在首页显示
+	private String classify;//类别
+	private String summary;//文章简介
 	
 	public Technical() {
 		
@@ -76,11 +80,45 @@ public class Technical implements Serializable {
 		this.publishTime = publishTime;
 	}
 
+	public long getAuditStatus() {
+		return auditStatus;
+	}
+
+	public void setAuditStatus(long auditStatus) {
+		this.auditStatus = auditStatus;
+	}
+
+	public long getHomeShow() {
+		return homeShow;
+	}
+
+	public void setHomeShow(long homeShow) {
+		this.homeShow = homeShow;
+	}
+
+	public String getClassify() {
+		return classify;
+	}
+
+	public void setClassify(String classify) {
+		this.classify = classify;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
 	@Override
 	public String toString() {
 		return "Technical [technicalId=" + technicalId + ", title=" + title
 				+ ", content=" + content + ", publisher=" + publisher
 				+ ", technicalSign=" + technicalSign + ", publishTime="
-				+ publishTime + "]";
+				+ publishTime + ", auditStatus=" + auditStatus + ", homeShow="
+				+ homeShow + ", classify=" + classify + ", summary=" + summary
+				+ "]";
 	}
 }

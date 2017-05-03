@@ -12,6 +12,7 @@ public class HistoryView {
 	private List<String> pictures;
 	private long visitorNum;
 	private long commentNum;
+	private long praiseNum;
 	
 	public HistoryView() {
 		
@@ -89,10 +90,20 @@ public class HistoryView {
 		this.commentNum = commentNum;
 	}
 
+	public long getPraiseNum() {
+		return praiseNum;
+	}
+
+	public void setPraiseNum(long praiseNum) {
+		this.praiseNum = praiseNum;
+	}
+
 	@Override
 	public String toString() {
-		return "HistoryView [historyId=" + historyId + ", title=" + title + ", content=" + content + ", historySign="
-				+ historySign + ", recordTime=" + recordTime + ", pictures=" + pictures + ", visitorNum=" + visitorNum
-				+ ", commentNum=" + commentNum + "]";
+		return "HistoryView [historyId=" + historyId + ", title=" + title
+				+ ", content=" + content + ", historySign=" + historySign
+				+ ", recordTime=" + recordTime + ", pictures=" + pictures
+				+ ", visitorNum=" + visitorNum + ", commentNum=" + commentNum
+				+ ", praiseNum=" + praiseNum + "]";
 	}
 }

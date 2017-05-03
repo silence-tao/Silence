@@ -28,7 +28,7 @@ function showOpinion(data) {
 									.replace(/\{commentNum\}/g, opinion.commentNum)
 									.replace(/\{summary\}/g, opinion.summary)
 									.replace(/\{publishTime\}/g, dateFormat(new Date(opinion.publishTime), "yyyy-MM-dd HH:mm"))
-									.replace(/\{opinionId\}/g, opinion.opinionId);
+									.replace(/\{opinionId\}/g, opinion.essayId);
 		opinionList.push(opinion_detail);
 	}
 	$('#opinion-list').html(opinionList.join(''));

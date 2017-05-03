@@ -40,9 +40,12 @@ public class UeditorController {
             	JSONObject json = new JSONObject(exec);
         		Picture picture = new Picture();
         		HttpSession session = request.getSession();
-        		String opinionSign = (String) session.getAttribute("opinionSign");
+        		String essaySign = (String) session.getAttribute("opinionSign");
+        		if(essaySign == null) {
+        			essaySign = (String) session.getAttribute("technicalSign");
+        		}
         		picture.setRealPath((String) json.get("url"));
-        		picture.setPertain(opinionSign);
+        		picture.setPertain(essaySign);
         		try {
         			pictureService.insertPicture(picture);
         		} catch (Exception e) {

@@ -17,6 +17,7 @@ public class Message implements Serializable {
 	private Date messageTime;
 	private long state;
 	private long fatherId;
+	private long homeShow;//是否在首页显示
 	
 	public Message() {
 		
@@ -84,6 +85,14 @@ public class Message implements Serializable {
 
 	public void setFatherId(long fatherId) {
 		this.fatherId = fatherId;
+	}
+
+	public long getHomeShow() {
+		return homeShow;
+	}
+
+	public void setHomeShow(long homeShow) {
+		this.homeShow = homeShow;
 	}
 
 	@Override

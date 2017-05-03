@@ -3,9 +3,11 @@ package com.silencetao.service.about.impl;
 import com.silencetao.dao.about.HistoryDao;
 import com.silencetao.dao.module.CommentDao;
 import com.silencetao.dao.module.PictureDao;
+import com.silencetao.dao.module.StatisticDao;
 import com.silencetao.entity.Comment;
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
+import com.silencetao.entity.Statistic;
 import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.SilenceException;
 import com.silencetao.service.about.HistoryService;
@@ -32,6 +34,9 @@ public class HistoryServiceImpl implements HistoryService {
 	
 	@Autowired
 	private PictureDao pictureDao;
+	
+	@Autowired
+	private StatisticDao statisticDao;
 	
 	@Transactional
 	@Override
@@ -88,6 +93,8 @@ public class HistoryServiceImpl implements HistoryService {
 			int historyCount = historyDao.insertHistory(history);
 			if(historyCount > 0) {
 				int pictureCount = 0;
+				Statistic statistic = new Statistic(history.getHistorySign());
+				statisticDao.insertStatistic(statistic);
 				for(Picture picture : pictures) {
 					pictureCount += pictureDao.insertPicture(picture);
 				}
@@ -112,8 +119,8 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public HistoryView getHisotryView(long historyId) {
 		try {
-			historyDao.updateVisitorNum(historyId);
 			History history = historyDao.getHistory(historyId);
+			statisticDao.updateVisitorNum(history.getHistorySign());
 			if(history != null) {
 				List<Picture> pictureList = pictureDao.getOnePictures(history.getHistorySign());
 				HistoryView historyView = new HistoryView(history.getTitle(), history.getContent(), history.getHistorySign(), history.getRecordTime());

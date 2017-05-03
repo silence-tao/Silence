@@ -19,7 +19,7 @@ import com.silencetao.entity.Opinion;
 import com.silencetao.entity.User;
 import com.silencetao.service.opinion.OpinionService;
 import com.silencetao.utils.CookiesUtil;
-import com.silencetao.view.OpinionView;
+import com.silencetao.view.EssayView;
 import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
@@ -85,10 +85,10 @@ public class OpinionController {
 	
 	@RequestMapping(value = "detail/{opinionId}")
 	public String showOpinion(@PathVariable(value = "opinionId") long opinionId, HttpServletRequest request) {
-		OpinionView opinionView = opinionService.getOpinionById(opinionId);
+		EssayView opinionView = opinionService.getOpinionById(opinionId);
 		if(opinionView != null) {
 			request.setAttribute("opinionView", opinionView);
-			Map<String, OpinionView> map = opinionService.getOpinionBorder(opinionId);
+			Map<String, EssayView> map = opinionService.getOpinionBorder(opinionId);
 			request.setAttribute("front", map.get("front"));
 			request.setAttribute("after", map.get("after"));
 			return "/opinion/detail";

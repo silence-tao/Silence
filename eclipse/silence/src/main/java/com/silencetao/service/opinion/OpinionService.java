@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.silencetao.entity.Opinion;
-import com.silencetao.view.OpinionView;
+import com.silencetao.view.EssayView;
 import com.silencetao.view.Pages;
 
 /**
@@ -27,7 +27,7 @@ public interface OpinionService {
 	 * @param limit
 	 * @return
 	 */
-	public List<OpinionView> getOpinions(Pages pages);
+	public List<EssayView> getOpinions(Pages pages);
 	
 	/**
 	 * 获取分享生活数量
@@ -40,12 +40,12 @@ public interface OpinionService {
 	 * @param opinionId
 	 * @return
 	 */
-	public OpinionView getOpinionById(long opinionId);
+	public EssayView getOpinionById(long opinionId);
 	
 	/**
 	 * 获取相邻的分享生活
 	 * @param opinionId
 	 * @return
 	 */
-	public Map<String, OpinionView> getOpinionBorder(long opinionId);
+	public Map<String, EssayView> getOpinionBorder(long opinionId);
 }

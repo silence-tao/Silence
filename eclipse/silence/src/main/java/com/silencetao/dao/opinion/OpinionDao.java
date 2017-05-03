@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.silencetao.entity.Opinion;
-import com.silencetao.view.OpinionView;
+import com.silencetao.view.EssayView;
 
 /**
  * 分享生活Dao层接口
@@ -27,7 +27,7 @@ public interface OpinionDao {
 	 * @param limit
 	 * @return
 	 */
-	public List<OpinionView> getOpinions(@Param("offset") long offset, @Param("limit") long limit);
+	public List<EssayView> getOpinions(@Param("offset") long offset, @Param("limit") long limit);
 	
 	/**
 	 * 获取分享生活数量
@@ -40,19 +40,19 @@ public interface OpinionDao {
 	 * @param opinionId
 	 * @return
 	 */
-	public OpinionView getOpinionById(long opinionId);
+	public EssayView getOpinionById(long opinionId);
 	
 	/**
 	 * 获得前面一条分享生活
 	 * @param opinionId
 	 * @return
 	 */
-	public OpinionView getOpinionFront(long opinionId);
+	public EssayView getOpinionFront(long opinionId);
 	
 	/**
 	 * 获得后面一条分享生活
 	 * @param opinionId
 	 * @return
 	 */
-	public OpinionView getOpinionAfter(long opinionId);
+	public EssayView getOpinionAfter(long opinionId);
 }
