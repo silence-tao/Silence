@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.module.EssayDao">
+	<select id="getNewEssay" resultType="com.silencetao.view.EssayView">
+		SELECT essay_id, title, summary FROM ( SELECT technical_id essay_id, title, 
+		publish_time, 'technical' summary FROM technical UNION SELECT opinion_id essay_id, title, 
+		publish_time, 'opinion' summary FROM opinion ) essay ORDER BY publish_time DESC LIMIT 0, 10
+	</select>
+	
+	<select id="getHotEssay" resultType="com.silencetao.view.EssayView">
+		SELECT essay_id, title, summary FROM ( SELECT technical_id essay_id, title, visitor_num, 'technical' summary 
+		FROM technical LEFT JOIN statistic ON pertain = technical_sign UNION
+		SELECT opinion_id essay_id, title, visitor_num, 'opinion' summary FROM opinion LEFT JOIN 
+		statistic ON pertain = opinion_sign	) essay ORDER BY visitor_num DESC LIMIT 0, 10
+	</select>
+</mapper>

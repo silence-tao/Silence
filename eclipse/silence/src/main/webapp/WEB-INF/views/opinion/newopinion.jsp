@@ -44,26 +44,20 @@
 						<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
 						<div class="btn-group">
 							<input type="button" onclick="saveOpinion()" value="发表文章" />
-							<input type="button" value="舍弃" />
+							<input type="button" onclick="" value="舍弃" />
 						</div>
 					</div>
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul  id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -83,6 +77,7 @@
     <script type="text/javascript" charset="utf-8" src="/silence/resources/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/newopinion.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var ue = UE.getEditor('editor');
 	</script>

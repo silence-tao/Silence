@@ -39,8 +39,8 @@ DROP TABLE IF EXISTS `history`;
 
 CREATE TABLE `history` (
   `history_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '项目进程id',
-  `title` VARCHAR(50) DEFAULT NULL COMMENT '标题',
-  `content` VARCHAR(200) NOT NULL COMMENT '此次进程内容',
+  `title` VARCHAR(200) DEFAULT NULL COMMENT '标题',
+  `content` VARCHAR(1000) NOT NULL COMMENT '此次进程内容',
   `history_sign` VARCHAR(100) DEFAULT NULL COMMENT '唯一标识sign',
   `record_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录时间',
   PRIMARY KEY (`history_id`),
@@ -68,7 +68,7 @@ CREATE TABLE `message` (
 
 CREATE TABLE `opinion` (
   `opinion_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `title` VARCHAR(50) NOT NULL COMMENT '标题',
+  `title` VARCHAR(200) NOT NULL COMMENT '标题',
   `content` MEDIUMTEXT NOT NULL COMMENT '内容',
   `publisher` VARCHAR(100) NOT NULL COMMENT '发布者',
   `opinion_sign` VARCHAR(100) NOT NULL COMMENT '唯一标示',
@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS `technical`;
 
 CREATE TABLE `technical` (
   `technical_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '技术文章id',
-  `title` VARCHAR(50) NOT NULL COMMENT '技术文章标题',
+  `title` VARCHAR(200) NOT NULL COMMENT '技术文章标题',
   `content` MEDIUMTEXT NOT NULL COMMENT '技术文章内容',
   `publisher` VARCHAR(100) NOT NULL COMMENT '发布者',
   `technical_sign` VARCHAR(100) NOT NULL COMMENT '技术文章唯一标示',
@@ -118,6 +118,7 @@ CREATE TABLE `technical` (
   `audit_status` BIGINT(2) NOT NULL COMMENT '审核状态',
   `home_show` BIGINT(2) NOT NULL COMMENT '是否在首页显示',
   `classify` VARCHAR(50) NOT NULL COMMENT '类别',
+  `summary` VARCHAR(200) DEFAULT NULL COMMENT '文章简介',
   PRIMARY KEY (`technical_id`)
 ) ENGINE=INNODB AUTO_INCREMENT=100000001 DEFAULT CHARSET=utf8;
 
@@ -142,3 +143,9 @@ CREATE TABLE `user` (
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+CREATE TABLE classify (
+	`classify_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`classify_name` VARCHAR(200) NOT NULL COMMENT '类别名称',
+	PRIMARY KEY (`classify_id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

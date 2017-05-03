@@ -291,6 +291,82 @@ textarea:focus {
 	padding: 0 10px;
 }
 
+.essay-title .title-text input.essay-classify {
+	width: 40%;
+	float: left;
+}
+
+.essay-title .title-text .switch-btn {
+	width: 20%;
+	height: 40px;
+}
+
+.sex-switch {
+	width: 40px;
+	height: 24px;
+	margin: 0 auto;
+}
+
+.sex-switch .radio {
+	width: 40px;
+	height: 24px;
+	background: #019BE1;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 50px;
+	position: relative;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+}
+
+.sex-switch .radio .circle {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	border-radius: 50px;
+	background: #fff;
+	display: inline-block;
+	left: 1px;
+	top: 1px;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+.sex-switch .radio .circle:before {
+	content: '←';
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	line-height: 22px;
+	text-align: center;
+	color: #999;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle {
+	left: 16px;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle:before {
+	content: '→';
+}
+
+.sex-switch input[type=checkbox]:checked ~ label {
+	background: #b3b3b3;
+}
+
+.essay-title .title-text select {
+	width: 40%;
+	height: 40px;
+	font-size: 16px;
+	float: right;
+}
+
 .btn-group {
 	margin: 20px 0;
 	text-align: center;

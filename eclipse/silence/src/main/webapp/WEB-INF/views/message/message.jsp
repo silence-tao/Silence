@@ -112,20 +112,14 @@
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -190,4 +184,5 @@
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 </html>

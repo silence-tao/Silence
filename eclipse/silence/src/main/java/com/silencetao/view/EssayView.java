@@ -22,6 +22,7 @@ public class EssayView {
 	private long auditStatus;//审核状态
 	private long homeShow;//是否在首页显示
 	private String classify;//类别
+	private String header;//用户头像
 	
 	public EssayView() {
 		
@@ -153,6 +154,14 @@ public class EssayView {
 
 	public void setClassify(String classify) {
 		this.classify = classify;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
 	}
 
 	@Override

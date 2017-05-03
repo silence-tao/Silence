@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>${opinionView.title }</title>
+		<title>${technicalView.title }</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/opinion.css"/>
@@ -73,8 +73,8 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/opinion">分享生活</a>&nbsp;/&nbsp;
-				<a href="#" class="no-pointer">${opinionView.title }</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/technical">分享生活</a>&nbsp;/&nbsp;
+				<a href="#" class="no-pointer">${technicalView.title }</a>
 			</div>
 		</div>
 		
@@ -82,32 +82,32 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 detail-box">
-						<h1>${opinionView.title }</h1>
+						<h1>${technicalView.title }</h1>
 						<div class="opinion-info">
-							发布时间：<fmt:formatDate value="${opinionView.publishTime }" pattern="yyyy-MM-dd HH:mm" />&nbsp;&nbsp;&nbsp;&nbsp;编辑：${opinionView.nikename }&nbsp;&nbsp;${opinionView.visitorNum }<span class="icon-eye2"></span>&nbsp;&nbsp;${opinionView.commentNum }<span class="icon-bubble"></span>
+							发布时间：<fmt:formatDate value="${technicalView.publishTime }" pattern="yyyy-MM-dd HH:mm" />&nbsp;&nbsp;&nbsp;&nbsp;编辑：${technicalView.nikename }&nbsp;&nbsp;${technicalView.visitorNum }<span class="icon-eye2"></span>&nbsp;&nbsp;${technicalView.commentNum }<span class="icon-bubble"></span>
 						</div>
 						<div class="opinion-content">
-							${opinionView.content }
+							${technicalView.content }
 						</div>
 						<div class="opinion-near">
 							<p>上一篇：
 								<c:choose>
-									<c:when test="${empty front }"><a href="/silence/opinion/">回到分享生活</a></c:when>
-									<c:otherwise><a href="/silence/opinion/detail/${front.essayId }">${front.title }</a></c:otherwise>
+									<c:when test="${empty front }"><a href="/silence/technical/">回到分享生活</a></c:when>
+									<c:otherwise><a href="/silence/technical/detail/${front.essayId }">${front.title }</a></c:otherwise>
 								</c:choose>
 							</p>
 							<p>下一篇：
 								<c:choose>
-									<c:when test="${empty after }"><a href="/silence/opinion/">回到分享生活</a></c:when>
-									<c:otherwise><a href="/silence/opinion/detail/${after.essayId }">${after.title }</a></c:otherwise>
+									<c:when test="${empty after }"><a href="/silence/technical/">回到分享生活</a></c:when>
+									<c:otherwise><a href="/silence/technical/detail/${after.essayId }">${after.title }</a></c:otherwise>
 								</c:choose>	
 							</p>
 						</div>
 						<div class="comment-box">
 							<h2>用户评论区</h2>
 							<div class="comment-publish">
-								<textarea name="" id="commnet-text" data-sign="${opinionView.essaySign }"></textarea>
-								<input type="button" name="" id="" onclick="submitComment('${opinionView.essaySign }')" value="发表" />
+								<textarea name="" id="commnet-text" data-sign="${technicalView.essaySign }"></textarea>
+								<input type="button" name="" id="" onclick="submitComment('${technicalView.essaySign }')" value="发表" />
 							</div>
 							<div class="comment-list" id="comment-list">
 								<div class="comment-detail clear-both">
@@ -119,20 +119,14 @@
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -192,4 +186,5 @@
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 </html>

@@ -9,10 +9,34 @@
 	</insert>
 	
 	<select id="getTechnicals" resultType="com.silencetao.view.EssayView">
-		SELECT technical_id, title, content, publisher, technical_sign, publish_time, 
-		audit_status, home_show, classify, summary, comment_num, visitor_num, praise_num,
+		SELECT technical_id essay_id, title, content, technical_sign essay_sign, 
+		publish_time, audit_status, home_show, classify, summary, comment_num, visitor_num, 
+		praise_num, nikename, header,
 		(SELECT real_path FROM picture WHERE pertain = technical_sign LIMIT 1) cover 
-		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign
+		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign 
+		LEFT JOIN USER ON USER.user_sign = publisher
 		ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getTechnicalNum" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM technical
+	</select>
+	
+	<select id="getTechnicalById" resultType="com.silencetao.view.EssayView">
+		SELECT technical_id essay_id, title, content, technical_sign essay_sign, 
+		publish_time, audit_status, home_show, classify, comment_num, visitor_num, 
+		praise_num,	nikename, header FROM technical LEFT JOIN statistic ON 
+		statistic.pertain = technical_sign LEFT JOIN USER ON USER.user_sign = publisher
+		WHERE technical_id = #{technicalId}
+	</select>
+	
+	<select id="getOpinionFront" resultType="com.silencetao.view.EssayView">
+		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id > #{technicalId} ORDER BY 
+		publish_time LIMIT 1 ]]>
+	</select>
+	
+	<select id="getOpinionAfter" resultType="com.silencetao.view.EssayView">
+		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id < #{technicalId} ORDER BY 
+		publish_time DESC LIMIT 1 ]]>
 	</select>
 </mapper>

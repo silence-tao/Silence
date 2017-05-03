@@ -18,7 +18,7 @@ function saveOpinion() {
 	json.title = title;
 	json.content = content;
 	json.summary = code.substr(0, 68);
-	silence.ajaxCurrent('/silence/opinion/saveTechnical', json,
+	silence.ajaxCurrent('/silence/opinion/saveOpinion', json,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
@@ -36,4 +36,8 @@ function saveOpinion() {
 			console.log(data);
 		}
 	);
+}
+
+function toOpinion() {
+	window.location.href = '/silence/opinion';
 }

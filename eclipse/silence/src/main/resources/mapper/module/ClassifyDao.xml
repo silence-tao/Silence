@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.module.ClassifyDao">
+	<insert id="insertClassify">
+		INSERT INTO classify(classify_name) VALUES(#{classifyName})
+	</insert>
+	
+	<select id="getClassifies" resultType="Classify">
+		SELECT * FROM classify
+	</select>
+</mapper>
