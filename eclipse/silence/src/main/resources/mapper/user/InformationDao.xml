@@ -7,7 +7,7 @@
 		VALUES(#{pertain}, #{name}, #{sex}, #{birthday}, #{virtue}, #{proverbs})
 	</insert>
 	
-	<select id="getInformationByPertain">
+	<select id="getInformationByPertain" resultType="com.silencetao.entity.Information">
 		SELECT * FROM information WHERE pertain = #{pertain}
 	</select>
 	

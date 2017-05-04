@@ -68,7 +68,12 @@
 								</div>
 								<div class="info">
 									<div class="info-left fl">性别</div>
-									<div class="info-right fr">${information.sex }</div>
+									<div class="info-right fr">
+										<c:choose>
+											<c:when test="${information.sex == 1 }">男</c:when>
+											<c:otherwise>女</c:otherwise>
+										</c:choose>
+									</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">生日</div>
@@ -116,12 +121,12 @@
 					<span class="icon-close" onclick="outShade('header-change')"></span>
 				</div>
 				<div class="header-img">
-					<img src="../resources/img/14749103673516675.jpg"/>
-					<input type="file" class="hide" name="" id="header-picture" value="" onchange="picturePrev(this)" />
+					<img src="${userInfo.header }" id="user-header" />
+					<input type="file" class="hide" name="" id="header-picture" value="" onchange="changeHeader(1, this)" />
 				</div>
-				<p class="aciton-link"><a href="javasript:;">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
+				<p class="aciton-link"><a href="javasript:;" onclick="changeHeader(2)">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
 				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="saveHeader()" value="确定" />
 					<input type="button" name="" id="" onclick="outShade('header-change')" value="取消" />
 				</div>
 			</div>
@@ -149,7 +154,10 @@
 						</div>
 						<div class="fl input-text">
 							<div class="sex-switch">
-								<input type="checkbox" class="hide" id="sex-check" checked='<c:if test="${information.sex == 0 }">checked</c:if>' />
+								<c:choose>
+									<c:when test="${information.sex == 1 }"><input type="checkbox" class="hide" id="sex-check" /></c:when>
+									<c:otherwise><input type="checkbox" class="hide" id="sex-check" checked="checked" /></c:otherwise>
+								</c:choose>
 								<label for="sex-check" class="radio">
 									<span class="circle"></span>
 								</label>
@@ -161,7 +169,7 @@
 							生日：
 						</div>
 						<div class="fl input-text">
-							<input type="date" name="" id="" value="" />
+							<input type="date" name="" id="birthday" value="" />
 							<p></p>
 						</div>
 					</div>
@@ -169,7 +177,7 @@
 						<div class="fl title">
 							擅长技能：
 						</div>
-						<div class="fl input-text">
+						<div class="fl input-text" id="virtue">
 							<span class="check-box">
 								<input type="checkbox" class="hide" name="" id="check-1" value="Java" />
 								<label for="check-1" class="class-name">Java</label>
@@ -179,28 +187,28 @@
 								<label for="check-2" class="class-name">Linux</label>
 							</span>
 							<span class="check-box">
-								<input type="checkbox" class="hide" name="" id="check-3" value="数据库" />
-								<label for="check-3" class="class-name">数据库</label>
+								<input type="checkbox" class="hide" name="" id="check-3" value="Oracle" />
+								<label for="check-3" class="class-name">Oracle</label>
 							</span>
 							<span class="check-box">
 								<input type="checkbox" class="hide" name="" id="check-5" value="HTML" />
 								<label for="check-5" class="class-name">HTML</label>
 							</span>
 							<span class="check-box">
-								<input type="checkbox" class="hide" name="" id="check-6" value="数据库" />
-								<label for="check-6" class="class-name">数据库</label>
+								<input type="checkbox" class="hide" name="" id="check-6" value="CSS3" />
+								<label for="check-6" class="class-name">CSS3</label>
 							</span>
 							<span class="check-box">
-								<input type="checkbox" class="hide" name="" id="check-7" value="HTML" />
-								<label for="check-7" class="class-name">HTML</label>
+								<input type="checkbox" class="hide" name="" id="check-7" value="JQuery" />
+								<label for="check-7" class="class-name">JQuery</label>
 							</span>
 							<span class="check-box">
-								<input type="checkbox" class="hide" name="" id="check-8" value="数据库" />
-								<label for="check-8" class="class-name">数据库</label>
+								<input type="checkbox" class="hide" name="" id="check-8" value="Javascript" />
+								<label for="check-8" class="class-name">Javascript</label>
 							</span>
 							<span class="check-box">
-								<input type="checkbox" class="hide" name="" id="check-9" value="HTML" />
-								<label for="check-9" class="class-name">HTML</label>
+								<input type="checkbox" class="hide" name="" id="check-9" value="MySQL" />
+								<label for="check-9" class="class-name">MySQL</label>
 							</span>
 						</div>
 					</div>
@@ -209,18 +217,23 @@
 							个人签名：
 						</div>
 						<div class="fl input-text">
-							<textarea></textarea>
+							<textarea id="proverbs"></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="saveInformation()" value="确定" />
 					<input type="button" name="" id="" onclick="outShade('userinfo-edit')" value="取消" />
 				</div>
 			</div>
 		</div>
+		
+		<div class="tips-bar" id="tips-bar">
+			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/common/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/user.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>

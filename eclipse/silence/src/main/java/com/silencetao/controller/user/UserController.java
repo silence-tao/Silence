@@ -1,5 +1,9 @@
 package com.silencetao.controller.user;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,14 +17,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.silencetao.dao.user.UserDao;
+import com.silencetao.entity.Information;
 import com.silencetao.entity.User;
 import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.MessageExcetion;
+import com.silencetao.service.user.InformationService;
 import com.silencetao.service.user.UserService;
 import com.silencetao.utils.CookiesUtil;
 import com.silencetao.utils.StringUtil;
+import com.silencetao.utils.UploadUtil;
 import com.silencetao.view.SilenceResult;
 
 /**
@@ -35,6 +44,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private InformationService informationService;
 	
 	/**
 	 * 用户注册
@@ -54,7 +66,7 @@ public class UserController {
 			return new SilenceResult<Null>(false, "邮箱已被注册");
 		}
 		user.setRegisterIp(request.getRemoteAddr());
-		user.setUserSign(StringUtil.getMd5(user.getUsername() + user.getNikename(), "silenceUser"));
+		user.setUserSign(StringUtil.getMd5(user.getUsername() + user.getNikename() + System.currentTimeMillis(), "silenceUser"));
 		user.setPassword(StringUtil.getMd5(user.getPassword(), "silencePassword"));
 		try {
 			userService.register(user);
@@ -241,6 +253,119 @@ public class UserController {
 			return new SilenceResult<Null>(true, 2, userService.getHeaderBySign(visitorSign));
 		} else {
 			return new SilenceResult<Null>(false, 0, "未登录");
+		}
+	}
+	
+	@RequestMapping(value = "info")
+	public String getInformation(HttpServletRequest request, HttpSession session) {
+		User user = (User) session.getAttribute("userInfo");
+		Information information = informationService.getInformationByPertain(user.getUserSign());
+		try {
+			information.setAge(StringUtil.getAge(information.getBirthday()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("information", information);
+		return "user/info";
+	}
+	
+	/**
+	 * 保存用户基本信息
+	 * @param information
+	 * @param session
+	 * @param birth
+	 * @return
+	 */
+	@RequestMapping(value = "saveInformation")
+	@ResponseBody
+	public SilenceResult<Null> saveInformation(Information information, HttpSession session,
+			String birth) {
+		User user = (User) session.getAttribute("userInfo");
+		information.setPertain(user.getUserSign());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			information.setBirthday(sdf.parse(birth));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		SilenceResult<Null> silenceResult = null;
+		try {
+			int result = informationService.updateInformation(information);
+			if(result > 0) {
+				silenceResult = new SilenceResult<Null>(true, "保存成功");
+			} else {
+				silenceResult = new SilenceResult<Null>(false, "保存失败");
+			}
+		} catch (Exception e) {
+			log.warn("保存失败");
+			log.error(e.getMessage(), e);
+			silenceResult = new SilenceResult<Null>(false, "系统错误");
+		}
+		return silenceResult;
+	}
+	
+	/**
+	 * 保存用户头像
+	 * @param muliRequest
+	 * @param header
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "saveHeader")
+	@ResponseBody
+	public SilenceResult<Null> saveHeader(MultipartHttpServletRequest muliRequest, String header,
+			HttpSession session) {
+		User user = (User) session.getAttribute("userInfo");
+		Iterator<String> iterator = muliRequest.getFileNames();
+		String path = null;
+		while(iterator.hasNext()) {
+			String fileName = iterator.next();
+			MultipartFile file = muliRequest.getFile(fileName);
+			path = UploadUtil.uploadFile(file, "img/header");
+		}
+		if(path != null) {
+			user.setHeader("/silenceUpload/" + path);
+		} else if(header != null) {
+			user.setHeader(header);
+		} else {
+			return new SilenceResult<Null>(false, "上传的头像为空");
+		}
+		try {
+			userService.updateUser(user);
+			session.setAttribute("userInfo", user);
+			return new SilenceResult<Null>(true, "上传成功");
+		} catch (Exception e) {
+			return new SilenceResult<Null>(false, "上传头像失败");
+		}
+	}
+	
+	/**
+	 * 修改密码
+	 * @param session
+	 * @param oldPass
+	 * @param newPass
+	 * @return
+	 */
+	@RequestMapping(value = "savePassword")
+	@ResponseBody
+	public SilenceResult<Null> savePassword(HttpSession session, String oldPass,
+			String newPass) {
+		User user = (User) session.getAttribute("userInfo");
+		if(oldPass != null) {
+			user.setPassword(StringUtil.getMd5(oldPass, "silencePassword"));
+			User u = userService.login(user);
+			if(u != null) {
+				user.setPassword(StringUtil.getMd5(newPass, "silencePassword"));
+				userService.updateUser(user);
+				session.removeAttribute("userInfo");
+				return new SilenceResult<Null>(true, "修改成功");
+			} else {
+				return new SilenceResult<Null>(false, "原密码错误");
+			}
+		} else {
+			return new SilenceResult<Null>(false, "原密码不能为空");
 		}
 	}
 }

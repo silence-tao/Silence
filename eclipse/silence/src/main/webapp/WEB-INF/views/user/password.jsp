@@ -54,15 +54,15 @@
 							</div>
 							<div class="form-group">
 								<div class="input-box">
-									<input type="text" name="" id="" value="" placeholder="请输入原始密码" />
+									<input type="password" name="" id="oldPass" value="" placeholder="请输入原始密码" />
 									<p></p>
 								</div>
 								<div class="input-box">
-									<input type="text" name="" id="" value="" placeholder="请输入新密码" />
+									<input type="password" name="" id="newPass" value="" placeholder="请输入新密码" />
 									<p></p>
 								</div>
 								<div class="input-box">
-									<input type="button" name="" id="" value="确认修改" />
+									<input type="button" name="" id="" onclick="savePass()" value="确认修改" />
 								</div>
 							</div>
 						</div>
@@ -94,18 +94,23 @@
 					<span class="icon-close" onclick="outShade('header-change')"></span>
 				</div>
 				<div class="header-img">
-					<img src="../resources/img/14749103673516675.jpg"/>
-					<input type="file" class="hide" name="" id="header-picture" value="" onchange="picturePrev(this)" />
+					<img src="${userInfo.header }" id="user-header" />
+					<input type="file" class="hide" name="" id="header-picture" value="" onchange="changeHeader(1, this)" />
 				</div>
-				<p class="aciton-link"><a href="javasript:;">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
+				<p class="aciton-link"><a href="javasript:;" onclick="changeHeader(2)">换一换</a><a href="javasript:;" onclick="$('#header-picture').click();">上传头像</a></p>
 				<div class="box-btn">
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="" onclick="saveHeader()" value="确定" />
 					<input type="button" name="" id="" onclick="outShade('header-change')" value="取消" />
 				</div>
 			</div>
 		</div>
+		
+		<div class="tips-bar" id="tips-bar">
+			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/common/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/user.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>

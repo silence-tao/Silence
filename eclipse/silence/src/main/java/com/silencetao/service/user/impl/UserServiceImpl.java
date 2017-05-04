@@ -79,4 +79,15 @@ public class UserServiceImpl implements UserService {
 	public String getHeaderBySign(String userSing) {
 		return userDao.getHeaderBySign(userSing);
 	}
+
+	@Override
+	public int updateUser(User user) {
+		int result = 0;
+		try {
+			result = userDao.updateUser(user);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
 }
