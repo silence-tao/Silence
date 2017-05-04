@@ -44,11 +44,8 @@
 		<div class="message-bar clear-both">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-9 user-setting">
-						<select>
-							<option>a</option>
-							<option>b</option>
-						</select>
+					<div class="col-lg-9 user-setting" style="height: 800px;">
+						
 					</div>
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
@@ -74,7 +71,7 @@
 			</div>
 		</div>
 		
-		<footer>
+		<footer id="eq">
 			<div class="container">
 				<div class="footer-box">
 					友情链接：
@@ -164,4 +161,15 @@
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+            $(window).scroll(function () {
+                var a = document.getElementById("eq").offsetTop;
+                if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
+                    console.log("div在可视范围");
+                }
+                console.log(a + "," + $(window).scrollTop() + "," + $(window).height());
+            });
+        });
+	</script>
 </html>

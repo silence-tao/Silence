@@ -76,4 +76,9 @@ public class OpinionServiceImpl implements OpinionService {
 		map.put("after", opinionDao.getOpinionAfter(opinionId));
 		return map;
 	}
+
+	@Override
+	public List<EssayView> getOpinionHome() {
+		return opinionDao.getOpinionHome();
+	}
 }

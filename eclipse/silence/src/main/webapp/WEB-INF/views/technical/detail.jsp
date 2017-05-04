@@ -73,7 +73,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/technical">分享生活</a>&nbsp;/&nbsp;
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/technical">技术分享</a>&nbsp;/&nbsp;
 				<a href="#" class="no-pointer">${technicalView.title }</a>
 			</div>
 		</div>

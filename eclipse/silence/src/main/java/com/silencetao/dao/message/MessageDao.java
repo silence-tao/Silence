@@ -39,4 +39,10 @@ public interface MessageDao {
 	 * @return
 	 */
 	public List<MessageView> getReplies(long fatherId);
+	
+	/**
+	 * 获取留言主页显示数据
+	 * @return
+	 */
+	public List<MessageView> getMessageHome();
 }

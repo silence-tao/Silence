@@ -33,4 +33,9 @@
 	<select id="getNewHistoryDesc" resultType="History">
 		<![CDATA[ SELECT * FROM history WHERE record_time > #{currentDate} ORDER BY record_time DESC LIMIT 0, 10 ]]>
 	</select>
+	
+	<select id="getHistoryHome" resultType="com.silencetao.view.HistoryView">
+		SELECT history_id, title, content, (SELECT real_path FROM picture WHERE pertain = history_sign LIMIT 1) cover
+		FROM history WHERE home_show = 1 ORDER BY record_time DESC LIMIT 0, 2
+	</select>
 </mapper>

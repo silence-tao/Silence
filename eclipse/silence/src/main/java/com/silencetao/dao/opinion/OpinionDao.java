@@ -55,4 +55,10 @@ public interface OpinionDao {
 	 * @return
 	 */
 	public EssayView getOpinionAfter(long opinionId);
+	
+	/**
+	 * 获取分享生活主页数据
+	 * @return
+	 */
+	public List<EssayView> getOpinionHome();
 }

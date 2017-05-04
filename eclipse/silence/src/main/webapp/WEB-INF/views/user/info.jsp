@@ -26,7 +26,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">基本信息</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">基本信息</a>
 			</div>
 		</div>
 		
@@ -36,16 +36,16 @@
 					<div class="col-lg-9 user-setting">
 						<div class="fl user-menu">
 							<div class="user-header">
-								<img src="../resources/img/14749103673516675.jpg"/>
+								<img src="${userInfo.header }"/>
 								<div class="action-box">
 									<a href="#" class="link-change" onclick="inShade('header-change')">更换头像</a>
 								</div>
 							</div>
-							<p class="user-name">Silence</p>
+							<p class="user-name">${userInfo.nikename }</p>
 							<h2>个人中心</h2>
 							<ul>
-								<li class="active"><a href="#">基本信息</a></li>
-								<li><a href="#">修改密码</a></li>
+								<li class="active"><a href="/silence/user/info">基本信息</a></li>
+								<li><a href="/silence/user/password">修改密码</a></li>
 							</ul>
 						</div>
 						<div class="fr menu-aciton">
@@ -56,31 +56,35 @@
 							<div class="user-detail">
 								<div class="info">
 									<div class="info-left fl">昵称</div>
-									<div class="info-right fr">Silence</div>
+									<div class="info-right fr">${userInfo.nikename }</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">邮箱</div>
-									<div class="info-right fr">taogu2010@yeah.net</div>
+									<div class="info-right fr">${userInfo.username }</div>
+								</div>
+								<div class="info">
+									<div class="info-left fl">真实姓名</div>
+									<div class="info-right fr">${information.name }</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">性别</div>
-									<div class="info-right fr">男</div>
+									<div class="info-right fr">${information.sex }</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">生日</div>
-									<div class="info-right fr">1994-12-15</div>
+									<div class="info-right fr"><fmt:formatDate value="${information.birthday }" pattern="yyyy-MM-dd" /></div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">年龄</div>
-									<div class="info-right fr">22</div>
+									<div class="info-right fr">${information.age }</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">擅长技能</div>
-									<div class="info-right fr">Java，HTML5，Linux</div>
+									<div class="info-right fr">${information.virtue }</div>
 								</div>
 								<div class="info">
 									<div class="info-left fl">个性签名</div>
-									<div class="info-right fr">天下武功，唯快不破</div>
+									<div class="info-right fr">${information.proverbs }</div>
 								</div>
 							</div>
 						</div>
@@ -88,20 +92,14 @@
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -138,10 +136,10 @@
 				<div class="edit-list">
 					<div class="input-box clear-both">
 						<div class="fl title">
-							昵称：
+							真实姓名：
 						</div>
 						<div class="fl input-text">
-							<input type="text" name="" id="" value="" placeholder="Silence" />
+							<input type="text" name="" id="name" value="" placeholder="${information.name }" />
 							<p></p>
 						</div>
 					</div>
@@ -151,7 +149,7 @@
 						</div>
 						<div class="fl input-text">
 							<div class="sex-switch">
-								<input type="checkbox" class="hide" id="sex-check" />
+								<input type="checkbox" class="hide" id="sex-check" checked='<c:if test="${information.sex == 0 }">checked</c:if>' />
 								<label for="sex-check" class="radio">
 									<span class="circle"></span>
 								</label>
@@ -224,5 +222,6 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/user.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 </html>

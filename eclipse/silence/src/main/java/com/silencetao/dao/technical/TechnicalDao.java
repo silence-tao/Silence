@@ -55,4 +55,10 @@ public interface TechnicalDao {
 	 * @return
 	 */
 	public EssayView getOpinionAfter(long technicalId);
+	
+	/**
+	 * 获取技术分享主页数据
+	 * @return
+	 */
+	public List<EssayView> getTechnicalHome();
 }

@@ -47,4 +47,10 @@ public interface TechnicalService {
 	 * @return
 	 */
 	public Map<String, EssayView> getTechnicalBorder(long technicalId);
+	
+	/**
+	 * 获取技术分享主页数据
+	 * @return
+	 */
+	public List<EssayView> getTechnicalHome();
 }

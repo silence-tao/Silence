@@ -77,4 +77,9 @@ public class TechnicalServiceImpl implements TechnicalService {
 		return map;
 	}
 
+	@Override
+	public List<EssayView> getTechnicalHome() {
+		return technicalDao.getTechnicalHome();
+	}
+
 }

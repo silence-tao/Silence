@@ -1,6 +1,7 @@
 package com.silencetao.controller.technical;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,6 +59,7 @@ public class TechnicalController {
 		}
 		try {
 			technicalService.insertTechnical(technical);
+			session.setAttribute("technicalSign", null);
 			return new SilenceResult<Null>(true, "保存成功");
 		} catch (Exception e) {
 			log.warn("保存失败");
@@ -82,6 +84,12 @@ public class TechnicalController {
 		return new SilenceResult<Map<String,Object>>(true, map);
 	}
 	
+	/**
+	 * 获取技术分享详情
+	 * @param technicalId
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "detail/{technicalId}")
 	public String getTechnicalById(@PathVariable(value = "technicalId") long technicalId,
 			HttpServletRequest request) {
@@ -94,5 +102,15 @@ public class TechnicalController {
 			return "/technical/detail";
 		}
 		return "redirect:/technical";
+	}
+	
+	/**
+	 * 获取技术分享主页数据
+	 * @return
+	 */
+	@RequestMapping(value = "getTechnicalHome")
+	@ResponseBody
+	public SilenceResult<List<EssayView>> getTechnicalHome() {
+		return new SilenceResult<List<EssayView>>(true, technicalService.getTechnicalHome());
 	}
 }

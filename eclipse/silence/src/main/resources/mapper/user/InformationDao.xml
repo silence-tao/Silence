@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.silencetao.dao.user.InformationDao">
+	<insert id="insertInformation">
+		INSERT INTO information(pertain, NAME, sex, birthday, virtue, proverbs) 
+		VALUES(#{pertain}, #{name}, #{sex}, #{birthday}, #{virtue}, #{proverbs})
+	</insert>
+	
+	<select id="getInformationByPertain">
+		SELECT * FROM information WHERE pertain = #{pertain}
+	</select>
+	
+	<update id="updateInformation">
+		UPDATE information SET NAME = #{name}, sex = #{sex}, birthday = #{birthday}, 
+		virtue = #{virtue}, proverbs = #{proverbs} WHERE pertain = #{pertain}
+	</update>
+</mapper>

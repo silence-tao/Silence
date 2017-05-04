@@ -52,296 +52,208 @@
 			</div>
 		</header>
 		
-		<div class="history-bar clear-both">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<img src="resources/img/14761734963351905.jpg" class="img-responsive center-block" />
-					</div>
-					<div class="col-lg-6 history-box">
-						<div class="history-detail">
-							<h2>今天天气不错哦</h2>
-							<p>今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦	今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦</p>
-							<a href="#" class="link-button">查看全文</a>
-						</div>
-					</div>
-					<div class="col-lg-6 history-box">
-						<div class="history-detail">
-							<h2>今天天气不错哦</h2>
-							<p>今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦	今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦今天天气不错哦</p>
-							<a href="#" class="link-button">查看全文</a>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<img src="resources/img/14925791855698400.jpg" class="img-responsive center-block" />
-					</div>
+		<div id="history-box">
+			
+		</div>
+		
+		<div id="message-box">
+			
+		</div>
+		
+		<div id="opinion-box">
+			
+		</div>
+		
+		<div id="technical-box">
+			
+		</div>
+		
+		<div class="loading-bottom" id="loading-bottom">
+			<span class="icon-spinner22"></span>加载中
+		</div>
+		
+		<div class="hide" id="tpl_history_top">
+			<div class="col-lg-6">
+				<img src="/silenceUpload/{cover}" class="img-responsive center-block" />
+			</div>
+			<div class="col-lg-6 history-box">
+				<div class="history-detail">
+					<h2>{title}</h2>
+					<p>{content}</p>
+					<a href="/silence/history/detail/{historyId}" class="link-button">查看全文</a>
 				</div>
 			</div>
 		</div>
 		
-		<div class="message-bar">
-			<div class="message-top">
-				<h2>大家怎么看我的？</h2>
-				<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人</p>
+		<div class="hide" id="tpl_history_bottom">
+			<div class="col-lg-6 history-box">
+				<div class="history-detail">
+					<h2>{title}</h2>
+					<p>{content}</p>
+					<a href="/silence/history/detail/{historyId}" class="link-button">查看全文</a>
+				</div>
 			</div>
-			<div class="message-list">
+			<div class="col-lg-6">
+				<img src="/silenceUpload/{cover}" class="img-responsive center-block" />
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_history_bar">
+			<div class="history-bar clear-both" id="history-bar">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3 message-detail">
-							<div class="message-content">
-								<span class="icon-quote-left"></span>
-								<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人。</p>
-								<p class="user-name">——Silence</p>
-								<span class="icon-quote-right"></span>
-							</div>
-							<div class="user-header">
-								<img src="resources/img/14749103673516675.jpg"/>
-							</div>
-						</div>
-						<div class="col-lg-3 message-detail">
-							<div class="message-content">
-								<span class="icon-quote-left"></span>
-								<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人。</p>
-								<p class="user-name">——Silence</p>
-								<span class="icon-quote-right"></span>
-							</div>
-							<div class="user-header">
-								<img src="resources/img/14749103850681742.jpg"/>
-							</div>
-						</div>
-						<div class="col-lg-3 message-detail">
-							<div class="message-content">
-								<span class="icon-quote-left"></span>
-								<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人。</p>
-								<p class="user-name">——Silence</p>
-								<span class="icon-quote-right"></span>
-							</div>
-							<div class="user-header">
-								<img src="resources/img/14749105219289469.jpg"/>
-							</div>
-						</div>
-						<div class="col-lg-3 message-detail">
-							<div class="message-content">
-								<span class="icon-quote-left"></span>
-								<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人。</p>
-								<p class="user-name">——Silence</p>
-								<span class="icon-quote-right"></span>
-							</div>
-							<div class="user-header">
-								<img src="resources/img/head.jpg"/>
-							</div>
+						{historyList}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_message_detail">
+			<div class="col-lg-3 message-detail">
+				<div class="message-content">
+					<span class="icon-quote-left"></span>
+					<p>{content}</p>
+					<p class="user-name">——{nikename}</p>
+					<span class="icon-quote-right"></span>
+				</div>
+				<div class="user-header">
+					<img src="{header}"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_message_bar">
+			<div class="message-bar">
+				<div class="message-top">
+					<h2>大家怎么看我的？</h2>
+					<p>最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人</p>
+				</div>
+				<div class="message-list">
+					<div class="container">
+						<div class="row">
+							{messageList}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div class="life-bar">
-			<div class="life-top">
-				<h2>做一个热爱生活的人</h2>
-				<p>生活的本意是爱，谁不会爱，谁就不能理解生活</p>
+		<div class="hide" id="tpl_opinion_detail">
+			<div class="col-lg-4">
+				<div class="life-img">
+					<img src="{cover}" class="img-responsive" />
+				</div>
+				<div class="life-bottom">
+					<h2 class="life-title">
+						{title}
+					</h2>
+					<div class="life-time clear-both">
+						<span class="fl">{publishTime}</span>
+						<span class="icon-bubble fr"></span>
+						<span class="fr">{commentNum}</span>
+					</div>
+					<p class="life-sumary">
+						{summary}
+					</p>
+					<div class="life-btn">
+						<a href="/silence/opinion/detail/{essayId}" class="link-button">查看全文</a>
+					</div>
+				</div>
 			</div>
-			<div class="life-list clear-both">
+		</div>
+		
+		<div class="hide" id="tpl_opinion_bar">
+			<div class="life-bar">
+				<div class="life-top">
+					<h2>做一个热爱生活的人</h2>
+					<p>生活的本意是爱，谁不会爱，谁就不能理解生活</p>
+				</div>
+				<div class="life-list clear-both">
+					<div class="container">
+						<div class="row">
+							{opinionList}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_technical_detail">
+			<div class="col-lg-6">
+				<div class="technical-detail">
+					<div class="user-info">
+						<div class="user-header"><img src="{header}" /></div>
+						<a href="#">{nikename}</a>
+						<p>{publishTime}</p>
+					</div>
+					<div class="technical-content">
+						<div class="technical-img">
+							<img src="{cover}" class="img-responsive" />
+						</div>
+						<div class="technical-info">
+							<h2 class="technical-title">{title}<a href="#">[{classify}]</a></h2>
+							<p class="technical-sumary">{summary}</p>
+						</div>
+						<a href="/silence/technical/detail/{essayId}" class="link-button">详细信息</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hide" id="tpl_technical_bar">
+			<div class="technical-bar">
+				<div class="technical-top">
+					<h2>追求技术是一种态度</h2>
+					<p>学无止境,无论何时,无论何地,都不要停止学习</p>
+				</div>
+				<div class="technical-list clear-both">
+					<div class="container">
+						<div class="row">
+							{technicalLst}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mywords-bar">
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="life-img">
-								<img src="resources/img/14761734963351905.jpg" class="img-responsive" />
-							</div>
-							<div class="life-bottom">
-								<h2 class="life-title">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱
-								</h2>
-								<div class="life-time clear-both">
-									<span class="fl">2017-02-03</span>
-									<span class="icon-bubble fr"></span>
-									<span class="fr">24</span>
-								</div>
-								<p class="life-sumary">
-									生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱。
-								</p>
-								<div class="life-btn">
-									<a href="#" class="link-button">查看全文</a>
-								</div>
-							</div>
-						</div>
+					<div class="mywords-top">
+					<h2>博主寄语</h2>
+					<p>一个不会写bug的Silence,只是自我安慰罢了</p>
 					</div>
+					<div class="my-header">
+						<a href="/silence/about">
+							<img src="resources/img/head.jpg" />
+							<div class="header-tips">
+								<span>陈涛</span>
+							</div>
+						</a>
+					</div>
+					<p class="words-content">一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了。</p>
 				</div>
 			</div>
-		</div>
-		
-		<div class="technical-bar">
-			<div class="technical-top">
-				<h2>追求技术是一种态度</h2>
-				<p>学无止境,无论何时,无论何地,都不要停止学习</p>
-			</div>
-			<div class="technical-list clear-both">
+			
+			<footer>
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="technical-detail">
-								<div class="user-info">
-									<div class="user-header"><img src="resources/img/14749103850681742.jpg" /></div>
-									<a href="#">Silence</a>
-									<p>2017-04-19 17:45</p>
-								</div>
-								<div class="technical-content">
-									<div class="technical-img">
-										<img src="resources/img/14749103673516675.jpg" class="img-responsive" />
-									</div>
-									<div class="technical-info">
-										<h2 class="technical-title">学无止境,无论何时,无论何地<a href="#">[技术分类]</a></h2>
-										<p class="technical-sumary">何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地</p>
-									</div>
-									<a href="#" class="link-button">详细信息</a>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-6">
-							<div class="technical-detail">
-								<div class="user-info">
-									<div class="user-header"><img src="resources/img/14749103850681742.jpg" /></div>
-									<a href="#">Silence</a>
-									<p>2017-04-19 17:45</p>
-								</div>
-								<div class="technical-content">
-									<div class="technical-img">
-										<img src="resources/img/14749103673516675.jpg" class="img-responsive" />
-									</div>
-									<div class="technical-info">
-										<h2 class="technical-title">学无止境,无论何时,无论何地<a href="#">[技术分类]</a></h2>
-										<p class="technical-sumary">何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地</p>
-									</div>
-									<a href="#" class="link-button">详细信息</a>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-6">
-							<div class="technical-detail">
-								<div class="user-info">
-									<div class="user-header"><img src="resources/img/14749103850681742.jpg" /></div>
-									<a href="#">Silence</a>
-									<p>2017-04-19 17:45</p>
-								</div>
-								<div class="technical-content">
-									<div class="technical-img">
-										<img src="resources/img/14749103673516675.jpg" class="img-responsive" />
-									</div>
-									<div class="technical-info">
-										<h2 class="technical-title">学无止境,无论何时,无论何地<a href="#">[技术分类]</a></h2>
-										<p class="technical-sumary">何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地</p>
-									</div>
-									<a href="#" class="link-button">详细信息</a>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-6">
-							<div class="technical-detail">
-								<div class="user-info">
-									<div class="user-header"><img src="resources/img/14749103850681742.jpg" /></div>
-									<a href="#">Silence</a>
-									<p>2017-04-19 17:45</p>
-								</div>
-								<div class="technical-content">
-									<div class="technical-img">
-										<img src="resources/img/14749103673516675.jpg" class="img-responsive" />
-									</div>
-									<div class="technical-info">
-										<h2 class="technical-title">学无止境,无论何时,无论何地<a href="#">[技术分类]</a></h2>
-										<p class="technical-sumary">何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地无止境,无论何时,无论何地学无止境,无论何时,无论何地</p>
-									</div>
-									<a href="#" class="link-button">详细信息</a>
-								</div>
-							</div>
-						</div>
+					<div class="footer-box">
+						友情链接：
+						<a href="http://www.yangqq.com" target="_blank">杨青个人博客</a>
+						<a href="http://www.chinaliaowei.com/zhenshifu/#/" target="_blank">臻食府</a>
+						<a href="http://www.szqlovepk.club/" target="_blank">花之物语</a>
+					</div>
+					<div class="footer-box">
+						<a href="#">关于博主</a>
+						<a href="https://user.qzone.qq.com/1228714091/infocenter?ptsig=Wp3IEfUGFRD4hWZB8B0K7MyKkV8KHx--NqiifhxuwX4_" target="_blank">QQ空间</a>
+						<a href="http://weibo.com/3749857687/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">新浪微博</a>
+						<a href="" target="_blank"></a>
+						<a href="" target="_blank"></a>
+					</div>
+					<div class="footer-box">
+						Copyright&nbsp;&copy;&nbsp;Design By Silence and All Rights Reversed.&nbsp;赣ICP备16012352号-1
 					</div>
 				</div>
-			</div>
+			</footer>
 		</div>
-		
-		<div class="mywords-bar">
-			<div class="container">
-				<div class="mywords-top">
-				<h2>博主寄语</h2>
-				<p>一个不会写bug的Silence,只是自我安慰罢了</p>
-				</div>
-				<div class="my-header">
-					<a href="/silence/about">
-						<img src="resources/img/head.jpg" />
-						<div class="header-tips">
-							<span>陈涛</span>
-						</div>
-					</a>
-				</div>
-				<p class="words-content">一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了。</p>
-			</div>
-		</div>
-		
-		<footer>
-			<div class="container">
-				<div class="footer-box">
-					友情链接：
-					<a href="http://www.yangqq.com" target="_blank">杨青个人博客</a>
-					<a href="http://www.chinaliaowei.com/zhenshifu/#/" target="_blank">臻食府</a>
-					<a href="http://www.szqlovepk.club/" target="_blank">花之物语</a>
-				</div>
-				<div class="footer-box">
-					<a href="#">关于博主</a>
-					<a href="https://user.qzone.qq.com/1228714091/infocenter?ptsig=Wp3IEfUGFRD4hWZB8B0K7MyKkV8KHx--NqiifhxuwX4_" target="_blank">QQ空间</a>
-					<a href="http://weibo.com/3749857687/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">新浪微博</a>
-					<a href="" target="_blank"></a>
-					<a href="" target="_blank"></a>
-				</div>
-				<div class="footer-box">
-					Copyright&nbsp;&copy;&nbsp;Design By Silence and All Rights Reversed.&nbsp;赣ICP备16012352号-1
-				</div>
-			</div>
-		</footer>
 		
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
 			<c:choose>

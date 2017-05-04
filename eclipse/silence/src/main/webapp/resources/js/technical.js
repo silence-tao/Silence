@@ -5,7 +5,7 @@ $(function() {
 function getTechnicals(currentPage) {
 	var pages = {};
 	pages.currentPage = currentPage;
-	pages.pageSize = 4;
+	pages.pageSize = 6;
 	silence.ajaxCurrent('/silence/technical/getTechnicals', pages,
 		function(data) {
 			showTechnicals(data);
@@ -38,4 +38,5 @@ function showTechnicals(data) {
 
 function toPage(page) {
 	getTechnicals(page);
+	move(0, 350);
 }

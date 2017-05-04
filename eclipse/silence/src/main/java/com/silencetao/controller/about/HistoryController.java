@@ -127,4 +127,14 @@ public class HistoryController {
 		}
 		return "redirect:/history";
 	}
+	
+	/**
+	 * 获取心路历程主页显示数据
+	 * @return
+	 */
+	@RequestMapping(value = "getHistoryHome")
+	@ResponseBody
+	public SilenceResult<List<HistoryView>> getHistoryHome() {
+		return new SilenceResult<List<HistoryView>>(true, historyService.getHistoryHome());
+	}
 }

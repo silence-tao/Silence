@@ -114,4 +114,14 @@ public class MessageController {
 		map.put("messageNum", messageService.getMessageNum());
 		return map;
 	}
+	
+	/**
+	 * 获取留言主页显示数据
+	 * @return
+	 */
+	@RequestMapping(value = "getMessageHome")
+	@ResponseBody
+	public SilenceResult<List<MessageView>> getMessageHome() {
+		return new SilenceResult<List<MessageView>>(true, messageService.getMessageHome());
+	}
 }

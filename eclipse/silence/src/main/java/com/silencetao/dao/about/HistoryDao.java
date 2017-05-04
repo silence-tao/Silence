@@ -1,6 +1,7 @@
 package com.silencetao.dao.about;
 
 import com.silencetao.entity.History;
+import com.silencetao.view.HistoryView;
 
 import java.util.Date;
 import java.util.List;
@@ -59,4 +60,10 @@ public interface HistoryDao {
 	 * @return 逆序返回10条最新的进程记录
 	 */
 	public List<History> getNewHistoryDesc(Date currentDate);
+	
+	/**
+	 * 获取心路历程主页显示数据
+	 * @return
+	 */
+	public List<HistoryView> getHistoryHome();
 }

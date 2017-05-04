@@ -43,4 +43,9 @@ public class MessageServiceImpl implements MessageService {
 		return messageDao.getReplies(fatherId);
 	}
 
+	@Override
+	public List<MessageView> getMessageHome() {
+		return messageDao.getMessageHome();
+	}
+
 }

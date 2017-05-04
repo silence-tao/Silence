@@ -13,6 +13,7 @@ public class HistoryView {
 	private long visitorNum;
 	private long commentNum;
 	private long praiseNum;
+	private String cover;
 	
 	public HistoryView() {
 		
@@ -96,6 +97,14 @@ public class HistoryView {
 
 	public void setPraiseNum(long praiseNum) {
 		this.praiseNum = praiseNum;
+	}
+
+	public String getCover() {
+		return cover;
+	}
+
+	public void setCover(String cover) {
+		this.cover = cover;
 	}
 
 	@Override

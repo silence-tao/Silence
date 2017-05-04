@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.silencetao.dao.user.UserDao;
+import com.silencetao.entity.Information;
 import com.silencetao.entity.User;
 import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.SilenceException;
+import com.silencetao.service.user.InformationService;
 import com.silencetao.service.user.UserService;
 
 /**
@@ -23,13 +25,18 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private InformationService informationService;
 
 	@Transactional
 	@Override
 	public void register(User user) {
 		log.info("保存User信息");
 		try {
-			int insertCount =  userDao.insertUser(user);
+			int insertCount = userDao.insertUser(user);
+			Information information = new Information(user.getUserSign());
+			insertCount += informationService.insertInformation(information);
 			if(insertCount < 1) {
 				throw new DatabaseException("保存失败");
 			}

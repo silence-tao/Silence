@@ -53,4 +53,10 @@ public interface HistoryService {
 	 * @return
 	 */
 	public HistoryView getHisotryView(long historyId);
+	
+	/**
+	 * 获取心路历程主页显示数据
+	 * @return
+	 */
+	public List<HistoryView> getHistoryHome();
 }

@@ -22,4 +22,10 @@
 		header FROM message, USER WHERE message.user_sign = USER.user_sign 
 		AND father_id = #{fatherId}
 	</select>
+	
+	<select id="getMessageHome" resultType="com.silencetao.view.MessageView">
+		SELECT content, nikename, header FROM message LEFT JOIN USER ON 
+		USER.user_sign = message.user_sign WHERE home_show = 1 ORDER BY message_time 
+		LIMIT 0,4
+	</select>
 </mapper>

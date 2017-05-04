@@ -36,4 +36,13 @@
 		<![CDATA[ SELECT opinion_id essay_id, title FROM opinion WHERE opinion_id < #{opinionId} ORDER BY 
 		publish_time DESC LIMIT 1 ]]>
 	</select>
+	
+	<select id="getOpinionHome" resultType="com.silencetao.view.EssayView">
+		SELECT opinion_id essay_id, title, opinion_sign essay_sign, publish_time, nikename, summary,
+		comment_num, visitor_num, praise_num,
+		(SELECT real_path FROM picture WHERE pertain = opinion_sign LIMIT 1) cover 
+		FROM opinion LEFT JOIN USER ON USER.user_sign = publisher 
+		LEFT JOIN statistic ON opinion_sign = pertain WHERE home_show = 1
+		ORDER BY publish_time DESC LIMIT 0, 3
+	</select>
 </mapper>

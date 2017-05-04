@@ -140,4 +140,9 @@ public class HistoryServiceImpl implements HistoryService {
 		}
 		return null;
 	}
+
+	@Override
+	public List<HistoryView> getHistoryHome() {
+		return historyDao.getHistoryHome();
+	}
 }

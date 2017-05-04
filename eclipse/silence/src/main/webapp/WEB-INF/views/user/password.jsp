@@ -26,7 +26,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">修改密码</a>
+				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">修改密码</a>
 			</div>
 		</div>
 		
@@ -36,16 +36,16 @@
 					<div class="col-lg-9 user-setting">
 						<div class="fl user-menu">
 							<div class="user-header">
-								<img src="../resources/img/14749103673516675.jpg"/>
+								<img src="${userInfo.header }"/>
 								<div class="action-box">
 									<a href="javascript:;" onclick="inShade('header-change')" class="link-change">更换头像</a>
 								</div>
 							</div>
-							<p class="user-name">Silence</p>
+							<p class="user-name">${userInfo.nikename }</p>
 							<h2>个人中心</h2>
 							<ul>
-								<li><a href="#">基本信息</a></li>
-								<li class="active"><a href="#">修改密码</a></li>
+								<li><a href="/silence/user/info">基本信息</a></li>
+								<li class="active"><a href="/user/user/password">修改密码</a></li>
 							</ul>
 						</div>
 						<div class="fr menu-aciton">
@@ -70,20 +70,14 @@
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -113,5 +107,6 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/user.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 </html>

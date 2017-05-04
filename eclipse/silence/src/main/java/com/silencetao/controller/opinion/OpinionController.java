@@ -1,6 +1,7 @@
 package com.silencetao.controller.opinion;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,6 +60,7 @@ public class OpinionController {
 		}
 		try {
 			opinionService.insertOpinion(opinion);
+			session.setAttribute("opinionSign", null);
 			return new SilenceResult<Null>(true, "保存成功");
 		} catch (Exception e) {
 			log.warn("保存失败");
@@ -94,5 +96,15 @@ public class OpinionController {
 			return "/opinion/detail";
 		}
 		return "redirect:/opinion";
+	}
+	
+	/**
+	 * 获取分享生活主页数据
+	 * @return
+	 */
+	@RequestMapping(value = "getOpinionHome")
+	@ResponseBody
+	public SilenceResult<List<EssayView>> getOpinionHome() {
+		return new SilenceResult<List<EssayView>>(true, opinionService.getOpinionHome());
 	}
 }

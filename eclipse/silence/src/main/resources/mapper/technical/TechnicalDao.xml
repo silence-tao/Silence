@@ -39,4 +39,12 @@
 		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id < #{technicalId} ORDER BY 
 		publish_time DESC LIMIT 1 ]]>
 	</select>
+	
+	<select id="getTechnicalHome" resultType="com.silencetao.view.EssayView">
+		SELECT technical_id essay_id, title, publish_time, classify, summary, nikename, 
+		header,	(SELECT real_path FROM picture WHERE pertain = technical_sign LIMIT 1) cover 
+		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign 
+		LEFT JOIN USER ON USER.user_sign = publisher WHERE home_show = 1
+		ORDER BY publish_time DESC LIMIT 0, 4
+	</select>
 </mapper>
