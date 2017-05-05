@@ -45,4 +45,11 @@ public interface MessageDao {
 	 * @return
 	 */
 	public List<MessageView> getMessageHome();
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param message
+	 * @return
+	 */
+	public int updateHomeShow(Message message);
 }

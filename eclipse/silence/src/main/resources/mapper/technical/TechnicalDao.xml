@@ -47,4 +47,8 @@
 		LEFT JOIN USER ON USER.user_sign = publisher WHERE home_show = 1
 		ORDER BY publish_time DESC LIMIT 0, 4
 	</select>
+	
+	<update id="updateHomeShow">
+		UPDATE technical SET home_show = #{homeShow} WHERE technical_sign = #{technicalSign}
+	</update>
 </mapper>

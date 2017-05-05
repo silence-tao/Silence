@@ -145,4 +145,10 @@ public class HistoryServiceImpl implements HistoryService {
 	public List<HistoryView> getHistoryHome() {
 		return historyDao.getHistoryHome();
 	}
+
+	@Transactional
+	@Override
+	public int updateHomeShow(History history) {
+		return historyDao.updateHomeShow(history);
+	}
 }

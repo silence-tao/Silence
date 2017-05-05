@@ -61,4 +61,11 @@ public interface OpinionDao {
 	 * @return
 	 */
 	public List<EssayView> getOpinionHome();
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param opinion
+	 * @return
+	 */
+	public int updateHomeShow(Opinion opinion);
 }

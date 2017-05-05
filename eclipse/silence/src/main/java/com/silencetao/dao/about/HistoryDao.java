@@ -66,4 +66,11 @@ public interface HistoryDao {
 	 * @return
 	 */
 	public List<HistoryView> getHistoryHome();
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param history
+	 * @return
+	 */
+	public int updateHomeShow(History history);
 }

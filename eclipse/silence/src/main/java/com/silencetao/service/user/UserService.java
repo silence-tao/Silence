@@ -1,6 +1,10 @@
 package com.silencetao.service.user;
 
+import java.util.List;
+
 import com.silencetao.entity.User;
+import com.silencetao.view.Pages;
+import com.silencetao.view.UserView;
 
 /**
  * User Service层
@@ -63,4 +67,16 @@ public interface UserService {
 	 * @return
 	 */
 	public int updateUser(User user);
+	
+	/**
+	 * 获取所有用户信息
+	 * @return
+	 */
+	public List<UserView> getAllUser(Pages pages);
+	
+	/**
+	 * 获取用户数量
+	 * @return
+	 */
+	public long getUserNum();
 }

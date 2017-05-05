@@ -2,7 +2,9 @@ package com.silencetao.controller.user;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,7 @@ import com.silencetao.service.user.UserService;
 import com.silencetao.utils.CookiesUtil;
 import com.silencetao.utils.StringUtil;
 import com.silencetao.utils.UploadUtil;
+import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
 /**
@@ -367,5 +370,21 @@ public class UserController {
 		} else {
 			return new SilenceResult<Null>(false, "原密码不能为空");
 		}
+	}
+	
+	/**
+	 * 获取所有用户
+	 * @param pages
+	 * @return
+	 */
+	@RequestMapping(value = "getAllUser")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> getAllUser(Pages pages) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		pages.setTotalCount(userService.getUserNum());
+		pages.setTotalPage(pages.getTotalCount() % pages.getPageSize() == 0 ? pages.getTotalCount() / pages.getPageSize() : pages.getTotalCount() / pages.getPageSize() + 1);
+		map.put("pages", pages);
+		map.put("users", userService.getAllUser(pages));
+		return new SilenceResult<Map<String,Object>>(true, map);
 	}
 }

@@ -77,8 +77,8 @@
 							<div class="menu-list">
 								<a href="/silence/user/info" title="个人中心"><span class="icon-home2"></span></a>
 								<a href="/silence/user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
-								<a href="/silence/essay/manage" title="文章管理"><span class="icon-books"></span></a>
 								<c:if test="${userInfo.userRank >= 6 }">
+									<a href="/silence/essay/manage" title="文章管理"><span class="icon-books"></span></a>
 									<a href="/silence/user/manage" title="用户管理"><span class="icon-users2"></span></a>
 								</c:if>
 								<a href="javascript:;" onclick="loginOut()" title="安全退出"><span class="icon-power-off"></span></a>

@@ -48,4 +48,10 @@ public class MessageServiceImpl implements MessageService {
 		return messageDao.getMessageHome();
 	}
 
+	@Transactional
+	@Override
+	public int updateHomeShow(Message message) {
+		return messageDao.updateHomeShow(message);
+	}
+
 }

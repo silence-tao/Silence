@@ -113,4 +113,28 @@ public class TechnicalController {
 	public SilenceResult<List<EssayView>> getTechnicalHome() {
 		return new SilenceResult<List<EssayView>>(true, technicalService.getTechnicalHome());
 	}
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param technical
+	 * @param essaySign
+	 * @return
+	 */
+	@RequestMapping(value = "isHomeShow")
+	@ResponseBody
+	public SilenceResult<Null> isHomeShow(Technical technical, String essaySign) {
+		technical.setTechnicalSign(essaySign);
+		try {
+			int result = technicalService.updateHomeShow(technical);
+			if(result > 0) {
+				return new SilenceResult<Null>(true, "操作成功");
+			} else {
+				return new SilenceResult<Null>(false, "操作失败");
+			}
+		} catch (Exception e) {
+			log.warn("操作失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "操作失败");
+		}
+	}
 }

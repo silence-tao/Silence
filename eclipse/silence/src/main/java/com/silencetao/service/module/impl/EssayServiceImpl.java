@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.silencetao.dao.module.EssayDao;
 import com.silencetao.service.module.EssayService;
 import com.silencetao.view.EssayView;
+import com.silencetao.view.Pages;
 
 /**
  * 文章排行榜Service层接口实现
@@ -28,6 +29,16 @@ public class EssayServiceImpl implements EssayService {
 	@Override
 	public List<EssayView> getHotEssay() {
 		return essayDao.getHotEssay();
+	}
+
+	@Override
+	public List<EssayView> getEssays(Pages pages) {
+		return essayDao.getEssays((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
+	}
+
+	@Override
+	public long getEssayNum() {
+		return essayDao.getEssayNum();
 	}
 
 }

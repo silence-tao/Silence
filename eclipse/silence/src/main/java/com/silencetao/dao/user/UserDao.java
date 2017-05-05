@@ -1,6 +1,11 @@
 package com.silencetao.dao.user;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.silencetao.entity.User;
+import com.silencetao.view.UserView;
 
 /**
  * User Dao层实现
@@ -71,4 +76,16 @@ public interface UserDao {
 	 * @return
 	 */
 	public String getHeaderBySign(String userSign);
+	
+	/**
+	 * 获取所有用户信息
+	 * @return
+	 */
+	public List<UserView> getAllUser(@Param("offset") long offset, @Param("limit") long limit);
+	
+	/**
+	 * 获取用户数量
+	 * @return
+	 */
+	public long getUserNum();
 }

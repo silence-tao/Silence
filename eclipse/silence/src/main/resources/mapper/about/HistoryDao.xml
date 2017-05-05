@@ -38,4 +38,8 @@
 		SELECT history_id, title, content, (SELECT real_path FROM picture WHERE pertain = history_sign LIMIT 1) cover
 		FROM history WHERE home_show = 1 ORDER BY record_time DESC LIMIT 0, 2
 	</select>
+	
+	<update id="updateHomeShow">
+		UPDATE history SET home_show = #{homeShow} WHERE history_sign = #{historySign}
+	</update>
 </mapper>

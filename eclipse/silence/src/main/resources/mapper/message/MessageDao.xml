@@ -28,4 +28,8 @@
 		USER.user_sign = message.user_sign WHERE home_show = 1 ORDER BY message_time 
 		LIMIT 0,4
 	</select>
+	
+	<update id="updateHomeShow">
+		UPDATE message SET home_show = #{homeShow} WHERE message_sign = #{messageSign}
+	</update>
 </mapper>

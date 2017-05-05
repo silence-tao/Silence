@@ -1,5 +1,7 @@
 package com.silencetao.service.user.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.SilenceException;
 import com.silencetao.service.user.InformationService;
 import com.silencetao.service.user.UserService;
+import com.silencetao.view.Pages;
+import com.silencetao.view.UserView;
 
 /**
  * User Service实现层
@@ -89,5 +93,15 @@ public class UserServiceImpl implements UserService {
 			log.error(e.getMessage(), e);
 		}
 		return result;
+	}
+
+	@Override
+	public List<UserView> getAllUser(Pages pages) {
+		return userDao.getAllUser((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
+	}
+
+	@Override
+	public long getUserNum() {
+		return userDao.getUserNum();
 	}
 }

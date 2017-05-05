@@ -82,4 +82,10 @@ public class TechnicalServiceImpl implements TechnicalService {
 		return technicalDao.getTechnicalHome();
 	}
 
+	@Transactional
+	@Override
+	public int updateHomeShow(Technical technical) {
+		return technicalDao.updateHomeShow(technical);
+	}
+
 }

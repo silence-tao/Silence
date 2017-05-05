@@ -107,4 +107,28 @@ public class OpinionController {
 	public SilenceResult<List<EssayView>> getOpinionHome() {
 		return new SilenceResult<List<EssayView>>(true, opinionService.getOpinionHome());
 	}
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param opinion
+	 * @param essaySign
+	 * @return
+	 */
+	@RequestMapping(value = "isHomeShow")
+	@ResponseBody
+	public SilenceResult<Null> isHomeShow(Opinion opinion, String essaySign) {
+		opinion.setOpinionSign(essaySign);
+		try {
+			int result = opinionService.updateHomeShow(opinion);
+			if(result > 0) {
+				return new SilenceResult<Null>(true, "操作成功");
+			} else {
+				return new SilenceResult<Null>(false, "操作失败");
+			}
+		} catch (Exception e) {
+			log.warn("操作失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "操作失败");
+		}
+	}
 }

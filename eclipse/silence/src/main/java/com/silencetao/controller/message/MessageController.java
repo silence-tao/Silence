@@ -124,4 +124,28 @@ public class MessageController {
 	public SilenceResult<List<MessageView>> getMessageHome() {
 		return new SilenceResult<List<MessageView>>(true, messageService.getMessageHome());
 	}
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param message
+	 * @param essaySign
+	 * @return
+	 */
+	@RequestMapping(value = "isHomeShow")
+	@ResponseBody
+	public SilenceResult<Null> isHomeShow(Message message, String essaySign) {
+		message.setMessageSign(essaySign);
+		try {
+			int result = messageService.updateHomeShow(message);
+			if(result > 0) {
+				return new SilenceResult<Null>(true, "操作成功");
+			} else {
+				return new SilenceResult<Null>(false, "操作失败");
+			}
+		} catch (Exception e) {
+			log.warn("操作失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "操作失败");
+		}
+	}
 }

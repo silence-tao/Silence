@@ -45,4 +45,8 @@
 		LEFT JOIN statistic ON opinion_sign = pertain WHERE home_show = 1
 		ORDER BY publish_time DESC LIMIT 0, 3
 	</select>
+	
+	<update id="updateHomeShow">
+		UPDATE opinion SET home_show = #{homeShow} WHERE opinion_sign = #{opinionSign}
+	</update>
 </mapper>

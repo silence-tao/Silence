@@ -53,4 +53,11 @@ public interface TechnicalService {
 	 * @return
 	 */
 	public List<EssayView> getTechnicalHome();
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param technical
+	 * @return
+	 */
+	public int updateHomeShow(Technical technical);
 }

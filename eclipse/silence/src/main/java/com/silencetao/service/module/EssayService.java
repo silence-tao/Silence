@@ -3,6 +3,7 @@ package com.silencetao.service.module;
 import java.util.List;
 
 import com.silencetao.view.EssayView;
+import com.silencetao.view.Pages;
 
 /**
  * 文章排行榜Service层接口
@@ -22,4 +23,16 @@ public interface EssayService {
 	 * @return
 	 */
 	public List<EssayView> getHotEssay();
+	
+	/**
+	 * 获取所有文章
+	 * @return
+	 */
+	public List<EssayView> getEssays(Pages pages);
+	
+	/**
+	 * 获取文章数量
+	 * @return
+	 */
+	public long getEssayNum();
 }

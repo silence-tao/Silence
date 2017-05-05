@@ -105,7 +105,6 @@
 
 .left-box {
 	margin-top: 20px;
-	border-right: 1px dashed #999;
 	min-height: 400px;
 }
 
@@ -142,4 +141,66 @@
 .left-box .manage-menu ul li a.visited {
 	border-bottom: 1px solid #019BE1;
 	color: #019BE1;
+}
+
+.sex-switch {
+	height: 24px;
+}
+
+.sex-switch .radio {
+	width: 40px;
+	height: 24px;
+	background: #b3b3b3;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 50px;
+	position: relative;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+	margin: 0;
+}
+
+.sex-switch .radio .circle {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	border-radius: 50px;
+	background: #fff;
+	display: inline-block;
+	left: 1px;
+	top: 1px;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+.sex-switch .radio .circle:before {
+	content: '否';
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	line-height: 22px;
+	text-align: center;
+	color: #999;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle {
+	left: 16px;
+}
+
+.sex-switch input[type=checkbox]:checked ~ label .circle:before {
+	content: '是';
+}
+
+.sex-switch input[type=checkbox]:checked ~ label {
+	background: #019BE1;
+}
+
+.table tbody tr td {
+	line-height: 24px;
 }

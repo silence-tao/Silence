@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.jdbc.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,5 +137,29 @@ public class HistoryController {
 	@ResponseBody
 	public SilenceResult<List<HistoryView>> getHistoryHome() {
 		return new SilenceResult<List<HistoryView>>(true, historyService.getHistoryHome());
+	}
+	
+	/**
+	 * 设置是否在首页显示
+	 * @param history
+	 * @param essaySign
+	 * @return
+	 */
+	@RequestMapping(value = "isHomeShow")
+	@ResponseBody
+	public SilenceResult<Null> isHomeShow(History history, String essaySign) {
+		history.setHistorySign(essaySign);
+		try {
+			int result = historyService.updateHomeShow(history);
+			if(result > 0) {
+				return new SilenceResult<Null>(true, "操作成功");
+			} else {
+				return new SilenceResult<Null>(false, "操作失败");
+			}
+		} catch (Exception e) {
+			log.warn("操作失败");
+			log.error(e.getMessage(), e);
+			return new SilenceResult<Null>(false, "操作失败");
+		}
 	}
 }

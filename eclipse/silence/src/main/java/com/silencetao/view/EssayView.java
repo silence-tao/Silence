@@ -23,6 +23,7 @@ public class EssayView {
 	private long homeShow;//是否在首页显示
 	private String classify;//类别
 	private String header;//用户头像
+	private String classCode;//类别码
 	
 	public EssayView() {
 		
@@ -162,6 +163,14 @@ public class EssayView {
 
 	public void setHeader(String header) {
 		this.header = header;
+	}
+
+	public String getClassCode() {
+		return classCode;
+	}
+
+	public void setClassCode(String classCode) {
+		this.classCode = classCode;
 	}
 
 	@Override

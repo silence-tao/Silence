@@ -2,6 +2,8 @@ package com.silencetao.dao.module;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.silencetao.view.EssayView;
 
 /**
@@ -22,4 +24,16 @@ public interface EssayDao {
 	 * @return
 	 */
 	public List<EssayView> getHotEssay();
+	
+	/**
+	 * 获取所有文章
+	 * @return
+	 */
+	public List<EssayView> getEssays(@Param("offset") long offset, @Param("limit") long limit);
+	
+	/**
+	 * 获取文章数量
+	 * @return
+	 */
+	public long getEssayNum();
 }

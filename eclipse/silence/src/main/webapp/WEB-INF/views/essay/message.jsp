@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>陈涛个人博客-文章管理</title>
+		<title>陈涛个人博客-留言管理</title>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
@@ -27,7 +27,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">文章管理</a>
+				<a href="#">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言管理</a>
 			</div>
 		</div>
 		
@@ -37,10 +37,11 @@
 					<div class="col-lg-9 left-box">
 						<div class="manage-menu">
 							<ul>
-								<li><a href="#" class="visited">全部文章</a></li>
-								<li><a href="#">心路历程</a></li>
-								<li><a href="#">分享生活</a></li>
-								<li><a href="#">技术分享</a></li>
+								<li><a href="/silence/essay/manage">全部文章</a></li>
+								<li><a href="/silence/essay/history">心路历程</a></li>
+								<li><a href="/silence/essay/opinion">分享生活</a></li>
+								<li><a href="/silence/essay/technical">技术分享</a></li>
+								<li><a href="/silence/essay/message" class="visited">留言管理</a></li>
 							</ul>
 						</div>
 						<table class="table table-hover">
@@ -101,20 +102,14 @@
 					<div class="col-lg-3 rank-bar">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-asterisk"></span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="newEssay-list">
+								
 							</ul>
 						</div>
 						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
 						<div class="essay-list">
-							<ul>
-								<li><span class="icon-num top-3">1</span>&nbsp;<a href="#">学无止境,无论何时,无论何地无论何时,无论何地无论何时,无论何地无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">2</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num top-3">3</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
-								<li><span class="icon-num">4</span>&nbsp;<a href="#">学无止境,无论何时,无论何地</a></li>
+							<ul id="hotEssay-list">
+								
 							</ul>
 						</div>
 					</div>
@@ -139,5 +134,5 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 </html>

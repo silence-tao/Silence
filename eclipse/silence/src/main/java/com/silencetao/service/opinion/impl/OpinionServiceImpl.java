@@ -81,4 +81,10 @@ public class OpinionServiceImpl implements OpinionService {
 	public List<EssayView> getOpinionHome() {
 		return opinionDao.getOpinionHome();
 	}
+
+	@Transactional
+	@Override
+	public int updateHomeShow(Opinion opinion) {
+		return opinionDao.updateHomeShow(opinion);
+	}
 }
