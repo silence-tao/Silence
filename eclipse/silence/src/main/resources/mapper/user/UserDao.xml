@@ -45,7 +45,8 @@
 	
 	<select id="getAllUser" resultType="com.silencetao.view.UserView">
 		SELECT user_id, username, nikename, user_rank, user_sign, header, NAME, 
-		sex, birthday, virtue, proverbs FROM USER LEFT JOIN information ON 
+		sex, birthday, register_ip, register_time, virtue, proverbs FROM USER 
+		LEFT JOIN information ON 
 		USER.user_sign = information.pertain LIMIT #{offset}, #{limit}
 	</select>
 	

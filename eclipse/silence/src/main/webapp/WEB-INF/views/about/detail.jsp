@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>${historyView.title }</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/history.css"/>
@@ -74,7 +76,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="/silence/history">心路历程</a>&nbsp;/&nbsp;
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="<%=basePath %>history">心路历程</a>&nbsp;/&nbsp;
 				<a href="#" class="no-pointer">${historyView.title }</a>
 			</div>
 		</div>
@@ -101,10 +103,10 @@
 										<c:forEach items="${historyView.pictures }" var="picture" varStatus="status">
 											<c:choose>
 												<c:when test="${status.index == 0 }">
-													<li><img id="img-silde" src="/silenceUpload/${picture }" /></li>
+													<li><img id="img-silde" src="${picture }" /></li>
 												</c:when>
 												<c:otherwise>
-													<li><img src="/silenceUpload/${picture }" /></li>
+													<li><img src="${picture }" /></li>
 												</c:otherwise>
 											</c:choose>
 										</c:forEach>
@@ -185,8 +187,8 @@
 					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
 				</div>
 				<div class="box-btn">
-					<a href="/silence/user/login">已有账号，立即登录</a>
-					<a href="/silence/user/register">不想录入，直接注册</a>
+					<a href="<%=basePath %>user/login">已有账号，立即登录</a>
+					<a href="<%=basePath %>user/register">不想录入，直接注册</a>
 				</div>
 			</div>
 		</div>

@@ -27,7 +27,8 @@ public class UploadUtil {
 		fileName = Long.toString(System.currentTimeMillis())
 				+ StringUtil.getRandom(8) + fileName.substring(fileName.lastIndexOf('.'),
 						fileName.length());
-		String path = PropertiesUtil.getProperties("uploadPath") + realPath + "/";
+		realPath = "/silenceUpload/" + realPath;
+		String path = PropertiesUtil.getProperties("rootPath") + realPath + "/";
 		File folder = new File(path);
 		if (!folder.exists()) {
 			folder.mkdir();

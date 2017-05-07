@@ -22,20 +22,26 @@ $(function() {
     });
 	
 	function getHistory() {
-		silence.ajaxCurrent('/silence/history/getHistoryHome', {},
+		silence.ajaxCurrent('history/getHistoryHome', {},
 			function(data) {
 				var tpl_history_bar = $('#tpl_history_bar').html();
 				var tpl_history_top = $('#tpl_history_top').html();
 				var tpl_history_bottom = $('#tpl_history_bottom').html();
 				var historyList = [];
-				var history_top = tpl_history_top.replace(/\{cover\}/g, data.data[0].cover)
+				var history_top = '';
+				var history_bottom = '';
+				if(data.data[0]) {
+					history_top = tpl_history_top.replace(/\{cover\}/g, data.data[0].cover)
 												.replace(/\{title\}/g, data.data[0].title)
 												.replace(/\{content\}/g, data.data[0].content)
 												.replace(/\{historyId\}/g, data.data[0].historyId);
-				var history_bottom = tpl_history_bottom.replace(/\{cover\}/g, data.data[1].cover)
-												.replace(/\{title\}/g, data.data[1].title)
-												.replace(/\{content\}/g, data.data[1].content)
-												.replace(/\{historyId\}/g, data.data[1].historyId);
+				}
+				if(data.data[1]) {
+					history_bottom = tpl_history_bottom.replace(/\{cover\}/g, data.data[1].cover)
+														.replace(/\{title\}/g, data.data[1].title)
+														.replace(/\{content\}/g, data.data[1].content)
+														.replace(/\{historyId\}/g, data.data[1].historyId);
+				}
 				historyList.push(history_top);
 				historyList.push(history_bottom);
 				var history_bar = tpl_history_bar.replace(/\{historyList\}/g, historyList.join(''));
@@ -49,7 +55,7 @@ $(function() {
 	}
 	
 	function getMessage() {
-		silence.ajaxCurrent('/silence/message/getMessageHome', {},
+		silence.ajaxCurrent('message/getMessageHome', {},
 			function(data) {
 				var tpl_message_detail = $('#tpl_message_detail').html();
 				var tpl_message_bar = $('#tpl_message_bar').html();
@@ -73,7 +79,7 @@ $(function() {
 	}
 	
 	function getOpinion() {
-		silence.ajaxCurrent('/silence/opinion/getOpinionHome', {},
+		silence.ajaxCurrent('opinion/getOpinionHome', {},
 			function(data) {
 				var tpl_opinion_bar = $('#tpl_opinion_bar').html();
 				var tpl_opinion_detail = $('#tpl_opinion_detail').html();
@@ -100,7 +106,7 @@ $(function() {
 	}
 	
 	function getTechnical() {
-		silence.ajaxCurrent('/silence/technical/getTechnicalHome', {},
+		silence.ajaxCurrent('technical/getTechnicalHome', {},
 			function(data) {
 				var tpl_technical_detail = $('#tpl_technical_detail').html();
 				var tpl_technical_bar = $('#tpl_technical_bar').html();

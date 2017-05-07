@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-做一个热爱生活的人</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/opinion.css"/>
@@ -42,7 +44,7 @@
 						{summary}
 					</p>
 					<div class="life-btn">
-						<a href="/silence/opinion/detail/{opinionId}" class="link-button">查看全文</a>
+						<a href="<%=basePath %>opinion/detail/{opinionId}" class="link-button">查看全文</a>
 					</div>
 				</div>
 			</div>
@@ -50,7 +52,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">分享生活</a>
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">分享生活</a>
 			</div>
 			<div class="module-intro">
 				生活的本意是爱，谁不会爱，谁就不能理解生活
@@ -80,7 +82,7 @@
 					<a href="http://www.szqlovepk.club/" target="_blank">花之物语</a>
 				</div>
 				<div class="footer-box">
-					<a href="/silence/about">关于博主</a>
+					<a href="<%=basePath %>about">关于博主</a>
 					<a href="https://user.qzone.qq.com/1228714091/infocenter?ptsig=Wp3IEfUGFRD4hWZB8B0K7MyKkV8KHx--NqiifhxuwX4_" target="_blank">QQ空间</a>
 					<a href="http://weibo.com/3749857687/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">新浪微博</a>
 					<a href="" target="_blank"></a>
@@ -95,7 +97,7 @@
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
 			<c:choose>
 				<c:when test="${empty userInfo }">
-					<a href="/silence/user/login" title="我要登录" class="toolbar-item toolbar-item-login">
+					<a href="<%=basePath %>user/login" title="我要登录" class="toolbar-item toolbar-item-login">
 						<span class="toolbar-btn"></span>
 					</a>
 				</c:when>
@@ -117,22 +119,22 @@
 								<p class="user-name">${userInfo.nikename }</p>
 							</div>
 							<div class="menu-list">
-								<a href="/silence/user/info" title="个人中心"><span class="icon-home2"></span></a>
-								<a href="/silence/user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
+								<a href="<%=basePath %>user/info" title="个人中心"><span class="icon-home2"></span></a>
+								<!-- <a href="<%=basePath %>user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a> -->
 								<c:if test="${userInfo.userRank >= 6 }">
-									<a href="/silence/essay/manage" title="文章管理"><span class="icon-books"></span></a>
-									<a href="/silence/user/manage" title="用户管理"><span class="icon-users2"></span></a>
+									<a href="<%=basePath %>essay/manage" title="文章管理"><span class="icon-books"></span></a>
+									<a href="<%=basePath %>user/manage" title="用户管理"><span class="icon-users2"></span></a>
 								</c:if>
 								<a href="javascript:;" onclick="loginOut()" title="安全退出"><span class="icon-power-off"></span></a>
 							</div>
 						</div>
-						<span class="msg-num">9</span>
+						<!-- <span class="msg-num">9</span> -->
 					</div>
 				</c:otherwise>
 			</c:choose>
 			
 			<c:if test="${userInfo.userRank >= 6 }">
-				<a href="/silence/opinion/newopinion" title="添加一条" class="toolbar-item toolbar-item-add">
+				<a href="<%=basePath %>opinion/newopinion" title="添加一条" class="toolbar-item toolbar-item-add">
 					<span class="toolbar-btn"></span>
 				</a>
 			</c:if>

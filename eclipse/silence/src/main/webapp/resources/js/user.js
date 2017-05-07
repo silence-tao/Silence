@@ -15,7 +15,7 @@ function saveInformation() {
 	});
 	json.proverbs = $('#proverbs').val();
 	
-	silence.ajaxCurrent('/silence/user/saveInformation', json,
+	silence.ajaxCurrent('user/saveInformation', json,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
@@ -49,7 +49,7 @@ function saveHeader() {
 	} else {
 		json.header = $('#user-header').attr('src');
 	}
-	silence.ajaxFilesUpload('/silence/user/saveHeader',
+	silence.ajaxFilesUpload('user/saveHeader',
 		json,
 		fileElementIds,
 		function(data) {
@@ -84,11 +84,11 @@ function savePass() {
 	var json = {};
 	json.oldPass = oldPass;
 	json.newPass = newPass;
-	silence.ajaxCurrent('/silence/user/savePassword', json,
+	silence.ajaxCurrent('user/savePassword', json,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
-				window.location.href = "/silence/user/login";
+				window.location.href = basePath + "user/login";
 			} else {
 				tipsBar(data.success, data.message);
 			}

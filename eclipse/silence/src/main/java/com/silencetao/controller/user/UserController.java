@@ -329,7 +329,7 @@ public class UserController {
 			path = UploadUtil.uploadFile(file, "img/header");
 		}
 		if(path != null) {
-			user.setHeader("/silenceUpload/" + path);
+			user.setHeader(path);
 		} else if(header != null) {
 			user.setHeader(header);
 		} else {

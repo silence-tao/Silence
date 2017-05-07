@@ -3,8 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.silencetao.dao.user.InformationDao">
 	<insert id="insertInformation">
-		INSERT INTO information(pertain, NAME, sex, birthday, virtue, proverbs) 
-		VALUES(#{pertain}, #{name}, #{sex}, #{birthday}, #{virtue}, #{proverbs})
+		INSERT INTO information(pertain, NAME, birthday, virtue, proverbs) 
+		VALUES(#{pertain}, #{name}, #{birthday}, #{virtue}, #{proverbs})
 	</insert>
 	
 	<select id="getInformationByPertain" resultType="com.silencetao.entity.Information">

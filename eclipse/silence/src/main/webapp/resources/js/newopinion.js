@@ -18,15 +18,15 @@ function saveOpinion() {
 	json.title = title;
 	json.content = content;
 	json.summary = code.substr(0, 68);
-	silence.ajaxCurrent('/silence/opinion/saveOpinion', json,
+	silence.ajaxCurrent('opinion/saveOpinion', json,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
-				window.location.href = '/silence/opinion';
+				window.location.href = basePath + 'opinion';
 			} else {
 				if(data.status == 0) {
 					tipsBar(data.success, data.message);
-					window.location.href = '/silence/user/login';
+					window.location.href = basePath + 'user/login';
 				} else {
 					tipsBar(data.success, data.message);
 				}
@@ -39,5 +39,5 @@ function saveOpinion() {
 }
 
 function toOpinion() {
-	window.location.href = '/silence/opinion';
+	window.location.href = basePath + 'opinion';
 }

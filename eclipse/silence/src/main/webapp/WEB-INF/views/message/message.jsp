@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-大家怎么看我的？</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/message.css"/>
@@ -70,7 +72,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言板</a>
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">留言板</a>
 			</div>
 			<div class="module-intro">
 				最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人
@@ -81,17 +83,17 @@
 			<div class="container">
 				<div class="mywords-top">
 				<h2>博主寄语</h2>
-				<p>一个不会写bug的Silence,只是自我安慰罢了</p>
+				<p>一个不会写bug的Silence</p>
 				</div>
 				<div class="my-header">
-					<a href="/silence/about">
+					<a href="<%=basePath %>about">
 						<img src="/silence/resources/img/head.jpg" />
 						<div class="header-tips">
 							<span>陈涛</span>
 						</div>
 					</a>
 				</div>
-				<p class="words-content">一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了。</p>
+				<p class="words-content">你的遇事慌乱、抱怨、一脸苦相、不敢扛事儿、推脱、找借口、逻辑不清、没有反馈、不拘小节、不动脑、不走心的举动都会出卖你，阳光、沉稳、乐观、抗击打、思路清晰、勇于奉献、耐得住寂寞、不怕犯错、有进步、打鸡血的每一天会成就连自己都惊讶的未来。</p>
 			</div>
 		</div>
 		
@@ -170,8 +172,8 @@
 					<input type="button" name="" id="" onclick="outShade('userinfo-bar')" value="取消" />
 				</div>
 				<div class="box-btn">
-					<a href="/silence/user/login">已有账号，立即登录</a>
-					<a href="/silence/user/register">不想录入，直接注册</a>
+					<a href="<%=basePath %>user/login">已有账号，立即登录</a>
+					<a href="<%=basePath %>user/register">不想录入，直接注册</a>
 				</div>
 			</div>
 		</div>

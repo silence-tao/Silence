@@ -4,7 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+"/";
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-草根博主Silence的心路历程</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/history.css"/>
@@ -28,7 +30,7 @@
 					{time}
 				</div>
 				<div class="cd-timeline-content">
-					<h2><a href="/silence/history/detail/{historyId}">{title}</a></h2>
+					<h2><a href="<%=basePath %>history/detail/{historyId}">{title}</a></h2>
 					<p>{content}</p>
 					<div class="img-box">
 						{pictures}
@@ -47,13 +49,13 @@
 		</div>
 		
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
-			<a href="/silence" title="返回前页" class="toolbar-item toolbar-item-back">
+			<a href="<%=basePath %>" title="返回前页" class="toolbar-item toolbar-item-back">
 				<span class="toolbar-btn"></span>
 			</a>
 			
 			<c:choose>
 				<c:when test="${empty userInfo }">
-					<a href="user/login" title="我要登录" class="toolbar-item toolbar-item-login">
+					<a href="<%=basePath %>user/login" title="我要登录" class="toolbar-item toolbar-item-login">
 						<span class="toolbar-btn"></span>
 					</a>
 				</c:when>
@@ -75,16 +77,16 @@
 								<p class="user-name">${userInfo.nikename }</p>
 							</div>
 							<div class="menu-list">
-								<a href="/silence/user/info" title="个人中心"><span class="icon-home2"></span></a>
-								<a href="/silence/user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
+								<a href="<%=basePath %>user/info" title="个人中心"><span class="icon-home2"></span></a>
+								<!-- <a href="<%=basePath %>user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a> -->
 								<c:if test="${userInfo.userRank >= 6 }">
-									<a href="/silence/essay/manage" title="文章管理"><span class="icon-books"></span></a>
-									<a href="/silence/user/manage" title="用户管理"><span class="icon-users2"></span></a>
+									<a href="<%=basePath %>essay/manage" title="文章管理"><span class="icon-books"></span></a>
+									<a href="<%=basePath %>user/manage" title="用户管理"><span class="icon-users2"></span></a>
 								</c:if>
 								<a href="javascript:;" onclick="loginOut()" title="安全退出"><span class="icon-power-off"></span></a>
 							</div>
 						</div>
-						<span class="msg-num">9</span>
+						<!-- <span class="msg-num">9</span> -->
 					</div>
 				</c:otherwise>
 			</c:choose>

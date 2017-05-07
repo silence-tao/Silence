@@ -1,4 +1,4 @@
-var basePath = $('#basePath').val();//获取根目录
+var basePath = 'http://localhost:8090/';//获取根目录
 /********************************回到顶部JavaScript代码********************************/
 $(function() {
 	$(window).on('scroll', function() {
@@ -126,7 +126,7 @@ function picturePrev(source) {
 window.silence = {
 	ajaxFilesUpload : function(url, data, fileElementIds, successFunc, errorFunc) {
 		$.ajaxFileUpload({
-			url : url,
+			url : basePath + url,
 			fileElementId : fileElementIds,
 			secureuri : false,
 			dataType : 'json',
@@ -142,7 +142,7 @@ window.silence = {
 	},
 	ajaxCurrent : function(url, data, successFunc, errorFunc) {
 		$.ajax({
-            url: url,
+            url: basePath + url,
             type : 'POST',
             data: data,
             dataType: 'json',
@@ -210,9 +210,9 @@ function dateFormat(date ,format, loc) {
 
 //退出系统
 function loginOut() {
-	silence.ajaxCurrent('/silence/user/loginOut', {},
+	silence.ajaxCurrent('user/loginOut', {},
 		function(data) {
-			window.location.href = '/silence';
+			window.location.href = basePath;
 		},
 		function(data) {
 			console.log(data);

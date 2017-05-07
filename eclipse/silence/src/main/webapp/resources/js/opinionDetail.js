@@ -6,7 +6,7 @@ function getOpinions(currentPage) {
 	var pages = {};
 	pages.currentPage = currentPage;
 	pages.pageSize = 6;
-	silence.ajaxCurrent('/silence/opinion/getOpinions', pages,
+	silence.ajaxCurrent('opinion/getOpinions', pages,
 		function(data) {
 			showOpinion(data);
 		},

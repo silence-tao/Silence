@@ -6,7 +6,7 @@ function getTechnicals(currentPage) {
 	var pages = {};
 	pages.currentPage = currentPage;
 	pages.pageSize = 6;
-	silence.ajaxCurrent('/silence/technical/getTechnicals', pages,
+	silence.ajaxCurrent('technical/getTechnicals', pages,
 		function(data) {
 			showTechnicals(data);
 		},

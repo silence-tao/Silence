@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-基本信息</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/user.css"/>
@@ -26,7 +28,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">基本信息</a>
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">基本信息</a>
 			</div>
 		</div>
 		
@@ -44,8 +46,8 @@
 							<p class="user-name">${userInfo.nikename }</p>
 							<h2>个人中心</h2>
 							<ul>
-								<li class="active"><a href="/silence/user/info">基本信息</a></li>
-								<li><a href="/silence/user/password">修改密码</a></li>
+								<li class="active"><a href="<%=basePath %>user/info">基本信息</a></li>
+								<li><a href="<%=basePath %>user/password">修改密码</a></li>
 							</ul>
 						</div>
 						<div class="fr menu-aciton">

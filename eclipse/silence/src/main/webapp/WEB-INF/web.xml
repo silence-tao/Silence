@@ -49,4 +49,12 @@
 	<listener>
 		<listener-class>com.silencetao.listener.ContextListener</listener-class>
 	</listener>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/resources/pages/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/resources/pages/500.jsp</location>
+	</error-page>
 </web-app>

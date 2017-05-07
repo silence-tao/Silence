@@ -10,7 +10,7 @@ function toPage(page) {
 function getMessages(currentPage) {
 	var pages = {};
 	pages.currentPage = currentPage;
-	silence.ajaxCurrent('/silence/message/getMessages', pages,
+	silence.ajaxCurrent('message/getMessages', pages,
 		function(data) {
 			showMessage(data);
 		},
@@ -26,7 +26,7 @@ function submitMessage() {
 		tipsBar(false, '留言不能为空');
 		return ;
 	}
-	silence.ajaxCurrent('/silence/message/saveMessage', {content : message},
+	silence.ajaxCurrent('message/saveMessage', {content : message},
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
@@ -94,7 +94,7 @@ function replyMessage(messageId) {
 		return ;
 	}
 	data.fatherId = messageId;
-	silence.ajaxCurrent('/silence/message/saveMessage', data,
+	silence.ajaxCurrent('message/saveMessage', data,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, '回复成功');

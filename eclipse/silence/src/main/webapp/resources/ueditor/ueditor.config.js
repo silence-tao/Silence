@@ -47,7 +47,7 @@
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: Url + "/config/getConfig"
+        , serverUrl: "http://localhost:8090" + "/config/getConfig"
         
 //        , serverUrl: URL + "jsp/controller.jsp"
 

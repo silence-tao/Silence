@@ -20,7 +20,7 @@ $(function() {
 			var json = {};
 			json.name = nikename;
 			json.action = 1;
-			silence.ajaxCurrent('/silence/user/checkName', json,
+			silence.ajaxCurrent('user/checkName', json,
 				function(data) {
 					if(data.success) {
 						$('#nikename').next().text('').fadeOut();
@@ -56,7 +56,7 @@ $(function() {
 				var json = {};
 				json.name = username;
 				json.action = 2;
-				silence.ajaxCurrent('/silence/user/checkName', json,
+				silence.ajaxCurrent('user/checkName', json,
 					function(data) {
 						if(data.success) {
 							$('#username').next().text('').fadeOut();
@@ -124,10 +124,10 @@ function register() {
 	data.username = username;
 	data.password = password;
 	data.header = $('#user-header').attr('src');
-	silence.ajaxCurrent('/silence/user/userRegister', data,
+	silence.ajaxCurrent('user/userRegister', data,
 		function(data) {
 			if(data.success) {
-				window.location.href = '/silence';
+				window.location.href = basePath;
 			} else {
 				$('#password').next().text(data.message).fadeIn();
 			}

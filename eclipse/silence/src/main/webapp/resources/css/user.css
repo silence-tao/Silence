@@ -372,6 +372,10 @@
 	min-height: 400px;
 }
 
+.left-box {
+	border: none;
+}
+
 .left-box table a:hover {
 	text-decoration: underline;
 }

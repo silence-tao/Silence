@@ -29,15 +29,15 @@ function saveTechnical() {
 	json.content = content;
 	json.summary = code.substr(0, 40);
 	json.classify = classify;
-	silence.ajaxCurrent('/silence/technical/saveTechnical', json,
+	silence.ajaxCurrent('technical/saveTechnical', json,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
-				window.location.href = '/silence/technical';
+				window.location.href = basePath + 'technical';
 			} else {
 				if(data.status == 0) {
 					tipsBar(data.success, data.message);
-					window.location.href = '/silence/user/login';
+					window.location.href = basePath + 'user/login';
 				} else {
 					tipsBar(data.success, data.message);
 				}
@@ -60,7 +60,7 @@ function switchInput(target) {
 	} else {
 		$('#essay-classify-select').attr('disabled', false);
 		$('#essay-classify').attr('disabled', 'disabled');
-		silence.ajaxCurrent('/silence/classify/getClassifies', {},
+		silence.ajaxCurrent('classify/getClassifies', {},
 			function(data) {
 				var classifies = data.data;
 				for(var i = 0; i < classifies.length; i++) {

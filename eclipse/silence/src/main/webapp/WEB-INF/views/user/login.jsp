@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-我要登录</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/login.css"/>
 		<!--[if lt IE 9]>
@@ -52,7 +54,7 @@
 		</div>
 		
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
-			<a href="/silence" title="返回前页" class="toolbar-item toolbar-item-back">
+			<a href="<%=basePath %>" title="返回前页" class="toolbar-item toolbar-item-back">
 				<span class="toolbar-btn"></span>
 			</a>
 			

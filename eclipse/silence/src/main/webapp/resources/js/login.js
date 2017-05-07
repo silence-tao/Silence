@@ -12,7 +12,7 @@ $(function() {
 });
 
 function getAccount() {
-	silence.ajaxCurrent('/silence/user/getUserSign', {},
+	silence.ajaxCurrent('user/getUserSign', {},
 		function(data) {
 			if(data.success) {
 				$('#username').val(data.data.username);
@@ -44,10 +44,10 @@ function login() {
 	data.username = username;
 	data.password = password;
 	data.remember = $('#save-pass').attr('checked');
-	silence.ajaxCurrent('/silence/user/userLogin', data,
+	silence.ajaxCurrent('user/userLogin', data,
 		function(data) {
 			if(data.success) {
-				window.location.href = '/silence';
+				window.location.href = basePath;
 			} else {
 				$('#password').next().text(data.message).fadeIn();
 			}
@@ -65,7 +65,7 @@ function getHeader() {
 		return ;
 	}
 	data.username = username;
-	silence.ajaxCurrent('/silence/user/getHeader', data,
+	silence.ajaxCurrent('user/getHeader', data,
 		function(data) {
 			if(data.success) {
 				$('#user-header').attr('src', data.message);

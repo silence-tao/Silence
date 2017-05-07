@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-全部文章管理</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
@@ -27,7 +29,7 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="/silence">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">全部文章管理</a>
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">全部文章管理</a>
 			</div>
 		</div>
 		
@@ -36,11 +38,11 @@
 				<div class="left-box">
 					<div class="manage-menu">
 						<ul>
-							<li><a href="/silence/essay/manage" class="visited">全部文章</a></li>
-							<li><a href="/silence/essay/history">心路历程</a></li>
-							<li><a href="/silence/essay/opinion">分享生活</a></li>
-							<li><a href="/silence/essay/technical">技术分享</a></li>
-							<li><a href="/silence/essay/message">留言管理</a></li>
+							<li><a href="<%=basePath %>essay/manage" class="visited">全部文章</a></li>
+							<!-- <li><a href="<%=basePath %>essay/history">心路历程</a></li>
+							<li><a href="<%=basePath %>essay/opinion">分享生活</a></li>
+							<li><a href="<%=basePath %>essay/technical">技术分享</a></li>
+							<li><a href="<%=basePath %>essay/message">留言管理</a></li> -->
 						</ul>
 					</div>
 					<table class="table table-hover">
@@ -85,6 +87,5 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/essay/manage.js" type="text/javascript" charset="utf-8"></script>
 </html>

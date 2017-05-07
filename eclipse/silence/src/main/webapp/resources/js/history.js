@@ -1,7 +1,7 @@
 $(function() {
 	$('.loading-shade').show();
 	topMobile('backPrevious()', '返回', '我的动态', 'openPopup()', 'icon-plus-circle', '');
-	silence.ajaxCurrent('/silence/history/gethistories?currentPage=1', {},
+	silence.ajaxCurrent('history/gethistories?currentPage=1', {},
 		function(data) {
 			if(data.success) {
 				init(data.data);
@@ -23,7 +23,7 @@ $(function() {
 		if($(window).scrollTop() + $(window).height() >= $(document).height()) {
 			if(isLoading && page >= 1) {
 				isLoading = !isLoading;
-				silence.ajaxCurrent('/silence/history/gethistories?currentPage=' + ++page, {},
+				silence.ajaxCurrent('history/gethistories?currentPage=' + ++page, {},
 					function(data) {
 						isLoading = !isLoading;
 						if(data.success) {
@@ -57,14 +57,14 @@ function init(data, isRefresh) {
 		var tpl_image_html = '';
 		switch(data[i].pictures.length) {
 			case 1 :
-				tpl_image_html = '<img src="/silenceUpload/{realPath}" class="img-responsive" />';
+				tpl_image_html = '<img src="{realPath}" class="img-responsive" />';
 				break;
 			case 2 :
 			case 4 :
-				tpl_image_html = '<div class="img-2"><img src="/silenceUpload/{realPath}" class="img-responsive" /></div>';
+				tpl_image_html = '<div class="img-2"><img src="{realPath}" class="img-responsive" /></div>';
 				break;
 			default :
-				tpl_image_html = '<div class="img-3"><img src="/silenceUpload/{realPath}" class="img-responsive" /></div>';
+				tpl_image_html = '<div class="img-3"><img src="{realPath}" class="img-responsive" /></div>';
 				break;
 		}
 		var images_html = [];
@@ -160,7 +160,7 @@ function saveHistory() {
 			fileElementIds.push($(this).attr('id'));
 		}
 	});
-	silence.ajaxFilesUpload('/silence/history/savehistory',
+	silence.ajaxFilesUpload('history/savehistory',
 		data,
 		fileElementIds,
 		function(data) {

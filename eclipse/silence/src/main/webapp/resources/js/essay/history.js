@@ -28,7 +28,7 @@ function showAllEssay(data) {
 		if(essay.classCode == 'message') {
 			title = essay.title.substr(0, 20);
 		} else {
-			title = '<a href="'+ basePath +  essay.classCode + '/detail/' + essay.essayId + '">' + essay.title.substr(0, 20) + '</a>';
+			title = '<a href="' + basePath + essay.classCode + '/detail/' + essay.essayId + '">' + essay.title.substr(0, 20) + '</a>';
 		}
 		var switch_btn = tpl_switch_btn.replace(/\{essaySign\}/g, essay.essaySign)
 									.replace(/\{checked\}/g, essay.homeShow == 1 ? 'checked' : '')

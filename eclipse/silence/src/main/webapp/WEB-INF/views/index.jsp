@@ -5,6 +5,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String basePath = "https://www.silencetao.com/";
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-一个不会写bug的Silence个人博客网站</title>
+		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/animate.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
@@ -31,17 +33,17 @@
 					</div>
 					<nav>
 						<ul>
-							<li><a href="/silence/message">留言板</a></li>
+							<li><a href="<%=basePath %>message">留言板</a></li>
 							<li class="pull-bar">
 								<span>关于&nbsp;<span class="icon-caret-down"></span></span>
 								<div class="pull-nav">
-									<a href="/silence/history">心路历程</a><br />
-									<a href="/silence/about">关于博主</a>
+									<a href="<%=basePath %>history">心路历程</a><br />
+									<a href="<%=basePath %>about">关于博主</a>
 								</div>
 							</li>
-							<li><a href="/silence/technical">技术分享</a></li>
-							<li><a href="/silence/opinion">分享生活</a></li>
-							<li><a href="/silence">首页</a></li>
+							<li><a href="<%=basePath %>technical">技术分享</a></li>
+							<li><a href="<%=basePath %>opinion">分享生活</a></li>
+							<li><a href="<%=basePath %>">首页</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -74,13 +76,13 @@
 		
 		<div class="hide" id="tpl_history_top">
 			<div class="col-lg-6">
-				<img src="/silenceUpload/{cover}" class="img-responsive center-block" />
+				<img src="{cover}" class="img-responsive center-block" />
 			</div>
 			<div class="col-lg-6 history-box">
 				<div class="history-detail">
 					<h2>{title}</h2>
 					<p>{content}</p>
-					<a href="/silence/history/detail/{historyId}" class="link-button">查看全文</a>
+					<a href="<%=basePath %>history/detail/{historyId}" class="link-button">查看全文</a>
 				</div>
 			</div>
 		</div>
@@ -90,11 +92,11 @@
 				<div class="history-detail">
 					<h2>{title}</h2>
 					<p>{content}</p>
-					<a href="/silence/history/detail/{historyId}" class="link-button">查看全文</a>
+					<a href="<%=basePath %>history/detail/{historyId}" class="link-button">查看全文</a>
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<img src="/silenceUpload/{cover}" class="img-responsive center-block" />
+				<img src="{cover}" class="img-responsive center-block" />
 			</div>
 		</div>
 		
@@ -156,7 +158,7 @@
 						{summary}
 					</p>
 					<div class="life-btn">
-						<a href="/silence/opinion/detail/{essayId}" class="link-button">查看全文</a>
+						<a href="<%=basePath %>opinion/detail/{essayId}" class="link-button">查看全文</a>
 					</div>
 				</div>
 			</div>
@@ -194,7 +196,7 @@
 							<h2 class="technical-title">{title}<a href="#">[{classify}]</a></h2>
 							<p class="technical-sumary">{summary}</p>
 						</div>
-						<a href="/silence/technical/detail/{essayId}" class="link-button">详细信息</a>
+						<a href="<%=basePath %>technical/detail/{essayId}" class="link-button">详细信息</a>
 					</div>
 				</div>
 			</div>
@@ -219,17 +221,17 @@
 				<div class="container">
 					<div class="mywords-top">
 					<h2>博主寄语</h2>
-					<p>一个不会写bug的Silence,只是自我安慰罢了</p>
+					<p>一个不会写bug的Silence</p>
 					</div>
 					<div class="my-header">
-						<a href="/silence/about">
-							<img src="resources/img/head.jpg" />
+						<a href="<%=basePath %>about">
+							<img src="/silence/resources/img/head.jpg" />
 							<div class="header-tips">
 								<span>陈涛</span>
 							</div>
 						</a>
 					</div>
-					<p class="words-content">一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了一个不会写bug的Silence,只是自我安慰罢了。</p>
+					<p class="words-content">你的遇事慌乱、抱怨、一脸苦相、不敢扛事儿、推脱、找借口、逻辑不清、没有反馈、不拘小节、不动脑、不走心的举动都会出卖你，阳光、沉稳、乐观、抗击打、思路清晰、勇于奉献、耐得住寂寞、不怕犯错、有进步、打鸡血的每一天会成就连自己都惊讶的未来。</p>
 				</div>
 			</div>
 			
@@ -242,7 +244,7 @@
 						<a href="http://www.szqlovepk.club/" target="_blank">花之物语</a>
 					</div>
 					<div class="footer-box">
-						<a href="#">关于博主</a>
+						<a href="<%=basePath %>about">关于博主</a>
 						<a href="https://user.qzone.qq.com/1228714091/infocenter?ptsig=Wp3IEfUGFRD4hWZB8B0K7MyKkV8KHx--NqiifhxuwX4_" target="_blank">QQ空间</a>
 						<a href="http://weibo.com/3749857687/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">新浪微博</a>
 						<a href="" target="_blank"></a>
@@ -258,7 +260,7 @@
 		<div class="toolbar hidden-md hidden-sm hidden-xs">
 			<c:choose>
 				<c:when test="${empty userInfo }">
-					<a href="user/login" title="我要登录" class="toolbar-item toolbar-item-login">
+					<a href="<%=basePath %>user/login" title="我要登录" class="toolbar-item toolbar-item-login">
 						<span class="toolbar-btn"></span>
 					</a>
 				</c:when>
@@ -280,16 +282,16 @@
 								<p class="user-name">${userInfo.nikename }</p>
 							</div>
 							<div class="menu-list">
-								<a href="/silence/user/info" title="个人中心"><span class="icon-home2"></span></a>
-								<a href="/silence/user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a>
+								<a href="<%=basePath %>user/info" title="个人中心"><span class="icon-home2"></span></a>
+								<!-- <a href="<%=basePath %>user/message" title="消息中心"><span class="icon-envelope"><span class="message-num">9</span></span></a> -->
 								<c:if test="${userInfo.userRank >= 6 }">
-									<a href="/silence/essay/manage" title="文章管理"><span class="icon-books"></span></a>
-									<a href="/silence/user/manage" title="用户管理"><span class="icon-users2"></span></a>
+									<a href="<%=basePath %>essay/manage" title="文章管理"><span class="icon-books"></span></a>
+									<a href="<%=basePath %>user/manage" title="用户管理"><span class="icon-users2"></span></a>
 								</c:if>
 								<a href="javascript:;" onclick="loginOut()" title="安全退出"><span class="icon-power-off"></span></a>
 							</div>
 						</div>
-						<span class="msg-num">9</span>
+						<!-- <span class="msg-num">9</span> -->
 					</div>
 				</c:otherwise>
 			</c:choose>

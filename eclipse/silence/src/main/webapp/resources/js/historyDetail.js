@@ -7,7 +7,7 @@ function getComments(currentPage) {
 	data.ownerSign = $('#commnet-text').data('sign');
 	data.pageSize = 5;
 	data.currentPage = currentPage;
-	silence.ajaxCurrent('/silence/comment/getComments', data,
+	silence.ajaxCurrent('comment/getComments', data,
 		function(data) {
 			showComment(data);
 		},
@@ -26,7 +26,7 @@ function submitComment(sign) {
 	var data = {};
 	data.ownerSign = sign;
 	data.content = content;
-	silence.ajaxCurrent('/silence/comment/saveComment', data,
+	silence.ajaxCurrent('comment/saveComment', data,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, data.message);
@@ -93,7 +93,7 @@ function nextPage(currentPage, target) {
 
 function showCommentBox(commentId, id) {
 	var tpl_comment_box = $('#tpl_comment_box').html();
-	silence.ajaxCurrent('/silence/user/getHeaderBySign', {},
+	silence.ajaxCurrent('user/getHeaderBySign', {},
 		function(data) {
 			if(data.success) {
 				var comment_box = tpl_comment_box.replace(/\{header\}/g, data.message)
@@ -123,7 +123,7 @@ function replyComment(commentId) {
 	data.content = content;
 	data.toSign = $('#comment-box-' + commentId).data('sign');
 	data.fatherId = $('#comment-text-' + commentId).data('commentid');
-	silence.ajaxCurrent('/silence/comment/saveComment', data,
+	silence.ajaxCurrent('comment/saveComment', data,
 		function(data) {
 			if(data.success) {
 				tipsBar(data.success, '回复成功');
