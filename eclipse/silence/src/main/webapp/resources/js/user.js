@@ -31,9 +31,9 @@ function saveInformation() {
 	);
 }
 
-var action;
+var actionMove = 1;
 function changeHeader(action, target) {
-	action = action;
+	actionMove = action;
 	if(action == 1) {
 		picturePrev(target);
 	} else {
@@ -44,7 +44,7 @@ function changeHeader(action, target) {
 function saveHeader() {
 	var json = {};
 	var fileElementIds = new Array();
-	if(action == 1) {
+	if(actionMove == 1) {
 		fileElementIds.push('header-picture');
 	} else {
 		json.header = $('#user-header').attr('src');

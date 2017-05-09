@@ -1,45 +1,32 @@
 package com.silencetao.controller.about;
 
-import com.silencetao.entity.Comment;
 import com.silencetao.entity.History;
 import com.silencetao.entity.Picture;
-import com.silencetao.entity.User;
 import com.silencetao.exception.DatabaseException;
 import com.silencetao.exception.MessageExcetion;
 import com.silencetao.exception.SilenceException;
 import com.silencetao.service.about.HistoryService;
 import com.silencetao.service.module.PictureService;
-import com.silencetao.utils.CookiesUtil;
 import com.silencetao.utils.MailUtil;
 import com.silencetao.utils.StringUtil;
 import com.silencetao.utils.UploadUtil;
-import com.silencetao.view.CommentView;
 import com.silencetao.view.HistoryView;
-import com.silencetao.view.Pages;
 import com.silencetao.view.SilenceResult;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.jdbc.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;

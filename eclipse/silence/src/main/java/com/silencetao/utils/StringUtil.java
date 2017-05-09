@@ -3,6 +3,8 @@ package com.silencetao.utils;
 import java.util.Calendar;
 import java.util.Date;
 
+import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.DigestUtils;
@@ -70,4 +72,14 @@ public class StringUtil {
         }  
         return age;  
     }
+	
+	/**
+	 * 将对象装换为Json
+	 * @param object
+	 * @return
+	 */
+	public static String toJson(Object object) {
+		JSONObject json = JSONObject.fromObject(object);
+		return json.toString();
+	}
 }
