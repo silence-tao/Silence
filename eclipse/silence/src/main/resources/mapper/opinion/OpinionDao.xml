@@ -22,7 +22,7 @@
 	
 	<select id="getOpinionById" resultType="com.silencetao.view.EssayView">
 		SELECT opinion_id essay_id, title, content, opinion_sign essay_sign, publish_time, nikename, summary,
-		comment_num, visitor_num, praise_num
+		comment_num, visitor_num, praise_num, summary
 		FROM opinion LEFT JOIN USER ON USER.user_sign = publisher 
 		LEFT JOIN statistic ON opinion_sign = pertain WHERE opinion_id = #{opinionId}
 	</select>

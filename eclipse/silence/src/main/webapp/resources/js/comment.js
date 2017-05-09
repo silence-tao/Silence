@@ -151,9 +151,11 @@ function submitComment(sign) {
 				tipsBar(data.success, data.message);
 				$('#commnet-text').val('');
 				showComment(data);
-			} else {
+			} else if(data.status == -1) {
 				tipsBar(data.success, data.message);
 				showUserInfoBar('submitComment', sign);
+			} else {
+				tipsBar(data.success, data.message);
 			}
 		},
 		function(data) {
@@ -248,6 +250,8 @@ function replyComment(commentId) {
 				tipsBar(data.success, '回复成功');
 				$('#commnet-text').val('');
 				showComment(data);
+			} else if(data.status == -1) {
+				tipsBar(data.success, data.message);
 			} else {
 				tipsBar(data.success, data.message);
 			}

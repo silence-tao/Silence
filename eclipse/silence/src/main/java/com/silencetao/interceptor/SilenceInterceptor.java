@@ -29,29 +29,35 @@ public class SilenceInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		String url = request.getRequestURI();
 		int login = SessionUtil.isLogin(request.getSession(), request);
-		System.out.println(login);
 		if((
 		"/history/savehistory".equals(url) || 
 		"/history/isHomeShow".equals(url) || 
-		"/message/saveMessage".equals(url) || 
 		"/message/isHomeShow".equals(url) || 
 		"/classify/saveClassify".equals(url) || 
-		"/comment/saveComment".equals(url) || 
 		"/opinion/saveOpinion".equals(url) || 
 		"/opinion/isHomeShow".equals(url) || 
-		
 		"/technical/saveTechnical".equals(url) || 
 		"/technical/isHomeShow".equals(url) || 
-		"/silence/user/loginOut".equals(url) || 
-		"/silence/user/getHeaderBySign".equals(url) || 
-		"/silence/user/saveInformation".equals(url) || 
-		"/silence/user/saveHeader".equals(url) || 
-		"/silence/user/savePassword".equals(url) || 
-		"/silence/user/getAllUser".equals(url)) && login != 0) {
+		"/user/loginOut".equals(url) || 
+		"/user/saveInformation".equals(url) || 
+		"/user/saveHeader".equals(url) || 
+		"/user/savePassword".equals(url) || 
+		"/user/getAllUser".equals(url)) && login != 2) {
 			PrintWriter out = response.getWriter();
-			SilenceResult<Null> result = new SilenceResult<Null>(false, login, "未登录");
+			SilenceResult<Null> result = new SilenceResult<Null>(false, -2, "未登录");
+			out.print(StringUtil.toJson(result));
+			out.flush();
+			return false;
+		} else if(("/comment/saveComment".equals(url) || 
+		"/message/saveMessage".equals(url) || 
+		"/user/getHeaderBySign".equals(url)) && login != 1) {
+			PrintWriter out = response.getWriter();
+			SilenceResult<Null> result = new SilenceResult<Null>(false, -1, "未登录");
 			out.print(StringUtil.toJson(result));
 			out.flush();
 			return false;
@@ -67,7 +73,7 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		"/user/manage".equals(url) || 
 		"/user/message".equals(url) || 
 		"/user/info".equals(url) || 
-		"/user/password".equals(url)) && login != 0) {
+		"/user/password".equals(url)) && login != 2) {
 			request.getRequestDispatcher("/user/login").forward(request, response);
 			return false;
 		}

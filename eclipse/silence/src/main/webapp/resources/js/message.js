@@ -32,9 +32,11 @@ function submitMessage() {
 				tipsBar(data.success, data.message);
 				$('#message-text').val('');
 				showMessage(data);
-			} else {
+			} else if(data.status == -1) {
 				tipsBar(data.success, data.message);
 				showUserInfoBar('submitMessage');
+			} else {
+				tipsBar(data.success, data.message);
 			}
 		},
 		function(data) {
@@ -100,9 +102,11 @@ function replyMessage(messageId) {
 				tipsBar(data.success, '回复成功');
 				$('#reply-text' + messageId).val('');
 				showMessage(data);
-			} else {
+			} else if(data.status == -1) {
 				tipsBar(data.success, data.message);
 				showUserInfoBar('replyMessage', messageId);
+			} else {
+				tipsBar(data.success, data.message);
 			}
 		},
 		function(data) {

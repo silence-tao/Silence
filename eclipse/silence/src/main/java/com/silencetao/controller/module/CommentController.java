@@ -56,7 +56,7 @@ public class CommentController {
 		} else if(visitorSign != null) {
 			comment.setUserSign(visitorSign);
 		} else {
-			return new SilenceResult<Map<String, Object>>(false, 0, "未登录");
+			return new SilenceResult<Map<String, Object>>(false, -1, "未登录");
 		}
 		try {
 			commentService.saveComment(comment);

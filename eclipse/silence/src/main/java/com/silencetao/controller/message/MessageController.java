@@ -57,7 +57,7 @@ public class MessageController {
 		} else if(visitorSign != null) {
 			message.setUserSign(visitorSign);
 		} else {
-			return new SilenceResult<Map<String, Object>>(false, 0, "未登录");
+			return new SilenceResult<Map<String, Object>>(false, -1, "未登录");
 		}
 		message.setMessageSign(StringUtil.getMd5(System.currentTimeMillis() + StringUtil.getRandom(10), "silenceMessage"));
 		try {

@@ -14,6 +14,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>陈涛个人博客-大家怎么看我的？</title>
+		<meta name="Keywords" content="留言板,陈涛的个人博客,陈涛,个人博客,个人,博客,Silence,Silencetao,涛涛,小涛涛" />
+		<meta name="Description" content="陈涛的个人博客,是完全由草根站长陈涛一个人自主设计开发的个人博客系统,目的是打造一个技术分享的平台" />
 		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>

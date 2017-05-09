@@ -7,13 +7,13 @@ $(function() {
             if(isRequest) {
             	isRequest = false;
             	switch (action) {
-            		case 0 : getHistory();
+            		case 0 : getHistory(a);
             		break;
-            		case 1 : getMessage();
+            		case 1 : getMessage(a);
             		break;
-            		case 2 : getOpinion();
+            		case 2 : getOpinion(a);
             		break;
-            		case 3 : getTechnical();
+            		case 3 : getTechnical(a);
             		break;
             	}
             	action++;
@@ -21,9 +21,13 @@ $(function() {
         }
     });
 	
-	function getHistory() {
+	function getHistory(height) {
 		silence.ajaxCurrent('history/getHistoryHome', {},
 			function(data) {
+				isRequest = true;
+				if(data.data.length == 0) {
+					return ;
+				}
 				var tpl_history_bar = $('#tpl_history_bar').html();
 				var tpl_history_top = $('#tpl_history_top').html();
 				var tpl_history_bottom = $('#tpl_history_bottom').html();
@@ -46,7 +50,7 @@ $(function() {
 				historyList.push(history_bottom);
 				var history_bar = tpl_history_bar.replace(/\{historyList\}/g, historyList.join(''));
 				$('#history-box').html(history_bar);
-				isRequest = true;
+				move(height, 350);
 			},
 			function(data) {
 				console.log(data);
@@ -54,9 +58,13 @@ $(function() {
 		);
 	}
 	
-	function getMessage() {
+	function getMessage(height) {
 		silence.ajaxCurrent('message/getMessageHome', {},
 			function(data) {
+				isRequest = true;
+				if(data.data.length == 0) {
+					return ;
+				}
 				var tpl_message_detail = $('#tpl_message_detail').html();
 				var tpl_message_bar = $('#tpl_message_bar').html();
 				var messages = data.data;
@@ -70,7 +78,7 @@ $(function() {
 				}
 				var message_bar = tpl_message_bar.replace(/\{messageList\}/g, messageList.join(''));
 				$('#message-box').html(message_bar);
-				isRequest = true;
+				move(height - 170, 350);
 			},
 			function(data) {
 				console.log(data);
@@ -78,9 +86,13 @@ $(function() {
 		);
 	}
 	
-	function getOpinion() {
+	function getOpinion(height) {
 		silence.ajaxCurrent('opinion/getOpinionHome', {},
 			function(data) {
+				isRequest = true;
+				if(data.data.length == 0) {
+					return ;
+				}
 				var tpl_opinion_bar = $('#tpl_opinion_bar').html();
 				var tpl_opinion_detail = $('#tpl_opinion_detail').html();
 				var opinions = data.data;
@@ -97,7 +109,7 @@ $(function() {
 				}
 				var opinion_bar = tpl_opinion_bar.replace(/\{opinionList\}/g, opinionList.join(''));
 				$('#opinion-box').html(opinion_bar);
-				isRequest = true;
+				move(height, 350);
 			},
 			function(data) {
 				console.log(data);
@@ -105,7 +117,7 @@ $(function() {
 		);
 	}
 	
-	function getTechnical() {
+	function getTechnical(height) {
 		silence.ajaxCurrent('technical/getTechnicalHome', {},
 			function(data) {
 				var tpl_technical_detail = $('#tpl_technical_detail').html();
@@ -125,8 +137,12 @@ $(function() {
 					technicalLst.push(technical_detail);
 				}
 				var technical_bar = tpl_technical_bar.replace(/\{technicalLst\}/g, technicalLst.join(''));
-				$('#technical-box').html(technical_bar);
+				if(data.data.length != 0) {
+					$('#technical-box').html(technical_bar);
+				}
 				$('#loading-bottom').hide();
+				inShade('footer-box');
+				move(height, 350);
 			},
 			function(data) {
 				console.log(data);

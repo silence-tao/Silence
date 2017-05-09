@@ -25,7 +25,7 @@
 	<select id="getTechnicalById" resultType="com.silencetao.view.EssayView">
 		SELECT technical_id essay_id, title, content, technical_sign essay_sign, 
 		publish_time, audit_status, home_show, classify, comment_num, visitor_num, 
-		praise_num,	nikename, header FROM technical LEFT JOIN statistic ON 
+		praise_num,	nikename, header, summary FROM technical LEFT JOIN statistic ON 
 		statistic.pertain = technical_sign LEFT JOIN USER ON USER.user_sign = publisher
 		WHERE technical_id = #{technicalId}
 	</select>

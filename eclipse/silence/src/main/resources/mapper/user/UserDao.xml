@@ -12,8 +12,14 @@
 	</delete>
 	
 	<update id="updateUser">
-		UPDATE USER SET nikename = #{nikename}, PASSWORD = #{password}, 
-		user_rank = #{userRank}, user_sign = #{userSign}, header = #{header} WHERE user_id = #{userId}
+		UPDATE USER SET user_rank = #{userRank} 
+		<if test="password != null and password != ''">
+			,PASSWORD = #{password}
+		</if>
+		<if test="header != null and header != ''">
+			,header = #{header}
+		</if> 
+		WHERE user_id = #{userId}
 	</update>
 	
 	<select id="getUser" resultType="User">

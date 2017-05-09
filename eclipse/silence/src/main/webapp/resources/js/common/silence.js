@@ -133,7 +133,11 @@ window.silence = {
 			data : data,
 			type : 'POST',
 			success: function(data) {
-				successFunc(data);
+				if(!data.success && data.status == -2) {
+					window.location.href = basePath + 'user/login';
+				} else {
+					successFunc(data);
+				}
 			},
 			error: function(data) {
 				errorFunc(data);
@@ -148,7 +152,11 @@ window.silence = {
             dataType: 'json',
     		async: true,
             success : function(data) {
-            	successFunc(data);
+            	if(!data.success && data.status == -2) {
+					window.location.href = basePath + 'user/login';
+				} else {
+					successFunc(data);
+				}
             },
             error : function(data) {
             	errorFunc(data);

@@ -15,12 +15,12 @@ public class SessionUtil {
 	public static int isLogin(HttpSession session, HttpServletRequest request) {
 		String visitorSign = CookiesUtil.getCookie(request, "visitorSign");
 		User user = (User) session.getAttribute("userInfo");
-		if(visitorSign != null) {
-			return 1;
-		} else if(user != null) {
+		if(user != null) {
 			return 2;
+		} else if(visitorSign != null) {
+			return 1;
 		} else {
-			return 0;
+			return -1;
 		}
 	}
 }
