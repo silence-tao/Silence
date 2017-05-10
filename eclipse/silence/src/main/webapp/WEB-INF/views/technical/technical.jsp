@@ -1,11 +1,10 @@
+<%@page import="com.silencetao.utils.PropertiesUtil"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	//String basePath = "https://www.silencetao.com/";
+	String basePath = PropertiesUtil.getProperties("basePath");
 %>
 <!DOCTYPE html>
 <html>
