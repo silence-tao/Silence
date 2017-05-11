@@ -55,7 +55,7 @@ public class SilenceInterceptor implements HandlerInterceptor {
 			return false;
 		} else if(("/comment/saveComment".equals(url) || 
 		"/message/saveMessage".equals(url) || 
-		"/user/getHeaderBySign".equals(url)) && login != 1) {
+		"/user/getHeaderBySign".equals(url)) && login == -1) {
 			PrintWriter out = response.getWriter();
 			SilenceResult<Null> result = new SilenceResult<Null>(false, -1, "未登录");
 			out.print(StringUtil.toJson(result));
