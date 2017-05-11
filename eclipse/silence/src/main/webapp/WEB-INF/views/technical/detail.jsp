@@ -17,6 +17,7 @@
 		<meta name="Description" content="${technicalView.summary }" />
 		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
+		<link rel="stylesheet" href="/silence/resources/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css">
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/opinion.css"/>
 		<!--[if lt IE 9]>
@@ -190,4 +191,8 @@
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/silence/resources/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+	<script type="text/javascript">
+	    SyntaxHighlighter.all();
+	</script>
 </html>
