@@ -16,5 +16,6 @@
 	<body>
 		<jsp:forward page="index.html"></jsp:forward>
 	</body>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>
 

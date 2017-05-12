@@ -158,6 +158,7 @@
 	<script src="/silence/resources/js/common/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/history.js" type="text/javascript" charset="utf-8"></script>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>
 
 <!--

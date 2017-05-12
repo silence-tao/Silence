@@ -192,12 +192,12 @@ public class UserController {
 	 */
 	@RequestMapping(value = "loginOut")
 	@ResponseBody
-	public String loginOut(HttpSession session) {
+	public SilenceResult<Null> loginOut(HttpSession session) {
 		User user = (User) session.getAttribute("userInfo");
 		if(user != null) {
 			session.removeAttribute("userInfo");
 		}
-		return null;
+		return new SilenceResult<Null>(false, -2, "未登录");
 	}
 	
 	/**

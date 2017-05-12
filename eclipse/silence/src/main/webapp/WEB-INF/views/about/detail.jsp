@@ -212,4 +212,5 @@
 		var ary = location.href.split("&");
 		jQuery(".slideBox").slide( { mainCell:".bd ul", effect:ary[1],autoPlay:ary[2],trigger:ary[3],easing:ary[4],delayTime:ary[5],mouseOverStop:ary[6],pnLoop:ary[7] });
 	</script>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

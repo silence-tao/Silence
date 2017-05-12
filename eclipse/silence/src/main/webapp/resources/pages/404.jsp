@@ -43,4 +43,5 @@
 			<a href="<%=basePath %>">返回主页</a>
 		</div>
 	</body>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

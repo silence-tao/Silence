@@ -188,4 +188,5 @@
 	<script src="/silence/resources/js/message.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/comment.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

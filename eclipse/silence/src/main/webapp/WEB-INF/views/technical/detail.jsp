@@ -195,4 +195,5 @@
 	<script type="text/javascript">
 	    SyntaxHighlighter.all();
 	</script>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

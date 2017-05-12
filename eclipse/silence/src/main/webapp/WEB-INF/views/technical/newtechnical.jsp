@@ -99,4 +99,5 @@
 	<script type="text/javascript">
 		var ue = UE.getEditor('editor');
 	</script>
+	<%@include file="/resources/pages/statistic.jsp" %>
 </html>
