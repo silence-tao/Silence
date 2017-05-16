@@ -68,4 +68,18 @@ public interface TechnicalDao {
 	 * @return
 	 */
 	public int updateHomeShow(Technical technical);
+	
+	/**
+	 * 获取所有的技术分享,除了删除的
+	 * @param offset
+	 * @param limit
+	 * @return
+	 */
+	public List<EssayView> getAllTechnical(@Param("offset") long offset, @Param("limit") long limit);
+	
+	/**
+	 * 获取所有的技术分享数量,除了删除的
+	 * @return
+	 */
+	public long getAllTechnicalNum();
 }

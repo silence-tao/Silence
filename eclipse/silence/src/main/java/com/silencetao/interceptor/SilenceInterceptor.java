@@ -43,6 +43,7 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		"/opinion/isHomeShow".equals(url) || 
 		"/technical/saveTechnical".equals(url) || 
 		"/technical/isHomeShow".equals(url) || 
+		"/technical/getAllTechnical".equals(url) || 
 		"/user/loginOut".equals(url) || 
 		"/user/saveInformation".equals(url) || 
 		"/user/saveHeader".equals(url) || 

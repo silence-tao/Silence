@@ -38,10 +38,10 @@
 					<div class="manage-menu">
 						<ul>
 							<li><a href="<%=basePath %>essay/manage" class="visited">全部文章</a></li>
-							<!-- <li><a href="<%=basePath %>essay/history">心路历程</a></li>
+							<li><a href="<%=basePath %>essay/history">心路历程</a></li>
 							<li><a href="<%=basePath %>essay/opinion">分享生活</a></li>
 							<li><a href="<%=basePath %>essay/technical">技术分享</a></li>
-							<li><a href="<%=basePath %>essay/message">留言管理</a></li> -->
+							<li><a href="<%=basePath %>essay/message">留言管理</a></li>
 						</ul>
 					</div>
 					<table class="table table-hover">

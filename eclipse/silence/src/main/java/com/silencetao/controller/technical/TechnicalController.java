@@ -137,4 +137,21 @@ public class TechnicalController {
 			return new SilenceResult<Null>(false, "操作失败");
 		}
 	}
+	
+	/**
+	 * 获取所有的技术分享,除了删除的
+	 * @param pages
+	 * @return
+	 */
+	@RequestMapping(value = "getAllTechnical")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> getAllTechnical(Pages pages) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		pages.setTotalCount(technicalService.getAllTechnicalNum());
+		pages.setTotalPage(pages.getTotalCount() % pages.getPageSize() == 0 ? pages.getTotalCount() / pages.getPageSize() : pages.getTotalCount() / pages.getPageSize() + 1);
+		map.put("pages", pages);
+		List<EssayView> list = technicalService.getAllTechnical(pages);
+		map.put("technicals", list);
+		return new SilenceResult<Map<String,Object>>(true, map);
+	}
 }

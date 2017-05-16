@@ -88,4 +88,13 @@ public class TechnicalServiceImpl implements TechnicalService {
 		return technicalDao.updateHomeShow(technical);
 	}
 
+	@Override
+	public long getAllTechnicalNum() {
+		return technicalDao.getAllTechnicalNum();
+	}
+
+	@Override
+	public List<EssayView> getAllTechnical(Pages pages) {
+		return technicalDao.getAllTechnical((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
+	}
 }

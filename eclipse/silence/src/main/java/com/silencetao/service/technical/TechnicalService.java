@@ -60,4 +60,18 @@ public interface TechnicalService {
 	 * @return
 	 */
 	public int updateHomeShow(Technical technical);
+	
+	/**
+	 * 获取所有的技术分享数量,除了删除的
+	 * @return
+	 */
+	public long getAllTechnicalNum();
+	
+	/**
+	 * 获取所有的技术分享,除了删除的
+	 * @param offset
+	 * @param limit
+	 * @return
+	 */
+	public List<EssayView> getAllTechnical(Pages pages);
 }
