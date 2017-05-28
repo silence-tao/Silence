@@ -104,4 +104,9 @@ public class UserServiceImpl implements UserService {
 	public long getUserNum() {
 		return userDao.getUserNum();
 	}
+
+	@Override
+	public List<User> getOwner() {
+		return userDao.getOwner();
+	}
 }

@@ -40,7 +40,7 @@ function showAllEssay(data) {
 		param.push('<td>' + essay.visitorNum + '</td>');
 		param.push('<td>' + essay.commentNum + '</td>');
 		param.push('<td>' + switch_btn + '</td>');
-		param.push('<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>');
+		param.push('<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="javascript:;" onclick="deleteById(' + essay.essayId + ')">删除</a></td>');
 		essayList.push('<tr>' + param.join('') + '</tr>');
 	}
 	$('tbody').html(essayList.join(''));
@@ -61,6 +61,17 @@ function isHomeShow(essaySign, classCode) {
 		json.homeShow = 0;
 	}
 	silence.ajaxCurrent(classCode + '/isHomeShow', json,
+		function(data) {
+			tipsBar(data.success, data.message);
+		},
+		function(data) {
+			console.log(data);
+		}
+	);
+}
+
+function deleteById(technicalId) {
+	silence.ajaxCurrent('technical/deleteById?technical=' + technicalId, json,
 		function(data) {
 			tipsBar(data.success, data.message);
 		},

@@ -61,8 +61,8 @@
 						</div>
 						<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
 						<div class="btn-group">
-							<input type="button" onclick="saveTechnical()" value="发表文章" />
 							<input type="button" onclick="toTechnicl()" value="舍弃" />
+							<input type="button" onclick="saveTechnical()" value="发表文章" />
 						</div>
 					</div>
 					<div class="col-lg-3 rank-bar">

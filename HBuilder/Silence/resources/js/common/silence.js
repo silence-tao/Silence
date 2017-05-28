@@ -205,3 +205,24 @@ function tipsBar(yesOrNo, message) {
 	}, 800);
 }
 /********************************消息提醒JavaScript代码********************************/
+
+/********************************会话框JavaScript代码********************************/
+function dialog(msg, confirm, close) {
+	$('#dialog-text').text(msg);
+	inShade('dialog-bar');
+	$('#dialog-close').click(function () {
+		if(close) {
+			close();
+		}
+		outShade('dialog-bar');
+		close = null;
+	});
+	$('#dialog-confirm').click(function () {
+		if(confirm) {
+			confirm();
+		}
+		confirm = null;
+		outShade('dialog-bar');
+	});
+}
+/********************************会话框JavaScript代码********************************/

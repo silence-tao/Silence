@@ -1,5 +1,7 @@
 package com.silencetao.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -81,5 +83,18 @@ public class StringUtil {
 	public static String toJson(Object object) {
 		JSONObject json = JSONObject.fromObject(object);
 		return json.toString();
+	}
+	
+	public static Date stringToDate(String str) {
+		log.info("字符串转换为日期对象");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = null;
+		try {
+			date = sdf.parse(str);
+		} catch (ParseException e) {
+			log.warn("字符串转换为日期对象失败");
+			log.error(e.getMessage());
+		}
+		return date;
 	}
 }

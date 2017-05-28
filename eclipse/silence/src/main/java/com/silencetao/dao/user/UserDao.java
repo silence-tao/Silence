@@ -88,4 +88,10 @@ public interface UserDao {
 	 * @return
 	 */
 	public long getUserNum();
+	
+	/**
+	 * 获取博主信息
+	 * @return
+	 */
+	public List<User> getOwner();
 }

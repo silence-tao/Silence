@@ -79,4 +79,10 @@ public interface UserService {
 	 * @return
 	 */
 	public long getUserNum();
+	
+	/**
+	 * 获取博主信息
+	 * @return
+	 */
+	public List<User> getOwner();
 }

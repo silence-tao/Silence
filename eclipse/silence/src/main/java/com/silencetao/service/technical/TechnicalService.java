@@ -74,4 +74,32 @@ public interface TechnicalService {
 	 * @return
 	 */
 	public List<EssayView> getAllTechnical(Pages pages);
+	
+	/**
+	 * 删除一条技术分享,逻辑上的删除
+	 * @param technicalId
+	 * @return
+	 */
+	public int deleteById(long technicalId);
+	
+	/**
+	 * 获取一条technical对象信息
+	 * @param technicalId
+	 * @return
+	 */
+	public Technical findTechnicalById(long technicalId);
+	
+	/**
+	 * 编辑技术分享信息
+	 * @param technical
+	 * @return
+	 */
+	public int editTechnical(Technical technical);
+	
+	/**
+	 * 根据sign获取一条技术分享信息
+	 * @param technicalSign
+	 * @return
+	 */
+	public Technical getTechnicalBySign(String technicalSign);
 }

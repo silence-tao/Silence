@@ -278,3 +278,38 @@ function showPages(pages) {
 	$('.page-bar').html(pages_list.join(''));
 }
 /********************************分页JavaScript代码********************************/
+
+/********************************会话框JavaScript代码********************************/
+function dialog(msg, confirm, close) {
+	$('#dialog-text').text(msg);
+	inShade('dialog-bar');
+	$('#dialog-close').click(function () {
+		if(close) {
+			close();
+		}
+		outShade('dialog-bar');
+		close = null;
+	});
+	$('#dialog-confirm').click(function () {
+		if(confirm) {
+			confirm();
+		}
+		confirm = null;
+		outShade('dialog-bar');
+	});
+}
+/********************************会话框JavaScript代码********************************/
+
+/********************************获取URL参数JavaScript代码********************************/
+function getUrlParam() {
+    var str = window.location.search;
+    var objURL = {};
+    str.replace(
+        new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+        function ($0, $1, $2, $3) {
+            objURL[$1] = $3;
+        }
+    );
+    return objURL;
+}
+/********************************获取URL参数JavaScript代码********************************/

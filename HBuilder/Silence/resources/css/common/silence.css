@@ -66,7 +66,8 @@ table {
 
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+button:focus {
 	outline: medium;
 	-webkit-transition: border 0.5s ease-out;
 	-moz-transition: border 0.5s ease-out;
@@ -75,6 +76,7 @@ textarea:focus {
 	transition: border 0.5s ease-out;
 }
 
+.dialog-bar,
 .shade-bar,
 .loading-shade {
 	position: fixed;
@@ -85,6 +87,10 @@ textarea:focus {
 	top: 0;
 	left: 0;
 	display: none;
+}
+
+.pointer-none {
+	pointer-events: none;
 }
 
 .loading-shade {
@@ -310,6 +316,48 @@ a.no-pointer {
 	content: '\f046';
 }
 /********************************Switch开关CSS代码********************************/
+
+/********************************会话框CSS代码********************************/
+.dialog-box {
+	width: 350px;
+	height: 120px;
+	background: #fff;
+	margin: 240px auto;
+	border-radius: 5px;
+	position: relative;
+}
+
+.dialog-box .dialog-text {
+	padding: 20px 20px;
+	font-size: 16px;
+}
+
+.dialog-box .btn-group {
+	margin-top: 10px;
+	height: 32px;
+	width: 240px;
+	position: absolute;
+	left: 50%;
+	margin-left: -120px;
+}
+
+.dialog-box .btn-group button {
+	border: none;
+	height: 32px;
+	width: 80px;
+	cursor: pointer;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.dialog-box .btn-group button.fl {
+	background: #999;
+}
+
+.dialog-box .btn-group button.fr {
+	background: #019BE1;
+}
+/********************************会话框CSS代码********************************/
 
 /********************************加载条CSS代码********************************/
 .loading-bottom {
@@ -1000,7 +1048,7 @@ footer .footer-box a:hover {
 .tips-bar {
 	position: fixed;
 	padding: 20px 0;
-	width: 150px;
+	width: 200px;
 	background: rgba(0, 0, 0, 0.6);
 	color: #fff;
 	top: 200px;
@@ -1010,6 +1058,7 @@ footer .footer-box a:hover {
 	font-size: 16px;
 	border-radius: 5px;
 	display: none;
+	z-index: 999;
 }
 
 .tips-bar span {

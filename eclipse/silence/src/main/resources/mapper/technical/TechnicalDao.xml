@@ -14,12 +14,12 @@
 		praise_num, nikename, header,
 		(SELECT real_path FROM picture WHERE pertain = technical_sign LIMIT 1) cover 
 		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign 
-		LEFT JOIN USER ON USER.user_sign = publisher
+		LEFT JOIN USER ON USER.user_sign = publisher WHERE audit_status = 1 AND exist = 1
 		ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
 	</select>
 	
 	<select id="getTechnicalNum" resultType="java.lang.Long">
-		SELECT COUNT(1) FROM technical
+		SELECT COUNT(1) FROM technical WHERE audit_status = 1 AND exist = 1
 	</select>
 	
 	<select id="getTechnicalById" resultType="com.silencetao.view.EssayView">
@@ -27,38 +27,58 @@
 		publish_time, audit_status, home_show, classify, comment_num, visitor_num, 
 		praise_num,	nikename, header, summary FROM technical LEFT JOIN statistic ON 
 		statistic.pertain = technical_sign LEFT JOIN USER ON USER.user_sign = publisher
-		WHERE technical_id = #{technicalId}
+		WHERE technical_id = #{technicalId} AND audit_status = 1 AND exist = 1
 	</select>
 	
 	<select id="getOpinionFront" resultType="com.silencetao.view.EssayView">
-		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id > #{technicalId} ORDER BY 
-		publish_time LIMIT 1 ]]>
+		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id > #{technicalId}
+		AND audit_status = 1 AND exist = 1 ORDER BY publish_time LIMIT 1 ]]>
 	</select>
 	
 	<select id="getOpinionAfter" resultType="com.silencetao.view.EssayView">
-		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id < #{technicalId} ORDER BY 
-		publish_time DESC LIMIT 1 ]]>
+		<![CDATA[ SELECT technical_id essay_id, title FROM technical WHERE technical_id < #{technicalId} 
+		 AND audit_status = 1 AND exist = 1 ORDER BY publish_time DESC LIMIT 1 ]]>
 	</select>
 	
 	<select id="getTechnicalHome" resultType="com.silencetao.view.EssayView">
 		SELECT technical_id essay_id, title, publish_time, classify, summary, nikename, 
 		header,	(SELECT real_path FROM picture WHERE pertain = technical_sign LIMIT 1) cover 
 		FROM technical LEFT JOIN statistic ON statistic.pertain = technical_sign 
-		LEFT JOIN USER ON USER.user_sign = publisher WHERE home_show = 1
+		LEFT JOIN USER ON USER.user_sign = publisher WHERE home_show = 1 AND audit_status = 1 AND exist = 1
 		ORDER BY publish_time DESC LIMIT 0, 4
 	</select>
 	
 	<update id="updateHomeShow">
-		UPDATE technical SET home_show = #{homeShow} WHERE technical_sign = #{technicalSign}
+		UPDATE technical SET home_show = #{homeShow} WHERE technical_sign = #{technicalSign} AND audit_status = 1 AND exist = 1
 	</update>
 	
 	<select id="getAllTechnical" resultType="com.silencetao.view.EssayView">
 		<![CDATA[ SELECT technical_id essay_id, title, technical_sign essay_sign, publish_time, home_show, classify, 'technical' class_code, audit_status,
 		visitor_num, comment_num, praise_num, nikename FROM technical LEFT JOIN USER ON USER.user_sign = technical.publisher LEFT JOIN statistic ON
-		statistic.pertain = technical.technical_sign where home_show >= 0 ORDER BY publish_time DESC LIMIT #{offset}, #{limit} ]]>
+		statistic.pertain = technical.technical_sign where exist = 1 ORDER BY publish_time DESC LIMIT #{offset}, #{limit} ]]>
 	</select>
 	
 	<select id="getAllTechnicalNum" resultType="java.lang.Long">
-		<![CDATA[ SELECT COUNT(1) FROM technical where home_show >= 0 ]]>
+		<![CDATA[ SELECT COUNT(1) FROM technical where exist = 1 ]]>
+	</select>
+	
+	<update id="deleteById">
+		UPDATE technical SET exist = 0 WHERE technical_id = #{technical_id} AND exist = 1
+	</update>
+	
+	<select id="findTechnicalById" resultType="com.silencetao.entity.Technical">
+		SELECT technical_id, title, content, classify FROM technical WHERE technical_id = #{technicalId} AND exist = 1
+	</select>
+	
+	<update id="editTechnical">
+		UPDATE technical SET title = #{title}, content = #{content}, classify = #{classify},
+		<if test="auditStatus != ''">
+			audit_status = #{auditStatus},
+		</if> 
+		summary = #{summary} WHERE technical_id = #{technicalId} AND exist = 1
+	</update>
+	
+	<select id="getTechnicalBySign" resultType="com.silencetao.entity.Technical">
+		SELECT technical_id, title FROM technical WHERE technical_sign = #{technicalSign}
 	</select>
 </mapper>

@@ -20,6 +20,7 @@ public class Technical implements Serializable {
 	private long homeShow;//是否在首页显示
 	private String classify;//类别
 	private String summary;//文章简介
+	private long exist;//是否删除
 	
 	public Technical() {
 		
@@ -112,13 +113,19 @@ public class Technical implements Serializable {
 		this.summary = summary;
 	}
 
+	public long getExist() {
+		return exist;
+	}
+
+	public void setExist(long exist) {
+		this.exist = exist;
+	}
+
 	@Override
 	public String toString() {
-		return "Technical [technicalId=" + technicalId + ", title=" + title
-				+ ", content=" + content + ", publisher=" + publisher
-				+ ", technicalSign=" + technicalSign + ", publishTime="
-				+ publishTime + ", auditStatus=" + auditStatus + ", homeShow="
-				+ homeShow + ", classify=" + classify + ", summary=" + summary
-				+ "]";
+		return "Technical [technicalId=" + technicalId + ", title=" + title + ", content=" + content + ", publisher="
+				+ publisher + ", technicalSign=" + technicalSign + ", publishTime=" + publishTime + ", auditStatus="
+				+ auditStatus + ", homeShow=" + homeShow + ", classify=" + classify + ", summary=" + summary
+				+ ", exist=" + exist + "]";
 	}
 }

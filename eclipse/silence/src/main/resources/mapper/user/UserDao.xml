@@ -59,4 +59,8 @@
 	<select id="getUserNum" resultType="java.lang.Long">
 		SELECT COUNT(1) FROM USER
 	</select>
+	
+	<select id="getOwner" resultType="com.silencetao.entity.User">
+		SELECT username, nikename FROM USER WHERE user_rank >= 6
+	</select>
 </mapper>

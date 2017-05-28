@@ -97,4 +97,40 @@ public class TechnicalServiceImpl implements TechnicalService {
 	public List<EssayView> getAllTechnical(Pages pages) {
 		return technicalDao.getAllTechnical((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
 	}
+
+	@Transactional
+	@Override
+	public int deleteById(long technicalId) {
+		int result = 0;
+		try {
+			result = technicalDao.deleteById(technicalId);
+		} catch (Exception e) {
+			log.warn("删除技术分享失败");
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
+
+	@Override
+	public Technical findTechnicalById(long technicalId) {
+		return technicalDao.findTechnicalById(technicalId);
+	}
+
+	@Transactional
+	@Override
+	public int editTechnical(Technical technical) {
+		int result = 0;
+		try {
+			result = technicalDao.editTechnical(technical);
+		} catch (Exception e) {
+			log.warn("编辑技术分享失败");
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
+
+	@Override
+	public Technical getTechnicalBySign(String technicalSign) {
+		return technicalDao.getTechnicalBySign(technicalSign);
+	}
 }

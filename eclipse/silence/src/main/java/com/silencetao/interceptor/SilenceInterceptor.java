@@ -35,7 +35,8 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		String url = request.getRequestURI();
 		int login = SessionUtil.isLogin(request.getSession(), request);
 		if((
-		"/history/savehistory".equals(url) || 
+		"/history/savehistory".equals(url) ||
+		"/history/editTechnical".equals(url) ||
 		"/history/isHomeShow".equals(url) || 
 		"/message/isHomeShow".equals(url) || 
 		"/classify/saveClassify".equals(url) || 
@@ -48,7 +49,9 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		"/user/saveInformation".equals(url) || 
 		"/user/saveHeader".equals(url) || 
 		"/user/savePassword".equals(url) || 
-		"/user/getAllUser".equals(url)) && login != 2) {
+		"/user/getAllUser".equals(url) ||
+		url.contains("deleteById") ||
+		url.contains("findTechnicalById")) && login != 2) {
 			PrintWriter out = response.getWriter();
 			SilenceResult<Null> result = new SilenceResult<Null>(false, -2, "未登录");
 			out.print(StringUtil.toJson(result));
@@ -74,7 +77,9 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		"/user/manage".equals(url) || 
 		"/user/message".equals(url) || 
 		"/user/info".equals(url) || 
-		"/user/password".equals(url)) && login != 2) {
+		"/user/password".equals(url) ||
+		url.contains("edit?technicalId=") ||
+		url.contains("audit?technicalId=")) && login != 2) {
 			request.getRequestDispatcher("/user/login").forward(request, response);
 			return false;
 		}

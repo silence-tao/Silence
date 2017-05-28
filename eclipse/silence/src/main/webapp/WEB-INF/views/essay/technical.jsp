@@ -86,6 +86,16 @@
 		<div class="tips-bar" id="tips-bar">
 			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
 		</div>
+		
+		<div class="dialog-bar" id="dialog-bar">
+			<div class="dialog-box">
+				<p class="dialog-text" id="dialog-text"></p>
+				<div class="btn-group">
+					<button class="fl" id="dialog-close">取消</button>
+					<button class="fr" id="dialog-confirm">确定</button>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
