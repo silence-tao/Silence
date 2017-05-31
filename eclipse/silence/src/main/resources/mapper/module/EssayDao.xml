@@ -32,7 +32,7 @@
 		UNION ALL
 		SELECT technical_id essay_id, title, technical_sign essay_sign, publish_time, home_show, classify, 'technical' class_code,
 		visitor_num, comment_num, praise_num, nikename FROM technical LEFT JOIN USER ON USER.user_sign = technical.publisher LEFT JOIN statistic ON
-		statistic.pertain = technical.technical_sign where exist = 1) essay ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
+		statistic.pertain = technical.technical_sign where exist = 1 AND audit_status = 1) essay ORDER BY publish_time DESC LIMIT #{offset}, #{limit}
 	</select>
 	
 	<select id="getEssayNum" resultType="java.lang.Long">
@@ -43,7 +43,7 @@
 		UNION ALL
 		SELECT COUNT(1) num FROM opinion
 		UNION ALL
-		SELECT COUNT(1) num FROM technical where exist = 1
+		SELECT COUNT(1) num FROM technical where exist = 1 AND audit_status = 1
 		) essayNum
 	</select>
 </mapper>

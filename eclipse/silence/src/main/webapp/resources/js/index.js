@@ -1,6 +1,9 @@
 $(function() {
 	var isRequest = true;
 	var action = 0;
+	if (document.getElementById("loading-bottom").offsetTop >= 700) {
+		getHistory(0);
+	}
 	$(window).scroll(function () {
         var a = document.getElementById("loading-bottom").offsetTop;
         if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height() - 28)) {
