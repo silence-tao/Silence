@@ -57,7 +57,7 @@
 				<span class="toolbar-btn"></span>
 			</a>
 			
-			<a href="register" title="我要注册" class="toolbar-item toolbar-item-register">
+			<a href="<%=basePath %>user/register" title="我要注册" class="toolbar-item toolbar-item-register">
 				<span class="toolbar-btn"></span>
 			</a>
 			

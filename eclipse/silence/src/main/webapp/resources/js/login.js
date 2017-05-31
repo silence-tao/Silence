@@ -47,7 +47,12 @@ function login() {
 	silence.ajaxCurrent('user/userLogin', data,
 		function(data) {
 			if(data.success) {
-				window.location.href = basePath;
+				var url = window.location.href;
+				if(url.indexOf('/user/login') > 0) {
+					window.location.href = basePath;
+				} else {
+					window.location.href = url;
+				}
 			} else {
 				$('#password').next().text(data.message).fadeIn();
 			}
