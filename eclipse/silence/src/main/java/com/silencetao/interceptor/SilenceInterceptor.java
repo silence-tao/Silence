@@ -78,8 +78,8 @@ public class SilenceInterceptor implements HandlerInterceptor {
 		"/user/message".equals(url) || 
 		"/user/info".equals(url) || 
 		"/user/password".equals(url) ||
-		url.contains("edit?technicalId=") ||
-		url.contains("audit?technicalId=")) && login != 2) {
+		url.contains("technical/edit") ||
+		url.contains("technical/audit")) && login != 2) {
 			request.getRequestDispatcher("/user/login").forward(request, response);
 			return false;
 		}
