@@ -129,6 +129,86 @@ body {
 	text-decoration: underline;
 }
 
+/*分享文章*/
+.share-box {
+	width: 100%;
+	height: 40px;
+	color: #999;
+	line-height: 40px;
+}
+
+.share-box span {
+	margin-left: 15px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.share-box .weixin-share {
+	margin-left: 0;
+	position: relative;
+}
+
+.share-box .weixin-share .weixin-qrcode {
+	position: absolute;
+	width: 152px;
+	height: 152px;
+	border: 1px solid #999999;
+	background: #fff;
+	left: -50px;
+	top: 30px;
+	-webkit-transition: all 0.35s ease-out;
+	-moz-transition: all 0.35s ease-out;
+	-ms-transition: all 0.35s ease-out;
+	-o-transition: all 0.35s ease-out;
+	transition: all 0.35s ease-out;
+	-webkit-transform: translateY(25px);
+	-moz-transform: translateY(25px);
+	-ms-transform: translateY(25px);
+	-o-transform: translateY(25px);
+	transform: translateY(25px);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.share-box .weixin-share:hover .weixin-qrcode {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.share-box .weixin-share .weixin-qrcode img {
+	width: 150px;
+	height: 150px;
+}
+
+.share-box .weixin-share .weixin-qrcode .triangle {
+	content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -12px;
+    height: 0;
+    width: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #999999;
+}
+
+.share-box .weixin-share .weixin-qrcode .triangle:before {
+	content: '';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    margin-left: -10px;
+    height: 0;
+    width: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+/*分享文章*/
+
 .comment-box {
 	margin-top: 20px;
 }

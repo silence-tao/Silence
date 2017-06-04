@@ -1,6 +1,12 @@
 var flag = [false, false];
 
 $(function() {
+	if($(window).width() < 760) {
+		$('.opinion-content img').addClass('img-responsive');
+	}
+	
+	$('.weixin-qrcode img').attr('src', 'http://qr.liantu.com/api.php?text=' + window.location.href);
+	
 	getComments(1);
 	
 	$('#nikename').focus(function() {
@@ -260,4 +266,17 @@ function replyComment(commentId) {
 			console.log(data);
 		}
 	);
+}
+
+function share(title, cover, summary, action) {
+	var toUrl = '';
+	url = window.location.href;
+	if(action == 1) {
+		toUrl = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='
+			+ url + '&title=' + title + '&pics=' + basePath + cover + '&summary=' + summary;
+	} else {
+		toUrl = 'http://service.weibo.com/share/share.php?url='
+			+ url + '&title=' + title + '&pic=' + basePath + cover + '&searchPic=false';
+	}
+	window.open(toUrl);
 }

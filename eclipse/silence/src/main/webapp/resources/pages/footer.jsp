@@ -6,7 +6,7 @@
 <%
 	String baseFooter = PropertiesUtil.getProperties("basePath");
 %>
-<footer>
+<footer class="hidden-md hidden-sm hidden-xs">
 	<div class="container">
 		<div class="footer-box">
 			友情链接：

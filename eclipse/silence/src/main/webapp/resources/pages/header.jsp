@@ -10,7 +10,7 @@
 	<div class="html-logo">
 		Silence
 	</div>
-	<nav>
+	<nav class="hidden-md hidden-sm hidden-xs">
 		<ul>
 			<li><a href="<%=baseHeader %>message">留言板</a></li>
 			<li class="pull-bar">

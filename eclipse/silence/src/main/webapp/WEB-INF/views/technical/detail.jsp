@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		
-		<div class="path-bar container clear-both">
+		<div class="path-bar container clear-both hidden-md hidden-sm hidden-xs">
 			<div class="fl">
 				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="<%=basePath %>technical">技术分享</a>&nbsp;/&nbsp;
 				<a href="#" class="no-pointer">${technicalView.title }</a>
@@ -96,7 +96,7 @@
 						<div class="opinion-near">
 							<p>上一篇：
 								<c:choose>
-									<c:when test="${empty front }"><a href="<%=basePath %>technical/">回到分享生活</a></c:when>
+									<c:when test="${empty front }"><a href="<%=basePath %>technical/">回到技术分享</a></c:when>
 									<c:otherwise><a href="<%=basePath %>technical/detail/${front.essayId }">${front.title }</a></c:otherwise>
 								</c:choose>
 							</p>
@@ -107,8 +107,21 @@
 								</c:choose>	
 							</p>
 						</div>
+						
+						<div class="share-box">
+							分享文章:
+							<span class="icon-qq" onclick="share('${technicalView.title }', '${technicalView.cover }', '${technicalView.summary }', 1)"></span>
+							<span class="weixin-share">
+								<span class="icon-weixin"></span>
+								<div class="weixin-qrcode">
+									<img src="/silence/resources/img/qrcodeforqq.jpg"/>
+									<em class="triangle"></em>
+								</div>
+							</span>
+							<span class="icon-weibo" onclick="share('${technicalView.title }', '${technicalView.cover }', '${technicalView.summary }', 2)"></span>
+						</div>
 												
-						<div class="comment-box">
+						<div class="comment-box hidden-md hidden-sm hidden-xs">
 							<h2>用户评论区</h2>
 							<div class="comment-publish">
 								<textarea name="" id="commnet-text" data-sign="${technicalView.essaySign }"></textarea>
@@ -121,7 +134,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 rank-bar">
+					<div class="col-lg-3 rank-bar hidden-md hidden-sm hidden-xs">
 						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
 						<div class="essay-list">
 							<ul id="newEssay-list">
