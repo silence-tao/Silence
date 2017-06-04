@@ -108,7 +108,7 @@
 							</p>
 						</div>
 						
-						<div class="share-box">
+						<div class="share-box hidden-md hidden-sm hidden-xs">
 							分享文章:
 							<span class="icon-qq" onclick="share('${technicalView.title }', '${technicalView.cover }', '${technicalView.summary }', 1)"></span>
 							<span class="weixin-share">
