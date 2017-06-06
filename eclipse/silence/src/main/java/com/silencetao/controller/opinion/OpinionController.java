@@ -131,4 +131,66 @@ public class OpinionController {
 			return new SilenceResult<Null>(false, "操作失败");
 		}
 	}
+	
+	/**
+	 * 获取所有的分享生活,除了删除的
+	 * @param pages
+	 * @return
+	 */
+	@RequestMapping(value = "getAllOpinion")
+	@ResponseBody
+	public SilenceResult<Map<String, Object>> getAllOpinion(Pages pages) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		pages.setTotalCount(opinionService.getAllOpinionNum());
+		pages.setTotalPage(pages.getTotalCount() % pages.getPageSize() == 0 ? pages.getTotalCount() / pages.getPageSize() : pages.getTotalCount() / pages.getPageSize() + 1);
+		map.put("pages", pages);
+		List<EssayView> list = opinionService.getAllOpinion(pages);
+		map.put("opinions", list);
+		return new SilenceResult<Map<String,Object>>(true, map);
+	}
+	
+	/**
+	 * 删除一条分享生活,逻辑上的删除
+	 * @param opinionId
+	 * @return
+	 */
+	@RequestMapping(value = "deleteById")
+	@ResponseBody
+	public SilenceResult<Null> deleteById(String opinionId) {
+		long id = Long.parseLong(opinionId);
+		int result = opinionService.deleteById(id);
+		if(result > 0) {
+			return new SilenceResult<Null>(true, "删除成功");
+		} else {
+			return new SilenceResult<Null>(false, "删除失败");
+		}
+	}
+	
+	/**
+	 * 根据opinionId获取一条分享生活
+	 * @param opinionId
+	 * @return
+	 */
+	@RequestMapping(value = "findOpinionById")
+	@ResponseBody
+	public SilenceResult<Opinion> findOpinionById(String opinionId) {
+		long id = Long.parseLong(opinionId);
+		return new SilenceResult<Opinion>(true, opinionService.findOpinionById(id));
+	}
+	
+	/**
+	 * 编辑分享生活信息
+	 * @param opinion
+	 * @return
+	 */
+	@RequestMapping(value = "editOpinion")
+	@ResponseBody
+	public SilenceResult<Null> editOpinion(Opinion opinion) {
+		int result = opinionService.editOpinion(opinion);
+		if(result > 0) {
+			return new SilenceResult<Null>(true, "编辑成功");
+		} else {
+			return new SilenceResult<Null>(false, "编辑失败");
+		}
+	}
 }

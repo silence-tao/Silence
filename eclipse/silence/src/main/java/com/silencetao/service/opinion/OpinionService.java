@@ -3,6 +3,8 @@ package com.silencetao.service.opinion;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.silencetao.entity.Opinion;
 import com.silencetao.view.EssayView;
 import com.silencetao.view.Pages;
@@ -61,4 +63,38 @@ public interface OpinionService {
 	 * @return
 	 */
 	public int updateHomeShow(Opinion opinion);
+	
+	/**
+	 * 获取所有的分享生活,除了删除的
+	 * @param offset
+	 * @param limit
+	 * @return
+	 */
+	public List<EssayView> getAllOpinion(Pages pages);
+	
+	/**
+	 * 获取所有的分享生活数量,除了删除的
+	 * @return
+	 */
+	public long getAllOpinionNum();
+	
+	/**
+	 * 获取一条opinion对象信息
+	 * @return
+	 */
+	public Opinion findOpinionById(long opinionId);
+	
+	/**
+	 * 编辑分享生活
+	 * @param opinion
+	 * @return
+	 */
+	public int editOpinion(Opinion opinion);
+	
+	/**
+	 * 删除一条分享生活,逻辑删除
+	 * @param opinionId
+	 * @return
+	 */
+	public int deleteById(long opinionId);
 }

@@ -64,7 +64,7 @@
 	</select>
 	
 	<update id="deleteById">
-		UPDATE technical SET exist = 0 WHERE technical_id = #{technical_id} AND exist = 1
+		UPDATE technical SET exist = 0 WHERE technical_id = #{technicalId} AND exist = 1
 	</update>
 	
 	<select id="findTechnicalById" resultType="com.silencetao.entity.Technical">

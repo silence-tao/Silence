@@ -18,6 +18,7 @@ public class Opinion implements Serializable {
 	private Date publishTime;//发布时间
 	private String summary;//文章简介
 	private long homeShow;//是否在首页显示
+	private long exist;//是否删除
 	
 	public Opinion() {
 		
@@ -95,10 +96,20 @@ public class Opinion implements Serializable {
 		this.homeShow = homeShow;
 	}
 
+	public long getExist() {
+		return exist;
+	}
+
+	public void setExist(long exist) {
+		this.exist = exist;
+	}
+
 	@Override
 	public String toString() {
-		return "Opinion [opinionId=" + opinionId + ", title=" + title + ", content=" + content + ", publisher="
-				+ publisher + ", opinionSign=" + opinionSign + ", publishTime=" + publishTime + ", summary=" + summary
-				+ "]";
+		return "Opinion [opinionId=" + opinionId + ", title=" + title
+				+ ", content=" + content + ", publisher=" + publisher
+				+ ", opinionSign=" + opinionSign + ", publishTime="
+				+ publishTime + ", summary=" + summary + ", homeShow="
+				+ homeShow + ", exist=" + exist + "]";
 	}
 }

@@ -12,12 +12,12 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>陈涛个人博客-全部文章管理</title>
+		<title>陈涛个人博客-编辑分享生活</title>
 		<link rel="shortcut icon" href="/silence/resources/img/logo.jpg" />
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/icomoon.css"/>
 		<link rel="stylesheet" type="text/css" href="/silence/resources/css/common/silence.css"/>
-		<link rel="stylesheet" type="text/css" href="/silence/resources/css/technical.css"/>
+		<link rel="stylesheet" type="text/css" href="/silence/resources/css/opinion.css"/>
 		<!--[if lt IE 9]>
 			<script src="/silence/resources/js/common/html5shiv.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/silence/resources/js/common/respond.min.js" type="text/javascript" charset="utf-8"></script>
@@ -28,54 +28,44 @@
 		
 		<div class="path-bar container clear-both">
 			<div class="fl">
-				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">全部文章管理</a>
+				<a href="<%=basePath %>">首页</a>&nbsp;/&nbsp;<a href="<%=basePath %>opinion">分享生活</a>&nbsp;/&nbsp;<a href="#" class="no-pointer">添加分享</a>
 			</div>
 		</div>
 		
 		<div class="message-bar clear-both">
 			<div class="container">
-				<div class="left-box">
-					<div class="manage-menu">
-						<ul>
-							<li><a href="<%=basePath %>essay/manage" class="visited">全部文章</a></li>
-							<li><a href="<%=basePath %>essay/opinion">分享生活</a></li>
-							<li><a href="<%=basePath %>essay/technical">技术分享</a></li>
-						</ul>
+				<div class="row">
+					<div class="col-lg-9 left-box">
+						<div class="essay-title clear-both">
+							<div class="title-tips">请输入标题：</div>
+							<div class="title-text">
+								<input type="text" id="essay-title" />
+							</div>
+						</div>
+						<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
+						<div class="btn-group">
+							<input type="button" onclick="" value="舍弃编辑" />
+							<input type="button" onclick="saveOpinion()" value="保存编辑" />
+						</div>
 					</div>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>编号</th>
-								<th>标题</th>
-								<th>类别</th>
-								<th>发布者</th>
-								<th>阅读量</th>
-								<th>评论量</th>
-								<th>是否在首页显示</th>
-								<th>操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							
-						</tbody>
-					</table>
+					<div class="col-lg-3 rank-bar">
+						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
+						<div class="essay-list">
+							<ul  id="newEssay-list">
+								
+							</ul>
+						</div>
+						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
+						<div class="essay-list">
+							<ul id="hotEssay-list">
+								
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		
-		<div class="page-bar">
-			
-		</div>
-		
-		<div class="hide" id="tpl_switch_btn">
-			<div class="sex-switch">
-				<input type="checkbox" onchange="isHomeShow('{essaySign}', '{classCode}')" class="hide" id="{essaySign}" {checked} />
-				<label for="{essaySign}" class="radio">
-					<span class="circle"></span>
-				</label>
-			</div>
-		</div>
-		
+
 		<%@ include file="/resources/pages/footer.jsp" %>
 
 		<div class="tips-bar" id="tips-bar">
@@ -93,7 +83,14 @@
 		</div>
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8" src="/silence/resources/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/silence/resources/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="/silence/resources/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/essay/manage.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/opinion/edit.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+	</script>
 	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

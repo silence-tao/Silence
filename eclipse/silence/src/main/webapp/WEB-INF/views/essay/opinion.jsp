@@ -34,100 +34,59 @@
 		
 		<div class="message-bar clear-both">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-9 left-box">
-						<div class="manage-menu">
-							<ul>
-								<li><a href="<%=basePath %>essay/manage">全部文章</a></li>
-								<li><a href="<%=basePath %>essay/history">心路历程</a></li>
-								<li><a href="<%=basePath %>essay/opinion" class="visited">分享生活</a></li>
-								<li><a href="<%=basePath %>essay/technical">技术分享</a></li>
-								<li><a href="<%=basePath %>essay/message">留言管理</a></li>
-							</ul>
-						</div>
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th>编号</th>
-									<th>标题</th>
-									<th>类别</th>
-									<th>阅读</th>
-									<th>评论</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td><a href="#">生活的本意是爱，谁不会爱生活的本意是爱，谁不会爱</a><span class="grey-time">（2017-04-23 20:40）</span></td>
-									<th>心路历程</th>
-									<td>2234</td>
-									<td>323</td>
-									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
-									<th>心路历程</th>
-									<td>2234</td>
-									<td>323</td>
-									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
-									<th>分享生活</th>
-									<td>2234</td>
-									<td>323</td>
-									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
-									<th>生活分享</th>
-									<td>2234</td>
-									<td>323</td>
-									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td><a href="#">不忘初心</a><span class="grey-time">（2017-04-23 20:40）</span></td>
-									<th>技术分享</th>
-									<td>2234</td>
-									<td>323</td>
-									<td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="left-box">
+					<div class="manage-menu">
+						<ul>
+							<li><a href="<%=basePath %>essay/manage">全部文章</a></li>
+							<li><a href="<%=basePath %>essay/opinion" class="visited">分享生活</a></li>
+							<li><a href="<%=basePath %>essay/technical">技术分享</a></li>
+						</ul>
 					</div>
-					<div class="col-lg-3 rank-bar">
-						<p>最新文章&nbsp;&nbsp;<span class="icon-bookmark"></span></p>
-						<div class="essay-list">
-							<ul id="newEssay-list">
-								
-							</ul>
-						</div>
-						<p>点击排行&nbsp;&nbsp;<span class="icon-sort-amount-asc"></span></p>
-						<div class="essay-list">
-							<ul id="hotEssay-list">
-								
-							</ul>
-						</div>
-					</div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>标题</th>
+								<th>发布者</th>
+								<th>阅读量</th>
+								<th>评论量</th>
+								<th>是否在首页显示</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 		
 		<div class="page-bar">
-			<a href="#" class="noclick">&lt;&lt;</a>
-			<a href="#" class="noclick">&lt;</a>
-			<a href="#" class="pre-page">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">&gt;</a>
-			<a href="#">&gt;&gt;</a>
+			
+		</div>
+		
+		<div class="hide" id="tpl_switch_btn">
+			<div class="sex-switch">
+				<input type="checkbox" onchange="isHomeShow('{essaySign}', '{classCode}')" class="hide" id="{essaySign}" {checked} />
+				<label for="{essaySign}" class="radio">
+					<span class="circle"></span>
+				</label>
+			</div>
+		</div>
+		
+		<div class="tips-bar" id="tips-bar">
+			<span class="icon-check" id="tips-icon"></span>&nbsp;<span id="tips-box">发表成功</span>
+		</div>
+		
+		<div class="dialog-bar" id="dialog-bar">
+			<div class="dialog-box">
+				<p class="dialog-text" id="dialog-text"></p>
+				<div class="btn-group">
+					<button class="fl" id="dialog-close">取消</button>
+					<button class="fr" id="dialog-confirm">确定</button>
+				</div>
+			</div>
 		</div>
 		
 		<%@ include file="/resources/pages/footer.jsp" %>
@@ -135,6 +94,6 @@
 	</body>
 	<script src="/silence/resources/js/common/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/silence/resources/js/common/silence.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/silence/resources/js/essay.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/silence/resources/js/essay/opinion.js" type="text/javascript" charset="utf-8"></script>
 	<%@include file="/resources/pages/statistic.jsp" %>
 </html>

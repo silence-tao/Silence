@@ -1,14 +1,14 @@
 $(function() {
-	getAllEssay(1);
+	getAllOpinion(1);
 });
 
-function getAllEssay(currentPage) {
+function getAllOpinion(currentPage) {
 	var json = {};
 	json.currentPage = currentPage;
 	json.pageSize = 20;
-	silence.ajaxCurrent('essay/getAllEssay', json,
+	silence.ajaxCurrent('opinion/getAllOpinion', json,
 		function(data) {
-			showAllEssay(data);
+			showAllOpinion(data);
 		},
 		function(data) {
 			console.log(data);
@@ -16,31 +16,22 @@ function getAllEssay(currentPage) {
 	);
 }
 
-function showAllEssay(data) {
-	var essays = data.data.essays;
+function showAllOpinion(data) {
+	var essays = data.data.opinions;
 	var essayList = [];
 	var tpl_switch_btn = $('#tpl_switch_btn').html();
 	for(var i = 0; i < essays.length; i++) {
 		var param = [];
 		var essay = essays[i];
 		param.push('<td>' + (i + 1) + '</td>');
-		var title = '';
-		var editEssay = '<td>编辑&nbsp;|&nbsp;删除</td>';
-		if(essay.classCode == 'message') {
-			title = essay.title.substr(0, 20);
-		} else {
-			title = '<a href="'+ basePath +  essay.classCode + '/detail/' + essay.essayId + '">' + essay.title.substr(0, 20) + '</a>';
-			if(essay.classCode != 'history') {
-				editEssay = '<td><a href="' + basePath + essay.classCode + '/edit?' + essay.classCode + 'Id=' + essay.essayId + '">编辑</a>&nbsp;|&nbsp;';
-				editEssay += '<a href="javascript:;" onclick="deleteById(' + essay.essayId + ', \'' + essay.classCode + '\')">删除</a></td>';
-			}
-		}
 		var switch_btn = tpl_switch_btn.replace(/\{essaySign\}/g, essay.essaySign)
-									.replace(/\{checked\}/g, essay.homeShow == 1 ? 'checked' : '')
-									.replace(/\{classCode\}/g, essay.classCode);
+		.replace(/\{checked\}/g, essay.homeShow == 1 ? 'checked' : '')
+		.replace(/\{classCode\}/g, essay.classCode);
+		var title = '<a href="'+ basePath +  essay.classCode + '/detail/' + essay.essayId + '">' + essay.title.substr(0, 20) + '</a>';
 		title += '<span class="grey-time">（' + dateFormat(new Date(essay.publishTime), "yyyy-MM-dd HH:mm") + '）</span>';
+		var editEssay = '<td><a href="' + basePath + 'opinion/edit?opinionId=' + essay.essayId + '">编辑</a>&nbsp;|&nbsp;';
+		editEssay += '<a href="javascript:;" onclick="deleteById(' + essay.essayId + ')">删除</a></td>';
 		param.push('<td>' + title + '</td>');
-		param.push('<td>' + essay.classify + '</td>');
 		param.push('<td>' + essay.nikename + '</td>');
 		param.push('<td>' + essay.visitorNum + '</td>');
 		param.push('<td>' + essay.commentNum + '</td>');
@@ -53,7 +44,7 @@ function showAllEssay(data) {
 }
 
 function toPage(page) {
-	getAllEssay(page);
+	getAllOpinion(page);
 	move(120, 350);
 }
 
@@ -75,12 +66,12 @@ function isHomeShow(essaySign, classCode) {
 	);
 }
 
-function deleteById(essayId, code) {
+function deleteById(opinionId) {
 	dialog('确认要删除吗?', function() {
-		silence.ajaxCurrent(code + '/deleteById?' + code + 'Id=' + essayId, {},
+		silence.ajaxCurrent('opinion/deleteById?opinionId=' + opinionId, {},
 			function(data) {
 				tipsBar(data.success, data.message);
-				getAllEssay($('.page-bar a.pre-page').text());
+				getAllOpinion($('.page-bar a.pre-page').text());
 			},
 			function(data) {
 				console.log(data);

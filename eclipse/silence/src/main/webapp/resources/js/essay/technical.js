@@ -64,7 +64,7 @@ function showAllTechnical(data) {
 }
 
 function toPage(page) {
-	getAllEssay(page);
+	getAllTechnical(page);
 	move(120, 350);
 }
 

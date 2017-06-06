@@ -87,4 +87,44 @@ public class OpinionServiceImpl implements OpinionService {
 	public int updateHomeShow(Opinion opinion) {
 		return opinionDao.updateHomeShow(opinion);
 	}
+
+	@Override
+	public List<EssayView> getAllOpinion(Pages pages) {
+		return opinionDao.getAllOpinion((pages.getCurrentPage() - 1) * pages.getPageSize(), pages.getPageSize());
+	}
+
+	@Override
+	public long getAllOpinionNum() {
+		return opinionDao.getAllOpinionNum();
+	}
+
+	@Override
+	public Opinion findOpinionById(long opinionId) {
+		return opinionDao.findOpinionById(opinionId);
+	}
+
+	@Transactional
+	@Override
+	public int editOpinion(Opinion opinion) {
+		int result = 0;
+		try {
+			result = opinionDao.editOpinion(opinion);
+		} catch (Exception e) {
+			log.warn("编辑分享生活失败");
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
+
+	@Override
+	public int deleteById(long opinionId) {
+		int result = 0;
+		try {
+			result = opinionDao.deleteById(opinionId);
+		} catch (Exception e) {
+			log.warn("删除分享生活失败");
+			log.error(e.getMessage(), e);
+		}
+		return result;
+	}
 }
